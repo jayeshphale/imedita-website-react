@@ -231,3 +231,10 @@
   line-height: 1.3;
   margin: 0;
 }
+
+
+@media (max-width: 400px) {
+  .imageCard {
+    flex: 0 0 clamp(240px, 78vw, 280px);
+  }
+}

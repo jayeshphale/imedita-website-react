@@ -368,3 +368,12 @@
   background-color: #0052cc;
 }
 
+
+
+@media (max-width: 768px) {
+  .tabsWrapper {
+    justify-content: flex-start;
+    -webkit-overflow-scrolling: touch;
+    padding: 0.5rem 1rem 2rem;
+  }
+}

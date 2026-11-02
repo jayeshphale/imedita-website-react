@@ -750,3 +750,28 @@
   box-shadow: 0 4px 14px rgba(0, 102, 255, 0.35);
   transform: translateY(-1.5px);
 }
+
+
+@media (max-width: 640px) {
+  .demoSection {
+    padding: 3rem 1rem 3.5rem;
+  }
+  .formCard {
+    padding: 1.6rem 1.25rem;
+  }
+  .splitGrid {
+    max-width: 620px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 440px) {
+  .formCard {
+    padding: 1.35rem 1rem;
+  }
+  .countryCodeSelect {
+    width: 82px;
+    font-size: 0.775rem;
+    padding: 0.55rem 0.4rem;
+  }
+}

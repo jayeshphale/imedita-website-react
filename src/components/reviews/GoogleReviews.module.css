@@ -291,3 +291,16 @@
   color: #94a3b8;
 }
 
+
+
+@media (max-width: 1023px) {
+  .columnTrack:nth-child(3) {
+    display: none;
+  }
+}
+
+@media (max-width: 639px) {
+  .columnTrack:nth-child(2) {
+    display: none;
+  }
+}

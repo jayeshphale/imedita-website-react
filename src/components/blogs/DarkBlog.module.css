@@ -289,3 +289,10 @@
   transform: translateY(-2px);
 }
 
+
+
+@media (max-width: 440px) {
+  .blueprintCard {
+    padding: 1.25rem 1rem;
+  }
+}

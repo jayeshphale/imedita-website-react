@@ -479,3 +479,11 @@
   line-height: 1.25;
   margin-top: 3px;
 }
+
+
+@media (max-width: 480px) {
+  .pillarsWrapper {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+}
