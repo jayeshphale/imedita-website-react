@@ -371,14 +371,12 @@
 
 .formCard {
   position: relative;
-  background-color: rgba(15, 23, 42, 0.82);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  background-color: #FFFFFF;
+  border: 1px solid rgba(226, 232, 240, 0.95);
   border-radius: 1.25rem;
   padding: 1.85rem 1.75rem;
-  box-shadow: 0 20px 48px -12px rgba(0, 0, 0, 0.7), 0 0 24px rgba(0, 102, 255, 0.1);
-  backdrop-filter: blur(20px) saturate(140%);
-  -webkit-backdrop-filter: blur(20px) saturate(140%);
-  transition: border-color 200ms ease, box-shadow 200ms ease;
+  box-shadow: 0 25px 60px -12px rgba(0, 0, 0, 0.45), 0 0 32px rgba(0, 102, 255, 0.22);
+  transition: border-color 200ms ease, box-shadow 200ms ease, transform 200ms ease;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -393,8 +391,8 @@
 }
 
 .formCard:hover {
-  border-color: rgba(56, 189, 248, 0.32);
-  box-shadow: 0 24px 56px -12px rgba(0, 0, 0, 0.8), 0 0 28px rgba(56, 189, 248, 0.18);
+  border-color: rgba(0, 102, 255, 0.4);
+  box-shadow: 0 30px 70px -12px rgba(0, 0, 0, 0.55), 0 0 40px rgba(56, 189, 248, 0.35);
 }
 
 .formHeader {
@@ -405,16 +403,15 @@
 .formTitle {
   font-size: 1.25rem;
   font-weight: 850;
-  color: #ffffff;
-  letter-spacing: 0.03em;
+  color: #0F172A;
+  letter-spacing: 0.02em;
   text-transform: uppercase;
   margin-bottom: 0.25rem;
-  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
 }
 
 .formSubtitle {
   font-size: 0.815rem;
-  color: #94a3b8;
+  color: #475569;
   line-height: 1.45;
 }
 
@@ -449,12 +446,12 @@
 .formLabel {
   font-size: 0.775rem;
   font-weight: 700;
-  color: #cbd5e1;
+  color: #1E293B;
   letter-spacing: -0.01em;
 }
 
 .requiredAsterisk {
-  color: #38bdf8;
+  color: #EF4444;
   margin-left: 2px;
 }
 
@@ -468,7 +465,7 @@
 .inputIcon {
   position: absolute;
   left: 0.8rem;
-  color: #38bdf8;
+  color: #0066FF;
   opacity: 0.8;
   pointer-events: none;
   transition: opacity 180ms ease, color 180ms ease;
@@ -480,9 +477,9 @@
   width: 100%;
   padding: 0.58rem 0.85rem;
   font-size: 0.865rem;
-  color: #f8fafc;
-  background-color: rgba(11, 15, 25, 0.85);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #0F172A;
+  background-color: #F8FAFC;
+  border: 1px solid #CBD5E1;
   border-radius: 0.6rem;
   transition: all 180ms ease;
   outline: none;
@@ -492,7 +489,7 @@
 
 .formInput::placeholder,
 .formTextarea::placeholder {
-  color: #64748b;
+  color: #94A3B8;
   font-size: 0.825rem;
 }
 
@@ -503,35 +500,35 @@
 .formInput:focus,
 .formSelect:focus,
 .formTextarea:focus {
-  background-color: rgba(11, 15, 25, 0.98);
-  border-color: #38bdf8;
-  box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.2), 0 0 14px rgba(0, 102, 255, 0.25);
+  background-color: #FFFFFF;
+  border-color: #0066FF;
+  box-shadow: 0 0 0 3px rgba(0, 102, 255, 0.15), 0 2px 8px rgba(0, 102, 255, 0.1);
 }
 
 .formInput:focus ~ .inputIcon,
 .inputWrapper:focus-within .inputIcon {
-  color: #38bdf8;
+  color: #0066FF;
   opacity: 1;
 }
 
 .formSelect {
   cursor: pointer;
   appearance: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%2338bdf8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%230066FF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: right 0.85rem center;
   padding-right: 2.2rem;
 }
 
 .formSelect option {
-  background-color: #0b0f19;
-  color: #f8fafc;
+  background-color: #FFFFFF;
+  color: #0F172A;
   padding: 0.4rem;
 }
 
 .inputError {
   border-color: #EF4444 !important;
-  background-color: rgba(239, 68, 68, 0.08) !important;
+  background-color: #FEF2F2 !important;
 }
 
 .inputError:focus {
@@ -540,7 +537,7 @@
 
 .errorText {
   font-size: 0.72rem;
-  color: #F87171;
+  color: #DC2626;
   font-weight: 600;
 }
 
@@ -557,9 +554,9 @@
   padding: 0.58rem 0.55rem;
   font-size: 0.815rem;
   font-weight: 600;
-  color: #f8fafc;
-  background-color: rgba(11, 15, 25, 0.85);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #0F172A;
+  background-color: #F8FAFC;
+  border: 1px solid #CBD5E1;
   border-radius: 0.6rem;
   outline: none;
   cursor: pointer;
@@ -567,13 +564,13 @@
 }
 
 .countryCodeSelect option {
-  background-color: #0b0f19;
-  color: #f8fafc;
+  background-color: #FFFFFF;
+  color: #0F172A;
 }
 
 .countryCodeSelect:focus {
-  border-color: #38bdf8;
-  box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.2);
+  border-color: #0066FF;
+  box-shadow: 0 0 0 3px rgba(0, 102, 255, 0.15);
 }
 
 .formTextarea {
@@ -590,13 +587,13 @@
   justify-content: center;
   gap: 0.6rem;
   width: 100%;
-  background: linear-gradient(135deg, #0066ff 0%, #0284c7 100%);
+  background: linear-gradient(135deg, #0066FF 0%, #0284C7 100%);
   color: #FFFFFF;
   font-size: 0.935rem;
   font-weight: 750;
   padding: 0.72rem 1.4rem;
   border-radius: 0.7rem;
-  border: 1px solid rgba(56, 189, 248, 0.35);
+  border: 1px solid rgba(0, 102, 255, 0.3);
   cursor: pointer;
   box-shadow: 0 6px 20px -3px rgba(0, 102, 255, 0.5), 0 0 16px rgba(56, 189, 248, 0.22);
   transition: all 200ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -604,8 +601,8 @@
 }
 
 .submitBtn:hover:not(:disabled) {
-  background: linear-gradient(135deg, #0052cc 0%, #0369a1 100%);
-  box-shadow: 0 10px 26px -3px rgba(0, 102, 255, 0.7), 0 0 24px rgba(56, 189, 248, 0.4);
+  background: linear-gradient(135deg, #0052CC 0%, #0369A1 100%);
+  box-shadow: 0 10px 26px -3px rgba(0, 102, 255, 0.65), 0 0 24px rgba(56, 189, 248, 0.35);
   transform: translateY(-1.5px);
 }
 
@@ -620,7 +617,7 @@
 
 .submitIcon {
   transition: transform 180ms ease;
-  color: #ffffff;
+  color: #FFFFFF;
 }
 
 .submitBtn:hover:not(:disabled) .submitIcon {
@@ -633,7 +630,7 @@
   justify-content: center;
   gap: 0.4rem;
   font-size: 0.735rem;
-  color: #94a3b8;
+  color: #64748B;
   margin-top: 0.2rem;
 }
 
@@ -675,41 +672,41 @@
   width: 58px;
   height: 58px;
   border-radius: 50%;
-  background-color: rgba(16, 185, 129, 0.16);
-  border: 2px solid rgba(16, 185, 129, 0.45);
+  background-color: #ECFDF5;
+  border: 2px solid #10B981;
   color: #10B981;
   margin-bottom: 1.2rem;
-  box-shadow: 0 0 24px rgba(16, 185, 129, 0.35);
+  box-shadow: 0 0 24px rgba(16, 185, 129, 0.25);
 }
 
 .successTitle {
   font-size: 1.3rem;
   font-weight: 850;
-  color: #ffffff;
+  color: #0F172A;
   margin-bottom: 0.5rem;
 }
 
 .successDesc {
   font-size: 0.885rem;
-  color: #94a3b8;
+  color: #475569;
   line-height: 1.55;
   max-width: 400px;
   margin-bottom: 1.5rem;
 }
 
 .successDesc strong {
-  color: #38bdf8;
+  color: #0066FF;
 }
 
 .successDetailsCard {
   width: 100%;
-  background-color: rgba(11, 15, 25, 0.85);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  background-color: #F8FAFC;
+  border: 1px solid #E2E8F0;
   border-radius: 0.85rem;
   padding: 0.95rem 1.15rem;
   text-align: left;
   font-size: 0.825rem;
-  color: #cbd5e1;
+  color: #1E293B;
   margin-bottom: 1.5rem;
   display: flex;
   flex-direction: column;
@@ -727,7 +724,7 @@
 
 .detailsVal {
   font-weight: 700;
-  color: #38bdf8;
+  color: #0066FF;
 }
 
 .resetBtn {
@@ -735,21 +732,21 @@
   align-items: center;
   justify-content: center;
   padding: 0.72rem 1.5rem;
-  background-color: rgba(0, 102, 255, 0.16);
-  border: 1px solid rgba(56, 189, 248, 0.4);
-  color: #38bdf8;
+  background-color: #EFF6FF;
+  border: 1px solid #BFDBFE;
+  color: #0066FF;
   font-size: 0.865rem;
   font-weight: 750;
   border-radius: 0.65rem;
   cursor: pointer;
   transition: all 180ms ease;
-  box-shadow: 0 0 14px rgba(0, 102, 255, 0.2);
+  box-shadow: 0 2px 8px rgba(0, 102, 255, 0.12);
 }
 
 .resetBtn:hover {
   background-color: #0066FF;
-  border-color: #38bdf8;
+  border-color: #0066FF;
   color: #FFFFFF;
-  box-shadow: 0 0 20px rgba(56, 189, 248, 0.5);
+  box-shadow: 0 4px 14px rgba(0, 102, 255, 0.35);
   transform: translateY(-1.5px);
 }
