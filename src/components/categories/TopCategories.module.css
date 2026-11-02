@@ -1,0 +1,481 @@
+/* ==========================================================================
+   SECTION 3: TOP CATEGORIES & FEATURE STRIP (PREMIUM SAAS THEME)
+   Strictly Zero Raster Images | Strictly Zero Emojis | Lucide SVG Only
+   ========================================================================== */
+
+.topCategoriesSection {
+  position: relative;
+  width: 100%;
+  background-color: #ffffff;
+  background-image: 
+    radial-gradient(circle at 85% 5%, rgba(0, 102, 255, 0.045) 0%, transparent 45%),
+    radial-gradient(circle at 10% 90%, rgba(2, 132, 199, 0.035) 0%, transparent 45%);
+  padding-top: 5.5rem;
+  border-bottom: 1px solid #e2e8f0;
+  overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  .topCategoriesSection {
+    padding-top: 6.5rem;
+  }
+}
+
+.sectionContainer {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* ==========================================================================
+   1. SECTION HEADER
+   ========================================================================== */
+.headerBlock {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 3.5rem;
+}
+
+.eyebrowBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.95rem;
+  border-radius: 9999px;
+  background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+  border: 1px solid #bfdbfe;
+  color: #0066ff;
+  font-size: 0.725rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 6px rgba(0, 102, 255, 0.06);
+}
+
+.sectionHeading {
+  font-size: clamp(2rem, 3.8vw, 2.75rem);
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: -0.028em;
+  line-height: 1.18;
+  margin: 0 0 0.85rem;
+}
+
+.gradientAccent {
+  background: linear-gradient(135deg, #0066ff 0%, #0284c7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.sectionSubtext {
+  font-size: 1rem;
+  color: #64748b;
+  line-height: 1.6;
+  margin: 0 auto;
+}
+
+/* ==========================================================================
+   2. MAIN CONTENT SPLIT (9 Cards + 1 Dark Focus Card)
+   ========================================================================== */
+.contentSplit {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  margin-bottom: 4.5rem;
+}
+
+@media (min-width: 1024px) {
+  .contentSplit {
+    grid-template-columns: 1fr 320px;
+    gap: 1.75rem;
+    align-items: stretch;
+  }
+}
+
+/* 3x3 Cards Grid */
+.categoriesGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+@media (min-width: 640px) {
+  .categoriesGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.15rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .categoriesGrid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.15rem;
+  }
+}
+
+/* Modern SaaS Category Card */
+.categoryCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1.25rem 1.25rem 1.15rem;
+  border-radius: 1.15rem;
+  border: 1px solid #e2e8f0;
+  text-decoration: none;
+  background-color: #ffffff;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
+  transition: all 220ms cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.categoryCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--card-accent, #0066ff);
+  opacity: 0;
+  transition: opacity 200ms ease;
+}
+
+.categoryCard:hover {
+  transform: translateY(-4px);
+  border-color: #93c5fd;
+  box-shadow: 0 16px 32px -8px rgba(0, 102, 255, 0.12), 0 4px 12px -2px rgba(15, 23, 42, 0.04);
+}
+
+.categoryCard:hover::before {
+  opacity: 1;
+}
+
+.cardHeaderRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.95rem;
+}
+
+.iconCircle {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-weight: 800;
+  font-size: 0.725rem;
+  letter-spacing: 0.05em;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+  transition: transform 200ms ease;
+}
+
+.categoryCard:hover .iconCircle {
+  transform: scale(1.06);
+}
+
+.cardMetaGroup {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.badgePill {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.55rem;
+  border-radius: 9999px;
+  background-color: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  color: #475569;
+  transition: background-color 180ms ease, color 180ms ease, border-color 180ms ease;
+}
+
+.categoryCard:hover .badgePill {
+  background-color: #eff6ff;
+  border-color: #bfdbfe;
+  color: #0066ff;
+}
+
+.arrowCircle {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #94a3b8;
+  transition: all 200ms ease;
+}
+
+.categoryCard:hover .arrowCircle {
+  background-color: #0066ff;
+  border-color: #0066ff;
+  color: #ffffff;
+  transform: translate(2px, -2px);
+  box-shadow: 0 4px 10px rgba(0, 102, 255, 0.25);
+}
+
+.cardBody {
+  margin-top: 0.25rem;
+}
+
+.categoryName {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: -0.015em;
+  line-height: 1.3;
+  margin: 0 0 0.3rem;
+  transition: color 180ms ease;
+}
+
+.categoryCard:hover .categoryName {
+  color: #0066ff;
+}
+
+.categorySubtext {
+  font-size: 0.775rem;
+  color: #64748b;
+  line-height: 1.45;
+  margin: 0;
+}
+
+/* ==========================================================================
+   3. RIGHT DARK SHOWCASE CARD (112 More Courses)
+   ========================================================================== */
+.moreCoursesCard {
+  background: linear-gradient(165deg, #0b0f19 0%, #111827 50%, #1e293b 100%);
+  border: 1px solid #334155;
+  border-radius: 1.35rem;
+  padding: 2.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+  color: #ffffff;
+  text-decoration: none;
+  min-height: 380px;
+  box-shadow: 0 20px 40px -10px rgba(15, 23, 42, 0.35);
+  transition: all 220ms cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.moreCoursesCard::before {
+  content: '';
+  position: absolute;
+  top: -60px;
+  right: -60px;
+  width: 180px;
+  height: 180px;
+  background: radial-gradient(circle, rgba(0, 102, 255, 0.32), transparent 70%);
+  pointer-events: none;
+}
+
+.moreCoursesCard:hover {
+  transform: translateY(-4px);
+  border-color: #60a5fa;
+  box-shadow: 0 24px 48px -12px rgba(0, 102, 255, 0.35);
+}
+
+.moreTopArea {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.liveBeaconPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.675rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #38bdf8;
+  background: rgba(56, 189, 248, 0.1);
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  padding: 0.3rem 0.75rem;
+  border-radius: 9999px;
+  margin-bottom: 1.5rem;
+}
+
+.beaconDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #38bdf8;
+  box-shadow: 0 0 8px #38bdf8;
+  animation: pulseBeacon 2s infinite ease-in-out;
+}
+
+@keyframes pulseBeacon {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.5); opacity: 0.5; }
+}
+
+.iconOrb {
+  width: 68px;
+  height: 68px;
+  border-radius: 1.25rem;
+  background: linear-gradient(135deg, rgba(56, 189, 248, 0.15) 0%, rgba(0, 102, 255, 0.2) 100%);
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #38bdf8;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 8px 24px rgba(0, 102, 255, 0.2);
+  transition: transform 200ms ease;
+}
+
+.moreCoursesCard:hover .iconOrb {
+  transform: scale(1.08) rotate(-2deg);
+}
+
+.moreCoursesTitle {
+  font-size: 1.55rem;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+  margin: 0 0 0.65rem;
+  line-height: 1.25;
+}
+
+.moreCoursesDesc {
+  font-size: 0.825rem;
+  color: #94a3b8;
+  line-height: 1.55;
+  margin: 0 auto 1.5rem;
+  max-width: 240px;
+}
+
+.getStartedBtn {
+  width: 100%;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #ffffff;
+  background: linear-gradient(135deg, #0066ff 0%, #0052cc 100%);
+  border: none;
+  padding: 0.75rem 1.25rem;
+  border-radius: 0.85rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  box-shadow: 0 4px 16px rgba(0, 102, 255, 0.35);
+  transition: all 200ms ease;
+}
+
+.moreCoursesCard:hover .getStartedBtn {
+  background: linear-gradient(135deg, #0052cc 0%, #004099 100%);
+  box-shadow: 0 6px 20px rgba(0, 102, 255, 0.5);
+}
+
+.ctaArrow {
+  transition: transform 180ms ease;
+}
+
+.moreCoursesCard:hover .ctaArrow {
+  transform: translateX(4px);
+}
+
+/* ==========================================================================
+   4. BOTTOM 5-PILLAR BLUE FEATURE STRIP
+   ========================================================================== */
+.bottomFeatureBar {
+  width: 100%;
+  background: linear-gradient(135deg, #0052cc 0%, #0066ff 50%, #0b63e5 100%);
+  padding: 2.25rem 1.5rem;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.pillarsWrapper {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+@media (min-width: 640px) {
+  .pillarsWrapper {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .pillarsWrapper {
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1.15rem;
+  }
+}
+
+.pillarCard {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 1rem 1.15rem;
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  transition: all 200ms ease;
+}
+
+.pillarCard:hover {
+  background: rgba(255, 255, 255, 0.18);
+  border-color: rgba(255, 255, 255, 0.35);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.pillarIconWrap {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  flex-shrink: 0;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  transition: transform 200ms ease;
+}
+
+.pillarCard:hover .pillarIconWrap {
+  transform: scale(1.08);
+}
+
+.pillarText {
+  display: flex;
+  flex-direction: column;
+}
+
+.pillarTitle {
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+}
+
+.pillarSub {
+  font-size: 0.725rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.25;
+  margin-top: 3px;
+}

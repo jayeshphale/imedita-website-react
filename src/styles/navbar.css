@@ -1,0 +1,1305 @@
+/* ==========================================================================
+   MODERN I-MEDITA NAVBAR & TOP BAR (CLEAN LIGHT THEME UI/UX)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. TOP NAVBAR STRIP (BLUE CONTACT & SOCIAL RIBBON)
+   -------------------------------------------------------------------------- */
+.top-navbar-strip {
+  background: #0B63E5;
+  /* Vibrant Royal Electric Blue from User Image */
+  color: #FFFFFF;
+  font-size: 13px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  z-index: 60;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.top-navbar-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+/* Contact Details (Left Side) */
+.top-nav-contact-list {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.top-nav-contact-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: #FFFFFF;
+  text-decoration: none;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  transition: opacity 0.15s ease;
+}
+
+.top-nav-contact-link:hover {
+  opacity: 0.85;
+}
+
+.top-nav-icon {
+  color: #FFFFFF;
+  flex-shrink: 0;
+}
+
+.top-nav-divider {
+  width: 1px;
+  height: 14px;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Social Media Outlines (Right Side) */
+.top-nav-social-list {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.top-social-btn {
+  width: 26px;
+  height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  border-radius: 6px;
+  color: #FFFFFF;
+  text-decoration: none;
+  background: rgba(255, 255, 255, 0.08);
+  transition: all 0.15s ease;
+}
+
+.top-social-btn:hover {
+  background: #FFFFFF;
+  color: #0B63E5;
+  border-color: #FFFFFF;
+  transform: translateY(-1px);
+}
+
+.top-social-whatsapp:hover {
+  background: #25D366;
+  border-color: #25D366;
+  color: #FFFFFF;
+}
+
+/* Mobile Quick WhatsApp Button */
+.top-nav-mobile-wa-btn {
+  display: none;
+  align-items: center;
+  gap: 6px;
+  background: #25D366;
+  color: #FFFFFF;
+  font-size: 11.5px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 9999px;
+  text-decoration: none;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  transition: transform 0.15s ease;
+}
+
+.top-nav-mobile-wa-btn:hover {
+  transform: scale(1.02);
+}
+
+@media (max-width: 992px) {
+  .top-nav-location-link {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .top-navbar-strip {
+    height: 36px;
+    font-size: 12px;
+  }
+
+  .top-nav-email-link,
+  .top-nav-divider,
+  .top-nav-social-list {
+    display: none;
+  }
+
+  .top-nav-mobile-wa-btn {
+    display: inline-flex;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   2. MAIN NAVBAR (WHITE ELEGANT SAAS HEADER)
+   -------------------------------------------------------------------------- */
+.main-navbar-wrapper {
+  background: #FFFFFF;
+  border-bottom: 1px solid #E2E8F0;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  transition: all 0.2s ease;
+}
+
+.main-navbar-wrapper.is-scrolled {
+  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.06);
+  border-bottom-color: #CBD5E1;
+}
+
+.main-navbar-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 74px;
+}
+
+/* Brand Logo */
+.main-nav-brand {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+/* Nav Menu Items */
+.main-nav-menu {
+  display: flex;
+  align-items: stretch;
+  height: 100%;
+  gap: 4px;
+}
+
+.main-nav-item {
+  position: static;
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.main-nav-link {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 16px;
+  height: 100%;
+  color: #1E293B;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  transition: color 0.15s ease;
+}
+
+/* Hover bridge right under each nav link into the floating gap */
+.main-nav-link::before {
+  content: '';
+  position: absolute;
+  bottom: -24px;
+  left: -8px;
+  right: -8px;
+  height: 28px;
+  background: transparent;
+  pointer-events: auto;
+  z-index: 999;
+}
+
+.main-nav-link:hover {
+  color: #0B63E5;
+}
+
+/* Live Training active indicator (blue bar under link flush with navbar bottom) */
+.main-nav-link.is-dropdown-open {
+  color: #0B63E5;
+}
+
+.main-nav-link.is-dropdown-open::after {
+  content: '';
+  position: absolute;
+  bottom: 0px;
+  left: 12px;
+  right: 12px;
+  height: 3px;
+  background: #0B63E5;
+  border-radius: 2px 2px 0 0;
+  z-index: 10;
+}
+
+/* --------------------------------------------------------------------------
+   3. CLEAN PROFESSIONAL 3-COLUMN MEGA MENU (FRAMER SAAS STYLE)
+   -------------------------------------------------------------------------- */
+.mega-menu-wrapper {
+  position: absolute;
+  top: calc(100% + 18px); /* Prominent, visible 18px gap below the 74px navbar */
+  left: 50%;
+  transform: translate(-50%, 0);
+  z-index: 1000;
+  animation: megaMenuFade 0.16s ease-out forwards;
+}
+
+@keyframes megaMenuFade {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 6px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+.mega-menu-hover-bridge {
+  position: absolute;
+  top: -24px; /* Seamlessly bridges the 18px gap */
+  left: 0;
+  right: 0;
+  height: 26px;
+  background: transparent;
+  z-index: 999;
+}
+
+/* Master Card Container (Spacious, Breathable SaaS Header) */
+.mega-menu-card {
+  display: flex;
+  background: #FFFFFF;
+  border-radius: 16px;
+  border: 1px solid #E2E8F0;
+  box-shadow: 0 24px 50px -12px rgba(15, 23, 42, 0.12), 0 4px 16px rgba(0, 0, 0, 0.04);
+  padding: 16px 18px;
+  width: 1200px;
+  max-width: calc(100vw - 32px);
+  gap: 18px;
+}
+
+/* Column Common Structure */
+.mega-menu-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.mega-col-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: #94A3B8;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 2px 8px 12px;
+}
+
+/* ==========================================================================
+   COLUMN 1: DOMAINS (LEFT)
+   ========================================================================== */
+.mega-col-domains {
+  width: 260px;
+  border-right: 1px solid #F1F5F9;
+  padding-right: 14px;
+  flex-shrink: 0;
+}
+
+.mega-domains-list {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.mega-domain-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 8px 11px;
+  border-radius: 9px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.14s ease;
+}
+
+.mega-domain-item:hover,
+.mega-domain-item.is-active {
+  background: #F1F5F9;
+}
+
+.mega-domain-icon-box {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: #EFF6FF;
+  color: #0B63E5;
+  border: 1px solid #DBEAFE;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-right: 11px;
+  transition: all 0.14s ease;
+}
+
+.mega-domain-item:hover .mega-domain-icon-box,
+.mega-domain-item.is-active .mega-domain-icon-box {
+  background: #0B63E5;
+  color: #FFFFFF;
+  border-color: #0B63E5;
+  transform: scale(1.04);
+}
+
+.mega-item-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.mega-item-title {
+  display: block;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #0F172A;
+  line-height: 1.3;
+  transition: color 0.12s ease;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.mega-domain-item:hover .mega-item-title,
+.mega-domain-item.is-active .mega-item-title {
+  color: #0B63E5;
+}
+
+.mega-item-desc {
+  display: block;
+  font-size: 11.5px;
+  color: #64748B;
+  line-height: 1.3;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.mega-item-arrow {
+  color: #94A3B8;
+  opacity: 0;
+  transform: translateX(-4px);
+  transition: all 0.15s ease;
+  flex-shrink: 0;
+}
+
+.mega-domain-item:hover .mega-item-arrow,
+.mega-domain-item.is-active .mega-item-arrow,
+.mega-course-item:hover .mega-item-arrow {
+  opacity: 1;
+  transform: translateX(0);
+  color: #0B63E5;
+}
+
+/* ==========================================================================
+   COLUMN 2: COURSES (MIDDLE - 2-COLUMN SPACIOUS GRID)
+   ========================================================================== */
+.mega-col-courses {
+  flex: 1;
+  border-right: 1px solid #F1F5F9;
+  padding-right: 16px;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.mega-courses-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 6px 12px;
+}
+
+.mega-course-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  border-radius: 9px;
+  text-decoration: none;
+  background: transparent;
+  transition: all 0.14s ease;
+  min-width: 0;
+}
+
+.mega-course-item:hover {
+  background: #F8FAFC;
+}
+
+.mega-course-icon-box {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: #EFF6FF;
+  color: #0B63E5;
+  border: 1px solid #DBEAFE;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-right: 11px;
+  transition: all 0.14s ease;
+}
+
+.mega-course-item:hover .mega-course-icon-box {
+  background: #0B63E5;
+  color: #FFFFFF;
+  border-color: #0B63E5;
+  transform: scale(1.04);
+}
+
+.mega-course-item:hover .mega-item-title {
+  color: #0B63E5;
+}
+
+/* ==========================================================================
+   COLUMN 3: SHOWCASE CARD (RIGHT - COMPACT SLEEK ELEVATION)
+   ========================================================================== */
+.mega-col-showcase {
+  width: 240px;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  min-height: 0;
+}
+
+.mega-showcase-card {
+  background: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+}
+
+.mega-showcase-visual {
+  height: 98px;
+  background: linear-gradient(135deg, #0B63E5 0%, #1D4ED8 100%);
+  padding: 12px 14px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-shrink: 0;
+}
+
+.mesh-circle {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.mesh-1 {
+  width: 100px;
+  height: 100px;
+  background: rgba(255, 255, 255, 0.12);
+  top: -25px;
+  right: -15px;
+  filter: blur(15px);
+}
+
+.mesh-2 {
+  width: 70px;
+  height: 70px;
+  background: rgba(59, 130, 246, 0.4);
+  bottom: -15px;
+  left: -10px;
+  filter: blur(10px);
+}
+
+.mega-showcase-visual-badge {
+  display: inline-block;
+  font-size: 9.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background: rgba(255, 255, 255, 0.2);
+  color: #FFFFFF;
+  padding: 2px 7px;
+  border-radius: 4px;
+  align-self: flex-start;
+  z-index: 2;
+}
+
+.mega-showcase-visual-title {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #FFFFFF;
+  position: relative;
+  z-index: 2;
+  line-height: 1.25;
+}
+
+.mega-showcase-body {
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
+  min-height: 0;
+}
+
+.mega-showcase-desc {
+  font-size: 11.5px;
+  color: #475569;
+  line-height: 1.45;
+  margin: 0 0 12px;
+}
+
+.mega-showcase-cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background: #0B63E5;
+  color: #FFFFFF;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 8px 12px;
+  border-radius: 7px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  width: 100%;
+  flex-shrink: 0;
+}
+
+.mega-showcase-cta:hover {
+  background: #0952C2;
+  transform: translateY(-1px);
+}
+
+/* ==========================================================================
+   INTERNATIONAL MEGA MENU SPECIALIZED STYLING
+   ========================================================================== */
+.international-menu-card {
+  width: 660px;
+  max-width: calc(100vw - 32px);
+  gap: 16px;
+  padding: 14px 16px;
+}
+
+.international-menu-col-links {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.international-items-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.international-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  text-decoration: none;
+  background: transparent;
+  transition: all 0.14s ease;
+}
+
+.international-item:hover {
+  background: #F1F5F9;
+}
+
+.international-item-icon-box {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: #EFF6FF;
+  color: #0B63E5;
+  border: 1px solid #DBEAFE;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.15s ease;
+}
+
+.international-item:hover .international-item-icon-box {
+  background: #0B63E5;
+  color: #FFFFFF;
+  border-color: #0B63E5;
+  transform: scale(1.04);
+}
+
+.international-item-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+}
+
+.international-item-title {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #0F172A;
+  line-height: 1.25;
+  transition: color 0.12s ease;
+}
+
+.international-item:hover .international-item-title {
+  color: #0B63E5;
+}
+
+.international-item-desc {
+  font-size: 11px;
+  color: #64748B;
+  line-height: 1.25;
+}
+
+.international-item-arrow {
+  color: #94A3B8;
+  opacity: 0;
+  transform: translateX(-4px);
+  transition: all 0.15s ease;
+  flex-shrink: 0;
+}
+
+.international-item:hover .international-item-arrow {
+  opacity: 1;
+  transform: translateX(0);
+  color: #0B63E5;
+}
+
+.international-menu-col-showcase {
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+}
+
+
+
+/* --------------------------------------------------------------------------
+   4. MAIN NAVBAR ACTIONS (SEARCH & CTA BUTTONS)
+   -------------------------------------------------------------------------- */
+.main-nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.main-search-trigger {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  border-radius: 9999px;
+  padding: 8px 14px;
+  color: #64748B;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.main-search-trigger:hover {
+  background: #FFFFFF;
+  border-color: #CBD5E1;
+  color: #0B63E5;
+}
+
+.search-kbd {
+  font-size: 10.5px;
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 4px;
+  padding: 1px 6px;
+  color: #64748B;
+  font-family: var(--font-mono);
+}
+
+.main-demo-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: #0B63E5;
+  color: #FFFFFF;
+  font-weight: 700;
+  font-size: 14px;
+  padding: 10px 18px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 14px -3px rgba(11, 99, 229, 0.4);
+  transition: all 0.15s ease;
+  white-space: nowrap;
+}
+
+.main-demo-cta-btn:hover {
+  background: #0952C2;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px -3px rgba(11, 99, 229, 0.5);
+}
+
+.main-demo-cta-btn.full-width {
+  width: 100%;
+}
+
+.btn-text-compact {
+  display: none;
+}
+
+.mobile-hamburger-btn {
+  display: none;
+  background: none;
+  border: none;
+  color: #0F172A;
+  padding: 6px;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background 0.15s ease;
+}
+
+.mobile-hamburger-btn:hover {
+  background: #F1F5F9;
+}
+
+/* --------------------------------------------------------------------------
+   5. RESPONSIVE BREAKPOINTS (ALL DEVICES: DESKTOP, LAPTOP, TABLET, MOBILE)
+   -------------------------------------------------------------------------- */
+
+/* Compact Desktop & Medium Laptops (993px - 1240px) */
+@media (max-width: 1240px) and (min-width: 993px) {
+  .main-nav-menu {
+    gap: 8px;
+  }
+
+  .main-nav-link {
+    padding: 8px 10px;
+    font-size: 13.5px;
+  }
+
+  .btn-text-full {
+    display: none;
+  }
+
+  .btn-text-compact {
+    display: inline;
+  }
+
+  .main-demo-cta-btn {
+    padding: 8px 14px;
+    font-size: 13px;
+  }
+
+  /* Compact Mega Menu Card */
+  .mega-menu-card {
+    width: calc(100vw - 32px);
+    padding: 14px 14px;
+    gap: 12px;
+  }
+
+  .mega-col-domains {
+    width: 220px;
+    padding-right: 10px;
+  }
+
+  .mega-col-showcase {
+    width: 200px;
+  }
+
+  .mega-col-courses {
+    padding-right: 10px;
+  }
+
+  .mega-courses-list {
+    gap: 4px 8px;
+  }
+
+  .mega-course-item {
+    padding: 6px 8px;
+  }
+
+  .mega-item-title {
+    font-size: 12.5px;
+  }
+
+  .mega-item-desc {
+    font-size: 11px;
+  }
+
+  .international-menu-card {
+    width: 600px;
+  }
+}
+
+/* Tablets & Mobile Devices (<= 992px) */
+@media (max-width: 992px) {
+  .main-nav-menu {
+    display: none !important;
+  }
+
+  .mobile-hamburger-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .btn-text-full {
+    display: none;
+  }
+
+  .btn-text-compact {
+    display: inline;
+  }
+
+  .main-demo-cta-btn {
+    padding: 8px 12px;
+    font-size: 12.5px;
+    gap: 5px;
+  }
+}
+
+/* Extra Small Phones (<= 480px) */
+@media (max-width: 480px) {
+  .main-navbar-container {
+    height: 64px;
+    padding: 0 12px;
+  }
+
+  .main-nav-brand svg,
+  .main-nav-brand img {
+    height: 36px;
+  }
+
+  .main-demo-cta-btn {
+    padding: 6px 10px;
+    font-size: 12px;
+  }
+}
+
+/* Ensure mobile drawer is strictly hidden on large screens */
+@media (min-width: 993px) {
+  .mobile-nav-backdrop,
+  .mobile-nav-drawer {
+    display: none !important;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   6. MODERN MOBILE DRAWER & TOUCH ACCORDIONS
+   -------------------------------------------------------------------------- */
+
+/* Backdrop Overlay */
+.mobile-nav-backdrop {
+  position: fixed;
+  top: 74px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(15, 23, 42, 0.45);
+  backdrop-filter: blur(4px);
+  z-index: 998;
+  animation: mobileFadeIn 0.2s ease-out;
+}
+
+@keyframes mobileFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Drawer Container */
+.mobile-nav-drawer {
+  position: fixed;
+  top: 74px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #FFFFFF;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  transform: translateY(-8px);
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease;
+  border-top: 1px solid #E2E8F0;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.mobile-nav-drawer.is-open {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+@media (max-width: 480px) {
+  .mobile-nav-backdrop,
+  .mobile-nav-drawer {
+    top: 64px;
+  }
+}
+
+/* Internal Scroll Area */
+.mobile-nav-scroll-area {
+  flex: 1;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.mobile-nav-links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Accordion Card */
+.mobile-accordion-card {
+  background: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.2s ease;
+}
+
+.mobile-accordion-header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 13px 16px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.15s ease;
+}
+
+.mobile-accordion-header:hover,
+.mobile-accordion-header.is-active {
+  background: #EFF6FF;
+}
+
+.mobile-header-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.mobile-header-icon-box {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: #EFF6FF;
+  border: 1px solid #DBEAFE;
+  color: #0B63E5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.mobile-accordion-header.is-active .mobile-header-icon-box {
+  background: #0B63E5;
+  color: #FFFFFF;
+}
+
+.mobile-header-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: #0F172A;
+}
+
+.mobile-badge-count {
+  font-size: 11px;
+  font-weight: 700;
+  background: #E2E8F0;
+  color: #475569;
+  padding: 2px 7px;
+  border-radius: 9999px;
+}
+
+.mobile-chevron {
+  color: #64748B;
+  transition: transform 0.2s ease;
+  flex-shrink: 0;
+}
+
+.mobile-chevron.rotate {
+  transform: rotate(180deg);
+  color: #0B63E5;
+}
+
+/* Accordion Body */
+.mobile-accordion-body {
+  padding: 0 12px 14px;
+}
+
+.mobile-subcategories-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  border-top: 1px solid #E2E8F0;
+  padding-top: 10px;
+}
+
+/* Domain Trigger in Mobile */
+.mobile-domain-group {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.mobile-domain-trigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 12px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.15s ease;
+}
+
+.mobile-domain-trigger:hover,
+.mobile-domain-trigger.is-open {
+  background: #F8FAFC;
+}
+
+.mobile-domain-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+  min-width: 0;
+}
+
+.mobile-domain-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  background: #EFF6FF;
+  color: #0B63E5;
+  border: 1px solid #DBEAFE;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.mobile-domain-text {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.mobile-domain-name {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #0F172A;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.mobile-domain-desc {
+  font-size: 11px;
+  color: #64748B;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.mobile-subchevron {
+  color: #94A3B8;
+  transition: transform 0.2s ease;
+  flex-shrink: 0;
+}
+
+.mobile-subchevron.rotate {
+  transform: rotate(90deg);
+  color: #0B63E5;
+}
+
+/* Mobile Courses Tray */
+.mobile-courses-tray {
+  background: #F8FAFC;
+  border-top: 1px solid #F1F5F9;
+  padding: 6px 10px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.mobile-course-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  text-decoration: none;
+  transition: all 0.14s ease;
+}
+
+.mobile-course-link:hover,
+.mobile-course-link:active {
+  border-color: #0B63E5;
+  background: #EFF6FF;
+}
+
+.mobile-course-bullet {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #0B63E5;
+  flex-shrink: 0;
+}
+
+.mobile-course-info {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+}
+
+.mobile-course-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: #0F172A;
+  line-height: 1.3;
+}
+
+.mobile-course-sub {
+  font-size: 11px;
+  color: #64748B;
+  line-height: 1.3;
+}
+
+.mobile-link-arrow {
+  color: #94A3B8;
+  flex-shrink: 0;
+}
+
+/* Mobile Service Link (International) */
+.mobile-service-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: all 0.14s ease;
+}
+
+.mobile-service-link:hover,
+.mobile-service-link:active {
+  border-color: #0B63E5;
+  background: #EFF6FF;
+}
+
+/* Direct Links */
+.mobile-direct-links-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 12px;
+  padding: 8px;
+}
+
+.mobile-direct-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 14px;
+  border-radius: 8px;
+  font-size: 14.5px;
+  font-weight: 600;
+  color: #1E293B;
+  text-decoration: none;
+  transition: background 0.15s ease;
+}
+
+.mobile-direct-link:hover,
+.mobile-direct-link:active {
+  background: #F1F5F9;
+  color: #0B63E5;
+}
+
+/* Mobile Navigation Footer & Quick Help Actions */
+.mobile-nav-footer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-top: 14px;
+  border-top: 1px solid #E2E8F0;
+  background: #FFFFFF;
+}
+
+.mobile-quick-actions-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.mobile-quick-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.15s ease;
+}
+
+.mobile-quick-btn.call {
+  background: #EFF6FF;
+  color: #0B63E5;
+  border: 1px solid #DBEAFE;
+}
+
+.mobile-quick-btn.call:hover {
+  background: #DBEAFE;
+}
+
+.mobile-quick-btn.wa {
+  background: #ECFDF5;
+  color: #059669;
+  border: 1px solid #A7F3D0;
+}
+
+.mobile-quick-btn.wa:hover {
+  background: #D1FAE5;
+}
+
+.mobile-demo-btn {
+  height: 46px;
+  font-size: 14px;
+}

@@ -1,0 +1,323 @@
+/* ==========================================================================
+   ENTERPRISE LOGO MARQUEE (DUAL ROW INFINITE SCROLL)
+   Light Theme | SaaS & Razorpay Clean Aesthetic | Fully Responsive
+   ========================================================================== */
+
+.marquee-section {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  background: #FFFFFF;
+  border-top: 1px solid #E2E8F0;
+  border-bottom: 1px solid #E2E8F0;
+  padding: 52px 0 56px;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/* ==========================================================================
+   1. SECTION HEADER & TYPOGRAPHY
+   ========================================================================== */
+
+.marquee-header-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin: 0 auto 36px;
+  padding: 0 24px;
+  max-width: 900px;
+}
+
+/* Pill Badge */
+.marquee-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 5px 13px;
+  background: #EFF6FF;
+  border: 1px solid #BFDBFE;
+  color: #0284C7;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-radius: 9999px;
+  margin-bottom: 12px;
+  box-shadow: 0 1px 2px rgba(2, 132, 199, 0.06);
+}
+
+.marquee-badge-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #0284C7;
+  box-shadow: 0 0 6px rgba(2, 132, 199, 0.8);
+}
+
+/* Main Heading / Section Label */
+.marquee-heading {
+  font-family: var(--font-sans, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif);
+  font-size: 15px;
+  font-weight: 700;
+  color: #334155;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin: 0;
+  line-height: 1.35;
+}
+
+/* Optional Subheading */
+.marquee-subheading {
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: #64748B;
+  margin: 8px auto 0;
+  max-width: 580px;
+  font-weight: 400;
+}
+
+/* ==========================================================================
+   2. MARQUEE VIEWPORT & DUAL ROWS
+   ========================================================================== */
+
+.marquee-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  width: 100%;
+  overflow: hidden;
+  /* CSS mask gradient for ultra-smooth edge blending */
+  mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+}
+
+.marquee-row-wrapper {
+  position: relative;
+  display: flex;
+  width: 100%;
+  overflow: hidden;
+  user-select: none;
+}
+
+/* Marquee Track (Double duplicate set for seamless 100% loop) */
+.marquee-track {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  width: max-content;
+  flex-shrink: 0;
+  will-change: transform;
+}
+
+/* Row 1: Forward Scroll (Leftwards) */
+.marquee-track.scroll-left {
+  animation: marqueeScrollLeft 52s linear infinite;
+}
+
+/* Row 2: Reverse Scroll (Rightwards) */
+.marquee-track.scroll-right {
+  animation: marqueeScrollRight 52s linear infinite;
+}
+
+/* Pause on Hover */
+.marquee-row-wrapper:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+/* Infinite Keyframes */
+@keyframes marqueeScrollLeft {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@keyframes marqueeScrollRight {
+  0% {
+    transform: translate3d(-50%, 0, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+/* ==========================================================================
+   3. LOGO CARD & PRESENTATION
+   ========================================================================== */
+
+.marquee-logo-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 60px;
+  min-width: 140px;
+  max-width: 175px;
+  padding: 8px 22px;
+  background: #FFFFFF;
+  border: 1px solid #F1F5F9;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
+  transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
+.marquee-logo-card:hover {
+  transform: translateY(-2px);
+  border-color: #BAE6FD;
+  background: #FFFFFF;
+  box-shadow: 0 6px 16px rgba(2, 132, 199, 0.08), 0 2px 4px rgba(15, 23, 42, 0.03);
+}
+
+.marquee-logo-img {
+  height: 38px;
+  width: auto;
+  max-width: 125px;
+  object-fit: contain;
+  filter: grayscale(100%);
+  opacity: 0.65;
+  transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+  display: block;
+  user-select: none;
+  pointer-events: none;
+}
+
+.marquee-logo-card:hover .marquee-logo-img {
+  filter: grayscale(0%);
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+/* ==========================================================================
+   4. EDGE FADE GRADIENT OVERLAYS
+   ========================================================================== */
+
+.marquee-edge-fade {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 140px;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.marquee-edge-left {
+  left: 0;
+  background: linear-gradient(to right, #FFFFFF 12%, rgba(255, 255, 255, 0) 100%);
+}
+
+.marquee-edge-right {
+  right: 0;
+  background: linear-gradient(to left, #FFFFFF 12%, rgba(255, 255, 255, 0) 100%);
+}
+
+/* ==========================================================================
+   5. RESPONSIVE BREAKPOINTS (TABLET & MOBILE)
+   ========================================================================== */
+
+@media (max-width: 1024px) {
+  .marquee-section {
+    padding: 44px 0 48px;
+  }
+
+  .marquee-header-container {
+    margin-bottom: 28px;
+    padding: 0 20px;
+  }
+
+  .marquee-heading {
+    font-size: 14px;
+    letter-spacing: 0.12em;
+  }
+
+  .marquee-subheading {
+    font-size: 13px;
+  }
+
+  .marquee-container {
+    gap: 14px;
+  }
+
+  .marquee-track {
+    gap: 16px;
+  }
+
+  .marquee-logo-card {
+    height: 54px;
+    min-width: 125px;
+    padding: 6px 18px;
+  }
+
+  .marquee-logo-img {
+    height: 34px;
+    max-width: 110px;
+  }
+
+  .marquee-edge-fade {
+    width: 90px;
+  }
+}
+
+@media (max-width: 640px) {
+  .marquee-section {
+    padding: 36px 0 40px;
+  }
+
+  .marquee-header-container {
+    margin-bottom: 22px;
+    padding: 0 16px;
+  }
+
+  .marquee-badge {
+    font-size: 10px;
+    padding: 4px 10px;
+    margin-bottom: 8px;
+  }
+
+  .marquee-heading {
+    font-size: 12.5px;
+    letter-spacing: 0.10em;
+  }
+
+  .marquee-subheading {
+    font-size: 12px;
+    line-height: 1.45;
+  }
+
+  .marquee-container {
+    gap: 12px;
+  }
+
+  .marquee-track {
+    gap: 12px;
+  }
+
+  .marquee-track.scroll-left {
+    animation-duration: 42s;
+  }
+
+  .marquee-track.scroll-right {
+    animation-duration: 42s;
+  }
+
+  .marquee-logo-card {
+    height: 48px;
+    min-width: 110px;
+    padding: 5px 14px;
+    border-radius: 10px;
+  }
+
+  .marquee-logo-img {
+    height: 28px;
+    max-width: 95px;
+  }
+
+  .marquee-edge-fade {
+    width: 44px;
+  }
+}
+

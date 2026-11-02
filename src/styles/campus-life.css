@@ -1,0 +1,279 @@
+/* ==========================================================================
+   CAMPUS & LAB LIFE SHOWCASE SECTION
+   Strictly Zero Emojis | 100% SVG Vectors | Razorpay SaaS Light Aesthetic
+   ========================================================================== */
+
+.campus-life-section {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  background-color: #FFFFFF;
+  padding: 80px 0 96px;
+  border-bottom: 1px solid #E2E8F0;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.campus-life-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+  box-sizing: border-box;
+}
+
+/* ==========================================================================
+   1. SECTION HEADER WITH CONTROLS
+   ========================================================================== */
+
+.campus-header-row {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+.campus-header-text {
+  max-width: 680px;
+}
+
+.campus-pill-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #0066FF;
+  background-color: #EFF6FF;
+  border: 1px solid #DBEAFE;
+  padding: 5px 14px;
+  border-radius: 9999px;
+  margin-bottom: 12px;
+  box-shadow: 0 1px 2px rgba(0, 102, 255, 0.04);
+}
+
+.campus-title {
+  font-family: var(--font-sans, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif);
+  font-size: 36px;
+  font-weight: 800;
+  color: #0F172A;
+  letter-spacing: -0.026em;
+  margin: 0 0 12px 0;
+  line-height: 1.22;
+}
+
+.campus-subtitle {
+  font-size: 15px;
+  color: #64748B;
+  font-weight: 400;
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* Navigation Arrow Controls */
+.campus-nav-buttons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.campus-nav-btn {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  border: 1px solid #E2E8F0;
+  background-color: #FFFFFF;
+  color: #475569;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
+  user-select: none;
+}
+
+.campus-nav-btn:hover {
+  background-color: #0066FF;
+  border-color: #0066FF;
+  color: #FFFFFF;
+  transform: translateY(-1.5px);
+  box-shadow: 0 4px 12px rgba(0, 102, 255, 0.25);
+}
+
+.campus-nav-btn:active {
+  transform: translateY(0);
+}
+
+/* ==========================================================================
+   2. HORIZONTAL SCROLLABLE GALLERY STRIP
+   ========================================================================== */
+
+.campus-gallery-strip {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;  /* IE and Edge */
+}
+
+.campus-gallery-strip::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+.campus-image-card {
+  min-width: 380px;
+  width: 380px;
+  scroll-snap-align: start;
+  flex-shrink: 0;
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+  border: 1px solid rgba(226, 232, 240, 0.85);
+  background-color: #F8FAFC;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.campus-image-card:hover {
+  transform: translateY(-3px);
+  border-color: #BFDBFE;
+  box-shadow: 0 16px 36px rgba(15, 23, 42, 0.09), 0 2px 6px rgba(15, 23, 42, 0.03);
+}
+
+.campus-image-aspect {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  position: relative;
+}
+
+.campus-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.campus-image-card:hover .campus-image {
+  transform: scale(1.05);
+}
+
+/* Gradient Overlay with Caption */
+.campus-caption-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(15, 23, 42, 0.88) 0%, rgba(15, 23, 42, 0.3) 45%, rgba(15, 23, 42, 0) 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  display: flex;
+  align-items: flex-end;
+  padding: 20px 22px;
+  box-sizing: border-box;
+}
+
+.campus-image-card:hover .campus-caption-overlay {
+  opacity: 1;
+}
+
+.campus-caption-text {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin: 0;
+  letter-spacing: 0.01em;
+  line-height: 1.4;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+}
+
+/* ==========================================================================
+   3. RESPONSIVE BREAKPOINTS
+   ========================================================================== */
+
+/* Tablets (768px - 991px) */
+@media (max-width: 991px) {
+  .campus-life-section {
+    padding: 64px 0 76px;
+  }
+
+  .campus-title {
+    font-size: 30px;
+  }
+
+  .campus-subtitle {
+    font-size: 14px;
+  }
+
+  .campus-image-card {
+    min-width: 330px;
+    width: 330px;
+    border-radius: 18px;
+  }
+
+  .campus-header-row {
+    margin-bottom: 32px;
+  }
+}
+
+/* Mobile Phones (<= 767px) */
+@media (max-width: 767px) {
+  .campus-life-section {
+    padding: 48px 0 60px;
+  }
+
+  .campus-life-container {
+    padding: 0 16px;
+  }
+
+  .campus-header-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+
+  .campus-pill-badge {
+    font-size: 10px;
+    padding: 4px 11px;
+    letter-spacing: 0.16em;
+  }
+
+  .campus-title {
+    font-size: 24px;
+    letter-spacing: -0.02em;
+    margin-bottom: 8px;
+  }
+
+  .campus-subtitle {
+    font-size: 13px;
+    line-height: 1.45;
+  }
+
+  .campus-image-card {
+    min-width: 280px;
+    width: 280px;
+    border-radius: 16px;
+  }
+
+  /* Always show caption on mobile or keep clean */
+  .campus-caption-overlay {
+    opacity: 1;
+    background: linear-gradient(to top, rgba(15, 23, 42, 0.75) 0%, rgba(15, 23, 42, 0.1) 50%, rgba(15, 23, 42, 0) 100%);
+    padding: 14px 16px;
+  }
+
+  .campus-caption-text {
+    font-size: 12px;
+  }
+}
+

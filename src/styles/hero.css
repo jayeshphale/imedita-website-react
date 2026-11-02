@@ -1,0 +1,1511 @@
+/* ==========================================================================
+   I-MEDITA HERO SLIDER (RAZORPAY TECH LIGHT THEME SPECIFICATION)
+   Precision Vector Styling | Fluid Typography | 100% Fully Responsive Across All Devices
+   ========================================================================== */
+
+.hero-slider-section,
+.heroWrapper,
+.heroSection {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  min-height: 600px;
+  background-color: #0b0f19;
+  /* Deep Obsidian Slate */
+  background-image:
+    radial-gradient(circle at 80% 25%, rgba(0, 102, 255, 0.15) 0%, transparent 45%),
+    radial-gradient(circle at 15% 75%, rgba(14, 165, 233, 0.08) 0%, transparent 40%);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  user-select: none;
+  touch-action: pan-y;
+  box-sizing: border-box;
+}
+
+/* ==========================================================================
+   1. BACKGROUND GRAPHICS & VECTOR ATMOSPHERE (RAZORPAY FINTECH AESTHETIC)
+   ========================================================================== */
+
+/* Ambient Radial Glow behind imagery (12-second breathing/pulse loop) */
+.hero-radial-glow {
+  position: absolute;
+  right: 5%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 660px;
+  height: 660px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0, 102, 255, 0.20) 0%, rgba(56, 189, 248, 0.08) 46%, transparent 72%);
+  filter: blur(55px);
+  pointer-events: none;
+  z-index: 1;
+  animation: heroGlowBreathing 12s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+@keyframes heroGlowBreathing {
+
+  0%,
+  100% {
+    transform: translateY(-50%) scale(1.0);
+    opacity: 0.60;
+  }
+
+  50% {
+    transform: translateY(-50%) scale(1.08);
+    opacity: 1.0;
+  }
+}
+
+/* Inner hairline concentric orbit ring */
+.hero-orbit-inner,
+.ambientCircle {
+  position: absolute;
+  right: 11%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 520px;
+  height: 520px;
+  border-radius: 50%;
+  border: 1px dashed rgba(56, 189, 248, 0.22);
+  pointer-events: none;
+  z-index: 1;
+  animation: heroOrbitRotateCW 45s linear infinite;
+  will-change: transform;
+}
+
+.hero-orbit-inner::after {
+  content: '';
+  position: absolute;
+  top: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #38bdf8;
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.9);
+}
+
+/* Outer hairline concentric orbit ring */
+.hero-orbit-outer {
+  position: absolute;
+  right: 6%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 680px;
+  height: 680px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  pointer-events: none;
+  z-index: 1;
+  animation: heroOrbitRotateCCW 60s linear infinite;
+  will-change: transform;
+}
+
+.hero-orbit-outer::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #0066FF;
+  box-shadow: 0 0 12px rgba(0, 102, 255, 0.85);
+}
+
+@keyframes heroOrbitRotateCW {
+  0% {
+    transform: translateY(-50%) rotate(0deg);
+  }
+
+  100% {
+    transform: translateY(-50%) rotate(360deg);
+  }
+}
+
+@keyframes heroOrbitRotateCCW {
+  0% {
+    transform: translateY(-50%) rotate(0deg);
+  }
+
+  100% {
+    transform: translateY(-50%) rotate(-360deg);
+  }
+}
+
+/* Floating Tech Particle Dots */
+.hero-dot-blue {
+  position: absolute;
+  right: 37%;
+  top: 23%;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #0066FF;
+  box-shadow: 0 0 16px rgba(0, 102, 255, 0.85);
+  pointer-events: none;
+  z-index: 2;
+  animation: heroFloatDriftBlue 7s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+.hero-dot-cyan {
+  position: absolute;
+  right: 43%;
+  bottom: 30%;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: #06B6D4;
+  box-shadow: 0 0 14px rgba(6, 182, 212, 0.85);
+  pointer-events: none;
+  z-index: 2;
+  animation: heroFloatDriftCyan 9s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+.hero-dot-teal {
+  position: absolute;
+  right: 4%;
+  top: 31%;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #14B8A6;
+  box-shadow: 0 0 12px rgba(20, 184, 166, 0.8);
+  pointer-events: none;
+  z-index: 2;
+  animation: heroFloatDriftTeal 8s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+@keyframes heroFloatDriftBlue {
+  0% {
+    transform: translate(0, 0);
+  }
+
+  35% {
+    transform: translate(8px, -8px);
+  }
+
+  70% {
+    transform: translate(-6px, 10px);
+  }
+
+  100% {
+    transform: translate(10px, 4px);
+  }
+}
+
+@keyframes heroFloatDriftCyan {
+  0% {
+    transform: translate(0, 0);
+  }
+
+  30% {
+    transform: translate(-8px, 9px);
+  }
+
+  65% {
+    transform: translate(10px, -7px);
+  }
+
+  100% {
+    transform: translate(-5px, -8px);
+  }
+}
+
+@keyframes heroFloatDriftTeal {
+  0% {
+    transform: translate(0, 0);
+  }
+
+  40% {
+    transform: translate(9px, 8px);
+  }
+
+  75% {
+    transform: translate(-7px, -6px);
+  }
+
+  100% {
+    transform: translate(8px, -8px);
+  }
+}
+
+/* Left Subtle Ambient Sweeps (Vector Curves) */
+.hero-bg-curves,
+.bgVectorLines {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 46%;
+  pointer-events: none;
+  opacity: 0.12;
+  /* Subtle contrast on dark background */
+  z-index: 1;
+  animation: heroCurvesWave 16s ease-in-out infinite alternate;
+  will-change: transform, opacity;
+}
+
+.hero-bg-curves path,
+.bgVectorLines path {
+  stroke: #38bdf8;
+}
+
+.hero-bg-curves path:nth-child(2),
+.bgVectorLines path:nth-child(2) {
+  stroke-dasharray: 6 6;
+  animation: heroDashFlow 24s linear infinite;
+}
+
+@keyframes heroCurvesWave {
+  0% {
+    transform: translateY(0) scaleY(1);
+    opacity: 0.10;
+  }
+
+  50% {
+    transform: translateY(-8px) scaleY(1.02);
+    opacity: 0.14;
+  }
+
+  100% {
+    transform: translateY(6px) scaleY(0.99);
+    opacity: 0.10;
+  }
+}
+
+@keyframes heroDashFlow {
+  from {
+    stroke-dashoffset: 0;
+  }
+
+  to {
+    stroke-dashoffset: 240;
+  }
+}
+
+/* Full Hero Background Grid Overlay (Replaces Small Isolated Corner Box) */
+.hero-grid-overlay,
+.heroGridOverlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  /* 40px clean engineering blueprint grid */
+  background-size: 40px 40px;
+  background-image:
+    linear-gradient(to right, rgba(56, 189, 248, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(56, 189, 248, 0.05) 1px, transparent 1px);
+  /* Vignette mask to make it fade gently toward the edges */
+  mask-image: radial-gradient(circle at center, rgba(0, 0, 0, 1) 40%, rgba(0, 0, 0, 0.3) 100%);
+  -webkit-mask-image: radial-gradient(circle at center, rgba(0, 0, 0, 1) 40%, rgba(0, 0, 0, 0.3) 100%);
+}
+
+.hero-bg-grid {
+  display: none !important;
+}
+
+/* Ensure foreground content stays above the grid */
+.slideContentContainer,
+.sliderContentWrapper,
+.hero-slider-container {
+  position: relative;
+  z-index: 10;
+}
+
+/* ==========================================================================
+   2. SLIDER CONTAINER & GRID LAYOUT
+   ========================================================================== */
+
+.hero-slider-container {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: 1480px;
+  margin: 0 auto;
+  padding: 32px 56px 0;
+  display: grid;
+  grid-template-columns: minmax(560px, 630px) 1fr;
+  gap: 36px;
+  align-items: center;
+  min-height: 580px;
+  box-sizing: border-box;
+}
+
+/* ==========================================================================
+   3. LEFT COLUMN (TYPOGRAPHY, BADGE, ACTIONS, TRUST MARKER)
+   ========================================================================== */
+
+.hero-content-col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 630px;
+  width: 100%;
+  z-index: 10;
+  padding-bottom: 36px;
+  min-height: 460px;
+  justify-content: center;
+  animation: heroSlideFadeIn 0.35s ease-out;
+  box-sizing: border-box;
+}
+
+@keyframes heroSlideFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Pill Badges (Light & Dark Variants) */
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6.5px;
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  transition: all 0.2s ease;
+  width: max-content;
+  max-width: 100%;
+}
+
+.hero-badge,
+.eyebrowBadge,
+.categoryPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6.5px;
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  transition: all 0.2s ease;
+  width: max-content;
+  max-width: 100%;
+}
+
+.hero-badge.light,
+.eyebrowBadge,
+.categoryPill {
+  background-color: rgba(0, 102, 255, 0.14);
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  color: #38bdf8;
+  box-shadow: 0 0 16px rgba(0, 102, 255, 0.2);
+}
+
+.hero-badge.dark {
+  background-color: rgba(15, 23, 42, 0.85);
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  color: #38bdf8;
+  box-shadow: 0 2px 8px rgba(11, 25, 44, 0.4);
+}
+
+.hero-badge-medal {
+  color: #F59E0B;
+  flex-shrink: 0;
+}
+
+/* Main Two-Tone Headline */
+.hero-headline,
+.heroTitle,
+.slideTitle {
+  font-family: var(--font-sans, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif);
+  font-size: 50px;
+  font-weight: 800;
+  line-height: 1.12;
+  color: #ffffff;
+  /* Crisp pure white */
+  letter-spacing: -0.026em;
+  margin: 0 0 20px 0;
+  word-break: normal;
+  overflow-wrap: break-word;
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.6);
+}
+
+.hero-headline-highlight,
+.titleAccent,
+.highlightText {
+  color: #38bdf8;
+  /* Vivid cyan-blue for striking visibility on dark */
+  background: linear-gradient(135deg, #60a5fa 0%, #38bdf8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline;
+  filter: drop-shadow(0 0 20px rgba(56, 189, 248, 0.4));
+}
+
+/* Sub-headline description */
+.hero-subheadline,
+.heroDescription,
+.slideDescription {
+  font-size: 16.5px;
+  line-height: 1.62;
+  color: #94a3b8;
+  /* Balanced slate gray */
+  max-width: 550px;
+  margin: 0 0 28px 0;
+}
+
+/* CTA Row & Trust Badge Container */
+.hero-cta-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 14px;
+  width: 100%;
+}
+
+/* Primary CTA: Solid Vivid Blue Button */
+.hero-btn-primary,
+.primaryBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background-color: #0066ff;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 600;
+  min-height: 46px;
+  padding: 12px 24px;
+  border-radius: 8px;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 8px 24px -4px rgba(0, 102, 255, 0.45);
+  transition: all 0.18s ease;
+  white-space: nowrap;
+}
+
+.hero-btn-primary:hover,
+.primaryBtn:hover {
+  background-color: #0052cc;
+  transform: translateY(-1.5px);
+  box-shadow: 0 12px 30px -4px rgba(0, 102, 255, 0.6);
+}
+
+.hero-btn-primary:active,
+.primaryBtn:active {
+  transform: translateY(0);
+}
+
+.hero-btn-icon {
+  width: 16px;
+  height: 16px;
+  transition: transform 0.18s ease;
+  flex-shrink: 0;
+}
+
+.hero-btn-primary:hover .hero-btn-icon,
+.primaryBtn:hover .hero-btn-icon {
+  transform: translate(2px, -2px);
+}
+
+/* Secondary CTA: Clean Outline Button */
+.hero-btn-secondary,
+.secondaryBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.05);
+  color: #f1f5f9;
+  font-size: 15px;
+  font-weight: 600;
+  min-height: 46px;
+  padding: 12px 22px;
+  border-radius: 8px;
+  text-decoration: none;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: all 0.18s ease;
+  white-space: nowrap;
+}
+
+.hero-btn-secondary:hover,
+.secondaryBtn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.3);
+  color: #ffffff;
+  transform: translateY(-1.5px);
+}
+
+.hero-btn-secondary:active,
+.secondaryBtn:active {
+  transform: translateY(0);
+}
+
+/* Trust Marker: Laurel Wreath & "100% Certified" */
+.hero-trust-marker {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding-left: 14px;
+  border-left: 1px solid rgba(255, 255, 255, 0.15);
+  margin-left: 4px;
+}
+
+.hero-certified-badge-img {
+  height: 50px;
+  width: auto;
+  max-width: 88px;
+  object-fit: contain;
+  display: block;
+  user-select: none;
+  pointer-events: none;
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.6));
+  transition: transform 0.25s ease;
+}
+
+.hero-trust-marker:hover .hero-certified-badge-img {
+  transform: scale(1.05);
+}
+
+.hero-wreath-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 66px;
+  height: 50px;
+}
+
+.hero-wreath-svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.hero-wreath-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  line-height: 1.15;
+  z-index: 2;
+  margin-top: 1px;
+}
+
+.hero-wreath-val {
+  font-size: 11.5px;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+}
+
+.hero-wreath-lbl {
+  font-size: 9px;
+  font-weight: 700;
+  color: #94a3b8;
+  text-transform: capitalize;
+  letter-spacing: 0.02em;
+}
+
+/* Micro Trust Checkpoints (Slide 2: Placement & Lab Practice) */
+.hero-trust-checkpoints {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 22px;
+  margin-top: 16px;
+  width: 100%;
+}
+
+.hero-trust-check-item,
+.featureItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #cbd5e1;
+  letter-spacing: -0.01em;
+}
+
+.hero-check-icon,
+.featureIcon {
+  color: #38bdf8;
+  flex-shrink: 0;
+}
+
+/* ==========================================================================
+   4. RIGHT COLUMN (INSTRUCTOR CUTOUT & ROADMAP GRAPHIC)
+   ========================================================================== */
+
+.graphicsContainer,
+.hero-image-col {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  height: 540px;
+  width: 100%;
+  z-index: 10;
+  animation: heroSlideFadeIn 0.35s ease-out;
+  box-sizing: border-box;
+}
+
+.graphicsContainer::after,
+.hero-image-col::after {
+  content: '';
+  position: absolute;
+  top: 40%;
+  left: 55%;
+  transform: translate(-50%, -50%);
+  width: 70%;
+  height: 60%;
+  background: radial-gradient(circle, rgba(0, 102, 255, 0.09) 0%, transparent 70%);
+  filter: blur(40px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero-instructor-cutout,
+.hero-exam-team-cutout,
+.sliderImg,
+.cutoutGraphics {
+  height: auto;
+  max-height: 520px;
+  width: 100%;
+  max-width: 860px;
+  object-fit: contain;
+  object-position: bottom right;
+  pointer-events: none;
+  user-select: none;
+
+  /* Razor-sharp high contrast depth shadow without edge blur */
+  filter: drop-shadow(0 16px 32px rgba(0, 0, 0, 0.75));
+  mix-blend-mode: normal;
+
+  margin-bottom: 0;
+  transform: none;
+  transition: opacity 0.35s ease, transform 0.35s ease;
+  position: relative;
+  z-index: 10;
+}
+
+/* 3D Career Roadmap Graphic (Slide 2) */
+.hero-roadmap-graphic {
+  height: auto;
+  max-height: 480px;
+  width: 100%;
+  max-width: 620px;
+  object-fit: contain;
+  object-position: center;
+  align-self: center;
+  margin: auto auto 28px;
+  pointer-events: none;
+  user-select: none;
+  filter: drop-shadow(0 18px 36px rgba(14, 165, 233, 0.35));
+  mix-blend-mode: normal;
+  transition: opacity 0.35s ease, transform 0.35s ease;
+  position: relative;
+  z-index: 10;
+}
+
+/* Enterprise Hardware Lab Card (Slide 3) - Decreased size by 25% with razor sharp clarity */
+.hero-hardware-card-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 720px;
+  height: 435px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  margin: auto 0 0 auto;
+}
+
+.hero-hardware-card-frame {
+  position: relative;
+  width: 100%;
+  max-width: 720px;
+  height: 435px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  overflow: visible;
+}
+
+.hero-hardware-img {
+  width: auto;
+  max-width: 100%;
+  height: 100%;
+  max-height: 435px;
+  object-fit: contain;
+  object-position: bottom right;
+  filter: drop-shadow(0 16px 32px rgba(0, 0, 0, 0.75));
+  mix-blend-mode: normal;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  z-index: 10;
+}
+
+.hero-hardware-card-frame:hover .hero-hardware-img {
+  transform: scale(1.02);
+}
+
+/* Floating Glassmorphism Status Badge ('Active Batch / Live Labs') */
+.hero-floating-status-badge,
+.floatingBadgeCard,
+.miniInfoCard {
+  position: absolute;
+  bottom: 24px;
+  right: 20px;
+  padding: 13px 18px;
+  border-radius: 14px;
+  background-color: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(12px) saturate(130%);
+  -webkit-backdrop-filter: blur(12px) saturate(130%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.5);
+  color: #ffffff;
+  pointer-events: none;
+  z-index: 20;
+  min-width: 210px;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  animation: heroBadgeBobbing 4.5s ease-in-out infinite;
+  will-change: transform;
+}
+
+@keyframes heroBadgeBobbing {
+
+  0%,
+  100% {
+    transform: translateY(-4px);
+  }
+
+  50% {
+    transform: translateY(4px);
+  }
+}
+
+.hero-floating-badge-header {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.hero-floating-pulse-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  box-shadow: 0 0 10px currentColor;
+  animation: heroDotPulse 2s ease-in-out infinite;
+  flex-shrink: 0;
+}
+
+@keyframes heroDotPulse {
+
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.4;
+    transform: scale(0.85);
+  }
+}
+
+.hero-floating-tag {
+  font-size: 10px;
+  font-weight: 800;
+  color: #94A3B8;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.hero-floating-title,
+.miniInfoCardTitle {
+  font-size: 14px;
+  font-weight: 700;
+  color: #f8fafc;
+  margin-top: 3px;
+  letter-spacing: -0.01em;
+}
+
+.miniInfoCardSubtext {
+  color: #94a3b8;
+}
+
+.hero-floating-pill {
+  margin-top: 8px;
+  font-size: 10.5px;
+  font-weight: 700;
+  color: #38bdf8;
+  background: rgba(0, 102, 255, 0.14);
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  padding: 3px 9px;
+  border-radius: 6px;
+  width: max-content;
+  letter-spacing: 0.04em;
+}
+
+/* ==========================================================================
+   5. NAVIGATION CONTROLS (FROSTED SIDE CHEVRONS & PILL PAGINATION)
+   ========================================================================= */
+
+/* Frosted Semi-Transparent Edge Chevrons */
+.hero-nav-arrow,
+.sliderNavBtn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: rgba(15, 23, 42, 0.7);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  z-index: 25;
+}
+
+.hero-nav-arrow:hover,
+.sliderNavBtn:hover {
+  background-color: #0066ff;
+  border-color: #0066ff;
+  color: #ffffff;
+  transform: translateY(-50%) scale(1.08);
+  box-shadow: 0 0 16px rgba(0, 102, 255, 0.6);
+}
+
+.hero-nav-arrow:active,
+.sliderNavBtn:active {
+  transform: translateY(-50%) scale(0.96);
+}
+
+.hero-nav-arrow.prev {
+  left: 24px;
+}
+
+.hero-nav-arrow.next {
+  right: 24px;
+}
+
+/* Bottom Center Pill Pagination Indicators */
+.hero-pagination {
+  position: absolute;
+  bottom: 22px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  z-index: 25;
+}
+
+.hero-dot-btn,
+.dotInactive {
+  background-color: rgba(255, 255, 255, 0.2);
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  border-radius: 50%;
+  width: 8px;
+  height: 8px;
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Expand touch hit-area to 32px for effortless mobile tapping */
+.hero-dot-btn::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 30px;
+  height: 30px;
+}
+
+.hero-dot-btn:hover,
+.dotInactive:hover {
+  background-color: rgba(255, 255, 255, 0.45);
+}
+
+/* Active Elongated Pill */
+.hero-dot-btn.active,
+.dotActive {
+  width: 26px;
+  height: 8px;
+  border-radius: 9999px;
+  background-color: #38bdf8;
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.6);
+}
+
+/* ==========================================================================
+   6. RESPONSIVE BREAKPOINTS (ALL DEVICES: DESKTOP, LAPTOP, TABLET, MOBILE)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   A. Large Laptops & Standard Desktops (1200px - 1439px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 1439px) {
+  .hero-slider-container {
+    max-width: 1280px;
+    padding: 28px 48px 0;
+    grid-template-columns: minmax(500px, 560px) 1fr;
+    gap: 28px;
+    min-height: 550px;
+  }
+
+  .hero-headline {
+    font-size: 46px;
+  }
+
+  .hero-subheadline {
+    font-size: 15.5px;
+  }
+
+  .hero-image-col {
+    height: 500px;
+  }
+
+  .hero-instructor-cutout,
+  .hero-exam-team-cutout {
+    max-height: 480px;
+  }
+
+  .hero-nav-arrow.prev {
+    left: 16px;
+  }
+
+  .hero-nav-arrow.next {
+    right: 16px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   B. Compact Laptops & Small Desktops (1024px - 1199px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 1199px) {
+  .hero-slider-container {
+    padding: 24px 36px 0;
+    grid-template-columns: minmax(440px, 480px) 1fr;
+    gap: 24px;
+    min-height: 520px;
+  }
+
+  .hero-headline {
+    font-size: 40px;
+    margin-bottom: 16px;
+  }
+
+  .hero-subheadline {
+    font-size: 15px;
+    margin-bottom: 22px;
+  }
+
+  .hero-content-col {
+    min-height: 420px;
+  }
+
+  .hero-image-col {
+    height: 460px;
+  }
+
+  .hero-instructor-cutout,
+  .hero-exam-team-cutout {
+    max-height: 440px;
+  }
+
+  .hero-hardware-card-wrapper {
+    max-width: 600px;
+    height: 390px;
+  }
+
+  .hero-hardware-card-frame {
+    max-width: 600px;
+    height: 390px;
+  }
+
+  /* Seamless Trust Marker Wrapping */
+  .hero-trust-marker {
+    border-left: none;
+    padding-left: 0;
+    margin-left: 0;
+    margin-top: 4px;
+  }
+
+  .hero-orbit-inner {
+    width: 440px;
+    height: 440px;
+    right: 5%;
+  }
+
+  .hero-orbit-outer {
+    width: 580px;
+    height: 580px;
+    right: 2%;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   C. Tablets Landscape (861px - 1023px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 1023px) {
+  .hero-nav-arrow {
+    width: 38px;
+    height: 38px;
+  }
+
+  .hero-nav-arrow.prev {
+    left: 12px;
+  }
+
+  .hero-nav-arrow.next {
+    right: 12px;
+  }
+
+  .hero-slider-container {
+    padding: 24px 28px 48px;
+    grid-template-columns: 1.08fr 0.92fr;
+    gap: 20px;
+    min-height: 480px;
+  }
+
+  .hero-content-col {
+    min-height: 380px;
+    padding-bottom: 0;
+  }
+
+  .hero-headline {
+    font-size: 34px;
+    line-height: 1.15;
+    margin-bottom: 14px;
+  }
+
+  .hero-subheadline {
+    font-size: 14.5px;
+    line-height: 1.5;
+    margin-bottom: 18px;
+  }
+
+  .hero-btn-primary,
+  .hero-btn-secondary {
+    padding: 11px 20px;
+    font-size: 14px;
+    min-height: 44px;
+  }
+
+  .hero-trust-marker {
+    border-left: none;
+    padding-left: 0;
+    margin-left: 0;
+  }
+
+  .hero-certified-badge-img {
+    height: 44px;
+    max-width: 76px;
+  }
+
+  .hero-image-col {
+    height: 400px;
+    justify-content: center;
+    align-items: flex-end;
+  }
+
+  .hero-instructor-cutout,
+  .hero-exam-team-cutout {
+    max-height: 380px;
+    object-position: bottom center;
+  }
+
+  .hero-hardware-card-wrapper {
+    max-width: 510px;
+    height: 345px;
+    margin: auto;
+  }
+
+  .hero-hardware-card-frame {
+    max-width: 510px;
+    height: 340px;
+  }
+
+  .hero-floating-status-badge {
+    bottom: 12px;
+    right: 12px;
+    padding: 10px 14px;
+    min-width: 180px;
+  }
+
+  .hero-floating-title {
+    font-size: 13px;
+  }
+
+  .hero-pagination {
+    bottom: 16px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   D. Tablets Portrait & Large Mobile Screens (600px - 860px)
+   Transition to high-impact centered presentation
+   -------------------------------------------------------------------------- */
+@media (max-width: 860px) {
+  .hero-slider-section {
+    min-height: auto;
+  }
+
+  .hero-slider-container {
+    grid-template-columns: 1fr;
+    padding: 24px 20px 48px;
+    gap: 16px;
+    text-align: center;
+    min-height: auto;
+  }
+
+  .hero-content-col {
+    align-items: center;
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+    padding-bottom: 0;
+    min-height: auto;
+  }
+
+  /* Natural sentence wrapping on mobile/tablet */
+  .hero-headline br,
+  .hero-headline .hero-br-desktop {
+    display: none;
+  }
+
+  .hero-headline {
+    font-size: 30px;
+    line-height: 1.18;
+    margin-bottom: 12px;
+  }
+
+  .hero-subheadline {
+    font-size: 14.5px;
+    line-height: 1.5;
+    margin: 0 auto 18px;
+    max-width: 480px;
+  }
+
+  .hero-cta-row {
+    justify-content: center;
+    gap: 12px;
+  }
+
+  .hero-trust-checkpoints {
+    justify-content: center;
+    gap: 14px;
+    margin-top: 12px;
+  }
+
+  .hero-image-col {
+    height: 310px;
+    justify-content: center;
+    align-items: flex-end;
+    margin: 4px auto 0;
+    width: 100%;
+  }
+
+  .hero-instructor-cutout,
+  .hero-exam-team-cutout {
+    max-height: 300px;
+    width: auto;
+    max-width: 95%;
+    object-position: bottom center;
+  }
+
+  .hero-roadmap-graphic {
+    max-height: 300px;
+    max-width: 90%;
+  }
+
+  .hero-hardware-card-wrapper {
+    max-width: 390px;
+    height: 260px;
+    margin: 0 auto;
+  }
+
+  .hero-hardware-card-frame {
+    width: 96%;
+    max-width: 380px;
+    height: 255px;
+  }
+
+  .hero-floating-status-badge {
+    bottom: 8px;
+    right: 14px;
+    padding: 9px 13px;
+    min-width: 165px;
+  }
+
+  .hero-radial-glow {
+    right: 50%;
+    top: 68%;
+    transform: translate(50%, -50%);
+    width: 340px;
+    height: 340px;
+  }
+
+  .hero-orbit-inner {
+    right: 50%;
+    top: 68%;
+    transform: translate(50%, -50%);
+    width: 300px;
+    height: 300px;
+  }
+
+  .hero-orbit-outer {
+    display: none;
+    /* Hide outer ring on mobile for performance and clarity */
+  }
+
+  .hero-bg-curves {
+    width: 60%;
+    opacity: 0.35;
+  }
+
+  .hero-bg-grid {
+    width: 120px;
+    height: 120px;
+    opacity: 0.25;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   E. Standard Mobile Phones (381px - 599px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 599px) {
+  .hero-slider-container {
+    padding: 18px 16px 46px;
+    gap: 14px;
+  }
+
+  .hero-badge {
+    font-size: 10px;
+    padding: 4.5px 11px;
+    margin-bottom: 12px;
+  }
+
+  .hero-headline {
+    font-size: 26px;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    margin-bottom: 10px;
+  }
+
+  .hero-subheadline {
+    font-size: 13.5px;
+    line-height: 1.45;
+    margin-bottom: 16px;
+    max-width: 400px;
+  }
+
+  .hero-cta-row {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+  }
+
+  .hero-btn-primary,
+  .hero-btn-secondary {
+    flex: 1 1 140px;
+    min-height: 44px;
+    padding: 10px 14px;
+    font-size: 13px;
+  }
+
+  .hero-trust-marker {
+    width: 100%;
+    justify-content: center;
+    margin-top: 6px;
+  }
+
+  .hero-certified-badge-img {
+    height: 40px;
+    max-width: 70px;
+  }
+
+  .hero-trust-checkpoints {
+    gap: 8px 12px;
+    margin-top: 10px;
+  }
+
+  .hero-trust-check-item {
+    font-size: 12px;
+  }
+
+  .hero-image-col {
+    height: 270px;
+  }
+
+  .hero-instructor-cutout,
+  .hero-exam-team-cutout {
+    max-height: 260px;
+    max-width: 98%;
+  }
+
+  .hero-roadmap-graphic {
+    max-height: 250px;
+  }
+
+  .hero-hardware-card-wrapper {
+    height: 190px;
+  }
+
+  .hero-hardware-card-frame {
+    height: 175px;
+  }
+
+  .hero-floating-status-badge {
+    bottom: 6px;
+    right: 8px;
+    padding: 7px 11px;
+    min-width: 150px;
+    border-radius: 12px;
+  }
+
+  .hero-floating-tag {
+    font-size: 9px;
+  }
+
+  .hero-floating-title {
+    font-size: 12px;
+  }
+
+  .hero-floating-pill {
+    font-size: 9px;
+    padding: 2px 7px;
+    margin-top: 4px;
+  }
+
+  .hero-pagination {
+    bottom: 14px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   F. Compact & Ultra-Small Mobile Phones (<= 380px, e.g. iPhone SE, Fold)
+   -------------------------------------------------------------------------- */
+@media (max-width: 380px) {
+  .hero-slider-container {
+    padding: 14px 12px 42px;
+    gap: 12px;
+  }
+
+  .hero-badge {
+    font-size: 9.5px;
+    padding: 3.5px 9px;
+    margin-bottom: 8px;
+  }
+
+  .hero-headline {
+    font-size: 22px;
+    line-height: 1.22;
+    margin-bottom: 8px;
+  }
+
+  .hero-subheadline {
+    font-size: 12.5px;
+    line-height: 1.4;
+    margin-bottom: 14px;
+  }
+
+  /* Full-width vertical stack on narrowest mobile screens for comfortable thumb reach */
+  .hero-cta-row {
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+  }
+
+  .hero-btn-primary,
+  .hero-btn-secondary {
+    width: 100%;
+    min-height: 44px;
+    padding: 10px 12px;
+    font-size: 12.5px;
+  }
+
+  .hero-trust-checkpoints {
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .hero-trust-check-item {
+    font-size: 11.5px;
+  }
+
+  .hero-image-col {
+    height: 230px;
+  }
+
+  .hero-instructor-cutout,
+  .hero-exam-team-cutout,
+  .hero-roadmap-graphic {
+    max-height: 220px;
+  }
+
+  .hero-hardware-card-wrapper {
+    height: 160px;
+  }
+
+  .hero-hardware-card-frame {
+    height: 150px;
+  }
+
+  .hero-floating-status-badge {
+    bottom: 4px;
+    right: 4px;
+    padding: 6px 9px;
+    min-width: 135px;
+  }
+
+  .hero-floating-title {
+    font-size: 11px;
+  }
+
+  .hero-pagination {
+    bottom: 10px;
+  }
+}

@@ -1,0 +1,399 @@
+/* ==========================================================================
+   I-MEDITA ELITE FACULTY (DEEP TECH DARK SLATE SPECIFICATION)
+   Matching Hero Section Aesthetic | Obsidian Slate (#0b0f19) | Cybernetic Blueprint
+   ========================================================================== */
+
+.trainersSection {
+  position: relative;
+  width: 100%;
+  background-color: #0b0f19; /* Deep Obsidian Slate matching Hero Section */
+  background-image: 
+    radial-gradient(circle at 80% 20%, rgba(0, 102, 255, 0.16) 0%, transparent 45%),
+    radial-gradient(circle at 15% 75%, rgba(14, 165, 233, 0.09) 0%, transparent 40%),
+    radial-gradient(circle at 50% 50%, rgba(30, 64, 175, 0.06) 0%, transparent 65%);
+  padding: 5.5rem 1.5rem 12rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  color: #94a3b8;
+}
+
+@media (min-width: 768px) {
+  .trainersSection {
+    padding: 7rem 2rem 14rem;
+  }
+}
+
+/* Full 40px Cybernetic Blueprint Grid Overlay */
+.trainersSection::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(56, 189, 248, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(56, 189, 248, 0.04) 1px, transparent 1px);
+  mask-image: radial-gradient(circle at center, rgba(0, 0, 0, 1) 40%, rgba(0, 0, 0, 0.25) 100%);
+  -webkit-mask-image: radial-gradient(circle at center, rgba(0, 0, 0, 1) 40%, rgba(0, 0, 0, 0.25) 100%);
+}
+
+/* Ambient Radial Glow Pulse Animation */
+.ambientGlow {
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 680px;
+  height: 680px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0, 102, 255, 0.14) 0%, rgba(56, 189, 248, 0.05) 50%, transparent 75%);
+  filter: blur(65px);
+  pointer-events: none;
+  z-index: 1;
+  animation: ambientBreathing 12s ease-in-out infinite alternate;
+}
+
+@keyframes ambientBreathing {
+  0% {
+    transform: translate(-50%, -50%) scale(0.92);
+    opacity: 0.65;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1.08);
+    opacity: 1;
+  }
+}
+
+/* Concentric Orbit Ring in Background */
+.orbitRingBg {
+  position: absolute;
+  top: 28%;
+  right: 8%;
+  width: 480px;
+  height: 480px;
+  border-radius: 50%;
+  border: 1px dashed rgba(56, 189, 248, 0.15);
+  pointer-events: none;
+  z-index: 1;
+  animation: orbitRotate 50s linear infinite;
+}
+
+@keyframes orbitRotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.sectionContainer {
+  position: relative;
+  max-width: 896px; /* Strict 4xl dossier track */
+  margin: 0 auto;
+  z-index: 10;
+}
+
+/* Header */
+.headerBlock {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto 4rem;
+}
+
+.eyebrowBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.4rem 1.15rem;
+  border-radius: 9999px;
+  background-color: rgba(0, 102, 255, 0.14);
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  color: #38bdf8;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 1.25rem;
+  box-shadow: 0 0 16px rgba(0, 102, 255, 0.2);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.badgeIcon {
+  color: #38bdf8;
+}
+
+.sectionHeading {
+  font-size: clamp(1.85rem, 3.5vw, 2.6rem);
+  font-weight: 850;
+  color: #ffffff; /* Crisp pure white */
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+  margin: 0 0 1rem;
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.6);
+}
+
+.gradientHighlight {
+  display: inline;
+  color: #38bdf8;
+  background: linear-gradient(135deg, #60a5fa 0%, #38bdf8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 20px rgba(56, 189, 248, 0.4));
+}
+
+.sectionSubtext {
+  font-size: 1rem;
+  color: #94a3b8; /* Balanced slate gray */
+  line-height: 1.65;
+  margin: 0 auto;
+  max-width: 620px;
+}
+
+/* Sticky Stack Track for 11 Trainers */
+.cardsTrack {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.cardItem {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 96px;
+  padding-top: calc(var(--stack-index, 0) * 14px);
+  z-index: calc(var(--stack-index, 0) + 1);
+  will-change: transform;
+}
+
+/* Glassmorphic Card Surface */
+.cardSurface {
+  position: relative;
+  background-color: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(16px) saturate(130%);
+  -webkit-backdrop-filter: blur(16px) saturate(130%);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 1.75rem;
+  padding: 2.25rem;
+  box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.85), 0 0 35px rgba(0, 102, 255, 0.10);
+  transition: transform 300ms cubic-bezier(0.16, 1, 0.3, 1), 
+              box-shadow 300ms cubic-bezier(0.16, 1, 0.3, 1), 
+              border-color 300ms cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+}
+
+.cardSurface::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(56, 189, 248, 0.4) 50%, transparent 100%);
+  opacity: 0.7;
+}
+
+.cardSurface:hover {
+  transform: translateY(-4px);
+  border-color: rgba(56, 189, 248, 0.5);
+  box-shadow: 0 35px 80px -10px rgba(0, 0, 0, 0.95), 0 0 50px rgba(0, 102, 255, 0.25);
+}
+
+@media (min-width: 768px) {
+  .cardSurface {
+    padding: 2.75rem 3rem;
+  }
+}
+
+.cardGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .cardGrid {
+    grid-template-columns: 7fr 5fr;
+    gap: 2.5rem;
+  }
+}
+
+/* Left Content Column */
+.colLeft {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+}
+
+.badgesRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.65rem;
+  margin-bottom: 1.25rem;
+}
+
+.badgeTriple {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.35rem 0.85rem;
+  border-radius: 9999px;
+  background-color: rgba(245, 158, 11, 0.15);
+  border: 1px solid rgba(245, 158, 11, 0.45);
+  color: #fbbf24;
+  font-size: 0.75rem;
+  font-weight: 700;
+  box-shadow: 0 0 12px rgba(245, 158, 11, 0.25);
+}
+
+.badgeExpert {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.35rem 0.85rem;
+  border-radius: 9999px;
+  background-color: rgba(0, 102, 255, 0.15);
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  color: #38bdf8;
+  font-size: 0.75rem;
+  font-weight: 700;
+  box-shadow: 0 0 12px rgba(0, 102, 255, 0.25);
+}
+
+.badgeExp {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.35rem 0.85rem;
+  border-radius: 9999px;
+  background-color: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #cbd5e1;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.trainerName {
+  font-size: clamp(1.45rem, 2.3vw, 1.95rem);
+  font-weight: 850;
+  color: #ffffff; /* Pure white */
+  letter-spacing: -0.02em;
+  margin: 0 0 0.35rem;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.credentials {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #38bdf8; /* Vivid cyan */
+  margin: 0 0 0.85rem;
+  letter-spacing: 0.01em;
+}
+
+.specializationBox {
+  margin-bottom: 1.15rem;
+}
+
+.specializationTag {
+  display: inline-block;
+  font-size: 0.775rem;
+  font-weight: 700;
+  color: #7dd3fc;
+  background-color: rgba(0, 102, 255, 0.12);
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  padding: 0.35rem 0.75rem;
+  border-radius: 0.5rem;
+  letter-spacing: 0.02em;
+}
+
+.bioText {
+  font-size: 0.875rem;
+  color: #94a3b8;
+  line-height: 1.65;
+  margin: 0 0 1.5rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.ctaWrapper {
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.profileLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: #38bdf8;
+  text-decoration: none;
+  transition: all 180ms ease;
+}
+
+.profileLink:hover {
+  color: #ffffff;
+  transform: translateX(2px);
+}
+
+.arrowIcon {
+  color: #38bdf8;
+  transition: transform 180ms ease;
+}
+
+.profileLink:hover .arrowIcon {
+  color: #ffffff;
+  transform: translate(2px, -2px);
+}
+
+/* Right Portrait Column */
+.colRight {
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.portraitContainer {
+  position: relative;
+  width: 100%;
+  max-width: 270px;
+  aspect-ratio: 4 / 5;
+  border-radius: 1.25rem;
+  overflow: hidden;
+  background: 
+    radial-gradient(circle at 50% 30%, rgba(0, 102, 255, 0.3) 0%, transparent 70%),
+    #050814;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.7);
+  transition: border-color 300ms ease, box-shadow 300ms ease;
+}
+
+.cardSurface:hover .portraitContainer {
+  border-color: rgba(56, 189, 248, 0.45);
+  box-shadow: 0 20px 45px rgba(0, 102, 255, 0.25);
+}
+
+.portraitImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  display: block;
+  filter: contrast(1.04) saturate(1.05);
+  transition: transform 400ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cardSurface:hover .portraitImg {
+  transform: scale(1.04);
+}

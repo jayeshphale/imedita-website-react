@@ -1,0 +1,251 @@
+/* ==========================================================================
+   AUTHORIZED VENDOR & CERTIFICATION PARTNERS SECTION
+   Strictly Zero Emojis | 100% SVG Vectors | Razorpay SaaS Light Aesthetic
+   ========================================================================== */
+
+.partners-section {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  background-color: #FAFCFE;
+  padding: 80px 0 96px;
+  border-bottom: 1px solid #E2E8F0;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.partners-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+  box-sizing: border-box;
+}
+
+/* ==========================================================================
+   1. SECTION HEADER
+   ========================================================================== */
+
+.partners-header {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 52px;
+}
+
+.partners-pill-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #0066FF;
+  background-color: #EFF6FF;
+  border: 1px solid #DBEAFE;
+  padding: 5px 14px;
+  border-radius: 9999px;
+  margin-bottom: 12px;
+  box-shadow: 0 1px 2px rgba(0, 102, 255, 0.04);
+}
+
+.partners-title {
+  font-family: var(--font-sans, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif);
+  font-size: 36px;
+  font-weight: 800;
+  color: #0F172A;
+  letter-spacing: -0.026em;
+  margin: 0 0 12px 0;
+  line-height: 1.22;
+}
+
+.partners-subtitle {
+  font-size: 15px;
+  color: #64748B;
+  font-weight: 400;
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* ==========================================================================
+   2. 8-PARTNER BALANCED GRID (4 Desktop, 3 Tablet, 2 Mobile)
+   ========================================================================== */
+
+.partners-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.partner-card {
+  position: relative;
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 20px;
+  padding: 26px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.03);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-sizing: border-box;
+  cursor: default;
+}
+
+.partner-card:hover {
+  transform: translateY(-3px);
+  border-color: #BFDBFE;
+  box-shadow: 0 16px 36px rgba(0, 102, 255, 0.08), 0 2px 6px rgba(15, 23, 42, 0.03);
+}
+
+.partner-img-box {
+  width: 100%;
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  margin-bottom: 14px;
+  box-sizing: border-box;
+}
+
+.partner-badge-img {
+  max-height: 76px;
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  filter: grayscale(100%);
+  opacity: 0.72;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.partner-card:hover .partner-badge-img {
+  filter: grayscale(0%);
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+.partner-name {
+  font-size: 12.5px;
+  font-weight: 750;
+  color: #334155;
+  margin: 0;
+  letter-spacing: -0.01em;
+  line-height: 1.35;
+  transition: color 0.2s ease;
+}
+
+.partner-card:hover .partner-name {
+  color: #0F172A;
+}
+
+/* ==========================================================================
+   3. RESPONSIVE BREAKPOINTS
+   ========================================================================== */
+
+/* Laptops (992px - 1180px) */
+@media (max-width: 1180px) {
+  .partners-container {
+    padding: 0 20px;
+  }
+
+  .partners-grid {
+    gap: 20px;
+  }
+}
+
+/* Tablets Portrait (768px - 991px) */
+@media (max-width: 991px) {
+  .partners-section {
+    padding: 64px 0 76px;
+  }
+
+  .partners-header {
+    margin-bottom: 38px;
+  }
+
+  .partners-title {
+    font-size: 30px;
+  }
+
+  .partners-subtitle {
+    font-size: 14px;
+  }
+
+  .partners-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+  }
+
+  .partner-card {
+    padding: 22px 16px;
+  }
+
+  .partner-img-box {
+    height: 80px;
+  }
+
+  .partner-badge-img {
+    max-height: 68px;
+  }
+}
+
+/* Mobile Phones (<= 767px) */
+@media (max-width: 767px) {
+  .partners-section {
+    padding: 48px 0 60px;
+  }
+
+  .partners-container {
+    padding: 0 16px;
+  }
+
+  .partners-header {
+    margin-bottom: 28px;
+  }
+
+  .partners-pill-badge {
+    font-size: 10px;
+    padding: 4px 11px;
+    letter-spacing: 0.16em;
+  }
+
+  .partners-title {
+    font-size: 24px;
+    letter-spacing: -0.02em;
+    margin-bottom: 8px;
+  }
+
+  .partners-subtitle {
+    font-size: 13px;
+    line-height: 1.45;
+  }
+
+  .partners-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+
+  .partner-card {
+    padding: 18px 12px;
+    border-radius: 16px;
+  }
+
+  .partner-img-box {
+    height: 68px;
+    margin-bottom: 10px;
+  }
+
+  .partner-badge-img {
+    max-height: 54px;
+  }
+
+  .partner-name {
+    font-size: 11.5px;
+  }
+}
+

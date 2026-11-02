@@ -1,0 +1,395 @@
+/* ==========================================================================
+   UPCOMING LIVE BATCHES & EVENT SCHEDULES SECTION
+   Strictly Zero Emojis | 100% SVG Vectors | Razorpay SaaS Light Aesthetic
+   ========================================================================== */
+
+.batches-section {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  background-color: #FAFCFE;
+  padding: 80px 0 96px;
+  border-bottom: 1px solid #E2E8F0;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.batches-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+  box-sizing: border-box;
+}
+
+/* ==========================================================================
+   1. SECTION HEADER
+   ========================================================================== */
+
+.batches-header {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto 36px;
+}
+
+.batches-pill-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #0066FF;
+  background-color: #EFF6FF;
+  border: 1px solid #DBEAFE;
+  padding: 5px 14px;
+  border-radius: 9999px;
+  margin-bottom: 12px;
+  box-shadow: 0 1px 2px rgba(0, 102, 255, 0.04);
+}
+
+.batches-title {
+  font-family: var(--font-sans, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif);
+  font-size: 36px;
+  font-weight: 800;
+  color: #0F172A;
+  letter-spacing: -0.026em;
+  margin: 0 0 12px 0;
+  line-height: 1.22;
+}
+
+.batches-subtitle {
+  font-size: 15px;
+  color: #64748B;
+  font-weight: 400;
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* ==========================================================================
+   2. FILTER TABS (UNCLUTTERED PILLS)
+   ========================================================================== */
+
+.batches-filter-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin: 0 auto 34px;
+  max-width: 800px;
+}
+
+.batches-filter-btn {
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 7px 16px;
+  border-radius: 9999px;
+  border: 1px solid #E2E8F0;
+  background-color: #FFFFFF;
+  color: #475569;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  white-space: nowrap;
+  user-select: none;
+}
+
+.batches-filter-btn:hover {
+  background-color: #F1F5F9;
+  color: #0F172A;
+  border-color: #CBD5E1;
+}
+
+.batches-filter-btn.active {
+  background-color: #0066FF;
+  color: #FFFFFF;
+  border-color: #0066FF;
+  font-weight: 700;
+  box-shadow: 0 2px 8px rgba(0, 102, 255, 0.25);
+}
+
+.batches-filter-btn.active:hover {
+  background-color: #0052CC;
+  border-color: #0052CC;
+  color: #FFFFFF;
+}
+
+/* ==========================================================================
+   3. TABLE CONTAINER (WHITE PANEL WITH ROUNDED CORNERS)
+   ========================================================================== */
+
+.batches-table-wrapper {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 20px;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.03);
+  overflow: hidden;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Desktop Table View */
+.batches-desktop-view {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.batches-table {
+  width: 100%;
+  text-align: left;
+  border-collapse: collapse;
+  font-family: inherit;
+}
+
+.batches-table thead tr {
+  background-color: #F8FAFC;
+  border-bottom: 1px solid #E2E8F0;
+}
+
+.batches-table th {
+  padding: 16px 24px;
+  font-size: 11px;
+  font-weight: 750;
+  color: #64748B;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+}
+
+.batches-table th.th-action {
+  text-align: right;
+}
+
+.batches-table tbody tr {
+  border-bottom: 1px solid #F1F5F9;
+  transition: background-color 0.18s ease;
+}
+
+.batches-table tbody tr:hover {
+  background-color: rgba(248, 250, 252, 0.85);
+}
+
+.batches-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.batches-table td {
+  padding: 18px 24px;
+  font-size: 13.5px;
+  color: #334155;
+  vertical-align: middle;
+}
+
+.batch-course-name {
+  font-weight: 750;
+  color: #0F172A;
+  transition: color 0.2s ease;
+  white-space: nowrap;
+}
+
+.batches-table tbody tr:hover .batch-course-name {
+  color: #0066FF;
+}
+
+.batch-cell-flex {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: #475569;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.batch-cell-icon {
+  color: #94A3B8;
+  flex-shrink: 0;
+}
+
+.batch-status-badge {
+  display: inline-flex;
+  font-size: 10.5px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 3px 10px;
+  border-radius: 9999px;
+  color: #047857;
+  background-color: #ECFDF5;
+  border: 1px solid #A7F3D0;
+  white-space: nowrap;
+}
+
+.batch-action-cell {
+  text-align: right;
+  white-space: nowrap;
+}
+
+.batch-enroll-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background-color: #0066FF;
+  color: #FFFFFF;
+  font-size: 12.5px;
+  font-weight: 650;
+  padding: 8px 16px;
+  border-radius: 9px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 1px 3px rgba(0, 102, 255, 0.18);
+  user-select: none;
+}
+
+.batch-enroll-btn:hover {
+  background-color: #0052CC;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 102, 255, 0.28);
+}
+
+.batch-enroll-btn:active {
+  transform: translateY(0);
+}
+
+.batch-enroll-arrow {
+  transition: transform 0.2s ease;
+}
+
+.batch-enroll-btn:hover .batch-enroll-arrow {
+  transform: translateX(3px);
+}
+
+/* ==========================================================================
+   4. MOBILE CARD STACK VIEW (<= 767px)
+   ========================================================================== */
+
+.batches-mobile-view {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  .batches-desktop-view {
+    display: none;
+  }
+
+  .batches-mobile-view {
+    display: block;
+    divide-y: 1px solid #F1F5F9;
+  }
+
+  .batches-mobile-card {
+    padding: 20px 18px;
+    border-bottom: 1px solid #F1F5F9;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    box-sizing: border-box;
+  }
+
+  .batches-mobile-card:last-child {
+    border-bottom: none;
+  }
+
+  .batches-mobile-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 10px;
+  }
+
+  .batches-mobile-title {
+    font-size: 15.5px;
+    font-weight: 750;
+    color: #0F172A;
+    margin: 0;
+    line-height: 1.3;
+  }
+
+  .batches-mobile-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    font-size: 12.5px;
+    color: #64748B;
+  }
+
+  .batches-mobile-btn {
+    width: 100%;
+    justify-content: center;
+    padding: 10px 16px;
+    font-size: 13px;
+    margin-top: 4px;
+  }
+}
+
+/* ==========================================================================
+   5. RESPONSIVE BREAKPOINTS (TABLETS & LAPTOPS)
+   ========================================================================== */
+
+@media (max-width: 991px) {
+  .batches-section {
+    padding: 64px 0 76px;
+  }
+
+  .batches-title {
+    font-size: 30px;
+  }
+
+  .batches-subtitle {
+    font-size: 14px;
+  }
+
+  .batches-table th,
+  .batches-table td {
+    padding: 14px 18px;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 767px) {
+  .batches-section {
+    padding: 48px 0 60px;
+  }
+
+  .batches-container {
+    padding: 0 16px;
+  }
+
+  .batches-header {
+    margin-bottom: 24px;
+  }
+
+  .batches-pill-badge {
+    font-size: 10px;
+    padding: 4px 11px;
+    letter-spacing: 0.16em;
+  }
+
+  .batches-title {
+    font-size: 24px;
+    letter-spacing: -0.02em;
+    margin-bottom: 8px;
+  }
+
+  .batches-subtitle {
+    font-size: 13px;
+    line-height: 1.45;
+  }
+
+  .batches-filter-bar {
+    justify-content: flex-start;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    padding-bottom: 6px;
+    margin-bottom: 20px;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .batches-filter-btn {
+    font-size: 12px;
+    padding: 6.5px 14px;
+    flex-shrink: 0;
+  }
+}
+

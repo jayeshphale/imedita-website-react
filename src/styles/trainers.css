@@ -1,0 +1,376 @@
+/* ==========================================================================
+   PURE CSS SCROLL-DRIVEN STACKING CARDS FOR TRAINERS SECTION
+   Sticky Stack Deck | Minimalist SaaS Style | Lucide SVGs Only
+   Strictly Zero Emojis | 100% SVG Vector Icons
+   ========================================================================== */
+
+.trainers-stack-section {
+  position: relative;
+  width: 100%;
+  background-color: #FAFCFE;
+  padding: 88px 0 140px;
+  border-bottom: 1px solid #E2E8F0;
+  box-sizing: border-box;
+}
+
+.trainers-stack-container {
+  width: 100%;
+  max-width: 896px; /* max-w-4xl */
+  margin: 0 auto;
+  padding: 0 16px;
+  box-sizing: border-box;
+}
+
+/* ==========================================================================
+   1. SECTION INTRO HEADER
+   ========================================================================== */
+
+.trainers-stack-section .section-header {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 52px;
+}
+
+.trainers-stack-section .section-header .trainers-pill-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border-radius: 9999px;
+  background-color: #EFF6FF;
+  border: 1px solid #DBEAFE;
+  color: #0066FF;
+  font-size: 11.5px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  box-shadow: 0 1px 2px rgba(0, 102, 255, 0.05);
+}
+
+.trainers-stack-section .section-header h2 {
+  font-size: clamp(28px, 4vw, 42px);
+  font-weight: 800;
+  color: #0F172A;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+  margin: 0 0 16px 0;
+}
+
+.trainers-stack-section .section-header h2 span {
+  color: #0066FF;
+}
+
+.trainers-stack-section .section-header p {
+  font-size: 16px;
+  color: #64748B;
+  font-weight: 400;
+  line-height: 1.6;
+  max-width: 620px;
+  margin: 0 auto;
+}
+
+/* ==========================================================================
+   2. STICKY SCROLL DECK TRACK & PARAMETERS
+   ========================================================================== */
+
+#trainer-cards,
+.trainer-cards-track {
+  --numcards: 11;
+  --card-top-offset: 16px;
+  --card-margin: 32px;
+
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--card-margin);
+  width: 100%;
+  max-width: 896px; /* max-w-4xl */
+  margin: 0 auto;
+  padding: 0 0 calc(var(--numcards) * var(--card-top-offset));
+  list-style: none;
+  box-sizing: border-box;
+}
+
+/* Sticky Child Item */
+.trainer-card {
+  position: sticky;
+  top: 120px; /* Exact sticky viewport offset */
+  padding-top: calc(var(--index) * 16px);
+  z-index: var(--index);
+  list-style: none;
+  margin: 0;
+  box-sizing: border-box;
+  pointer-events: none; /* Passes clicks through upper transparent padding */
+}
+
+/* ==========================================================================
+   3. INDIVIDUAL TRAINER CARD CONTAINER & 2-COLUMN GRID
+   ========================================================================== */
+
+.trainer-card-content {
+  pointer-events: auto; /* Re-enables interaction on the card */
+  width: 100%;
+  max-width: 896px; /* max-w-4xl */
+  margin: 0 auto;
+  background-color: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 28px;
+  padding: 40px;
+  box-shadow: 0 20px 45px -12px rgba(15, 23, 42, 0.12), 0 8px 20px -6px rgba(0, 102, 255, 0.05);
+  transform-origin: 50% 0%;
+  will-change: transform, filter;
+  overflow: hidden;
+  box-sizing: border-box;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.trainer-card-content:hover {
+  border-color: #CBD5E1;
+  box-shadow: 0 24px 50px -12px rgba(15, 23, 42, 0.16), 0 10px 24px -6px rgba(0, 102, 255, 0.08);
+}
+
+/* 2-Column Grid inside the Card */
+.trainer-card-grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 48px;
+  align-items: center;
+  width: 100%;
+}
+
+/* Left Column (7 Cols on Desktop) */
+.trainer-col-left {
+  grid-column: span 7 / span 7;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+}
+
+/* Right Column (5 Cols on Desktop) */
+.trainer-col-right {
+  grid-column: span 5 / span 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ==========================================================================
+   4. LEFT COLUMN INTERIOR ELEMENTS & TYPOGRAPHY
+   ========================================================================== */
+
+/* Badges Row */
+.trainer-badges-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.trainer-badge-triple {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: 9999px;
+  font-size: 12px;
+  font-weight: 700;
+  background-color: #FEF3C7;
+  color: #92400E;
+  border: 1px solid #FDE68A;
+  box-shadow: 0 1px 2px rgba(146, 64, 14, 0.05);
+}
+
+.trainer-badge-exp {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: 9999px;
+  font-size: 12px;
+  font-weight: 600;
+  background-color: #F1F5F9;
+  color: #334155;
+  border: 1px solid #E2E8F0;
+}
+
+/* Trainer Name */
+.trainer-card-name {
+  font-size: clamp(24px, 2.5vw, 30px);
+  font-weight: 800;
+  color: #0F172A;
+  letter-spacing: -0.022em;
+  line-height: 1.25;
+  margin: 0;
+}
+
+/* Credentials Line */
+.trainer-card-cred {
+  font-size: 14px;
+  font-weight: 700;
+  color: #0066FF;
+  margin: 6px 0 0 0;
+  letter-spacing: -0.01em;
+}
+
+/* Specialization Tag */
+.trainer-spec-wrapper {
+  margin-top: 12px;
+}
+
+.trainer-spec-badge {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 600;
+  color: #334155;
+  background-color: #F1F5F9;
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  padding: 4px 12px;
+  border-radius: 6px;
+}
+
+/* Bio Paragraph */
+.trainer-card-bio {
+  font-size: 14px;
+  color: #64748B;
+  font-weight: 400;
+  line-height: 1.6;
+  margin: 16px 0 0 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* CTA Footer & Link */
+.trainer-card-cta {
+  margin-top: 24px;
+  padding-top: 16px;
+  border-top: 1px solid #F1F5F9;
+}
+
+.trainer-cta-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #0066FF;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.trainer-cta-link:hover {
+  color: #1D4ED8;
+}
+
+.trainer-cta-link svg {
+  transition: transform 0.2s ease;
+}
+
+.trainer-cta-link:hover svg {
+  transform: translate(2px, -2px);
+}
+
+/* ==========================================================================
+   5. RIGHT COLUMN PORTRAIT DOSSIER
+   ========================================================================== */
+
+.trainer-portrait-box {
+  width: 100%;
+  max-width: 280px;
+  aspect-ratio: 4 / 5;
+  border-radius: 16px;
+  overflow: hidden;
+  background-color: #F8FAFC;
+  border: 1px solid #F1F5F9;
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.05);
+  margin: 0 auto;
+  position: relative;
+}
+
+.trainer-portrait-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top; /* Guaranteed: faces are never cropped from the top */
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.trainer-portrait-box:hover .trainer-portrait-img {
+  transform: scale(1.04);
+}
+
+/* ==========================================================================
+   6. SCROLL-DRIVEN SCALE ANIMATION (CSS view-timeline)
+   ========================================================================== */
+
+@supports (animation-timeline: view()) {
+  @keyframes scaleDownCard {
+    to {
+      transform: scale(calc(1 - (0.015 * var(--reverse-index, 1))));
+      filter: brightness(0.97);
+    }
+  }
+
+  .trainer-card {
+    view-timeline-name: --card-view;
+    view-timeline-axis: block;
+  }
+
+  .trainer-card-content {
+    animation: linear scaleDownCard;
+    animation-timeline: --card-view;
+    animation-range: exit 0% exit 100%;
+  }
+}
+
+/* ==========================================================================
+   7. RESPONSIVE BREAKPOINTS (Mobile & Tablet)
+   ========================================================================== */
+
+@media (min-width: 768px) {
+  .trainer-card-content {
+    padding: 48px;
+    border-radius: 28px;
+  }
+}
+
+@media (max-width: 767px) {
+  .trainers-stack-section {
+    padding: 56px 0 80px;
+  }
+
+  .trainers-stack-section .section-header {
+    margin-bottom: 36px;
+  }
+
+  .trainer-card {
+    top: 86px;
+    padding-top: calc(var(--index) * 10px);
+  }
+
+  .trainer-card-content {
+    padding: 28px 20px;
+    border-radius: 20px;
+  }
+
+  .trainer-card-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .trainer-col-left {
+    grid-column: span 1 / span 1;
+  }
+
+  .trainer-col-right {
+    grid-column: span 1 / span 1;
+  }
+
+  .trainer-portrait-box {
+    max-width: 240px;
+  }
+}

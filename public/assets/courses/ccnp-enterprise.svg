@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" width="640" height="360" style="background:#0B0F19">
+  <defs>
+    <pattern id="grid_ccnp" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M 32 0 L 0 0 0 32" fill="none" stroke="rgba(255, 255, 255, 0.04)" stroke-width="1"/>
+    </pattern>
+    <linearGradient id="grad_ccnp" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0066FF" stop-opacity="0.14"/>
+      <stop offset="60%" stop-color="#0B0F19" stop-opacity="0.0"/>
+    </linearGradient>
+    <filter id="glow_ccnp" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <!-- Background Grid & Gradient -->
+  <rect width="640" height="360" fill="url(#grid_ccnp)"/>
+  <rect width="640" height="360" fill="url(#grad_ccnp)"/>
+  
+  <!-- Subtle Border Guides -->
+  <line x1="0" y1="0" x2="640" y2="0" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+  <line x1="0" y1="359" x2="640" y2="359" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+
+  <!-- Top Right Spec Capsule -->
+  <g transform="translate(440, 20)">
+    <rect width="180" height="24" rx="12" fill="rgba(15, 23, 42, 0.85)" stroke="rgba(255,255,255,0.12)"/>
+    <circle cx="16" cy="12" r="4" fill="#0066FF"/>
+    <text x="28" y="16" fill="#94A3B8" font-family="'Courier New', monospace" font-size="10" font-weight="700" letter-spacing="1">CCNP ENTERPRISE</text>
+  </g>
+
+  <!-- Architecture Specific Content -->
+  
+  <!-- Fabric Links -->
+  <path d="M 120 180 L 240 120 L 400 120 L 520 180" fill="none" stroke="#0066FF" stroke-width="2.5"/>
+  <path d="M 120 180 L 240 240 L 400 240 L 520 180" fill="none" stroke="#0284C7" stroke-width="2.5"/>
+  <line x1="240" y1="120" x2="240" y2="240" stroke="#38BDF8" stroke-width="2" stroke-dasharray="4,4"/>
+  <line x1="400" y1="120" x2="400" y2="240" stroke="#38BDF8" stroke-width="2" stroke-dasharray="4,4"/>
+
+  <!-- Left: Spine 1 -->
+  <g transform="translate(195, 85)">
+    <rect width="90" height="70" rx="8" fill="#0F172A" stroke="#0066FF" stroke-width="2"/>
+    <text x="45" y="30" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="11" font-weight="bold" text-anchor="middle">SPINE 9500-A</text>
+    <text x="45" y="46" fill="#38BDF8" font-family="'Courier New', monospace" font-size="9" text-anchor="middle">BGP AS 65001</text>
+    <circle cx="45" cy="56" r="3" fill="#10B981"/>
+  </g>
+
+  <!-- Left: Spine 2 -->
+  <g transform="translate(195, 205)">
+    <rect width="90" height="70" rx="8" fill="#0F172A" stroke="#0284C7" stroke-width="2"/>
+    <text x="45" y="30" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="11" font-weight="bold" text-anchor="middle">SPINE 9500-B</text>
+    <text x="45" y="46" fill="#38BDF8" font-family="'Courier New', monospace" font-size="9" text-anchor="middle">VSS STACK</text>
+    <circle cx="45" cy="56" r="3" fill="#10B981"/>
+  </g>
+
+  <!-- Right: Leaf 1 -->
+  <g transform="translate(355, 85)">
+    <rect width="90" height="70" rx="8" fill="#1E293B" stroke="#38BDF8" stroke-width="1.5"/>
+    <text x="45" y="30" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="11" font-weight="bold" text-anchor="middle">LEAF SWITCH</text>
+    <text x="45" y="46" fill="#94A3B8" font-family="'Courier New', monospace" font-size="9" text-anchor="middle">VRF_CORP</text>
+  </g>
+
+  <!-- Right: Leaf 2 -->
+  <g transform="translate(355, 205)">
+    <rect width="90" height="70" rx="8" fill="#1E293B" stroke="#38BDF8" stroke-width="1.5"/>
+    <text x="45" y="30" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="11" font-weight="bold" text-anchor="middle">LEAF SWITCH</text>
+    <text x="45" y="46" fill="#94A3B8" font-family="'Courier New', monospace" font-size="9" text-anchor="middle">VRF_GUEST</text>
+  </g>
+
+  <!-- Central MPLS & Segment Routing Badge -->
+  <g transform="translate(265, 160)">
+    <rect width="110" height="38" rx="6" fill="#0B0F19" stroke="#0066FF" stroke-width="1.5"/>
+    <text x="55" y="18" fill="#38BDF8" font-family="'Courier New', monospace" font-size="9" font-weight="bold" text-anchor="middle">MPLS / SRv6</text>
+    <text x="55" y="30" fill="#10B981" font-family="'Courier New', monospace" font-size="8" text-anchor="middle">L3VPN PEERING</text>
+  </g>
+
+
+  <!-- Watermark Monospace Footer -->
+  <text x="25" y="340" fill="#475569" font-family="'Courier New', monospace" font-size="10" letter-spacing="0.5">I-MEDITA DATACENTER LABS // ARCHITECTURE VERIFIED</text>
+</svg>

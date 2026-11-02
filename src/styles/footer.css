@@ -1,0 +1,319 @@
+/* ==========================================================================
+   MODERN DARK ENTERPRISE FOOTER
+   Strictly Zero Emojis | 100% SVG Vectors | Dark Slate #0B0F19 Aesthetic
+   ========================================================================== */
+
+.site-footer {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  background-color: #0B0F19;
+  color: #CBD5E1;
+  padding: 68px 0 44px;
+  border-top: 1px solid #1E293B;
+  box-sizing: border-box;
+}
+
+.footer-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+  box-sizing: border-box;
+}
+
+/* ==========================================================================
+   1. TOP NAVIGATION GRID (BRAND + COMPANY + RESOURCES + ENTERPRISE)
+   ========================================================================== */
+
+.footer-top-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 40px;
+  padding-bottom: 52px;
+  border-bottom: 1px solid rgba(30, 41, 59, 0.8);
+}
+
+/* Col 1: Brand & Mobile App Downloads */
+.footer-brand-col {
+  padding-right: 24px;
+}
+
+.footer-logo {
+  height: 38px;
+  width: auto;
+  object-fit: contain;
+  margin-bottom: 18px;
+  display: block;
+}
+
+.footer-brand-desc {
+  font-size: 13.5px;
+  color: #94A3B8;
+  line-height: 1.6;
+  margin: 0 0 22px 0;
+  max-width: 440px;
+}
+
+.footer-app-buttons {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.footer-app-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 9.5px 16px;
+  border-radius: 12px;
+  background-color: #111827;
+  border: 1px solid #334155;
+  color: #FFFFFF;
+  font-size: 12px;
+  font-weight: 650;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  user-select: none;
+}
+
+.footer-app-btn:hover {
+  border-color: #64748B;
+  background-color: #1E293B;
+  color: #FFFFFF;
+}
+
+.footer-apple-svg {
+  fill: #FFFFFF;
+  width: 15px;
+  height: 15px;
+  flex-shrink: 0;
+}
+
+/* Navigation Columns */
+.footer-col-title {
+  font-size: 11.5px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: #FFFFFF;
+  margin: 0 0 16px 0;
+}
+
+.footer-links-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-link {
+  font-size: 12.5px;
+  color: #94A3B8;
+  text-decoration: none;
+  transition: color 0.18s ease;
+  line-height: 1.45;
+}
+
+.footer-link:hover {
+  color: #FFFFFF;
+}
+
+/* ==========================================================================
+   2. MIDDLE SEO DIRECTORY SILOS
+   ========================================================================== */
+
+.footer-middle-silos {
+  padding: 44px 0;
+  border-bottom: 1px solid rgba(30, 41, 59, 0.8);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.footer-silo-block {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.footer-silo-title {
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #E2E8F0;
+  margin: 0;
+}
+
+.footer-silo-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 14px;
+}
+
+.footer-silo-link {
+  font-size: 12px;
+  color: #94A3B8;
+  text-decoration: none;
+  transition: color 0.18s ease;
+  line-height: 1.5;
+}
+
+.footer-silo-link:hover {
+  color: #0066FF;
+}
+
+.footer-silo-dot {
+  color: #334155;
+  font-size: 10px;
+  user-select: none;
+}
+
+/* ==========================================================================
+   3. BOTTOM ADDRESS, LEGAL & TRADEMARKS
+   ========================================================================== */
+
+.footer-bottom-row {
+  padding-top: 32px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 28px;
+  font-size: 12px;
+  color: #94A3B8;
+}
+
+.footer-address-block {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  max-width: 580px;
+  line-height: 1.6;
+}
+
+.footer-address-icon {
+  color: #0066FF;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.footer-legal-block {
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  max-width: 480px;
+}
+
+.footer-copyright {
+  color: #E2E8F0;
+  font-weight: 500;
+  margin: 0;
+}
+
+.footer-trademark {
+  font-size: 11px;
+  color: #64748B;
+  line-height: 1.45;
+  margin: 0;
+}
+
+/* ==========================================================================
+   4. RESPONSIVE BREAKPOINTS
+   ========================================================================== */
+
+/* Tablets (768px - 991px) */
+@media (max-width: 991px) {
+  .site-footer {
+    padding: 56px 0 38px;
+  }
+
+  .footer-top-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+  }
+
+  .footer-brand-col {
+    grid-column: span 2;
+    padding-right: 0;
+  }
+
+  .footer-bottom-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .footer-legal-block {
+    text-align: left;
+  }
+}
+
+/* Mobile Phones (<= 767px) */
+@media (max-width: 767px) {
+  .site-footer {
+    padding: 48px 0 36px;
+  }
+
+  .footer-container {
+    padding: 0 16px;
+  }
+
+  .footer-top-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding-bottom: 36px;
+  }
+
+  .footer-brand-col {
+    grid-column: auto;
+    padding-right: 0;
+  }
+
+  .footer-logo {
+    height: 34px;
+  }
+
+  .footer-brand-desc {
+    font-size: 13px;
+  }
+
+  .footer-app-buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .footer-app-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .footer-middle-silos {
+    padding: 32px 0;
+    gap: 20px;
+  }
+
+  .footer-silo-links {
+    gap: 6px 10px;
+  }
+
+  .footer-bottom-row {
+    flex-direction: column;
+    gap: 18px;
+    padding-top: 24px;
+  }
+
+  .footer-legal-block {
+    text-align: left;
+  }
+
+  .footer-address-block {
+    font-size: 11.5px;
+  }
+}
+

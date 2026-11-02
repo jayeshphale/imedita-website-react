@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" width="640" height="360" style="background:#0B0F19">
+  <defs>
+    <pattern id="grid_ciscoasa" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M 32 0 L 0 0 0 32" fill="none" stroke="rgba(255, 255, 255, 0.04)" stroke-width="1"/>
+    </pattern>
+    <linearGradient id="grad_ciscoasa" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1E40AF" stop-opacity="0.14"/>
+      <stop offset="60%" stop-color="#0B0F19" stop-opacity="0.0"/>
+    </linearGradient>
+    <filter id="glow_ciscoasa" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <!-- Background Grid & Gradient -->
+  <rect width="640" height="360" fill="url(#grid_ciscoasa)"/>
+  <rect width="640" height="360" fill="url(#grad_ciscoasa)"/>
+  
+  <!-- Subtle Border Guides -->
+  <line x1="0" y1="0" x2="640" y2="0" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+  <line x1="0" y1="359" x2="640" y2="359" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+
+  <!-- Top Right Spec Capsule -->
+  <g transform="translate(440, 20)">
+    <rect width="180" height="24" rx="12" fill="rgba(15, 23, 42, 0.85)" stroke="rgba(255,255,255,0.12)"/>
+    <circle cx="16" cy="12" r="4" fill="#1E40AF"/>
+    <text x="28" y="16" fill="#94A3B8" font-family="'Courier New', monospace" font-size="10" font-weight="700" letter-spacing="1">CISCO ASA 5500-X</text>
+  </g>
+
+  <!-- Architecture Specific Content -->
+  
+  <rect x="80" y="80" width="480" height="200" rx="8" fill="#0F172A" stroke="#2563EB" stroke-width="1.5"/>
+  <text x="100" y="105" fill="#60A5FA" font-family="Arial, sans-serif" font-size="11" font-weight="bold">MODULAR POLICY FRAMEWORK & FAILOVER PAIR</text>
+  <g transform="translate(100, 130)">
+    <rect width="160" height="120" rx="8" fill="#1E293B" stroke="#2563EB"/>
+    <text x="80" y="35" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="10" font-weight="bold" text-anchor="middle">PRIMARY ASA 5516-X</text>
+    <text x="80" y="55" fill="#38BDF8" font-family="'Courier New', monospace" font-size="9" text-anchor="middle">INSIDE (100) -> OUT (0)</text>
+    <text x="80" y="75" fill="#94A3B8" font-family="'Courier New', monospace" font-size="8" text-anchor="middle">STATEFUL ACTIVE</text>
+  </g>
+  <g transform="translate(300, 130)">
+    <rect width="160" height="120" rx="8" fill="#1E293B" stroke="#60A5FA"/>
+    <text x="80" y="35" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="10" font-weight="bold" text-anchor="middle">SECONDARY ASA</text>
+    <text x="80" y="55" fill="#94A3B8" font-family="'Courier New', monospace" font-size="9" text-anchor="middle">STANDBY READY</text>
+    <text x="80" y="75" fill="#10B981" font-family="'Courier New', monospace" font-size="8" text-anchor="middle">SYNC HEARTBEAT</text>
+  </g>
+
+
+  <!-- Watermark Monospace Footer -->
+  <text x="25" y="340" fill="#475569" font-family="'Courier New', monospace" font-size="10" letter-spacing="0.5">I-MEDITA DATACENTER LABS // ARCHITECTURE VERIFIED</text>
+</svg>

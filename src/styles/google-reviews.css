@@ -1,0 +1,573 @@
+/* ==========================================================================
+   GOOGLE REVIEWS & SOCIAL PROOF SECTION
+   Strictly Zero Raster Images | 100% SVG Vectors | Razorpay SaaS Light Aesthetic
+   ========================================================================== */
+
+.google-reviews-section {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  background-color: #FAFCFE;
+  padding: 84px 0 96px;
+  border-bottom: 1px solid #E2E8F0;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.google-reviews-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+  box-sizing: border-box;
+}
+
+/* ==========================================================================
+   1. SECTION HEADER
+   ========================================================================== */
+
+.reviews-header {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 36px;
+}
+
+.reviews-eyebrow-badge {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #0066FF;
+  background-color: #EFF6FF;
+  border: 1px solid #DBEAFE;
+  padding: 5px 14px;
+  border-radius: 9999px;
+  margin-bottom: 14px;
+  box-shadow: 0 1px 2px rgba(0, 102, 255, 0.04);
+}
+
+.reviews-title {
+  font-family: var(--font-sans, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif);
+  font-size: 36px;
+  font-weight: 800;
+  color: #0F172A;
+  letter-spacing: -0.026em;
+  margin: 0 0 12px 0;
+  line-height: 1.22;
+}
+
+.reviews-subtitle {
+  font-size: 15px;
+  color: #64748B;
+  font-weight: 400;
+  line-height: 1.55;
+  margin: 0 auto 28px;
+  max-width: 620px;
+}
+
+/* ==========================================================================
+   2. GOOGLE RATING SUMMARY BADGE CARD
+   ========================================================================== */
+
+.google-rating-card {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  background-color: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  padding: 10px 22px;
+  border-radius: 9999px;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+  transition: all 0.2s ease;
+}
+
+.google-rating-card:hover {
+  background-color: #FFFFFF;
+  border-color: #CBD5E1;
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.07);
+}
+
+.google-badge-brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.google-svg-logo {
+  display: inline-block;
+  vertical-align: middle;
+  flex-shrink: 0;
+}
+
+.google-badge-name {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #0F172A;
+}
+
+.google-badge-divider {
+  width: 1px;
+  height: 18px;
+  background-color: #CBD5E1;
+}
+
+.google-badge-stars-group {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.google-badge-score {
+  font-size: 14px;
+  font-weight: 800;
+  color: #0F172A;
+  letter-spacing: -0.01em;
+}
+
+.google-stars-row {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  color: #F59E0B;
+}
+
+.google-star-icon {
+  fill: #F59E0B;
+  color: #F59E0B;
+}
+
+.google-badge-count {
+  font-size: 13px;
+  color: #64748B;
+  font-weight: 500;
+}
+
+.google-badge-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12.5px;
+  font-weight: 700;
+  color: #0066FF;
+  text-decoration: none;
+  padding: 4px 10px;
+  border-radius: 9999px;
+  background-color: #EFF6FF;
+  border: 1px solid #DBEAFE;
+  transition: all 0.2s ease;
+}
+
+.google-badge-link:hover {
+  background-color: #0066FF;
+  color: #FFFFFF;
+  border-color: #0066FF;
+}
+
+/* ==========================================================================
+   3. CAROUSEL & GRID CONTROLS BAR
+   ========================================================================== */
+
+.reviews-controls-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 32px 0 20px;
+  padding: 0 4px;
+}
+
+.reviews-count-indicator {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #475569;
+}
+
+.reviews-nav-buttons {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.reviews-nav-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid #E2E8F0;
+  background-color: #FFFFFF;
+  color: #334155;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
+}
+
+.reviews-nav-btn:hover:not(:disabled) {
+  background-color: #0066FF;
+  border-color: #0066FF;
+  color: #FFFFFF;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 102, 255, 0.25);
+}
+
+.reviews-nav-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  background-color: #F8FAFC;
+  border-color: #E2E8F0;
+  color: #94A3B8;
+}
+
+/* ==========================================================================
+   4. REVIEWS GRID & CARDS
+   ========================================================================== */
+
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.review-card {
+  position: relative;
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 20px;
+  padding: 26px 24px 22px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.03);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-sizing: border-box;
+}
+
+.review-card:hover {
+  transform: translateY(-3px);
+  border-color: #CBD5E1;
+  box-shadow: 0 16px 36px rgba(15, 23, 42, 0.07), 0 2px 6px rgba(15, 23, 42, 0.02);
+}
+
+/* Card Top: Avatar, Name, Company & Stars */
+.review-card-top {
+  margin-bottom: 16px;
+}
+
+.review-user-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.review-user-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.review-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  flex-shrink: 0;
+  user-select: none;
+}
+
+/* Avatar Color Variations */
+.review-avatar.avatar-blue {
+  background-color: #EFF6FF;
+  color: #0284C7;
+  border: 1.5px solid #BAE6FD;
+}
+
+.review-avatar.avatar-purple {
+  background-color: #F5F3FF;
+  color: #7C3AED;
+  border: 1.5px solid #DDD6FE;
+}
+
+.review-avatar.avatar-indigo {
+  background-color: #EEF2FF;
+  color: #4F46E5;
+  border: 1.5px solid #C7D2FE;
+}
+
+.review-avatar.avatar-teal {
+  background-color: #F0FDFA;
+  color: #0D9488;
+  border: 1.5px solid #CCFBF1;
+}
+
+.review-avatar.avatar-rose {
+  background-color: #FFF1F2;
+  color: #E11D48;
+  border: 1.5px solid #FECDD3;
+}
+
+.review-avatar.avatar-amber {
+  background-color: #FFFBEB;
+  color: #D97706;
+  border: 1.5px solid #FDE68A;
+}
+
+.review-user-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.review-user-name-row {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.review-user-name {
+  font-size: 15.5px;
+  font-weight: 750;
+  color: #0F172A;
+  margin: 0;
+  line-height: 1.25;
+}
+
+.review-verified-icon {
+  color: #0066FF;
+  flex-shrink: 0;
+}
+
+.review-user-role {
+  font-size: 12px;
+  color: #64748B;
+  font-weight: 500;
+  margin: 0;
+}
+
+/* Company / Placement Tag */
+.review-company-tag {
+  display: inline-flex;
+  align-items: center;
+  font-size: 11px;
+  font-weight: 750;
+  color: #0284C7;
+  background-color: #F0F9FF;
+  border: 1px solid #BAE6FD;
+  padding: 3px 8.5px;
+  border-radius: 6px;
+  letter-spacing: 0.02em;
+  margin-bottom: 12px;
+  width: fit-content;
+}
+
+/* 5 Stars Row */
+.review-stars-row {
+  display: flex;
+  align-items: center;
+  gap: 2.5px;
+  color: #F59E0B;
+  margin-bottom: 12px;
+}
+
+/* Review Text Content */
+.review-content {
+  position: relative;
+  margin-bottom: 18px;
+}
+
+.review-text {
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: #334155;
+  font-weight: 450;
+  margin: 0;
+  letter-spacing: -0.005em;
+}
+
+/* Card Bottom Footer: Google Logo + Posted Date */
+.review-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 14px;
+  border-top: 1px solid #F1F5F9;
+  font-size: 12px;
+  color: #64748B;
+}
+
+.review-google-stamp {
+  display: flex;
+  align-items: center;
+  gap: 6.5px;
+  font-weight: 600;
+  color: #475569;
+}
+
+.review-post-date {
+  font-weight: 500;
+  color: #94A3B8;
+  font-size: 11.5px;
+}
+
+/* ==========================================================================
+   5. PAGINATION DOTS
+   ========================================================================== */
+
+.reviews-dots-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 36px;
+}
+
+.reviews-dot-btn {
+  width: 9px;
+  height: 9px;
+  border-radius: 9999px;
+  background-color: #CBD5E1;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reviews-dot-btn.active {
+  width: 24px;
+  background-color: #0066FF;
+}
+
+/* ==========================================================================
+   6. RESPONSIVE BREAKPOINTS
+   ========================================================================== */
+
+/* Laptops & Tablets Landscape (992px - 1180px) */
+@media (max-width: 1180px) {
+  .google-reviews-container {
+    padding: 0 20px;
+  }
+
+  .reviews-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+  }
+}
+
+/* Tablets Portrait (768px - 991px) */
+@media (max-width: 991px) {
+  .google-reviews-section {
+    padding: 64px 0 76px;
+  }
+
+  .reviews-header {
+    margin-bottom: 28px;
+  }
+
+  .reviews-title {
+    font-size: 30px;
+  }
+
+  .reviews-subtitle {
+    font-size: 14px;
+    margin-bottom: 22px;
+  }
+
+  .google-rating-card {
+    padding: 8px 18px;
+    gap: 12px;
+  }
+
+  .reviews-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+  }
+
+  .review-card {
+    padding: 22px 20px 18px;
+  }
+}
+
+/* Mobile Phones (<= 767px) */
+@media (max-width: 767px) {
+  .google-reviews-section {
+    padding: 48px 0 60px;
+  }
+
+  .google-reviews-container {
+    padding: 0 16px;
+  }
+
+  .reviews-header {
+    margin-bottom: 22px;
+  }
+
+  .reviews-eyebrow-badge {
+    font-size: 10px;
+    padding: 4px 11px;
+    letter-spacing: 0.16em;
+  }
+
+  .reviews-title {
+    font-size: 24px;
+    letter-spacing: -0.02em;
+    margin-bottom: 8px;
+  }
+
+  .reviews-subtitle {
+    font-size: 13px;
+    line-height: 1.45;
+    margin-bottom: 18px;
+  }
+
+  .google-rating-card {
+    flex-direction: column;
+    padding: 12px 16px;
+    gap: 10px;
+    border-radius: 16px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .google-badge-divider {
+    display: none;
+  }
+
+  .reviews-controls-bar {
+    margin: 20px 0 16px;
+  }
+
+  .reviews-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .review-card {
+    padding: 20px 18px 16px;
+    border-radius: 16px;
+  }
+
+  .review-avatar {
+    width: 40px;
+    height: 40px;
+    font-size: 13px;
+  }
+
+  .review-user-name {
+    font-size: 15px;
+  }
+
+  .review-text {
+    font-size: 13px;
+  }
+}
+

@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" width="640" height="360" style="background:#0B0F19">
+  <defs>
+    <pattern id="grid_checkpoint" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M 32 0 L 0 0 0 32" fill="none" stroke="rgba(255, 255, 255, 0.04)" stroke-width="1"/>
+    </pattern>
+    <linearGradient id="grad_checkpoint" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#EC4899" stop-opacity="0.14"/>
+      <stop offset="60%" stop-color="#0B0F19" stop-opacity="0.0"/>
+    </linearGradient>
+    <filter id="glow_checkpoint" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <!-- Background Grid & Gradient -->
+  <rect width="640" height="360" fill="url(#grid_checkpoint)"/>
+  <rect width="640" height="360" fill="url(#grad_checkpoint)"/>
+  
+  <!-- Subtle Border Guides -->
+  <line x1="0" y1="0" x2="640" y2="0" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+  <line x1="0" y1="359" x2="640" y2="359" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+
+  <!-- Top Right Spec Capsule -->
+  <g transform="translate(440, 20)">
+    <rect width="180" height="24" rx="12" fill="rgba(15, 23, 42, 0.85)" stroke="rgba(255,255,255,0.12)"/>
+    <circle cx="16" cy="12" r="4" fill="#EC4899"/>
+    <text x="28" y="16" fill="#94A3B8" font-family="'Courier New', monospace" font-size="10" font-weight="700" letter-spacing="1">CHECK POINT CCSE</text>
+  </g>
+
+  <!-- Architecture Specific Content -->
+  
+  <!-- ClusterXL Sync Bus -->
+  <path d="M 170 140 L 470 140" stroke="#EC4899" stroke-width="3" stroke-dasharray="6,4"/>
+  <path d="M 170 240 L 470 240" stroke="#0066FF" stroke-width="3"/>
+
+  <!-- Gateway 1: ClusterXL Active -->
+  <g transform="translate(120, 105)">
+    <rect width="120" height="85" rx="8" fill="#1F1528" stroke="#EC4899" stroke-width="2"/>
+    <text x="60" y="30" fill="#F472B6" font-family="Arial, sans-serif" font-size="11" font-weight="bold" text-anchor="middle">QUANTUM GW-1</text>
+    <text x="60" y="48" fill="#FFFFFF" font-family="'Courier New', monospace" font-size="9" text-anchor="middle">[ACTIVE STATE]</text>
+    <text x="60" y="65" fill="#94A3B8" font-family="'Courier New', monospace" font-size="8" text-anchor="middle">Gaia R81.20</text>
+  </g>
+
+  <!-- Gateway 2: ClusterXL Standby -->
+  <g transform="translate(400, 105)">
+    <rect width="120" height="85" rx="8" fill="#1F1528" stroke="#DB2777" stroke-width="1.5"/>
+    <text x="60" y="30" fill="#F472B6" font-family="Arial, sans-serif" font-size="11" font-weight="bold" text-anchor="middle">QUANTUM GW-2</text>
+    <text x="60" y="48" fill="#A1A1AA" font-family="'Courier New', monospace" font-size="9" text-anchor="middle">[STANDBY HA]</text>
+    <text x="60" y="65" fill="#94A3B8" font-family="'Courier New', monospace" font-size="8" text-anchor="middle">SYNC HEARTBEAT</text>
+  </g>
+
+  <!-- Central SmartConsole Management -->
+  <g transform="translate(255, 195)">
+    <rect width="130" height="75" rx="8" fill="#0F172A" stroke="#38BDF8" stroke-width="2"/>
+    <text x="65" y="30" fill="#38BDF8" font-family="Arial, sans-serif" font-size="11" font-weight="bold" text-anchor="middle">SMARTCONSOLE</text>
+    <text x="65" y="48" fill="#FFFFFF" font-family="'Courier New', monospace" font-size="9" text-anchor="middle">POLICY SERVER</text>
+    <text x="65" y="62" fill="#10B981" font-family="'Courier New', monospace" font-size="8" text-anchor="middle">SANDBLAST ACTIVE</text>
+  </g>
+
+
+  <!-- Watermark Monospace Footer -->
+  <text x="25" y="340" fill="#475569" font-family="'Courier New', monospace" font-size="10" letter-spacing="0.5">I-MEDITA DATACENTER LABS // ARCHITECTURE VERIFIED</text>
+</svg>

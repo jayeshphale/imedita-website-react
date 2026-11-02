@@ -1,0 +1,60 @@
+/* ==========================================================================
+   I-MEDITA DESIGN SYSTEM (CLEAN MINIMALIST LIGHT UI)
+   ========================================================================== */
+
+:root {
+  /* Color Palette - Clean Crisp White & Modern Slate */
+  --color-bg-base: #ffffff;
+  --color-bg-primary: #ffffff;
+  --color-bg-secondary: #f8fafc;
+  --color-bg-subtle: #f1f5f9;
+  --color-bg-card: #ffffff;
+  --color-bg-card-hover: #ffffff;
+  
+  /* Brand Accent Tokens - Disciplined, Single Primary */
+  --color-brand-blue: #0c6bf5;
+  --color-brand-electric: #0c6bf5;
+  --color-brand-bright: #0284c7;
+  --color-brand-emerald: #059669;
+
+  /* Text & Foreground - Clean Contrast */
+  --color-text-heading: #0f172a;
+  --color-text-body: #475569;
+  --color-text-muted: #64748b;
+  --color-text-light: #94a3b8;
+
+  /* Borders - Subtle & Minimal */
+  --color-border-subtle: #e2e8f0;
+  --color-border-hover: #cbd5e1;
+  --color-border-active: #0c6bf5;
+
+  /* Gradients */
+  --gradient-brand-btn: #0c6bf5;
+  --gradient-brand-btn-hover: #0957c7;
+  --gradient-text-accent: linear-gradient(135deg, #0c6bf5 0%, #0284c7 100%);
+
+  /* Shadows - Soft, Natural & Unobtrusive */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.04);
+  --shadow-card: 0 1px 3px 0 rgba(15, 23, 42, 0.06), 0 1px 2px -1px rgba(15, 23, 42, 0.04);
+  --shadow-card-hover: 0 12px 28px -8px rgba(15, 23, 42, 0.08), 0 0 0 1px #cbd5e1;
+  --shadow-modal: 0 20px 50px -12px rgba(15, 23, 42, 0.15);
+
+  /* Typography */
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+
+  /* Layout Spacing & Radii */
+  --radius-xs: 4px;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 20px;
+  --radius-full: 9999px;
+
+  --container-max: 1240px;
+  --container-padding: 32px;
+
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-normal: 200ms ease;
+}

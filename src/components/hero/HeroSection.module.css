@@ -1,0 +1,718 @@
+/* ==========================================================================
+   I-MEDITA ENTERPRISE HERO COMMAND CENTER (DEEP TECH DARK SLATE SPECIFICATION)
+   Deep Obsidian Slate (#0b0f19) | Dual Radial Atmosphere | 100% Vector Precision
+   ========================================================================== */
+
+/* 1. Deep Technical Surface Background */
+.heroRoot,
+.heroWrapper,
+.heroSection {
+  background-color: #0b0f19; /* Deep Obsidian Slate */
+  background-image: 
+    radial-gradient(circle at 80% 25%, rgba(0, 102, 255, 0.15) 0%, transparent 45%),
+    radial-gradient(circle at 15% 75%, rgba(14, 165, 233, 0.08) 0%, transparent 40%);
+  position: relative;
+  width: 100%;
+  color: #94a3b8;
+  padding: 5rem 1.5rem 4rem;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+@media (min-width: 768px) {
+  .heroRoot,
+  .heroWrapper,
+  .heroSection {
+    padding: 6.5rem 2rem 4.5rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .heroRoot,
+  .heroWrapper,
+  .heroSection {
+    padding: 7rem 2.5rem 5rem;
+  }
+}
+
+/* Background curved blueprint vector lines & ambient circles with dark-adapted opacity */
+.bgVectorLines,
+.ambientCircle {
+  opacity: 0.12; /* Subtle contrast on dark background */
+  stroke: #38bdf8;
+}
+
+/* 24px Cybernetic Blueprint Dot Grid Overlay */
+.heroRoot::before,
+.heroWrapper::before,
+.heroSection::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.06) 1.2px, transparent 1.2px);
+  background-size: 24px 24px;
+  opacity: 0.45;
+  pointer-events: none;
+}
+
+/* Full Hero Background Grid Overlay */
+.heroGridOverlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  /* 40px clean engineering blueprint grid */
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(56, 189, 248, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(56, 189, 248, 0.05) 1px, transparent 1px);
+  /* Vignette mask to make it fade gently toward the edges */
+  mask-image: radial-gradient(circle at center, rgba(0, 0, 0, 1) 40%, rgba(0, 0, 0, 0.3) 100%);
+  -webkit-mask-image: radial-gradient(circle at center, rgba(0, 0, 0, 1) 40%, rgba(0, 0, 0, 0.3) 100%);
+}
+
+/* Ensure foreground content stays above the grid */
+.slideContentContainer,
+.sliderContentWrapper,
+.heroContainer {
+  position: relative;
+  z-index: 10;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+/* 2-Column Hero Grid */
+.heroGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3.5rem;
+  align-items: center;
+  margin-bottom: 4.5rem;
+}
+
+@media (min-width: 1024px) {
+  .heroGrid {
+    grid-template-columns: 1.15fr 1fr;
+    gap: 3.5rem;
+  }
+}
+
+/* Left Column: Typography & CTAs */
+.leftCol {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Slide Transition Animation */
+@keyframes slideFadeIn {
+  from {
+    opacity: 0;
+    transform: translate3d(14px, 0, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.activeSlide {
+  animation: slideFadeIn 350ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Eyebrow / Category Capsule Badge */
+.eyebrowBadge,
+.categoryPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  background-color: rgba(0, 102, 255, 0.14);
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  color: #38bdf8;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.45rem 1.15rem;
+  border-radius: 9999px;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 0 16px rgba(0, 102, 255, 0.2);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.eyebrowIcon {
+  color: #38bdf8;
+}
+
+/* 2. Typography & Contrast Adjustments (White & Vibrant Cyan/Blue) */
+
+/* Main H1 Headline */
+.heroHeading,
+.heading,
+.heroTitle,
+.slideTitle {
+  font-size: clamp(2.4rem, 4.5vw, 3.85rem);
+  font-weight: 800;
+  line-height: 1.12;
+  letter-spacing: -0.025em;
+  color: #ffffff; /* Crisp pure white */
+  margin-bottom: 1.5rem;
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.6);
+}
+
+.headingPrefix {
+  display: inline;
+}
+
+/* Vibrant Blue / Accent text words (e.g., JOB GUARANTEED PROGRAM, GLOBAL EXAMS) */
+.gradientText,
+.gradientHighlight,
+.titleAccent,
+.highlightText {
+  display: inline;
+  color: #38bdf8; /* Vivid cyan-blue for striking visibility on dark */
+  background: linear-gradient(135deg, #60a5fa 0%, #38bdf8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 20px rgba(56, 189, 248, 0.4));
+}
+
+.headingSuffix {
+  display: inline;
+}
+
+/* Descriptive Subtitle */
+.heroSubtext,
+.subtext,
+.heroDescription,
+.slideDescription {
+  font-size: clamp(1rem, 1.2vw, 1.125rem);
+  line-height: 1.68;
+  color: #94a3b8; /* Balanced slate gray */
+  max-width: 580px;
+  margin-bottom: 2.25rem;
+}
+
+/* Action Strip / Button Row */
+.ctaRow,
+.actionRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.25rem;
+  margin-bottom: 2.75rem;
+}
+
+/* 3. Buttons & Interactive Elements */
+
+/* Primary Action Button (Explore Courses / Get Exam Vouchers) */
+.primaryBtn,
+.primaryCta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  background-color: #0066ff;
+  color: #ffffff;
+  font-size: 0.975rem;
+  font-weight: 800;
+  padding: 1rem 2.2rem;
+  border-radius: 0.85rem;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  box-shadow: 0 8px 24px -4px rgba(0, 102, 255, 0.45);
+  transition: all 220ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.primaryBtn:hover,
+.primaryCta:hover {
+  background-color: #0052cc;
+  box-shadow: 0 12px 30px -4px rgba(0, 102, 255, 0.6);
+  transform: translateY(-2px);
+}
+
+/* Secondary Button (Download Syllabus / Talk to an Expert / Check Discounts) */
+.secondaryBtn,
+.secondaryCta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #f1f5f9;
+  font-size: 0.95rem;
+  font-weight: 700;
+  padding: 1rem 1.85rem;
+  border-radius: 0.85rem;
+  cursor: pointer;
+  text-decoration: none;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: all 200ms ease;
+}
+
+.secondaryBtn:hover,
+.secondaryCta:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.3);
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+/* Features Checkmarks Row beneath CTAs */
+.featureItem {
+  color: #cbd5e1;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.featureIcon {
+  color: #38bdf8;
+}
+
+/* Slider Controls Row */
+.controlsRow {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.navArrows {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Left & Right Circular Arrow Navigation Buttons */
+.sliderNavBtn,
+.arrowBtn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: rgba(15, 23, 42, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 180ms ease;
+  backdrop-filter: blur(8px);
+}
+
+.sliderNavBtn:hover,
+.arrowBtn:hover {
+  background-color: #0066ff;
+  border-color: #0066ff;
+  color: #ffffff;
+  box-shadow: 0 0 16px rgba(0, 102, 255, 0.6);
+  transform: scale(1.08);
+}
+
+/* Pagination Dots */
+.progressPillBar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.progressDot {
+  height: 7px;
+  border-radius: 9999px;
+  cursor: pointer;
+  border: none;
+  padding: 0;
+  transition: all 250ms ease;
+}
+
+.dotActive,
+.progressDotActive {
+  width: 36px;
+  background-color: #38bdf8;
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.6);
+}
+
+.dotInactive,
+.progressDotInactive {
+  width: 9px;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.dotInactive:hover,
+.progressDotInactive:hover {
+  background-color: rgba(255, 255, 255, 0.45);
+}
+
+/* 4. Floating Info Badges & Showcase Card */
+.rightCol {
+  position: relative;
+  width: 100%;
+}
+
+.cardFrame,
+.sliderCard {
+  position: relative;
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 1.75rem;
+  overflow: hidden;
+  padding: 1.75rem;
+  box-shadow: 0 30px 70px -15px rgba(0, 0, 0, 0.75), 0 0 40px rgba(0, 102, 255, 0.15);
+  transition: border-color 300ms ease, box-shadow 300ms ease, transform 300ms ease;
+}
+
+.cardFrame:hover,
+.sliderCard:hover {
+  border-color: rgba(56, 189, 248, 0.45);
+  box-shadow: 0 35px 80px -10px rgba(0, 0, 0, 0.85), 0 0 50px rgba(0, 102, 255, 0.25);
+  transform: translateY(-4px);
+}
+
+/* Header Status Strip inside Card */
+.cardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.liveTag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(16, 185, 129, 0.12);
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  color: #34d399;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0.3rem 0.8rem;
+  border-radius: 9999px;
+}
+
+/* Pulsing Status Dot */
+@keyframes pulseGlow {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.7;
+  }
+}
+
+.statusDot,
+.pulseDot,
+.pulsingDot,
+.liveDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: #10b981;
+  animation: pulseGlow 2s infinite ease-in-out;
+}
+
+.telemetryText {
+  font-family: 'JetBrains Mono', 'Courier New', monospace;
+  font-size: 0.75rem;
+  color: #38bdf8;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+
+/* Visual Stage for Real Images / Cutouts */
+.graphicsContainer,
+.visualStage {
+  position: relative;
+  width: 100%;
+  min-height: 340px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 1.25rem;
+  background: 
+    radial-gradient(circle at 50% 50%, rgba(0, 102, 255, 0.22) 0%, transparent 70%),
+    #080d1a;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  margin-bottom: 1.25rem;
+}
+
+.graphicsContainer::after,
+.visualStage::after {
+  content: '';
+  position: absolute;
+  top: 40%;
+  left: 55%;
+  transform: translate(-50%, -50%);
+  width: 70%;
+  height: 60%;
+  background: radial-gradient(circle, rgba(0, 102, 255, 0.09) 0%, transparent 70%);
+  filter: blur(40px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Concentric Orbit Rings */
+.orbitRing {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px dashed rgba(56, 189, 248, 0.25);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.orbitRingInner {
+  width: 220px;
+  height: 220px;
+  border-color: rgba(0, 102, 255, 0.3);
+}
+
+.orbitRingOuter {
+  width: 320px;
+  height: 320px;
+}
+
+/* Real Image Sizing & Edge-Color Adaptation */
+.instructorImg,
+.sliderImg,
+.cutoutGraphics {
+  max-width: 90%;
+  max-height: 330px;
+  object-fit: contain;
+  display: block;
+  
+  /* Suppress edge fringing & bleed elimination */
+  filter: contrast(1.05) saturate(1.05) drop-shadow(0 0 1px rgba(11, 15, 25, 0.5)) drop-shadow(0 15px 30px rgba(0, 0, 0, 0.85));
+  mix-blend-mode: normal;
+  image-rendering: -webkit-optimize-contrast;
+  -webkit-backface-visibility: hidden;
+  mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 94%, rgba(0,0,0,0) 100%);
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 94%, rgba(0,0,0,0) 100%);
+  
+  transition: transform 400ms ease;
+  position: relative;
+  z-index: 10;
+}
+
+.cardFrame:hover .instructorImg {
+  transform: scale(1.03);
+}
+
+.hardwareImg {
+  width: 100%;
+  height: 100%;
+  max-height: 340px;
+  object-fit: cover;
+  display: block;
+  opacity: 0.94;
+  
+  /* Suppress edge fringing & bleed elimination */
+  filter: contrast(1.05) saturate(1.05) drop-shadow(0 0 1px rgba(11, 15, 25, 0.5)) drop-shadow(0 15px 30px rgba(0, 0, 0, 0.85));
+  mix-blend-mode: normal;
+  image-rendering: -webkit-optimize-contrast;
+  -webkit-backface-visibility: hidden;
+  mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 94%, rgba(0,0,0,0) 100%);
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 94%, rgba(0,0,0,0) 100%);
+  
+  transition: transform 400ms ease;
+  position: relative;
+  z-index: 10;
+}
+
+.cardFrame:hover .hardwareImg {
+  transform: scale(1.03);
+}
+
+.roadmapImg {
+  max-width: 92%;
+  max-height: 330px;
+  object-fit: contain;
+  display: block;
+  
+  /* Suppress edge fringing & bleed elimination */
+  filter: contrast(1.05) saturate(1.05) drop-shadow(0 0 1px rgba(11, 15, 25, 0.5)) drop-shadow(0 12px 25px rgba(0, 0, 0, 0.8));
+  mix-blend-mode: normal;
+  image-rendering: -webkit-optimize-contrast;
+  -webkit-backface-visibility: hidden;
+  mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 94%, rgba(0,0,0,0) 100%);
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 94%, rgba(0,0,0,0) 100%);
+  
+  transition: transform 400ms ease;
+  position: relative;
+  z-index: 10;
+}
+
+.cardFrame:hover .roadmapImg {
+  transform: scale(1.03);
+}
+
+/* Floating Corner Glass Badges (e.g., "100% Placement Drives", "Authorized Exam Center") */
+.floatingBadgeCard,
+.miniInfoCard,
+.floatingBadgeTop {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  background-color: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(12px) saturate(130%);
+  -webkit-backdrop-filter: blur(12px) saturate(130%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.5);
+  color: #ffffff;
+  font-size: 0.725rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0.35rem 0.85rem;
+  border-radius: 9999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  z-index: 12;
+}
+
+.floatingBadgeBottom {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  background-color: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(12px) saturate(130%);
+  -webkit-backdrop-filter: blur(12px) saturate(130%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.5);
+  color: #38bdf8;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  padding: 0.4rem 0.9rem;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  z-index: 12;
+}
+
+.miniInfoCardTitle {
+  color: #f8fafc;
+  font-weight: 700;
+}
+
+.miniInfoCardSubtext {
+  color: #94a3b8;
+  font-size: 0.8rem;
+}
+
+.certifiedBadgeOverlay {
+  position: absolute;
+  bottom: 0.85rem;
+  left: 0.85rem;
+  width: 72px;
+  height: auto;
+  filter: drop-shadow(0 6px 16px rgba(0, 0, 0, 0.8));
+  z-index: 3;
+}
+
+/* Card Meta Footer */
+.cardMeta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-top: 0.5rem;
+}
+
+.metaSpecs {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.metaTitle {
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0;
+}
+
+.metaSub {
+  font-size: 0.775rem;
+  color: #94a3b8;
+  margin: 0;
+}
+
+.hardwarePill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: rgba(0, 102, 255, 0.16);
+  border: 1px solid rgba(0, 102, 255, 0.35);
+  color: #38bdf8;
+  font-size: 0.725rem;
+  font-weight: 700;
+  padding: 0.3rem 0.65rem;
+  border-radius: 6px;
+  white-space: nowrap;
+}
+
+/* Bottom Horizontal Proof Counter Strip */
+.proofCounterBar {
+  padding-top: 3rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .proofCounterBar {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+.proofItem {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  position: relative;
+}
+
+@media (min-width: 768px) {
+  .proofItem:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 15%;
+    height: 70%;
+    width: 1px;
+    background: rgba(255, 255, 255, 0.1);
+  }
+}
+
+.proofNumber {
+  font-size: clamp(2rem, 3vw, 2.6rem);
+  font-weight: 850;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6);
+}
+
+.proofLabel {
+  font-size: 0.85rem;
+  color: #94a3b8;
+  font-weight: 500;
+}

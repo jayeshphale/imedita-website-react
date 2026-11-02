@@ -1,0 +1,293 @@
+/* =========================================================================
+   Section 10: Google Reviews (Infinite Masonry Ticker with Dynamic Feeds)
+   CSS Modules Encapsulation | Hardware-Accelerated 60-120 FPS Marquee
+   ========================================================================= */
+
+.reviewsSection {
+  position: relative;
+  width: 100%;
+  background-color: #fafcfe;
+  padding: 5.5rem 1.5rem 6.5rem;
+  border-bottom: 1px solid #e2e8f0;
+  overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  .reviewsSection {
+    padding: 6.5rem 2rem 8rem;
+  }
+}
+
+.sectionContainer {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+/* Header & Rating Summary */
+.headerBlock {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto 3.5rem;
+}
+
+.googlePill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.4rem 1rem;
+  border-radius: 9999px;
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
+  margin-bottom: 1rem;
+}
+
+.ratingValue {
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.starsRow {
+  display: flex;
+  align-items: center;
+  gap: 0.15rem;
+  color: #f59e0b;
+}
+
+.ratingCount {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #64748b;
+  border-left: 1px solid #cbd5e1;
+  padding-left: 0.6rem;
+}
+
+.sectionHeading {
+  font-size: clamp(1.65rem, 3.2vw, 2.35rem);
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+  margin: 0 0 0.75rem;
+}
+
+.sectionSubtext {
+  font-size: 0.95rem;
+  color: #64748b;
+  line-height: 1.6;
+  margin: 0 auto;
+}
+
+/* Masonry Ticker Stage */
+.tickerStage {
+  position: relative;
+  width: 100%;
+  height: 640px;
+  overflow: hidden;
+}
+
+/* Top & Bottom Fading Gradient Masks */
+.tickerStage::before,
+.tickerStage::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 90px;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.tickerStage::before {
+  top: 0;
+  background: linear-gradient(to bottom, #fafcfe 0%, rgba(250, 252, 254, 0) 100%);
+}
+
+.tickerStage::after {
+  bottom: 0;
+  background: linear-gradient(to top, #fafcfe 0%, rgba(250, 252, 254, 0) 100%);
+}
+
+.tickerGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  height: 100%;
+}
+
+@media (min-width: 640px) {
+  .tickerGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .tickerGrid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.75rem;
+  }
+}
+
+/* Vertical Track Animation */
+.columnTrack {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  will-change: transform;
+}
+
+.scrollUp {
+  animation: marqueeUp 22s linear infinite;
+}
+
+.scrollDown {
+  animation: marqueeDown 25s linear infinite;
+}
+
+.tickerGrid:hover .columnTrack {
+  animation-play-state: paused;
+}
+
+@keyframes marqueeUp {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-50%); }
+}
+
+@keyframes marqueeDown {
+  0% { transform: translateY(-50%); }
+  100% { transform: translateY(0); }
+}
+
+/* Card Styling */
+.reviewCard {
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 1.25rem;
+  padding: 1.5rem;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.03);
+  transition: border-color 200ms ease, box-shadow 200ms ease, transform 180ms ease;
+  break-inside: avoid;
+}
+
+.reviewCard:hover {
+  border-color: #93c5fd;
+  box-shadow: 0 14px 28px -8px rgba(0, 102, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.85rem;
+}
+
+.authorBox {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid #e2e8f0;
+}
+
+.authorDetails {
+  display: flex;
+  flex-direction: column;
+}
+
+.authorName {
+  font-size: 0.875rem;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.placedTag {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #0066ff;
+}
+
+.googleLogoBadge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.05);
+  flex-shrink: 0;
+}
+
+/* Card Google Rating Row */
+.cardRatingRow {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin-bottom: 0.85rem;
+}
+
+.cardStars {
+  display: flex;
+  align-items: center;
+  gap: 0.15rem;
+  color: #f59e0b;
+}
+
+.cardRatingScore {
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.verifiedReviewBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: #059669;
+  background-color: #ecfdf5;
+  border: 1px solid #d1fae5;
+  padding: 0.15rem 0.5rem;
+  border-radius: 9999px;
+  margin-left: auto;
+}
+
+.quoteText {
+  font-size: 0.825rem;
+  color: #475569;
+  line-height: 1.6;
+  margin: 0 0 1rem;
+}
+
+.cardFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid #f8fafc;
+  padding-top: 0.75rem;
+}
+
+.courseTag {
+  font-size: 0.675rem;
+  font-weight: 700;
+  color: #64748b;
+  background-color: #f1f5f9;
+  padding: 0.2rem 0.5rem;
+  border-radius: 6px;
+}
+
+.timeAgo {
+  font-size: 0.675rem;
+  color: #94a3b8;
+}
+

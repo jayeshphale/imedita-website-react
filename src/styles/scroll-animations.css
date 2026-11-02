@@ -1,0 +1,162 @@
+/* ==========================================================================
+   SCROLL REVEAL & ENTRANCE ANIMATIONS (Hardware Accelerated)
+   Smooth 60-120fps Transitions on Mouse Scroll
+   ========================================================================== */
+
+/* 1. Base Scroll Reveal (Fade Up) */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), 
+              transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.scroll-reveal.is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 2. Slide In From Left */
+.scroll-reveal-left {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), 
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.scroll-reveal-left.is-revealed {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* 3. Slide In From Right */
+.scroll-reveal-right {
+  opacity: 0;
+  transform: translateX(40px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), 
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.scroll-reveal-right.is-revealed {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* 4. Scale & Pop Reveal (for Badges, Stats, High-Impact Cards) */
+.scroll-reveal-scale {
+  opacity: 0;
+  transform: scale(0.92);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), 
+              transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.scroll-reveal-scale.is-revealed {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* 5. Section Header Sequence Reveal (Eyebrow -> Heading -> Subtitle) */
+.scroll-header {
+  opacity: 1;
+}
+
+.scroll-header [class*="eyebrow"],
+.scroll-header [class*="badge"],
+.scroll-header [class*="badgePill"] {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.05s, 
+              transform 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.05s;
+}
+
+.scroll-header [class*="heading"],
+.scroll-header h2,
+.scroll-header h3 {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.15s, 
+              transform 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.15s;
+}
+
+.scroll-header [class*="subtext"],
+.scroll-header [class*="subheading"],
+.scroll-header p {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.25s, 
+              transform 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.25s;
+}
+
+.scroll-header.is-revealed [class*="eyebrow"],
+.scroll-header.is-revealed [class*="badge"],
+.scroll-header.is-revealed [class*="badgePill"],
+.scroll-header.is-revealed [class*="heading"],
+.scroll-header.is-revealed h2,
+.scroll-header.is-revealed h3,
+.scroll-header.is-revealed [class*="subtext"],
+.scroll-header.is-revealed [class*="subheading"],
+.scroll-header.is-revealed p {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+/* 6. Staggered Children Grid (Cards reveal in sequential waves) */
+.scroll-stagger-cards > * {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), 
+              transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.scroll-stagger-cards.is-revealed > *:nth-child(1) { transition-delay: 0.04s; }
+.scroll-stagger-cards.is-revealed > *:nth-child(2) { transition-delay: 0.10s; }
+.scroll-stagger-cards.is-revealed > *:nth-child(3) { transition-delay: 0.16s; }
+.scroll-stagger-cards.is-revealed > *:nth-child(4) { transition-delay: 0.22s; }
+.scroll-stagger-cards.is-revealed > *:nth-child(5) { transition-delay: 0.28s; }
+.scroll-stagger-cards.is-revealed > *:nth-child(6) { transition-delay: 0.34s; }
+.scroll-stagger-cards.is-revealed > *:nth-child(7) { transition-delay: 0.40s; }
+.scroll-stagger-cards.is-revealed > *:nth-child(8) { transition-delay: 0.46s; }
+.scroll-stagger-cards.is-revealed > *:nth-child(9) { transition-delay: 0.52s; }
+.scroll-stagger-cards.is-revealed > *:nth-child(10) { transition-delay: 0.58s; }
+.scroll-stagger-cards.is-revealed > *:nth-child(11) { transition-delay: 0.64s; }
+.scroll-stagger-cards.is-revealed > *:nth-child(12) { transition-delay: 0.70s; }
+
+.scroll-stagger-cards.is-revealed > * {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 7. Delay Modifiers for Custom Elements */
+[data-delay="100"] { transition-delay: 0.1s !important; }
+[data-delay="150"] { transition-delay: 0.15s !important; }
+[data-delay="200"] { transition-delay: 0.2s !important; }
+[data-delay="250"] { transition-delay: 0.25s !important; }
+[data-delay="300"] { transition-delay: 0.3s !important; }
+[data-delay="400"] { transition-delay: 0.4s !important; }
+[data-delay="500"] { transition-delay: 0.5s !important; }
+
+/* 8. Fallback for Accessibility / Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .scroll-reveal,
+  .scroll-reveal-left,
+  .scroll-reveal-right,
+  .scroll-reveal-scale,
+  .scroll-stagger-cards > *,
+  .scroll-header [class*="eyebrow"],
+  .scroll-header [class*="badge"],
+  .scroll-header [class*="heading"],
+  .scroll-header h2,
+  .scroll-header h3,
+  .scroll-header [class*="subtext"],
+  .scroll-header p {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
