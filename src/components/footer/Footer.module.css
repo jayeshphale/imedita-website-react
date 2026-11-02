@@ -27,23 +27,8 @@
 }
 
 @media (max-width: 640px) {
-  .footerRoot {
-    padding: 3rem 1rem 2rem;
-  }
-
   .topTier {
     grid-template-columns: 1fr;
-    margin-bottom: 2.25rem;
-    gap: 1.75rem;
-  }
-
-  .divider {
-    margin-bottom: 2.25rem;
-  }
-
-  .bottomTier {
-    margin-bottom: 2.25rem;
-    gap: 1.5rem;
   }
 }
 

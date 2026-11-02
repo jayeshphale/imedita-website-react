@@ -171,15 +171,6 @@
   aspect-ratio: 16 / 10;
 }
 
-@media (max-width: 400px) {
-  .imageCard {
-    flex: 0 0 250px;
-  }
-  .stickyFrame {
-    padding: 2.5rem 0 1.5rem;
-  }
-}
-
 @media (min-width: 768px) {
   .imageCard {
     flex: 0 0 440px;

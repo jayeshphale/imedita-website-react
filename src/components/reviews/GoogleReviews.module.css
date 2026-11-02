@@ -137,19 +137,6 @@
   will-change: transform;
 }
 
-@media (max-width: 639px) {
-  .columnTrack:nth-child(2),
-  .columnTrack:nth-child(3) {
-    display: none;
-  }
-}
-
-@media (min-width: 640px) and (max-width: 1023px) {
-  .columnTrack:nth-child(3) {
-    display: none;
-  }
-}
-
 .scrollUp {
   animation: marqueeUp 22s linear infinite;
 }
