@@ -14,7 +14,8 @@
 
 .scroll-reveal.is-revealed {
   opacity: 1;
-  transform: translateY(0);
+  transform: none;
+  will-change: auto;
 }
 
 /* 2. Slide In From Left */
@@ -28,7 +29,8 @@
 
 .scroll-reveal-left.is-revealed {
   opacity: 1;
-  transform: translateX(0);
+  transform: none;
+  will-change: auto;
 }
 
 /* 3. Slide In From Right */
@@ -42,7 +44,8 @@
 
 .scroll-reveal-right.is-revealed {
   opacity: 1;
-  transform: translateX(0);
+  transform: none;
+  will-change: auto;
 }
 
 /* 4. Scale & Pop Reveal (for Badges, Stats, High-Impact Cards) */
@@ -56,7 +59,8 @@
 
 .scroll-reveal-scale.is-revealed {
   opacity: 1;
-  transform: scale(1);
+  transform: none;
+  will-change: auto;
 }
 
 /* 5. Section Header Sequence Reveal (Eyebrow -> Heading -> Subtitle) */

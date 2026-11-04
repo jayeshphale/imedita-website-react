@@ -38,7 +38,7 @@ export function TrainersSection() {
         </div>
 
         {/* Sticky Scroll-Driven Deck (All 11 Certified Instructors) */}
-        <ul className={`${styles.cardsTrack} scroll-reveal`}>
+        <ul className={styles.cardsTrack}>
           {trainersData.map((trainer, index) => {
             const isTriple = trainer.isTripleCCIE;
             const badgeText = getTrainerBadge(trainer);
