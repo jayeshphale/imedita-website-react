@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import {
   PhoneCall,
   Menu,
@@ -122,9 +123,9 @@ export const MainNavbar = ({ onOpenDemo }) => {
     <header className={`main-navbar-wrapper ${isScrolled ? 'is-scrolled' : ''}`}>
       <div className="container main-navbar-container">
         {/* Brand Logo */}
-        <a href="#" className="main-nav-brand" title="I-Medita Cisco & Cyber Security Academy">
+        <Link to="/" className="main-nav-brand" title="I-Medita Cisco & Cyber Security Academy">
           <ImeditaLogo height={42} />
-        </a>
+        </Link>
 
         {/* Desktop Navigation Links */}
         <nav className="main-nav-menu">
@@ -234,7 +235,7 @@ export const MainNavbar = ({ onOpenDemo }) => {
               setIsInternationalOpen(false);
             }}
           >
-            <a href="#success-stories" className="main-nav-link">
+            <a href="/#reviews" className="main-nav-link">
               <span>Success Stories</span>
             </a>
           </div>
@@ -248,7 +249,7 @@ export const MainNavbar = ({ onOpenDemo }) => {
               setIsInternationalOpen(false);
             }}
           >
-            <a href="#gallery" className="main-nav-link">
+            <a href="/#campus" className="main-nav-link">
               <span>Gallery</span>
             </a>
           </div>
@@ -262,7 +263,7 @@ export const MainNavbar = ({ onOpenDemo }) => {
               setIsInternationalOpen(false);
             }}
           >
-            <a href="#contact" className="main-nav-link">
+            <a href="/#request-demo" className="main-nav-link">
               <span>Contact</span>
             </a>
           </div>
@@ -357,19 +358,35 @@ export const MainNavbar = ({ onOpenDemo }) => {
                           {isDomainOpen && (
                             <div className="mobile-courses-tray">
                               {cat.courses.map((course, cIdx) => (
-                                <a 
-                                  key={cIdx} 
-                                  href={course.link} 
-                                  onClick={() => setMobileMenuOpen(false)}
-                                  className="mobile-course-link"
-                                >
-                                  <div className="mobile-course-bullet"></div>
-                                  <div className="mobile-course-info">
-                                    <span className="mobile-course-name">{course.name}</span>
-                                    <span className="mobile-course-sub">{course.desc}</span>
-                                  </div>
-                                  <ArrowRight size={12} className="mobile-link-arrow" />
-                                </a>
+                                course.link && course.link.startsWith('/') ? (
+                                  <Link
+                                    key={cIdx}
+                                    to={course.link}
+                                    onClick={() => setMobileMenuOpen(false)}
+                                    className="mobile-course-link"
+                                  >
+                                    <div className="mobile-course-bullet"></div>
+                                    <div className="mobile-course-info">
+                                      <span className="mobile-course-name">{course.name}</span>
+                                      <span className="mobile-course-sub">{course.desc}</span>
+                                    </div>
+                                    <ArrowRight size={12} className="mobile-link-arrow" />
+                                  </Link>
+                                ) : (
+                                  <a 
+                                    key={cIdx} 
+                                    href={course.link} 
+                                    onClick={() => setMobileMenuOpen(false)}
+                                    className="mobile-course-link"
+                                  >
+                                    <div className="mobile-course-bullet"></div>
+                                    <div className="mobile-course-info">
+                                      <span className="mobile-course-name">{course.name}</span>
+                                      <span className="mobile-course-sub">{course.desc}</span>
+                                    </div>
+                                    <ArrowRight size={12} className="mobile-link-arrow" />
+                                  </a>
+                                )
                               ))}
                             </div>
                           )}
@@ -507,7 +524,7 @@ export const MainNavbar = ({ onOpenDemo }) => {
             {/* Single Nav Links */}
             <div className="mobile-direct-links-group">
               <a 
-                href="#success-stories" 
+                href="/#reviews" 
                 onClick={() => setMobileMenuOpen(false)}
                 className="mobile-direct-link"
               >
@@ -516,7 +533,7 @@ export const MainNavbar = ({ onOpenDemo }) => {
               </a>
 
               <a 
-                href="#gallery" 
+                href="/#campus" 
                 onClick={() => setMobileMenuOpen(false)}
                 className="mobile-direct-link"
               >
@@ -525,7 +542,7 @@ export const MainNavbar = ({ onOpenDemo }) => {
               </a>
 
               <a 
-                href="#contact" 
+                href="/#request-demo" 
                 onClick={() => setMobileMenuOpen(false)}
                 className="mobile-direct-link"
               >

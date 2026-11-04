@@ -45,7 +45,7 @@ export const liveTrainingCategories = [
       ctaText: 'Book Free Demo Class'
     },
     courses: [
-      { name: 'CCNA (200-301)', desc: 'Implementing & Administering Solutions', icon: 'Network', link: '#ccna' },
+      { name: 'CCNA (200-301)', desc: 'Implementing & Administering Solutions', icon: 'Network', link: '/courses/ccna-training' },
       { name: 'Cisco SD-WAN (ENSDWI)', desc: 'SD-WAN Architecture & Deployment', icon: 'Globe', link: '#cisco-sdwan' },
       { name: 'CCNP Security (SCOR)', desc: 'Implementing Core Security Technologies', icon: 'Shield', link: '#ccnp-security' },
       { name: 'Cisco SVPN Training', desc: 'Securing Solutions with VPNs', icon: 'KeyRound', link: '#cisco-svpn' },

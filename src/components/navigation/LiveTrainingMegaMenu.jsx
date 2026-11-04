@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import {
   ArrowRight,
   ChevronRight,
@@ -106,6 +107,28 @@ export const LiveTrainingMegaMenu = ({ isOpen, onClose, onOpenDemo }) => {
           <div className="mega-courses-list">
             {currentCategory.courses.map((course, idx) => {
               const CourseIcon = iconMap[course.icon] || Sparkles;
+              const isInternal = course.link && course.link.startsWith('/');
+
+              if (isInternal) {
+                return (
+                  <Link
+                    key={idx}
+                    to={course.link}
+                    className="mega-course-item"
+                    onClick={onClose}
+                  >
+                    <div className="mega-course-icon-box">
+                      <CourseIcon size={14} />
+                    </div>
+                    <div className="mega-item-text">
+                      <span className="mega-item-title">{course.name}</span>
+                      <span className="mega-item-desc">{course.desc}</span>
+                    </div>
+                    <ArrowRight size={13} className="mega-item-arrow" />
+                  </Link>
+                );
+              }
+
               return (
                 <a
                   key={idx}

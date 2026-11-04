@@ -1,0 +1,1152 @@
+/* ==========================================================================
+   CISCO CCNA 200-301 DEDICATED COURSE PAGE STYLING
+   Deep Tech SaaS Theme (#0b0f19) | Crisp Vector Styling | 100% Responsive
+   ========================================================================== */
+
+.coursePageRoot {
+  width: 100%;
+  background-color: #ffffff;
+  color: #0f172a;
+  overflow-x: clip;
+}
+
+/* --------------------------------------------------------------------------
+   1. HERO SECTION (DEEP OBSIDIAN SLATE #0b0f19)
+   -------------------------------------------------------------------------- */
+.courseHero {
+  position: relative;
+  width: 100%;
+  background-color: #0b0f19;
+  background-image: 
+    radial-gradient(circle at 85% 20%, rgba(0, 102, 255, 0.18) 0%, transparent 45%),
+    radial-gradient(circle at 15% 80%, rgba(14, 165, 233, 0.10) 0%, transparent 40%);
+  padding: 3.5rem 1.5rem 4.5rem;
+  color: #94a3b8;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  .courseHero {
+    padding: 4.5rem 2rem 5.5rem;
+  }
+}
+
+.heroGridOverlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(56, 189, 248, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(56, 189, 248, 0.04) 1px, transparent 1px);
+  mask-image: radial-gradient(circle at center, rgba(0,0,0,1) 40%, rgba(0,0,0,0.2) 100%);
+  -webkit-mask-image: radial-gradient(circle at center, rgba(0,0,0,1) 40%, rgba(0,0,0,0.2) 100%);
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 10;
+}
+
+/* Breadcrumbs */
+.breadcrumbs {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  color: #64748b;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.breadcrumbLink {
+  color: #94a3b8;
+  text-decoration: none;
+  transition: color 150ms ease;
+}
+
+.breadcrumbLink:hover {
+  color: #38bdf8;
+}
+
+.breadcrumbCurrent {
+  color: #38bdf8;
+  font-weight: 600;
+}
+
+.breadcrumbSep {
+  color: #475569;
+}
+
+/* Hero 2-Column Split */
+.heroSplit {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+@media (min-width: 1024px) {
+  .heroSplit {
+    grid-template-columns: 1.25fr 0.85fr;
+    gap: 3.5rem;
+  }
+}
+
+/* Left Hero Column */
+.heroLeft {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.heroBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.95rem;
+  border-radius: 9999px;
+  background: rgba(0, 102, 255, 0.16);
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  color: #38bdf8;
+  font-size: 0.725rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 1.25rem;
+  box-shadow: 0 0 16px rgba(0, 102, 255, 0.2);
+}
+
+.heroHeading {
+  font-size: clamp(2rem, 3.8vw, 3.1rem);
+  font-weight: 850;
+  color: #ffffff;
+  letter-spacing: -0.025em;
+  line-height: 1.15;
+  margin-bottom: 1.1rem;
+}
+
+.highlightText {
+  background: linear-gradient(135deg, #60a5fa 0%, #38bdf8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.heroSubtext {
+  font-size: 1.05rem;
+  color: #94a3b8;
+  line-height: 1.65;
+  margin-bottom: 1.75rem;
+  max-width: 680px;
+}
+
+/* Hero Key Feature Badges Row */
+.heroPillsRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+.featurePill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.4rem 0.85rem;
+  background: rgba(15, 23, 42, 0.65);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  font-size: 0.8rem;
+  color: #e2e8f0;
+  font-weight: 600;
+}
+
+.pillIcon {
+  color: #38bdf8;
+}
+
+/* Hero CTA Row */
+.heroCtaRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  width: 100%;
+}
+
+.primaryCtaBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  background: linear-gradient(135deg, #0066ff 0%, #0052cc 100%);
+  color: #ffffff;
+  font-size: 0.95rem;
+  font-weight: 750;
+  padding: 0.95rem 1.85rem;
+  border-radius: 0.85rem;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 8px 24px -4px rgba(0, 102, 255, 0.5);
+  transition: all 200ms ease;
+  text-decoration: none;
+}
+
+.primaryCtaBtn:hover {
+  background: linear-gradient(135deg, #0052cc 0%, #004099 100%);
+  box-shadow: 0 12px 30px -4px rgba(0, 102, 255, 0.65);
+  transform: translateY(-2px);
+}
+
+.secondaryCtaBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: #f1f5f9;
+  font-size: 0.925rem;
+  font-weight: 700;
+  padding: 0.95rem 1.65rem;
+  border-radius: 0.85rem;
+  cursor: pointer;
+  transition: all 200ms ease;
+  text-decoration: none;
+  backdrop-filter: blur(8px);
+}
+
+.secondaryCtaBtn:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.35);
+  transform: translateY(-2px);
+}
+
+/* Trust Proof Counters under CTA */
+.heroTrustStrip {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.trustProofItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  color: #cbd5e1;
+}
+
+.trustCheckIcon {
+  color: #10b981;
+}
+
+/* --------------------------------------------------------------------------
+   RIGHT COLUMN: FLOATING ENROLLMENT & SPECS CARD
+   -------------------------------------------------------------------------- */
+.courseCardSurface {
+  background: rgba(15, 23, 42, 0.92);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 1.5rem;
+  padding: 1.75rem 1.65rem;
+  box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.85), 0 0 35px rgba(0, 102, 255, 0.15);
+  position: relative;
+  overflow: hidden;
+}
+
+.cardHeaderPrice {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  margin-bottom: 1.25rem;
+}
+
+.priceLabel {
+  font-size: 0.75rem;
+  color: #94a3b8;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.25rem;
+}
+
+.priceVal {
+  font-size: 1.85rem;
+  font-weight: 850;
+  color: #ffffff;
+}
+
+.originalPrice {
+  font-size: 1rem;
+  color: #64748b;
+  text-decoration: line-through;
+  margin-left: 0.5rem;
+  font-weight: 600;
+}
+
+.discountBadge {
+  background: rgba(16, 185, 129, 0.15);
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  color: #34d399;
+  font-size: 0.725rem;
+  font-weight: 750;
+  padding: 0.25rem 0.65rem;
+  border-radius: 9999px;
+  text-transform: uppercase;
+}
+
+/* Specs List */
+.specsList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  margin-bottom: 1.5rem;
+}
+
+.specRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.85rem;
+}
+
+.specName {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #94a3b8;
+}
+
+.specValue {
+  color: #ffffff;
+  font-weight: 700;
+  text-align: right;
+}
+
+.cardActionBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.cardEnrollBtn {
+  width: 100%;
+  background: linear-gradient(135deg, #0066ff 0%, #0052cc 100%);
+  color: #ffffff;
+  font-size: 0.95rem;
+  font-weight: 800;
+  padding: 0.85rem 1rem;
+  border-radius: 0.75rem;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  box-shadow: 0 4px 16px rgba(0, 102, 255, 0.4);
+  transition: all 180ms ease;
+}
+
+.cardEnrollBtn:hover {
+  background: linear-gradient(135deg, #0052cc 0%, #004099 100%);
+  transform: translateY(-2px);
+}
+
+.cardDemoBtn {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: #ffffff;
+  font-size: 0.875rem;
+  font-weight: 700;
+  padding: 0.8rem 1rem;
+  border-radius: 0.75rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: all 180ms ease;
+}
+
+.cardDemoBtn:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.moneyBackNote {
+  font-size: 0.725rem;
+  color: #64748b;
+  text-align: center;
+  margin-top: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+}
+
+/* --------------------------------------------------------------------------
+   2. KEY METRICS STRIP
+   -------------------------------------------------------------------------- */
+.metricsStripSection {
+  background: #f8fafc;
+  border-bottom: 1px solid #e2e8f0;
+  padding: 1.75rem 1.5rem;
+}
+
+.metricsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem 1rem;
+}
+
+@media (min-width: 768px) {
+  .metricsGrid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.metricBox {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.metricIconWrap {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: #eff6ff;
+  border: 1px solid #dbeafe;
+  color: #0066ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.metricValue {
+  font-size: 1.25rem;
+  font-weight: 850;
+  color: #0f172a;
+  line-height: 1.2;
+}
+
+.metricLabel {
+  font-size: 0.75rem;
+  color: #64748b;
+  font-weight: 600;
+}
+
+/* --------------------------------------------------------------------------
+   3. SECTION SHARED STYLES & HEADERS
+   -------------------------------------------------------------------------- */
+.contentSection {
+  padding: 5rem 1.5rem;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.sectionHeaderCenter {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 3.5rem;
+}
+
+.sectionEyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.85rem;
+  border-radius: 9999px;
+  background-color: #eff6ff;
+  border: 1px solid #dbeafe;
+  color: #0066ff;
+  font-size: 0.72rem;
+  font-weight: 750;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 0.85rem;
+}
+
+.sectionTitle {
+  font-size: clamp(1.85rem, 3.2vw, 2.5rem);
+  font-weight: 850;
+  color: #0f172a;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+  margin-bottom: 0.75rem;
+}
+
+.sectionSubtext {
+  font-size: 0.95rem;
+  color: #64748b;
+  line-height: 1.6;
+}
+
+/* --------------------------------------------------------------------------
+   4. WHY CCNA AT I-MEDITA (ADVANTAGES GRID)
+   -------------------------------------------------------------------------- */
+.advantagesGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .advantagesGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .advantagesGrid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.75rem;
+  }
+}
+
+.advantageCard {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 1.25rem;
+  padding: 1.85rem 1.65rem;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
+  transition: all 220ms ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.advantageCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #0066ff, #38bdf8);
+  opacity: 0;
+  transition: opacity 200ms ease;
+}
+
+.advantageCard:hover {
+  transform: translateY(-4px);
+  border-color: #bfdbfe;
+  box-shadow: 0 16px 32px -8px rgba(0, 102, 255, 0.12);
+}
+
+.advantageCard:hover::before {
+  opacity: 1;
+}
+
+.advantageIconWrap {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  color: #0066ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+}
+
+.advantageTitle {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 0.5rem;
+  line-height: 1.3;
+}
+
+.advantageDesc {
+  font-size: 0.85rem;
+  color: #64748b;
+  line-height: 1.6;
+}
+
+/* --------------------------------------------------------------------------
+   5. WHAT YOU WILL LEARN (6 CORE DOMAINS)
+   -------------------------------------------------------------------------- */
+.domainsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .domainsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .domainsGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.domainCard {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 1.15rem;
+  padding: 1.5rem;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.03);
+}
+
+.domainHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.domainNumber {
+  font-family: monospace;
+  font-size: 0.75rem;
+  font-weight: 750;
+  color: #0066ff;
+  background: #eff6ff;
+  border: 1px solid #dbeafe;
+  padding: 0.2rem 0.55rem;
+  border-radius: 6px;
+}
+
+.domainWeight {
+  font-size: 0.725rem;
+  font-weight: 700;
+  color: #059669;
+  background: #ecfdf5;
+  border: 1px solid #d1fae5;
+  padding: 0.2rem 0.55rem;
+  border-radius: 6px;
+}
+
+.domainTitle {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 0.65rem;
+}
+
+.domainPointsList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.domainPoint {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  color: #475569;
+  line-height: 1.45;
+}
+
+.pointDot {
+  color: #0066ff;
+  font-size: 1rem;
+  line-height: 1;
+}
+
+/* --------------------------------------------------------------------------
+   6. DETAILED SYLLABUS ACCORDION
+   -------------------------------------------------------------------------- */
+.syllabusContainer {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.syllabusAccordion {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.accordionItem {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 1rem;
+  overflow: hidden;
+  transition: all 200ms ease;
+}
+
+.accordionItem.isOpen {
+  border-color: #93c5fd;
+  box-shadow: 0 4px 16px -4px rgba(0, 102, 255, 0.12);
+}
+
+.accordionTrigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 1.5rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+}
+
+.triggerLeft {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.moduleTag {
+  font-size: 0.725rem;
+  font-weight: 750;
+  color: #0066ff;
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  padding: 0.25rem 0.6rem;
+  border-radius: 6px;
+  white-space: nowrap;
+}
+
+.moduleTitleText {
+  font-size: 1rem;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.accordionChevron {
+  color: #64748b;
+  transition: transform 200ms ease;
+  flex-shrink: 0;
+}
+
+.accordionChevron.rotate {
+  transform: rotate(180deg);
+  color: #0066ff;
+}
+
+.accordionBody {
+  padding: 0 1.5rem 1.5rem;
+  border-top: 1px solid #f1f5f9;
+}
+
+.topicsList {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.65rem;
+  padding-top: 1rem;
+}
+
+@media (min-width: 640px) {
+  .topicsList {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.topicItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  font-size: 0.825rem;
+  color: #334155;
+  line-height: 1.45;
+}
+
+/* --------------------------------------------------------------------------
+   7. 80+ REAL CISCO LAB HARDWARE PODS (DARK ENTERPRISE BLUEPRINT)
+   -------------------------------------------------------------------------- */
+.labSection {
+  background-color: #0b0f19;
+  color: #ffffff;
+  padding: 5.5rem 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  position: relative;
+  overflow: hidden;
+}
+
+.labDevicesGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .labDevicesGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .labDevicesGrid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.labDeviceCard {
+  background: rgba(15, 23, 42, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 1.25rem;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  transition: all 220ms ease;
+}
+
+.labDeviceCard:hover {
+  border-color: rgba(56, 189, 248, 0.45);
+  box-shadow: 0 16px 36px -10px rgba(0, 102, 255, 0.25);
+  transform: translateY(-4px);
+}
+
+.deviceIconBox {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: rgba(0, 102, 255, 0.16);
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  color: #38bdf8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.deviceCategory {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #38bdf8;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.25rem;
+}
+
+.deviceName {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+}
+
+.deviceSpecs {
+  font-size: 0.775rem;
+  color: #94a3b8;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+
+.devicePill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.675rem;
+  font-weight: 700;
+  color: #34d399;
+  background: rgba(16, 185, 129, 0.12);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  padding: 0.2rem 0.55rem;
+  border-radius: 9999px;
+  width: fit-content;
+  margin-top: auto;
+}
+
+/* --------------------------------------------------------------------------
+   8. EXAM DETAILS & SALARY BREAKDOWN
+   -------------------------------------------------------------------------- */
+.dualSplitGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 1024px) {
+  .dualSplitGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.examDetailsCard,
+.careerCard {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 1.25rem;
+  padding: 2rem;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
+}
+
+.cardHeaderBlock {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.cardIcon {
+  color: #0066ff;
+}
+
+.cardBlockTitle {
+  font-size: 1.25rem;
+  font-weight: 850;
+  color: #0f172a;
+}
+
+.examRowsList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.examRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0;
+  border-bottom: 1px dashed #e2e8f0;
+  font-size: 0.875rem;
+}
+
+.examRow:last-child {
+  border-bottom: none;
+}
+
+.examLabel {
+  color: #64748b;
+  font-weight: 500;
+}
+
+.examValue {
+  color: #0f172a;
+  font-weight: 750;
+  text-align: right;
+}
+
+/* Careers Roles List */
+.rolesGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.85rem;
+}
+
+@media (min-width: 640px) {
+  .rolesGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.roleCard {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.85rem;
+  padding: 0.95rem 1.15rem;
+}
+
+.roleTitle {
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 0.25rem;
+}
+
+.roleSalary {
+  font-size: 0.775rem;
+  color: #0066ff;
+  font-weight: 700;
+}
+
+/* --------------------------------------------------------------------------
+   9. UPCOMING BATCHES TABLE
+   -------------------------------------------------------------------------- */
+.batchesTableWrapper {
+  overflow-x: auto;
+  border: 1px solid #e2e8f0;
+  border-radius: 1rem;
+  background: #ffffff;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
+}
+
+.batchesTable {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.875rem;
+  min-width: 680px;
+}
+
+.batchesTable th {
+  background: #f8fafc;
+  padding: 1rem 1.25rem;
+  color: #475569;
+  font-weight: 750;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.batchesTable td {
+  padding: 1.1rem 1.25rem;
+  border-bottom: 1px solid #f1f5f9;
+  color: #334155;
+  vertical-align: middle;
+}
+
+.batchesTable tr:last-child td {
+  border-bottom: none;
+}
+
+.batchBadge {
+  display: inline-block;
+  padding: 0.25rem 0.55rem;
+  border-radius: 6px;
+  font-size: 0.725rem;
+  font-weight: 700;
+}
+
+.batchBadgeLive {
+  background: #ecfdf5;
+  color: #065f46;
+  border: 1px solid #a7f3d0;
+}
+
+.batchBadgeClassroom {
+  background: #eff6ff;
+  color: #1e40af;
+  border: 1px solid #bfdbfe;
+}
+
+.enrollBtnSmall {
+  background: #0066ff;
+  color: #ffffff;
+  border: none;
+  font-size: 0.775rem;
+  font-weight: 750;
+  padding: 0.45rem 0.95rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 150ms ease;
+}
+
+.enrollBtnSmall:hover {
+  background: #0052cc;
+}
+
+/* --------------------------------------------------------------------------
+   10. FAQS ACCORDION
+   -------------------------------------------------------------------------- */
+.faqsList {
+  max-width: 860px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.faqItem {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.85rem;
+  overflow: hidden;
+}
+
+.faqQuestion {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.2rem 1.4rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  font-size: 0.95rem;
+  font-weight: 750;
+  color: #0f172a;
+}
+
+.faqQuestion:hover {
+  color: #0066ff;
+}
+
+.faqAnswer {
+  padding: 0 1.4rem 1.25rem;
+  font-size: 0.85rem;
+  color: #475569;
+  line-height: 1.6;
+  border-top: 1px solid #f8fafc;
+}
+
+/* --------------------------------------------------------------------------
+   11. BOTTOM LEAD GENERATION STRIP
+   -------------------------------------------------------------------------- */
+.bottomCtaSection {
+  background: linear-gradient(135deg, #0b0f19 0%, #0f172a 100%);
+  color: #ffffff;
+  padding: 4.5rem 1.5rem;
+  text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.bottomCtaCard {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.bottomTitle {
+  font-size: clamp(2rem, 3.5vw, 2.75rem);
+  font-weight: 850;
+  margin-bottom: 1rem;
+}
+
+.bottomSub {
+  font-size: 1rem;
+  color: #94a3b8;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.bottomBtnRow {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* --------------------------------------------------------------------------
+   MOBILE & TABLET RESPONSIVE TUNING
+   -------------------------------------------------------------------------- */
+@media (max-width: 640px) {
+  .heroCtaRow {
+    flex-direction: column;
+  }
+
+  .primaryCtaBtn,
+  .secondaryCtaBtn {
+    width: 100%;
+  }
+
+  .courseCardSurface {
+    padding: 1.4rem 1.15rem;
+  }
+
+  .contentSection {
+    padding: 3.5rem 1rem;
+  }
+
+  .examDetailsCard,
+  .careerCard {
+    padding: 1.35rem 1rem;
+  }
+}

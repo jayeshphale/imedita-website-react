@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { 
   Sparkles, 
   CheckCircle2, 
@@ -91,15 +92,25 @@ export function PopularCourses({ onOpenDemo }) {
                     <span>Program Duration: <strong>{course.duration}</strong></span>
                   </div>
 
-                  <a 
-                    href={course.href} 
-                    target="_blank" 
-                    rel="noreferrer" 
-                    className={styles.enrollBtn}
-                  >
-                    <span>View Course Details</span>
-                    <ArrowRight size={14} className={styles.arrowGlyph} />
-                  </a>
+                  {course.href && course.href.startsWith('/') ? (
+                    <Link 
+                      to={course.href} 
+                      className={styles.enrollBtn}
+                    >
+                      <span>View Course Details</span>
+                      <ArrowRight size={14} className={styles.arrowGlyph} />
+                    </Link>
+                  ) : (
+                    <a 
+                      href={course.href} 
+                      target="_blank" 
+                      rel="noreferrer" 
+                      className={styles.enrollBtn}
+                    >
+                      <span>View Course Details</span>
+                      <ArrowRight size={14} className={styles.arrowGlyph} />
+                    </a>
+                  )}
                 </div>
               </div>
 

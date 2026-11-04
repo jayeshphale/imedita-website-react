@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
-import { Calendar, Clock, Monitor, ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { 
+  Calendar, 
+  Clock, 
+  Monitor, 
+  ArrowRight, 
+  Sparkles 
+} from 'lucide-react';
 import styles from './BatchesSection.module.css';
 
-const filterCategories = [
-  { id: "all", label: "All Batches" },
-  { id: "enterprise", label: "Cisco Enterprise" },
-  { id: "security", label: "Network Security" },
-  { id: "cloud", label: "Cloud & Automation" }
-];
-
-const batchSchedule = [
+const upcomingBatchesData = [
   {
     id: "batch-ccna-weekend",
     category: "enterprise",
@@ -21,7 +21,7 @@ const batchSchedule = [
     mode: "Live Online + Classroom Labs",
     status: "Filling Fast",
     statusType: "filling",
-    enrollUrl: "https://www.imedita.com/courses/ccna-training/"
+    enrollUrl: "/courses/ccna-training"
   },
   {
     id: "batch-ccnp-encor",
@@ -37,78 +37,98 @@ const batchSchedule = [
     enrollUrl: "https://www.imedita.com/courses/ccnp-training/"
   },
   {
-    id: "batch-palo-alto",
+    id: "batch-multivendor-firewall",
     category: "security",
-    course: "Palo Alto Firewall (PCNSA / PCNSE)",
-    track: "Cyber Security",
+    course: "Multi-Vendor Firewall Masterclass",
+    track: "Security",
     date: "21 Nov 2026",
     schedule: "Weekend (Sat - Sun)",
     timing: "02:00 PM - 05:00 PM IST",
-    mode: "Dedicated PA-400 Labs",
+    mode: "Live Online + Hardware Pods",
     status: "Filling Fast",
     statusType: "filling",
+    enrollUrl: "https://www.imedita.com/courses/multi-vendor-training/"
+  },
+  {
+    id: "batch-paloalto-pcnse",
+    category: "security",
+    course: "Palo Alto PCNSA / PCNSE",
+    track: "Security",
+    date: "23 Nov 2026",
+    schedule: "Weekday (Mon - Thu)",
+    timing: "07:00 AM - 09:00 AM IST",
+    mode: "Live Interactive Online",
+    status: "Seats Available",
+    statusType: "available",
     enrollUrl: "https://www.imedita.com/courses/palo-alto-firewall-training/"
   },
   {
-    id: "batch-checkpoint-ccse",
-    category: "security",
-    course: "Check Point Quantum CCSE (R81.20)",
-    track: "Cyber Security",
-    date: "23 Nov 2026",
-    schedule: "Weekday (Mon - Thu)",
-    timing: "07:00 PM - 09:00 PM IST",
-    mode: "ClusterXL Appliance Labs",
-    status: "Seats Available",
-    statusType: "available",
-    enrollUrl: "https://www.imedita.com/courses/checkpoint-firewall-training/"
-  },
-  {
-    id: "batch-multitrack-guarantee",
-    category: "enterprise",
-    course: "100% Job Guaranteed Network Engineer Track",
-    track: "Job Guarantee",
-    date: "28 Nov 2026",
-    schedule: "Daily Intensive",
-    timing: "10:30 AM - 04:30 PM IST",
-    mode: "Pune Campus / Hybrid",
+    id: "batch-job-guarantee-network",
+    category: "job-guarantee",
+    course: "Job Guaranteed Network Engineer Track",
+    track: "Placement",
+    date: "01 Dec 2026",
+    schedule: "Regular (Mon - Fri)",
+    timing: "10:00 AM - 04:00 PM IST",
+    mode: "Classroom (Pune Campus)",
     status: "Filling Fast",
     statusType: "filling",
     enrollUrl: "https://www.imedita.com/courses/job-guaranteed-training-for-network-engineers/"
   },
   {
-    id: "batch-cisco-sdwan",
-    category: "cloud",
-    course: "Cisco SD-WAN Solutions (ENSDWI 300-415)",
-    track: "SDN Overlay",
+    id: "batch-checkpoint-ccse",
+    category: "security",
+    course: "Checkpoint Firewall (CCSA / CCSE)",
+    track: "Security",
     date: "05 Dec 2026",
     schedule: "Weekend (Sat - Sun)",
     timing: "06:00 PM - 09:00 PM IST",
-    mode: "vManage Controller Labs",
+    mode: "Live Interactive Online",
+    status: "Seats Available",
+    statusType: "available",
+    enrollUrl: "https://www.imedita.com/courses/checkpoint-firewall-training/"
+  },
+  {
+    id: "batch-sdwan",
+    category: "enterprise",
+    course: "Cisco SD-WAN (ENSDWI 300-415)",
+    track: "Advanced",
+    date: "07 Dec 2026",
+    schedule: "Weekday (Mon - Thu)",
+    timing: "08:30 PM - 10:30 PM IST",
+    mode: "Live Interactive Online",
     status: "Seats Available",
     statusType: "available",
     enrollUrl: "https://www.imedita.com/courses/sd-wan-training/"
   },
   {
-    id: "batch-aws-architect",
-    category: "cloud",
-    course: "AWS Solutions Architect Associate (SAA-C03)",
-    track: "Cloud Architecture",
-    date: "08 Dec 2026",
-    schedule: "Weekday (Tue - Fri)",
-    timing: "08:30 PM - 10:30 PM IST",
-    mode: "Enterprise VPC Cloud Pods",
-    status: "Seats Available",
-    statusType: "available",
-    enrollUrl: "https://www.imedita.com/courses/aws-solution-architect-associate-training/"
+    id: "batch-job-guarantee-cyber",
+    category: "job-guarantee",
+    course: "Job Guaranteed Cyber Security Track",
+    track: "Placement",
+    date: "12 Dec 2026",
+    schedule: "Regular (Mon - Fri)",
+    timing: "10:00 AM - 04:00 PM IST",
+    mode: "Classroom + Online Hybrid",
+    status: "Filling Fast",
+    statusType: "filling",
+    enrollUrl: "https://www.imedita.com/courses/job-guaranteed-training-for-cyber-security-engineers/"
   }
+];
+
+const filterCategories = [
+  { id: "all", label: "All Upcoming Batches" },
+  { id: "enterprise", label: "Cisco Routing & Switching" },
+  { id: "security", label: "Next-Gen Firewalls" },
+  { id: "job-guarantee", label: "Job Guarantee Programs" }
 ];
 
 export function BatchesSection({ onOpenDemo }) {
   const [activeTab, setActiveTab] = useState('all');
 
   const filteredBatches = activeTab === 'all'
-    ? batchSchedule
-    : batchSchedule.filter(b => b.category === activeTab);
+    ? upcomingBatchesData
+    : upcomingBatchesData.filter(b => b.category === activeTab);
 
   return (
     <section className={styles.batchesSection} id="batches">
@@ -117,14 +137,14 @@ export function BatchesSection({ onOpenDemo }) {
         {/* Header Block */}
         <div className={`${styles.headerBlock} scroll-header`}>
           <div className={styles.eyebrowBadge}>
-            <Calendar size={14} />
-            <span>Upcoming Live Batches</span>
+            <Sparkles size={14} />
+            <span>Interactive Live Cohorts</span>
           </div>
           <h2 className={styles.sectionHeading}>
-            Reserve Your Seat in Upcoming Schedules
+            Upcoming Live Interactive Batches
           </h2>
           <p className={styles.sectionSubtext}>
-            Flexible weekday and weekend batches led by certified CCIE instructors with live datacenter rack access.
+            Choose between flexible weekend slots, evening weekday batches, or intensive classroom bootcamps in Pune.
           </p>
         </div>
 
@@ -187,21 +207,31 @@ export function BatchesSection({ onOpenDemo }) {
                     </span>
                   </td>
                   <td className={styles.tdCell} style={{ textAlign: 'right' }}>
-                    <a 
-                      href={item.enrollUrl} 
-                      target="_blank" 
-                      rel="noreferrer" 
-                      className={styles.enrollTableBtn}
-                      onClick={(e) => {
-                        if (onOpenDemo && item.enrollUrl.startsWith('#')) {
-                          e.preventDefault();
-                          onOpenDemo(item.course);
-                        }
-                      }}
-                    >
-                      <span>Book Seat</span>
-                      <ArrowRight size={13} />
-                    </a>
+                    {item.enrollUrl && item.enrollUrl.startsWith('/') ? (
+                      <Link 
+                        to={item.enrollUrl} 
+                        className={styles.enrollTableBtn}
+                      >
+                        <span>Book Seat</span>
+                        <ArrowRight size={13} />
+                      </Link>
+                    ) : (
+                      <a 
+                        href={item.enrollUrl} 
+                        target="_blank" 
+                        rel="noreferrer" 
+                        className={styles.enrollTableBtn}
+                        onClick={(e) => {
+                          if (onOpenDemo && item.enrollUrl.startsWith('#')) {
+                            e.preventDefault();
+                            onOpenDemo(item.course);
+                          }
+                        }}
+                      >
+                        <span>Book Seat</span>
+                        <ArrowRight size={13} />
+                      </a>
+                    )}
                   </td>
                 </tr>
               ))}
@@ -248,21 +278,31 @@ export function BatchesSection({ onOpenDemo }) {
                 </div>
               </div>
 
-              <a 
-                href={item.enrollUrl} 
-                target="_blank" 
-                rel="noreferrer" 
-                className={styles.mobileEnrollBtn}
-                onClick={(e) => {
-                  if (onOpenDemo && item.enrollUrl.startsWith('#')) {
-                    e.preventDefault();
-                    onOpenDemo(item.course);
-                  }
-                }}
-              >
-                <span>Enroll in Batch</span>
-                <ArrowRight size={14} />
-              </a>
+              {item.enrollUrl && item.enrollUrl.startsWith('/') ? (
+                <Link 
+                  to={item.enrollUrl} 
+                  className={styles.mobileEnrollBtn}
+                >
+                  <span>Enroll in Batch</span>
+                  <ArrowRight size={14} />
+                </Link>
+              ) : (
+                <a 
+                  href={item.enrollUrl} 
+                  target="_blank" 
+                  rel="noreferrer" 
+                  className={styles.mobileEnrollBtn}
+                  onClick={(e) => {
+                    if (onOpenDemo && item.enrollUrl.startsWith('#')) {
+                      e.preventDefault();
+                      onOpenDemo(item.course);
+                    }
+                  }}
+                >
+                  <span>Enroll in Batch</span>
+                  <ArrowRight size={14} />
+                </a>
+              )}
             </div>
           ))}
         </div>
@@ -274,4 +314,3 @@ export function BatchesSection({ onOpenDemo }) {
 
 export { BatchesSection as UpcomingBatchesSection };
 export default BatchesSection;
-

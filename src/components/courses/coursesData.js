@@ -185,7 +185,7 @@ export const originalCoursesData = [
       "Global Exam Code 200-301 Focus"
     ],
     duration: "60 Hours",
-    href: "https://www.imedita.com/courses/ccna-training/"
+    href: "/courses/ccna-training"
   },
   {
     id: "cisco-ccnp-enterprise",

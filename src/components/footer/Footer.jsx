@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styles from './Footer.module.css';
 
 const jobGuaranteed = [
@@ -19,7 +20,7 @@ const networkSecurity = [
 ];
 
 const trendingCourses = [
-  { label: "Cisco CCNA Certification Training", href: "https://www.imedita.com/courses/ccna-training/" },
+  { label: "Cisco CCNA Certification Training", href: "/courses/ccna-training" },
   { label: "Cisco SD-Access Training", href: "https://www.imedita.com/courses/cisco-sda-training/" },
   { label: "Cisco CCNP Enterprise Certification Training", href: "https://www.imedita.com/courses/ccnp-training/" },
   { label: "Cisco CCIE Enterprise Certification Training", href: "https://www.imedita.com/courses/ccie-training/" },
@@ -46,7 +47,11 @@ const InlineGroup = ({ links }) => (
   <div className={styles.inlineLinksList}>
     {links.map((item, idx) => (
       <React.Fragment key={idx}>
-        <a href={item.href} className={styles.inlineLink}>{item.label}</a>
+        {item.href.startsWith('/') ? (
+          <Link to={item.href} className={styles.inlineLink}>{item.label}</Link>
+        ) : (
+          <a href={item.href} className={styles.inlineLink}>{item.label}</a>
+        )}
         {idx < links.length - 1 && <span className={styles.separator}>|</span>}
       </React.Fragment>
     ))}
@@ -61,7 +66,7 @@ export function Footer() {
         {/* TOP TIER */}
         <div className={`${styles.topTier} scroll-reveal`}>
           <div className={styles.logoCol}>
-            <a href="/">
+            <Link to="/">
               <img 
                 src="https://imeditaoffload.s3.ap-south-1.amazonaws.com/wp-content/uploads/2022/06/10071502/i-medita-logo-White-1-1024x287.png" 
                 alt="I-Medita" 
@@ -71,7 +76,7 @@ export function Footer() {
                   e.target.src = "/assets/i-medita-logo-white.png";
                 }}
               />
-            </a>
+            </Link>
           </div>
 
           <div className={styles.linkCol}>

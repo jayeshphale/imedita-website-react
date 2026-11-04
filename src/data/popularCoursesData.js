@@ -91,7 +91,7 @@ export const allCoursesCards = [
     categoryId: "cisco",
     title: "CCNA 200-301",
     subtitle: "Implementing and Administering Cisco Solutions.",
-    url: "https://www.imedita.com/courses/ccna-training/",
+    url: "/courses/ccna-training",
     badge: "Best Seller",
     badgeStyle: "badge-blue",
     icon: Network,
