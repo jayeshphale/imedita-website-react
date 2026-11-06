@@ -46,6 +46,7 @@ export const liveTrainingCategories = [
     },
     courses: [
       { name: 'CCNA (200-301)', desc: 'Implementing & Administering Solutions', icon: 'Network', link: '/courses/ccna-training' },
+      { name: 'CCNA Automation (200-901)', desc: 'Python, REST APIs & Cisco Programmability', icon: 'Terminal', link: '/courses/ccna-automation-training' },
       { name: 'Cisco SD-WAN (ENSDWI)', desc: 'SD-WAN Architecture & Deployment', icon: 'Globe', link: '#cisco-sdwan' },
       { name: 'CCNP Security (SCOR)', desc: 'Implementing Core Security Technologies', icon: 'Shield', link: '#ccnp-security' },
       { name: 'Cisco SVPN Training', desc: 'Securing Solutions with VPNs', icon: 'KeyRound', link: '#cisco-svpn' },

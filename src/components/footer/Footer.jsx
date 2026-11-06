@@ -21,6 +21,7 @@ const networkSecurity = [
 
 const trendingCourses = [
   { label: "Cisco CCNA Certification Training", href: "/courses/ccna-training" },
+  { label: "Cisco CCNA Automation Training", href: "/courses/ccna-automation-training" },
   { label: "Cisco SD-Access Training", href: "https://www.imedita.com/courses/cisco-sda-training/" },
   { label: "Cisco CCNP Enterprise Certification Training", href: "https://www.imedita.com/courses/ccnp-training/" },
   { label: "Cisco CCIE Enterprise Certification Training", href: "https://www.imedita.com/courses/ccie-training/" },
