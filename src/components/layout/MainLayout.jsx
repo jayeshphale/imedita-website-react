@@ -10,7 +10,7 @@ import ScrollRevealManager from '../common/ScrollRevealManager';
 
 export function MainLayout() {
   const [isDemoOpen, setIsDemoOpen] = useState(false);
-  const [selectedCourse, setSelectedCourse] = useState('Cisco CCNA (200-301)');
+  const [selectedCourse, setSelectedCourse] = useState('Cisco CCNA & Cyber Security');
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -52,7 +52,7 @@ export function MainLayout() {
         {/* =========================================================================
             DYNAMIC PAGE OUTLET (Renders Home, Course Pages, etc.)
             ========================================================================= */}
-        <main className="main-viewport-content" style={{ minHeight: 'calc(100vh - 110px)' }}>
+        <main className="main-viewport-content" style={{ minHeight: 'calc(100vh - 110px)', background: '#F8FAFC' }}>
           <Outlet context={{ handleOpenDemo, selectedCourse, setSelectedCourse }} />
         </main>
 

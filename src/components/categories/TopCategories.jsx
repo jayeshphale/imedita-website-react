@@ -1,15 +1,18 @@
-import { Link } from 'react-router-dom';
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { 
-  Sparkles, 
-  ArrowUpRight, 
-  Layers, 
-  PhoneCall, 
-  BookOpen 
+  Sparkles,
+  GraduationCap, 
+  Award, 
+  ShieldCheck, 
+  Briefcase, 
+  Monitor, 
+  ArrowRight,
+  ArrowUpRight,
+  Layers
 } from 'lucide-react';
 import styles from './TopCategories.module.css';
 
-// Exact matching 9 categories from original website
 const categories = [
   { 
     id: "cisco", 
@@ -42,79 +45,87 @@ const categories = [
     bg: "#F0FDF4", 
     border: "#BBF7D0", 
     color: "#16A34A", 
-    href: "https://imedita.com/courses/job-guaranteed-training-for-cyber-security-engineers/" 
+    href: "https://imedita.com/courses/multi-vendor-training/" 
   },
   { 
-    id: "cloud-computing", 
-    name: "Cloud Computing", 
-    subtext: "AWS Solutions Architect & Azure",
-    badge: "Hot",
-    logoText: "CLOUD", 
+    id: "checkpoint", 
+    name: "CheckPoint", 
+    subtext: "CCSA & CCSE Quantum Gateways",
+    badge: "Firewall",
+    logoText: "CP", 
+    bg: "#FFF1F2", 
+    border: "#FECDD3", 
+    color: "#E11D48", 
+    href: "https://imedita.com/courses/checkpoint-firewall-training/" 
+  },
+  { 
+    id: "ec-council", 
+    name: "EC Council", 
+    subtext: "CEH v13 & Threat Analysis",
+    badge: "Certified",
+    logoText: "EC", 
+    bg: "#FEF2F2", 
+    border: "#FECACA", 
+    color: "#DC2626", 
+    href: "https://imedita.com/courses/ethical-hacking-training/" 
+  },
+  { 
+    id: "f5-networks", 
+    name: "F5 Networks", 
+    subtext: "BIG-IP LTM & Traffic Management",
+    badge: "Application",
+    logoText: "F5", 
+    bg: "#FFF1F2", 
+    border: "#FECDD3", 
+    color: "#E11D48", 
+    href: "https://imedita.com/courses/f5-training/" 
+  },
+  { 
+    id: "palo-alto", 
+    name: "Palo Alto Networks", 
+    subtext: "PCNSA & PCNSE Dedicated Pods",
+    badge: "Enterprise",
+    logoText: "PA", 
+    bg: "#FFF7ED", 
+    border: "#FED7AA", 
+    color: "#EA580C", 
+    href: "https://imedita.com/courses/palo-alto-firewall-training/" 
+  },
+  { 
+    id: "network-automation", 
+    name: "Network Automation", 
+    subtext: "Python, Ansible & Cisco DevNet",
+    badge: "Automation",
+    logoText: "AUTO", 
+    bg: "#FDF4FF", 
+    border: "#F5D0FE", 
+    color: "#C026D3", 
+    href: "/courses/ccna-automation-training" 
+  },
+  { 
+    id: "aws", 
+    name: "Amazon Web Services", 
+    subtext: "Solutions Architect & Cloud VPCs",
+    badge: "Cloud",
+    logoText: "AWS", 
     bg: "#FFFBEB", 
     border: "#FDE68A", 
     color: "#D97706", 
     href: "https://imedita.com/courses/aws-solution-architect-associate-training/" 
-  },
-  { 
-    id: "firewall", 
-    name: "Firewall", 
-    subtext: "Palo Alto, Fortinet & Checkpoint",
-    badge: "Multi-Vendor",
-    logoText: "WALL", 
-    bg: "#FEF2F2", 
-    border: "#FECACA", 
-    color: "#DC2626", 
-    href: "https://imedita.com/courses/multi-vendor-training/" 
-  },
-  { 
-    id: "free-courses", 
-    name: "Free Courses", 
-    subtext: "Self-Paced Foundational Videos",
-    badge: "100% Free",
-    logoText: "FREE", 
-    bg: "#F0FDFA", 
-    border: "#99F6E4", 
-    color: "#0D9488", 
-    href: "https://imedita.com/courses/" 
-  },
-  { 
-    id: "combos", 
-    name: "Combos", 
-    subtext: "Dual Specialization Fast Tracks",
-    badge: "Save 30%",
-    logoText: "COMBO", 
-    bg: "#FDF2F8", 
-    border: "#FBCFE8", 
-    color: "#DB2777", 
-    href: "https://imedita.com/courses/" 
-  },
-  { 
-    id: "collaboration", 
-    name: "Collaboration", 
-    subtext: "Cisco CUCM & SIP Telephony",
-    badge: "Enterprise",
-    logoText: "VOIP", 
-    bg: "#EEF2FF", 
-    border: "#C7D2FE", 
-    color: "#4F46E5", 
-    href: "https://imedita.com/courses/" 
-  },
-  { 
-    id: "data-center", 
-    name: "Data Center", 
-    subtext: "Nexus 9K & Cisco ACI Fabrics",
-    badge: "Advanced",
-    logoText: "DC", 
-    bg: "#F8FAFC", 
-    border: "#E2E8F0", 
-    color: "#475569", 
-    href: "https://imedita.com/courses/" 
   }
+];
+
+const pillars = [
+  { id: "instructors", title: "Top Instructors", sub: "15+ Yrs Triple CCIEs", Icon: GraduationCap },
+  { id: "certification", title: "Online Certification", sub: "Global Vendor Exam", Icon: Award },
+  { id: "backup-classes", title: "Backup Classes", sub: "Live & Recorded Access", Icon: ShieldCheck },
+  { id: "placement", title: "Placement Support", sub: "100% Mock & HR Drives", Icon: Briefcase },
+  { id: "lab-access", title: "24x7 Lab Access", sub: "Physical Hardware Pods", Icon: Monitor }
 ];
 
 export function TopCategories({ onOpenDemo }) {
   return (
-    <section className={styles.categoriesSection} id="categories">
+    <section className={styles.topCategoriesSection} id="categories">
       <div className={styles.sectionContainer}>
         
         {/* Modern SaaS Header */}
@@ -201,31 +212,38 @@ export function TopCategories({ onOpenDemo }) {
               </p>
             </div>
 
-            <div className={styles.cardFooterArea}>
-              <button 
-                type="button" 
-                className={styles.actionBtnPrimary}
-                onClick={(e) => {
-                  e.preventDefault();
-                  if (onOpenDemo) onOpenDemo('General Course Inquiry');
-                }}
-              >
-                <PhoneCall size={15} />
-                <span>Request Custom Syllabus</span>
-              </button>
-
-              <div className={styles.directCatalogLink}>
-                <BookOpen size={13} />
-                <span>Jump to Course Catalog Below</span>
-              </div>
-            </div>
+            <span className={styles.getStartedBtn}>
+              <span>Browse Full Catalog</span>
+              <ArrowRight size={15} strokeWidth={2.2} className={styles.ctaArrow} />
+            </span>
           </a>
 
         </div>
 
       </div>
+
+      {/* 5-Pillar Blue Feature Strip with Frosted Glass Tiles */}
+      <div className={styles.bottomFeatureBar}>
+        <div className={`${styles.pillarsWrapper} scroll-stagger-cards`}>
+          {pillars.map((pillar) => {
+            const IconComponent = pillar.Icon;
+            return (
+              <div key={pillar.id} className={styles.pillarCard}>
+                <div className={styles.pillarIconWrap}>
+                  <IconComponent size={22} strokeWidth={2} />
+                </div>
+                <div className={styles.pillarText}>
+                  <span className={styles.pillarTitle}>{pillar.title}</span>
+                  <span className={styles.pillarSub}>{pillar.sub}</span>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
     </section>
   );
 }
 
+export { TopCategories as TopCategoriesSection };
 export default TopCategories;

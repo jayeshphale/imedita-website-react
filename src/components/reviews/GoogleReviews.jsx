@@ -155,6 +155,7 @@ function ReviewCardItem({ rev }) {
 export function GoogleReviews() {
   return (
     <section className={styles.reviewsSection} id="reviews" aria-label="Student Google Reviews">
+      <span id="success-stories" style={{ display: 'block', position: 'relative', top: '-80px', visibility: 'hidden' }} />
       <div className={styles.sectionContainer}>
         
         {/* Header Block */}

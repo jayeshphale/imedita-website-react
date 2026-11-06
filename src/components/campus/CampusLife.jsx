@@ -97,6 +97,7 @@ export function CampusLife() {
       className={styles.campusOuterWrapper} 
       id="campus"
     >
+      <span id="gallery" style={{ display: 'block', position: 'relative', top: '-80px', visibility: 'hidden' }} />
       <div className={styles.stickyFrame}>
         
         {/* Header Block with Standard Lateral Padding */}

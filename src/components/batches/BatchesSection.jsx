@@ -1,15 +1,16 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { 
-  Calendar, 
-  Clock, 
-  Monitor, 
-  ArrowRight, 
-  Sparkles 
-} from 'lucide-react';
+import { Calendar, Clock, Monitor, ArrowRight } from 'lucide-react';
 import styles from './BatchesSection.module.css';
 
-const upcomingBatchesData = [
+const filterCategories = [
+  { id: "all", label: "All Batches" },
+  { id: "enterprise", label: "Cisco Enterprise" },
+  { id: "security", label: "Network Security" },
+  { id: "cloud", label: "Cloud & Automation" }
+];
+
+const batchSchedule = [
   {
     id: "batch-ccna-weekend",
     category: "enterprise",
@@ -37,98 +38,78 @@ const upcomingBatchesData = [
     enrollUrl: "https://www.imedita.com/courses/ccnp-training/"
   },
   {
-    id: "batch-multivendor-firewall",
+    id: "batch-palo-alto",
     category: "security",
-    course: "Multi-Vendor Firewall Masterclass",
-    track: "Security",
+    course: "Palo Alto Firewall (PCNSA / PCNSE)",
+    track: "Cyber Security",
     date: "21 Nov 2026",
     schedule: "Weekend (Sat - Sun)",
     timing: "02:00 PM - 05:00 PM IST",
-    mode: "Live Online + Hardware Pods",
+    mode: "Dedicated PA-400 Labs",
     status: "Filling Fast",
     statusType: "filling",
-    enrollUrl: "https://www.imedita.com/courses/multi-vendor-training/"
-  },
-  {
-    id: "batch-paloalto-pcnse",
-    category: "security",
-    course: "Palo Alto PCNSA / PCNSE",
-    track: "Security",
-    date: "23 Nov 2026",
-    schedule: "Weekday (Mon - Thu)",
-    timing: "07:00 AM - 09:00 AM IST",
-    mode: "Live Interactive Online",
-    status: "Seats Available",
-    statusType: "available",
     enrollUrl: "https://www.imedita.com/courses/palo-alto-firewall-training/"
-  },
-  {
-    id: "batch-job-guarantee-network",
-    category: "job-guarantee",
-    course: "Job Guaranteed Network Engineer Track",
-    track: "Placement",
-    date: "01 Dec 2026",
-    schedule: "Regular (Mon - Fri)",
-    timing: "10:00 AM - 04:00 PM IST",
-    mode: "Classroom (Pune Campus)",
-    status: "Filling Fast",
-    statusType: "filling",
-    enrollUrl: "https://www.imedita.com/courses/job-guaranteed-training-for-network-engineers/"
   },
   {
     id: "batch-checkpoint-ccse",
     category: "security",
-    course: "Checkpoint Firewall (CCSA / CCSE)",
-    track: "Security",
-    date: "05 Dec 2026",
-    schedule: "Weekend (Sat - Sun)",
-    timing: "06:00 PM - 09:00 PM IST",
-    mode: "Live Interactive Online",
+    course: "Check Point Quantum CCSE (R81.20)",
+    track: "Cyber Security",
+    date: "23 Nov 2026",
+    schedule: "Weekday (Mon - Thu)",
+    timing: "07:00 PM - 09:00 PM IST",
+    mode: "ClusterXL Appliance Labs",
     status: "Seats Available",
     statusType: "available",
     enrollUrl: "https://www.imedita.com/courses/checkpoint-firewall-training/"
   },
   {
-    id: "batch-sdwan",
+    id: "batch-multitrack-guarantee",
     category: "enterprise",
-    course: "Cisco SD-WAN (ENSDWI 300-415)",
-    track: "Advanced",
-    date: "07 Dec 2026",
-    schedule: "Weekday (Mon - Thu)",
-    timing: "08:30 PM - 10:30 PM IST",
-    mode: "Live Interactive Online",
+    course: "100% Job Guaranteed Network Engineer Track",
+    track: "Job Guarantee",
+    date: "28 Nov 2026",
+    schedule: "Daily Intensive",
+    timing: "10:30 AM - 04:30 PM IST",
+    mode: "Pune Campus / Hybrid",
+    status: "Filling Fast",
+    statusType: "filling",
+    enrollUrl: "https://www.imedita.com/courses/job-guaranteed-training-for-network-engineers/"
+  },
+  {
+    id: "batch-cisco-sdwan",
+    category: "cloud",
+    course: "Cisco SD-WAN Solutions (ENSDWI 300-415)",
+    track: "SDN Overlay",
+    date: "05 Dec 2026",
+    schedule: "Weekend (Sat - Sun)",
+    timing: "06:00 PM - 09:00 PM IST",
+    mode: "vManage Controller Labs",
     status: "Seats Available",
     statusType: "available",
     enrollUrl: "https://www.imedita.com/courses/sd-wan-training/"
   },
   {
-    id: "batch-job-guarantee-cyber",
-    category: "job-guarantee",
-    course: "Job Guaranteed Cyber Security Track",
-    track: "Placement",
-    date: "12 Dec 2026",
-    schedule: "Regular (Mon - Fri)",
-    timing: "10:00 AM - 04:00 PM IST",
-    mode: "Classroom + Online Hybrid",
-    status: "Filling Fast",
-    statusType: "filling",
-    enrollUrl: "https://www.imedita.com/courses/job-guaranteed-training-for-cyber-security-engineers/"
+    id: "batch-aws-architect",
+    category: "cloud",
+    course: "AWS Solutions Architect Associate (SAA-C03)",
+    track: "Cloud Architecture",
+    date: "08 Dec 2026",
+    schedule: "Weekday (Tue - Fri)",
+    timing: "08:30 PM - 10:30 PM IST",
+    mode: "Enterprise VPC Cloud Pods",
+    status: "Seats Available",
+    statusType: "available",
+    enrollUrl: "https://www.imedita.com/courses/aws-solution-architect-associate-training/"
   }
-];
-
-const filterCategories = [
-  { id: "all", label: "All Upcoming Batches" },
-  { id: "enterprise", label: "Cisco Routing & Switching" },
-  { id: "security", label: "Next-Gen Firewalls" },
-  { id: "job-guarantee", label: "Job Guarantee Programs" }
 ];
 
 export function BatchesSection({ onOpenDemo }) {
   const [activeTab, setActiveTab] = useState('all');
 
   const filteredBatches = activeTab === 'all'
-    ? upcomingBatchesData
-    : upcomingBatchesData.filter(b => b.category === activeTab);
+    ? batchSchedule
+    : batchSchedule.filter(b => b.category === activeTab);
 
   return (
     <section className={styles.batchesSection} id="batches">
@@ -137,14 +118,14 @@ export function BatchesSection({ onOpenDemo }) {
         {/* Header Block */}
         <div className={`${styles.headerBlock} scroll-header`}>
           <div className={styles.eyebrowBadge}>
-            <Sparkles size={14} />
-            <span>Interactive Live Cohorts</span>
+            <Calendar size={14} />
+            <span>Upcoming Live Batches</span>
           </div>
           <h2 className={styles.sectionHeading}>
-            Upcoming Live Interactive Batches
+            Reserve Your Seat in Upcoming Schedules
           </h2>
           <p className={styles.sectionSubtext}>
-            Choose between flexible weekend slots, evening weekday batches, or intensive classroom bootcamps in Pune.
+            Flexible weekday and weekend batches led by certified CCIE instructors with live datacenter rack access.
           </p>
         </div>
 
@@ -165,19 +146,19 @@ export function BatchesSection({ onOpenDemo }) {
         <div className={`${styles.desktopTableView} scroll-reveal`}>
           <table className={styles.tableElement}>
             <thead>
-              <tr className={styles.tableHeaderRow}>
-                <th className={styles.thCell}>Course & Track</th>
-                <th className={styles.thCell}>Start Date</th>
+              <tr className={styles.tableHeadRow}>
+                <th className={styles.thCell}>Course &amp; Certification Track</th>
+                <th className={styles.thCell}>Batch Date</th>
                 <th className={styles.thCell}>Schedule</th>
-                <th className={styles.thCell}>Timings (IST)</th>
-                <th className={styles.thCell}>Delivery Mode</th>
+                <th className={styles.thCell}>Timing</th>
+                <th className={styles.thCell}>Training Mode</th>
                 <th className={styles.thCell}>Batch Status</th>
-                <th className={styles.thCell} style={{ textAlign: 'right' }}>Enrollment</th>
+                <th className={styles.thCell} style={{ textAlign: 'right' }}>Action</th>
               </tr>
             </thead>
             <tbody>
               {filteredBatches.map((item) => (
-                <tr key={item.id} className={styles.tableRow}>
+                <tr key={item.id} className={styles.tableBodyRow}>
                   <td className={styles.tdCell}>
                     <span className={styles.courseName}>{item.course}</span>
                     <span className={styles.trackTag}>{item.track}</span>

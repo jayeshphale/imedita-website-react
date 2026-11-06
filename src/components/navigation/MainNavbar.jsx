@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import {
   PhoneCall,
   Menu,
@@ -54,6 +54,41 @@ const mobileIconMap = {
 };
 
 export const MainNavbar = ({ onOpenDemo }) => {
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const handleNavAnchor = (e, targetId) => {
+    e.preventDefault();
+    if (location.pathname === '/') {
+      const el = document.getElementById(targetId);
+      if (el) {
+        if (window.__lenis) {
+          window.__lenis.scrollTo(el, { offset: -70 });
+        } else {
+          el.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+    } else {
+      navigate(`/#${targetId}`);
+    }
+  };
+
+  const handleMobileNavAnchor = (e, targetId) => {
+    e.preventDefault();
+    setMobileMenuOpen(false);
+    if (location.pathname === '/') {
+      const el = document.getElementById(targetId);
+      if (el) {
+        if (window.__lenis) {
+          window.__lenis.scrollTo(el, { offset: -70 });
+        } else {
+          el.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+    } else {
+      navigate(`/#${targetId}`);
+    }
+  };
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isLiveTrainingOpen, setIsLiveTrainingOpen] = useState(false);
   const [isVouchersOpen, setIsVouchersOpen] = useState(false);
@@ -235,7 +270,11 @@ export const MainNavbar = ({ onOpenDemo }) => {
               setIsInternationalOpen(false);
             }}
           >
-            <a href="/#reviews" className="main-nav-link">
+            <a 
+              href="/#reviews" 
+              className="main-nav-link"
+              onClick={(e) => handleNavAnchor(e, 'reviews')}
+            >
               <span>Success Stories</span>
             </a>
           </div>
@@ -249,7 +288,11 @@ export const MainNavbar = ({ onOpenDemo }) => {
               setIsInternationalOpen(false);
             }}
           >
-            <a href="/#campus" className="main-nav-link">
+            <a 
+              href="/#campus" 
+              className="main-nav-link"
+              onClick={(e) => handleNavAnchor(e, 'campus')}
+            >
               <span>Gallery</span>
             </a>
           </div>
@@ -263,7 +306,11 @@ export const MainNavbar = ({ onOpenDemo }) => {
               setIsInternationalOpen(false);
             }}
           >
-            <a href="/#request-demo" className="main-nav-link">
+            <a 
+              href="/#request-demo" 
+              className="main-nav-link"
+              onClick={(e) => handleNavAnchor(e, 'request-demo')}
+            >
               <span>Contact</span>
             </a>
           </div>
@@ -525,7 +572,7 @@ export const MainNavbar = ({ onOpenDemo }) => {
             <div className="mobile-direct-links-group">
               <a 
                 href="/#reviews" 
-                onClick={() => setMobileMenuOpen(false)}
+                onClick={(e) => handleMobileNavAnchor(e, 'reviews')}
                 className="mobile-direct-link"
               >
                 <span>Success Stories</span>
@@ -534,7 +581,7 @@ export const MainNavbar = ({ onOpenDemo }) => {
 
               <a 
                 href="/#campus" 
-                onClick={() => setMobileMenuOpen(false)}
+                onClick={(e) => handleMobileNavAnchor(e, 'campus')}
                 className="mobile-direct-link"
               >
                 <span>Lab & Campus Gallery</span>
@@ -543,7 +590,7 @@ export const MainNavbar = ({ onOpenDemo }) => {
 
               <a 
                 href="/#request-demo" 
-                onClick={() => setMobileMenuOpen(false)}
+                onClick={(e) => handleMobileNavAnchor(e, 'request-demo')}
                 className="mobile-direct-link"
               >
                 <span>Contact & Baner Center</span>

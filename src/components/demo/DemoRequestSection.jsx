@@ -161,6 +161,7 @@ export function DemoRequestSection({ selectedCourse = '' }) {
 
   return (
     <section className={styles.demoSection} id="request-demo" aria-label="Request For Demo">
+      <span id="contact" style={{ display: 'block', position: 'relative', top: '-80px', visibility: 'hidden' }} />
       {/* =========================================================================
           BACKGROUND ATMOSPHERE (HERO SECTION MATCHING BLUEPRINT & GLOW)
           ========================================================================= */}
