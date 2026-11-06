@@ -183,7 +183,7 @@ const learningStages = [
 const fullSyllabusModules = [
   {
     id: 'mod-1',
-    number: 'Module 1',
+    number: 'Module 01',
     title: 'Python Programming & Software Development',
     duration: '10 Hours',
     topics: [
@@ -197,7 +197,7 @@ const fullSyllabusModules = [
   },
   {
     id: 'mod-2',
-    number: 'Module 2',
+    number: 'Module 02',
     title: 'REST APIs & HTTP',
     duration: '8 Hours',
     topics: [
@@ -211,7 +211,7 @@ const fullSyllabusModules = [
   },
   {
     id: 'mod-3',
-    number: 'Module 3',
+    number: 'Module 03',
     title: 'Cisco Platforms & APIs',
     duration: '8 Hours',
     topics: [
@@ -225,7 +225,7 @@ const fullSyllabusModules = [
   },
   {
     id: 'mod-4',
-    number: 'Module 4',
+    number: 'Module 04',
     title: 'Network Fundamentals',
     duration: '6 Hours',
     topics: [
@@ -239,7 +239,7 @@ const fullSyllabusModules = [
   },
   {
     id: 'mod-5',
-    number: 'Module 5',
+    number: 'Module 05',
     title: 'Network Automation & Programmability',
     duration: '8 Hours',
     topics: [
@@ -253,7 +253,7 @@ const fullSyllabusModules = [
   },
   {
     id: 'mod-6',
-    number: 'Module 6',
+    number: 'Module 06',
     title: 'Infrastructure as Code & DevOps',
     duration: '6 Hours',
     topics: [
@@ -267,7 +267,7 @@ const fullSyllabusModules = [
   },
   {
     id: 'mod-7',
-    number: 'Module 7',
+    number: 'Module 07',
     title: 'Application Deployment & Security',
     duration: '6 Hours',
     topics: [
@@ -281,7 +281,7 @@ const fullSyllabusModules = [
   },
   {
     id: 'mod-8',
-    number: 'Module 8',
+    number: 'Module 08',
     title: 'Hands-on Automation Labs',
     duration: '10 Hours',
     topics: [
@@ -295,7 +295,7 @@ const fullSyllabusModules = [
   },
   {
     id: 'mod-9',
-    number: 'Module 9',
+    number: 'Module 09',
     title: 'Certification & Enterprise Projects',
     duration: '8 Hours',
     topics: [
@@ -314,30 +314,30 @@ const fullSyllabusModules = [
 // ---------------------------------------------------------------------------
 const labEnvironmentPoints = [
   '24×7 access to automation lab environment',
-  'Python development environment',
-  'Cisco Meraki APIs',
-  'Cisco Webex APIs',
-  'Postman API testing platform',
-  'Git & GitHub version control',
-  'REST API testing & debugging tools',
+  'Python development environment with virtualenvs',
+  'Cisco Meraki Dashboard APIs',
+  'Cisco Webex Collaboration APIs',
+  'Postman API testing & debugging suite',
+  'Git & GitHub version control workflows',
+  'REST API testing & packet tracing tools',
   'Structured, module-wise lab exercises',
-  'Dedicated lab trainers for one-to-one support'
+  'Dedicated lab trainers for one-to-one mentoring'
 ];
 
 const labTopicsList = [
   'Python programming for network automation',
   'REST API development & integration',
-  'HTTP requests, JSON, XML & YAML',
-  'API authentication & Postman testing',
-  'Cisco Meraki & Webex APIs',
-  'Git version control & collaboration',
+  'HTTP requests, JSON, XML & YAML parsing',
+  'API authentication & Postman collections',
+  'Cisco Meraki & Webex APIs automation',
+  'Git version control & peer branch reviews',
   'NETCONF, RESTCONF & YANG models',
-  'Infrastructure as Code with Ansible',
-  'Docker & container-based development',
-  'CI/CD workflow fundamentals',
-  'Network topology & troubleshooting',
-  'Enterprise automation workflows',
-  'Real-world CCNA Automation projects'
+  'Infrastructure as Code with Ansible playbooks',
+  'Docker & container-based application deployment',
+  'CI/CD pipeline workflow automation',
+  'Network topology & packet troubleshooting',
+  'Enterprise controller automation workflows',
+  'Real-world CCNA Automation capstone projects'
 ];
 
 // ---------------------------------------------------------------------------
@@ -737,7 +737,9 @@ export function CCNAAutomationCoursePage() {
               <Sparkles size={13} />
               Limited Offer
             </span>
-            <span>Save ₹5,000 on CCNA Automation Training</span>
+            <span className={styles.offerTextHighlight}>
+              Save ₹5,000 on CCNA Automation Training
+            </span>
             <div className={styles.offerTimer}>
               <Clock size={13} />
               <span>Offer Ends : {formatTimer()}</span>
@@ -755,7 +757,7 @@ export function CCNAAutomationCoursePage() {
       </div>
 
       {/* =========================================================================
-          SECTION 1: HERO SECTION (DEEP OBSIDIAN SLATE #0b0f19)
+          SECTION 1: HERO SECTION (DEEP OBSIDIAN SLATE #080c14)
           ========================================================================= */}
       <header className={styles.courseHero}>
         <div className={styles.heroGridOverlay} />
@@ -840,64 +842,92 @@ export function CCNAAutomationCoursePage() {
               </div>
             </div>
 
-            {/* Right Column: Floating Pricing & Batch Card */}
+            {/* Right Column: Modern MacOS DevNet Terminal & Pricing Card */}
             <div>
-              <div className={styles.heroPricingCard}>
-                <div className={styles.pricingHeader}>
+              <div className={styles.heroTerminalCard}>
+                <div className={styles.terminalHeader}>
+                  <div className={styles.terminalControls}>
+                    <span className={`${styles.macDot} ${styles.macDotRed}`} />
+                    <span className={`${styles.macDot} ${styles.macDotYellow}`} />
+                    <span className={`${styles.macDot} ${styles.macDotGreen}`} />
+                  </div>
+                  <div className={styles.terminalTabTitle}>
+                    <Code size={13} />
+                    <span>cisco_automation.py</span>
+                  </div>
+                  <div style={{ fontSize: '0.72rem', color: '#64748b' }}>DevNet API</div>
+                </div>
+
+                {/* Live Code Snippet Display */}
+                <div className={styles.terminalCodeBody}>
+                  <div><span className={styles.codeComment}># Cisco Meraki & REST API Automation</span></div>
+                  <div><span className={styles.codeKw}>import</span> requests, json</div>
+                  <div style={{ margin: '4px 0' }}>
+                    <span className={styles.codeVar}>headers</span> = &#123;<span className={styles.codeStr}>"X-Cisco-Meraki-API-Key"</span>: <span className={styles.codeStr}>"DEVNET_KEY"</span>&#125;
+                  </div>
                   <div>
-                    <span className={styles.pricingBadge}>Special Launch Pricing</span>
-                    <div style={{ marginTop: '0.4rem' }}>
-                      <span className={styles.courseTrackCode}>EXAM: 200-901 CCNAAUTO</span>
-                    </div>
+                    <span className={styles.codeVar}>res</span> = requests.<span className={styles.codeFunc}>get</span>(
                   </div>
-                  <div style={{ textAlign: 'right' }}>
-                    <div style={{ fontSize: '0.8rem', color: '#64748b' }}>Duration</div>
-                    <div style={{ fontWeight: 800, color: '#0b3c5d' }}>2-3 Months</div>
+                  <div style={{ paddingLeft: '14px' }}>
+                    <span className={styles.codeStr}>"https://api.meraki.com/api/v1/devices"</span>,
                   </div>
+                  <div style={{ paddingLeft: '14px' }}>
+                    headers=<span className={styles.codeVar}>headers</span>
+                  </div>
+                  <div>)</div>
+                  <div><span className={styles.codeFunc}>print</span>(f<span className={styles.codeStr}>"[✓] Automated &#123;len(res.json())&#125; Enterprise Pods"</span>)</div>
                 </div>
 
-                <div className={styles.priceDisplayRow}>
-                  <span className={styles.currentPrice}>₹16,900</span>
-                  <span className={styles.originalPrice}>₹21,900</span>
-                  <span className={styles.discountPill}>Save ₹5,000</span>
-                </div>
-                <p className={styles.priceNote}>Inclusive of 24×7 DevNet cloud labs, mock tests & placement support</p>
+                {/* Integrated Pricing Block */}
+                <div className={styles.pricingInnerBlock}>
+                  <div className={styles.pricingHeaderRow}>
+                    <span className={styles.pricingTrackBadge}>Special Launch Offer</span>
+                    <span className={styles.pricingExamCode}>EXAM: 200-901 CCNAAUTO</span>
+                  </div>
 
-                <ul className={styles.pricingFeaturesList}>
-                  <li className={styles.pricingFeatureItem}>
-                    <CheckCircle2 size={16} />
-                    <span>60+ Real Python, REST API & Meraki Labs</span>
-                  </li>
-                  <li className={styles.pricingFeatureItem}>
-                    <CheckCircle2 size={16} />
-                    <span>Live Weekend & Weekday Interactive Batches</span>
-                  </li>
-                  <li className={styles.pricingFeatureItem}>
-                    <CheckCircle2 size={16} />
-                    <span>1-on-1 Technical Mock Interviews & Resume Sculpting</span>
-                  </li>
-                  <li className={styles.pricingFeatureItem}>
-                    <CheckCircle2 size={16} />
-                    <span>Official Pearson VUE 200-901 Preparation</span>
-                  </li>
-                  <li className={styles.pricingFeatureItem}>
-                    <CheckCircle2 size={16} />
-                    <span>I-Medita Verified Course Completion Credential</span>
-                  </li>
-                </ul>
+                  <div className={styles.priceDisplayRow}>
+                    <span className={styles.currentPrice}>₹16,900</span>
+                    <span className={styles.originalPrice}>₹21,900</span>
+                    <span className={styles.discountPill}>Save ₹5,000</span>
+                  </div>
+                  <p className={styles.priceNote}>Inclusive of 24×7 DevNet cloud labs, mock tests & placement support</p>
 
-                <button
-                  type="button"
-                  className={styles.cardEnrollBtn}
-                  onClick={() => handleOpenDemo('Cisco CCNA Automation - Instant Enrollment')}
-                >
-                  <span>Enroll in Next Live Batch</span>
-                  <ArrowRight size={16} />
-                </button>
+                  <ul className={styles.terminalFeatureList}>
+                    <li className={styles.terminalFeatureItem}>
+                      <CheckCircle2 size={16} />
+                      <span>60+ Real Python, REST API & Meraki Labs</span>
+                    </li>
+                    <li className={styles.terminalFeatureItem}>
+                      <CheckCircle2 size={16} />
+                      <span>Live Weekend & Weekday Interactive Batches</span>
+                    </li>
+                    <li className={styles.terminalFeatureItem}>
+                      <CheckCircle2 size={16} />
+                      <span>1-on-1 Technical Mock Interviews & Resume Sculpting</span>
+                    </li>
+                    <li className={styles.terminalFeatureItem}>
+                      <CheckCircle2 size={16} />
+                      <span>Official Pearson VUE 200-901 Exam Preparation</span>
+                    </li>
+                    <li className={styles.terminalFeatureItem}>
+                      <CheckCircle2 size={16} />
+                      <span>I-Medita Verified Course Completion Credential</span>
+                    </li>
+                  </ul>
 
-                <div className={styles.cardGuarantee}>
-                  <Shield size={14} color="#059669" />
-                  <span>100% Satisfaction Guarantee • Free Demo Class</span>
+                  <button
+                    type="button"
+                    className={styles.terminalEnrollBtn}
+                    onClick={() => handleOpenDemo('Cisco CCNA Automation - Instant Enrollment')}
+                  >
+                    <span>Enroll in Next Live Batch</span>
+                    <ArrowRight size={16} />
+                  </button>
+
+                  <div className={styles.cardGuarantee}>
+                    <Shield size={14} color="#059669" />
+                    <span>100% Satisfaction Guarantee • Free Demo Sessions</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -1048,7 +1078,7 @@ export function CCNAAutomationCoursePage() {
                       title={`Stage 0${i + 1}: ${st.label}`}
                     >
                       {isDone ? (
-                        <Check size={14} strokeWidth={2.5} />
+                        <Check size={16} strokeWidth={2.5} />
                       ) : (
                         `0${i + 1}`
                       )}
@@ -1077,7 +1107,7 @@ export function CCNAAutomationCoursePage() {
                   >
                     {isDone && (
                       <div className={styles.imjCbadge}>
-                        <Check size={10} strokeWidth={2.5} />
+                        <Check size={12} strokeWidth={2.5} />
                       </div>
                     )}
                     <div className={styles.imjCnum}>STAGE 0{i + 1}</div>
@@ -1096,7 +1126,7 @@ export function CCNAAutomationCoursePage() {
                 <div className={styles.imjBleft}>
                   <div className={styles.imjBnum}>0{activeStage + 1}</div>
                   <div className={styles.imjBigicon}>
-                    {React.createElement(currentStageData.Icon, { size: 32 })}
+                    {React.createElement(currentStageData.Icon, { size: 34 })}
                   </div>
                 </div>
                 <div style={{ flex: 1 }}>
@@ -1115,7 +1145,7 @@ export function CCNAAutomationCoursePage() {
                     {currentStageData.pts.map((p, idx) => (
                       <div key={idx} className={styles.imjPt}>
                         <div className={styles.imjPtick}>
-                          <Check size={11} strokeWidth={2.5} />
+                          <Check size={12} strokeWidth={2.5} />
                         </div>
                         <span>{p}</span>
                       </div>
@@ -1158,14 +1188,14 @@ export function CCNAAutomationCoursePage() {
           </div>
 
           {/* Roadmap Bottom CTA */}
-          <div style={{ marginTop: '3rem', textAlign: 'center' }}>
+          <div style={{ marginTop: '3.5rem', textAlign: 'center' }}>
             <div style={{ fontSize: '0.85rem', fontWeight: 800, color: '#ff6b00', textTransform: 'uppercase', marginBottom: '0.5rem' }}>
               Ready to start?
             </div>
-            <h3 style={{ fontSize: '1.45rem', fontWeight: 850, color: '#0b3c5d', marginBottom: '0.75rem' }}>
+            <h3 style={{ fontSize: '1.55rem', fontWeight: 850, color: '#0b3c5d', marginBottom: '0.75rem' }}>
               Book Your Free CCNA Automation Demo Class This Week
             </h3>
-            <p style={{ maxWidth: '650px', margin: '0 auto 1.5rem', fontSize: '0.92rem', color: '#64748b', lineHeight: 1.6 }}>
+            <p style={{ maxWidth: '680px', margin: '0 auto 1.75rem', fontSize: '0.95rem', color: '#64748b', lineHeight: 1.65 }}>
               Experience our live CCNA Automation training, hands-on automation labs, and learning platform before you enroll. 
               Explore Python, Cisco APIs, and network automation with guidance from CCIE-certified trainers.
             </p>
@@ -1219,7 +1249,7 @@ export function CCNAAutomationCoursePage() {
                         <span className={styles.moduleIndexBadge}>{mod.number}</span>
                         <div>
                           <div className={styles.moduleTitleText}>{mod.title}</div>
-                          <span style={{ fontSize: '0.78rem', color: '#64748b' }}>
+                          <span className={styles.moduleMetaTag}>
                             {mod.topics.length} Key Topics Covered • {mod.duration}
                           </span>
                         </div>
@@ -1271,7 +1301,7 @@ export function CCNAAutomationCoursePage() {
             {/* Left Card: Lab Environment */}
             <div className={styles.labEnvCard}>
               <h3 className={styles.labEnvTitle}>
-                <Laptop size={20} color="#1e88e5" />
+                <Laptop size={22} color="#1e88e5" />
                 <span>Your Lab Environment</span>
               </h3>
               <ul className={styles.labEnvList}>
@@ -1287,13 +1317,13 @@ export function CCNAAutomationCoursePage() {
             {/* Right Card: Lab Topics Grid */}
             <div>
               <h3 className={styles.labEnvTitle} style={{ marginBottom: '1.25rem' }}>
-                <Terminal size={20} color="#ff6b00" />
+                <Terminal size={22} color="#ff6b00" />
                 <span>Hands-on Lab Topics</span>
               </h3>
               <div className={styles.labTopicsGrid}>
                 {labTopicsList.map((topic, idx) => (
                   <div key={idx} className={styles.labTopicCard}>
-                    <CheckCircle2 size={15} className={styles.labTopicIcon} />
+                    <CheckCircle2 size={16} className={styles.labTopicIcon} />
                     <span>{topic}</span>
                   </div>
                 ))}
@@ -1397,7 +1427,7 @@ export function CCNAAutomationCoursePage() {
             {placementSupportPillars.map((p, idx) => (
               <div key={idx} className={styles.placementPillarCard}>
                 <div className={styles.pillarIconBox}>
-                  <Briefcase size={22} />
+                  <Briefcase size={24} />
                 </div>
                 <h3 className={styles.pillarTitle}>{p.title}</h3>
                 <p className={styles.pillarText}>{p.desc}</p>
@@ -1412,7 +1442,7 @@ export function CCNAAutomationCoursePage() {
               <div className={styles.rolesTagsGrid}>
                 {potentialRoles.map((role, idx) => (
                   <div key={idx} className={styles.roleTag}>
-                    <CheckCircle2 size={14} color="#059669" />
+                    <CheckCircle2 size={15} color="#059669" />
                     <span>{role}</span>
                   </div>
                 ))}
@@ -1487,7 +1517,7 @@ export function CCNAAutomationCoursePage() {
                 </div>
               </div>
 
-              <div style={{ fontSize: '0.85rem', fontWeight: 750, color: '#0b3c5d', marginBottom: '0.75rem' }}>
+              <div style={{ fontSize: '0.85rem', fontWeight: 800, color: '#0b3c5d', marginBottom: '0.85rem' }}>
                 WHAT WE PROVIDE FOR THIS EXAM:
               </div>
               <ul className={styles.certPointsList}>
@@ -1547,7 +1577,7 @@ export function CCNAAutomationCoursePage() {
                 </div>
               </div>
 
-              <div style={{ fontSize: '0.85rem', fontWeight: 750, color: '#0b3c5d', marginBottom: '0.75rem' }}>
+              <div style={{ fontSize: '0.85rem', fontWeight: 800, color: '#0b3c5d', marginBottom: '0.85rem' }}>
                 CERTIFICATE FEATURES & BENEFITS:
               </div>
               <ul className={styles.certPointsList}>
@@ -1608,7 +1638,7 @@ export function CCNAAutomationCoursePage() {
                 </div>
                 <div className={`${styles.cmpHcell} ${styles.cmpHcellImed}`}>
                   <div className={styles.cmpLogo}>
-                    <Server size={16} strokeWidth={2.5} />
+                    <Server size={18} strokeWidth={2.5} />
                   </div>
                   <div>
                     <div className={styles.cmpHname}>I-Medita</div>
@@ -1616,8 +1646,8 @@ export function CCNAAutomationCoursePage() {
                   </div>
                 </div>
                 <div className={`${styles.cmpHcell} ${styles.cmpHcellOther}`}>
-                  <div className={styles.cmpLogo} style={{ background: '#6B7280' }}>
-                    <Users size={16} strokeWidth={2.5} />
+                  <div className={styles.cmpLogo} style={{ background: '#64748B' }}>
+                    <Users size={18} strokeWidth={2.5} />
                   </div>
                   <div>
                     <div className={styles.cmpHname}>Other Institutes</div>
@@ -1633,7 +1663,7 @@ export function CCNAAutomationCoursePage() {
                 <div key={idx} className={styles.cmpRow}>
                   <div className={`${styles.cmpCell} ${styles.cmpCellFeatCol}`}>
                     <div className={styles.cmpFeatIcon}>
-                      <CheckCircle2 size={14} />
+                      <CheckCircle2 size={15} />
                     </div>
                     <span className={styles.cmpFeatLabel}>{row.feature}</span>
                   </div>
@@ -1641,7 +1671,7 @@ export function CCNAAutomationCoursePage() {
                   <div className={`${styles.cmpCell} ${styles.cmpCellImedCol}`}>
                     <div className={styles.cmpWin}>
                       <div className={styles.cmpTick}>
-                        <Check size={11} strokeWidth={3} />
+                        <Check size={12} strokeWidth={3} />
                       </div>
                       <span className={styles.cmpWinText}>{row.imedita}</span>
                     </div>
@@ -1650,7 +1680,7 @@ export function CCNAAutomationCoursePage() {
                   <div className={styles.cmpCell}>
                     <div className={styles.cmpWin}>
                       <div className={styles.cmpCross}>
-                        <X size={11} strokeWidth={3} />
+                        <X size={12} strokeWidth={3} />
                       </div>
                       <span className={styles.cmpLoseText}>{row.others}</span>
                     </div>
@@ -1730,7 +1760,7 @@ export function CCNAAutomationCoursePage() {
               <div className={styles.cgRow}>
                 <div className={`${styles.cgLcard} ${styles.cgLcardRole}`}>
                   <div className={styles.cgRtag} style={{ justifyContent: 'flex-end' }}>
-                    <TrendingUp size={10} strokeWidth={2.5} color="#FF6B00" />
+                    <TrendingUp size={11} strokeWidth={2.5} color="#FF6B00" />
                     <span>0–1 YEAR</span>
                   </div>
                   <div className={styles.cgRname}>Junior Network Automation Engineer</div>
@@ -1739,13 +1769,13 @@ export function CCNAAutomationCoursePage() {
                   </div>
                   <div className={`${styles.cgRnext} ${styles.cgRnextLeft}`}>
                     <span>Next: Cisco CCNA Automation (200-901 CCNAAUTO)</span>
-                    <ArrowRight size={10} strokeWidth={2.5} />
+                    <ArrowRight size={11} strokeWidth={2.5} />
                   </div>
                 </div>
 
                 <div className={styles.cgMid}>
                   <div className={styles.cgDot}>
-                    <Clock size={16} strokeWidth={2.5} />
+                    <Clock size={18} strokeWidth={2.5} />
                   </div>
                   <div className={styles.cgYr}>START</div>
                 </div>
@@ -1754,11 +1784,11 @@ export function CCNAAutomationCoursePage() {
                   <div className={styles.cgSlbl}>AVG. SALARY IN INDIA</div>
                   <div className={styles.cgSval}>₹4 – 7 LPA</div>
                   <div className={styles.cgSgrow}>
-                    <TrendingUp size={10} strokeWidth={2.5} />
+                    <TrendingUp size={11} strokeWidth={2.5} />
                     <span>Entry Level</span>
                   </div>
                   <div className={styles.cgSbar}>
-                    <div className={styles.cgSfill} style={{ width: '20%' }} />
+                    <div className={styles.cgSfill} style={{ width: '22%' }} />
                   </div>
                 </div>
               </div>
@@ -1770,25 +1800,25 @@ export function CCNAAutomationCoursePage() {
                   <div className={styles.cgSval} style={{ textAlign: 'right' }}>₹7 – 12 LPA</div>
                   <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
                     <div className={styles.cgSgrow}>
-                      <TrendingUp size={10} strokeWidth={2.5} />
+                      <TrendingUp size={11} strokeWidth={2.5} />
                       <span>+70% Growth</span>
                     </div>
                   </div>
                   <div className={styles.cgSbar}>
-                    <div className={styles.cgSfill} style={{ width: '40%' }} />
+                    <div className={styles.cgSfill} style={{ width: '42%' }} />
                   </div>
                 </div>
 
                 <div className={styles.cgMid}>
                   <div className={styles.cgDot}>
-                    <Cpu size={16} strokeWidth={2.5} />
+                    <Cpu size={18} strokeWidth={2.5} />
                   </div>
                   <div className={styles.cgYr}>1–3 YRS</div>
                 </div>
 
                 <div className={`${styles.cgRcard} ${styles.cgRcardRole}`}>
                   <div className={styles.cgRtag}>
-                    <TrendingUp size={10} strokeWidth={2.5} color="#FF6B00" />
+                    <TrendingUp size={11} strokeWidth={2.5} color="#FF6B00" />
                     <span>1–3 YEARS</span>
                   </div>
                   <div className={styles.cgRname}>Network Automation Engineer / DevOps Engineer</div>
@@ -1796,7 +1826,7 @@ export function CCNAAutomationCoursePage() {
                     Build automation workflows using Python and Cisco APIs, and strengthen REST API integration skills.
                   </div>
                   <div className={styles.cgRnext}>
-                    <ArrowRight size={10} strokeWidth={2.5} />
+                    <ArrowRight size={11} strokeWidth={2.5} />
                     <span>Next: Cisco CCNP Automation</span>
                   </div>
                 </div>
@@ -1806,7 +1836,7 @@ export function CCNAAutomationCoursePage() {
               <div className={styles.cgRow}>
                 <div className={`${styles.cgLcard} ${styles.cgLcardRole}`}>
                   <div className={styles.cgRtag} style={{ justifyContent: 'flex-end' }}>
-                    <TrendingUp size={10} strokeWidth={2.5} color="#FF6B00" />
+                    <TrendingUp size={11} strokeWidth={2.5} color="#FF6B00" />
                     <span>3–6 YEARS</span>
                   </div>
                   <div className={styles.cgRname}>Senior Automation Engineer / Cloud Network Engineer</div>
@@ -1815,13 +1845,13 @@ export function CCNAAutomationCoursePage() {
                   </div>
                   <div className={`${styles.cgRnext} ${styles.cgRnextLeft}`}>
                     <span>Next: DevOps, Cloud, or Cisco Specialist Certifications</span>
-                    <ArrowRight size={10} strokeWidth={2.5} />
+                    <ArrowRight size={11} strokeWidth={2.5} />
                   </div>
                 </div>
 
                 <div className={styles.cgMid}>
                   <div className={styles.cgDot}>
-                    <Star size={16} strokeWidth={2.5} />
+                    <Star size={18} strokeWidth={2.5} />
                   </div>
                   <div className={styles.cgYr}>3–6 YRS</div>
                 </div>
@@ -1830,11 +1860,11 @@ export function CCNAAutomationCoursePage() {
                   <div className={styles.cgSlbl}>AVG. SALARY IN INDIA</div>
                   <div className={styles.cgSval}>₹12 – 20 LPA</div>
                   <div className={styles.cgSgrow}>
-                    <TrendingUp size={10} strokeWidth={2.5} />
+                    <TrendingUp size={11} strokeWidth={2.5} />
                     <span>+200% Growth</span>
                   </div>
                   <div className={styles.cgSbar}>
-                    <div className={styles.cgSfill} style={{ width: '65%' }} />
+                    <div className={styles.cgSfill} style={{ width: '68%' }} />
                   </div>
                 </div>
               </div>
@@ -1846,7 +1876,7 @@ export function CCNAAutomationCoursePage() {
                   <div className={styles.cgSval} style={{ textAlign: 'right' }}>₹20 – 35+ LPA</div>
                   <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
                     <div className={styles.cgSgrow}>
-                      <TrendingUp size={10} strokeWidth={2.5} />
+                      <TrendingUp size={11} strokeWidth={2.5} />
                       <span>+400% Growth from Start</span>
                     </div>
                   </div>
@@ -1857,14 +1887,14 @@ export function CCNAAutomationCoursePage() {
 
                 <div className={styles.cgMid}>
                   <div className={`${styles.cgDot} ${styles.cgDotFinal}`}>
-                    <Award size={16} strokeWidth={2.5} />
+                    <Award size={18} strokeWidth={2.5} />
                   </div>
                   <div className={styles.cgYr}>6+ YRS</div>
                 </div>
 
                 <div className={`${styles.cgRcard} ${styles.cgRcardRole} ${styles.cgRcardFinal}`}>
                   <div className={styles.cgRtag} style={{ color: '#FF6B00' }}>
-                    <TrendingUp size={10} strokeWidth={2.5} color="#FF6B00" />
+                    <TrendingUp size={11} strokeWidth={2.5} color="#FF6B00" />
                     <span>6+ YEARS</span>
                   </div>
                   <div className={styles.cgRname}>Solutions Architect / Platform Engineer</div>
@@ -1872,7 +1902,7 @@ export function CCNAAutomationCoursePage() {
                     Lead enterprise automation initiatives, cloud infrastructure, DevOps transformation, and software-defined networking projects.
                   </div>
                   <div className={styles.cgRnext} style={{ color: '#FF6B00' }}>
-                    <ArrowRight size={10} strokeWidth={2.5} />
+                    <ArrowRight size={11} strokeWidth={2.5} />
                     <span>Next: Enterprise Architect / Cloud Architect / DevOps Lead</span>
                   </div>
                 </div>
