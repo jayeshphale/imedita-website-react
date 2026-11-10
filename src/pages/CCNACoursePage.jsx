@@ -32,6 +32,7 @@ import {
   Flame,
   Zap
 } from 'lucide-react';
+import { LogoMarquee } from '../components/marquee/LogoMarquee';
 import styles from './CCNACoursePage.module.css';
 
 // 6 Core CCNA Domains
@@ -580,7 +581,12 @@ export function CCNACoursePage() {
       </section>
 
       {/* =========================================================================
-          2. KEY METRICS STRIP
+          2. ENTERPRISE RECOGNITION (GLOBAL CLIENTS LOGO MARQUEE)
+          ========================================================================= */}
+      <LogoMarquee />
+
+      {/* =========================================================================
+          3. KEY METRICS STRIP
           ========================================================================= */}
       <section className={styles.metricsStripSection}>
         <div className={styles.container}>
