@@ -596,56 +596,7 @@ export function CCNACoursePage() {
       <CourseStickyNav onOpenDemo={handleOpenDemo} />
 
       {/* =========================================================================
-          4. KEY METRICS STRIP
-          ========================================================================= */}
-      <section className={styles.metricsStripSection}>
-        <div className={styles.container}>
-          <div className={styles.metricsGrid}>
-            <div className={styles.metricBox}>
-              <div className={styles.metricIconWrap}>
-                <Users size={22} />
-              </div>
-              <div>
-                <div className={styles.metricValue}>11,210+</div>
-                <div className={styles.metricLabel}>Alumni Placed Globally</div>
-              </div>
-            </div>
-
-            <div className={styles.metricBox}>
-              <div className={styles.metricIconWrap}>
-                <Server size={22} />
-              </div>
-              <div>
-                <div className={styles.metricValue}>80+</div>
-                <div className={styles.metricLabel}>Real Cisco Device Labs</div>
-              </div>
-            </div>
-
-            <div className={styles.metricBox}>
-              <div className={styles.metricIconWrap}>
-                <Award size={22} />
-              </div>
-              <div>
-                <div className={styles.metricValue}>3x CCIE</div>
-                <div className={styles.metricLabel}>Certified Master Mentors</div>
-              </div>
-            </div>
-
-            <div className={styles.metricBox}>
-              <div className={styles.metricIconWrap}>
-                <Briefcase size={22} />
-              </div>
-              <div>
-                <div className={styles.metricValue}>100%</div>
-                <div className={styles.metricLabel}>Written Placement Assurance</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* =========================================================================
-          5. OVERVIEW: WHY CCNA AT I-MEDITA & ADVANTAGES
+          4. OVERVIEW: WHY CCNA AT I-MEDITA & ADVANTAGES
           ========================================================================= */}
       <section className={styles.contentSection} id="overview">
         <div className={styles.container}>
