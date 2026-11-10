@@ -28,7 +28,9 @@ import {
   User,
   Mail,
   ShieldCheck,
-  Check
+  Check,
+  Flame,
+  Zap
 } from 'lucide-react';
 import styles from './CCNACoursePage.module.css';
 
@@ -300,6 +302,9 @@ export function CCNACoursePage() {
           1. HERO HEADER WITH BREADCRUMBS & FLOATING LEAD CARD
           ========================================================================= */}
       <section className={styles.courseHero}>
+        {/* Ambient Glow Lights */}
+        <div className={styles.glowOrbBlue} aria-hidden="true" />
+        <div className={styles.glowOrbOrange} aria-hidden="true" />
         <div className={styles.heroGridOverlay} aria-hidden="true" />
 
         <div className={styles.container}>
@@ -317,10 +322,24 @@ export function CCNACoursePage() {
           <div className={styles.heroSplit}>
             {/* Left Column: Course Intro */}
             <div className={styles.heroLeft}>
-              {/* Rating Badge */}
+              {/* Rating Badge with Live Indicator */}
               <div className={styles.ratingBadge}>
-                <Star size={14} className={styles.ratingStar} />
-                <span>Rated 4.9/5 by 11,210+ students</span>
+                <div className={styles.liveStatusDotWrap}>
+                  <span className={styles.livePulseRing} />
+                  <span className={styles.liveStatusDot} />
+                </div>
+                <div className={styles.starRow}>
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} size={13} className={styles.ratingStar} fill="#F59E0B" color="#F59E0B" />
+                  ))}
+                </div>
+                <span className={styles.ratingBadgeText}>
+                  <strong>4.9/5</strong> by <strong>11,210+</strong> students
+                </span>
+                <span className={styles.verifiedPartnerBadge}>
+                  <CheckCircle2 size={12} className={styles.verifiedIcon} />
+                  <span>Authorized Labs</span>
+                </span>
               </div>
 
               {/* Main Headline with doodle underline */}
@@ -351,46 +370,76 @@ export function CCNACoursePage() {
                   </svg>
                 </span>
                 <br />
-                200-301 CCNA
+                <span className={styles.heroSubHeadingWhite}>200-301 CCNA</span>
               </h1>
 
-              {/* Paragraph Subtext */}
+              {/* Paragraph Subtext with Keyword Highlighting */}
               <p className={styles.heroSubtext}>
-                Master enterprise networking with hands-on Cisco CCNA 200-301 training. Learn routing, 
-                switching, IPv4/IPv6, network security, and automation through real Cisco labs while 
-                preparing for the globally recognized CCNA certification.
+                Master enterprise networking with hands-on <strong className={styles.textHighlight}>Cisco CCNA 200-301</strong> training. 
+                Learn routing, switching, IPv4/IPv6, security, and automation through <strong className={styles.textHighlight}>real physical Cisco hardware labs</strong> while 
+                preparing under <strong className={styles.textHighlight}>Triple CCIE Mentors</strong> with 100% written placement assistance.
               </p>
 
-              {/* 2x2 Feature Highlights */}
-              <div className={styles.heroStatsGrid}>
-                <div className={styles.statItem}>
-                  <Users size={16} className={styles.statIcon} />
-                  <span>11,210+ Students Trained</span>
+              {/* 2x2 Feature Highlights as Glass Micro-Cards */}
+              <div className={styles.heroStatsCards}>
+                <div className={styles.statCard}>
+                  <div className={styles.statCardIcon}>
+                    <Users size={18} />
+                  </div>
+                  <div className={styles.statCardContent}>
+                    <span className={styles.statCardValue}>11,210+</span>
+                    <span className={styles.statCardLabel}>Students Trained</span>
+                  </div>
                 </div>
-                <div className={styles.statItem}>
-                  <Clock size={16} className={styles.statIcon} />
-                  <span>24×7 Lab Access</span>
+
+                <div className={styles.statCard}>
+                  <div className={styles.statCardIcon}>
+                    <Clock size={18} />
+                  </div>
+                  <div className={styles.statCardContent}>
+                    <span className={styles.statCardValue}>24×7 Access</span>
+                    <span className={styles.statCardLabel}>Real Hardware Labs</span>
+                  </div>
                 </div>
-                <div className={styles.statItem}>
-                  <Briefcase size={16} className={styles.statIcon} />
-                  <span>Placement Support</span>
+
+                <div className={styles.statCard}>
+                  <div className={styles.statCardIcon}>
+                    <Briefcase size={18} />
+                  </div>
+                  <div className={styles.statCardContent}>
+                    <span className={styles.statCardValue}>100% Written</span>
+                    <span className={styles.statCardLabel}>Placement Support</span>
+                  </div>
                 </div>
-                <div className={styles.statItem}>
-                  <Award size={16} className={styles.statIcon} />
-                  <span>CCIE-Certified Trainers</span>
+
+                <div className={styles.statCard}>
+                  <div className={styles.statCardIcon}>
+                    <Award size={18} />
+                  </div>
+                  <div className={styles.statCardContent}>
+                    <span className={styles.statCardValue}>3× CCIE</span>
+                    <span className={styles.statCardLabel}>Certified Trainers</span>
+                  </div>
                 </div>
               </div>
 
-              {/* Urgency Strip */}
+              {/* Urgency Strip with Radar Pulse */}
               <div className={styles.urgencyStrip}>
-                <Sparkles size={14} className={styles.urgencyIcon} />
-                <span>Upcoming Batch Filling Fast • Free Demo Sessions Available • Limited Seats</span>
+                <div className={styles.urgencyRadar}>
+                  <span className={styles.urgencyRadarPing} />
+                  <span className={styles.urgencyRadarDot} />
+                </div>
+                <span className={styles.urgencyText}>
+                  <strong className={styles.urgencyStrong}>Upcoming Batch Filling Fast</strong> • Free Demo Sessions Available • Limited Seats
+                </span>
               </div>
             </div>
 
             {/* Right Column: Floating Lead Capture Form Card */}
             <div className={styles.heroRight}>
               <div className={styles.leadCard}>
+                <div className={styles.leadCardTopGlow} />
+
                 {heroSubmitted ? (
                   <div className={styles.formSuccessState}>
                     <div className={styles.successIconCircle}>
@@ -414,7 +463,7 @@ export function CCNACoursePage() {
                 ) : (
                   <>
                     <div className={styles.leadPill}>
-                      <span className={styles.leadPillDot}>•</span>
+                      <Flame size={13} className={styles.leadPillFlame} />
                       <span>FREE DEMO - LIMITED SEATS</span>
                     </div>
 
@@ -479,13 +528,36 @@ export function CCNACoursePage() {
                       </div>
 
                       <button type="submit" className={styles.heroSubmitBtn} disabled={heroLoading}>
-                        <span>{heroLoading ? 'Securing Seat...' : 'Book Free Demo'}</span>
-                        <ArrowRight size={16} />
+                        <span className={styles.btnShimmer} />
+                        <span className={styles.btnContent}>
+                          <span>{heroLoading ? 'Securing Seat...' : 'Book Free Demo'}</span>
+                          <ArrowRight size={17} className={styles.btnArrow} />
+                        </span>
                       </button>
 
-                      <div className={styles.formTrustNote}>
-                        <ShieldCheck size={14} className={styles.trustShieldIcon} />
-                        <span>No spam · Only career guidance</span>
+                      <div className={styles.formTrustRow}>
+                        <div className={styles.formTrustItem}>
+                          <ShieldCheck size={14} className={styles.trustShieldIcon} />
+                          <span>No spam · Only career guidance</span>
+                        </div>
+                        <div className={styles.formTrustDot}>•</div>
+                        <div className={styles.formTrustItem}>
+                          <CheckCircle2 size={13} className={styles.trustCheckGreen} />
+                          <span>Instant Pass</span>
+                        </div>
+                      </div>
+
+                      {/* Mini Alumni Social Proof */}
+                      <div className={styles.socialProofMini}>
+                        <div className={styles.avatarMiniGroup}>
+                          <span className={styles.avatarMini} style={{ background: 'linear-gradient(135deg, #0284c7, #0369a1)' }}>RS</span>
+                          <span className={styles.avatarMini} style={{ background: 'linear-gradient(135deg, #16a34a, #15803d)' }}>AK</span>
+                          <span className={styles.avatarMini} style={{ background: 'linear-gradient(135deg, #d97706, #b45309)' }}>PD</span>
+                          <span className={styles.avatarMini} style={{ background: 'linear-gradient(135deg, #9333ea, #7e22ce)' }}>VJ</span>
+                        </div>
+                        <span className={styles.socialProofMiniText}>
+                          <strong>48+ students</strong> booked demo this week
+                        </span>
                       </div>
                     </form>
                   </>
