@@ -1,6 +1,6 @@
 /* ==========================================================================
    PROFESSIONAL COURSE STICKY SUB-NAVBAR
-   Underline Active Indicator • Enterprise Lucide Icons • Zero Box Borders
+   Continuous Sliding Underline • Enterprise Lucide Icons • Zero Box Borders
    ========================================================================== */
 
 .stickyNav {
@@ -99,9 +99,10 @@
 }
 
 /* ==========================================================================
-   2. CENTER TRACK: PROFESSIONAL MENU TABS (NO BOX • UNDERLINE ONLY)
+   2. CENTER TRACK: PROFESSIONAL MENU TABS (NO BOX • SLIDING UNDERLINE)
    ========================================================================== */
 .navTrack {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -121,7 +122,7 @@
 @media (max-width: 1024px) {
   .navTrack {
     justify-content: flex-start;
-    padding: 0 0.25rem;
+    padding: 0 0.5rem;
     mask-image: linear-gradient(to right, transparent, black 16px, black calc(100% - 16px), transparent);
     -webkit-mask-image: linear-gradient(to right, transparent, black 16px, black calc(100% - 16px), transparent);
   }
@@ -145,17 +146,18 @@
   border: none !important;
   border-radius: 0 !important;
   box-shadow: none !important;
-  transition: color 0.2s ease;
+  transition: color 0.2s cubic-bezier(0.16, 1, 0.3, 1);
   letter-spacing: 0.015em;
   touch-action: manipulation;
   -webkit-tap-highlight-color: transparent;
   cursor: pointer;
+  user-select: none;
 }
 
 /* Professional Tab Icon */
 .tabIcon {
   color: rgba(255, 255, 255, 0.6);
-  transition: color 0.2s ease, transform 0.2s ease;
+  transition: color 0.2s cubic-bezier(0.16, 1, 0.3, 1), transform 0.2s ease;
   flex-shrink: 0;
 }
 
@@ -164,7 +166,7 @@
   line-height: 1;
 }
 
-/* Hover: Pure Text Brightening + Subtle Underline Preview (NO BOX) */
+/* Hover: Pure Text Brightening (NO BOX) */
 .navLink:hover {
   color: #ffffff;
 }
@@ -173,25 +175,7 @@
   color: #ffffff;
 }
 
-.navLink::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: rgba(255, 255, 255, 0.4);
-  transform: scaleX(0);
-  transform-origin: center;
-  transition: transform 0.2s ease;
-  border-radius: 2px 2px 0 0;
-}
-
-.navLink:hover::after {
-  transform: scaleX(0.85);
-}
-
-/* Active State: Clean Underline, Crisp Text, Zero Background Box */
+/* Active State: Clean Text Brightening & Glowing Cyan Icon (NO BOX) */
 .navLinkActive {
   color: #ffffff;
   font-weight: 650;
@@ -202,33 +186,19 @@
   filter: drop-shadow(0 0 5px rgba(56, 189, 248, 0.75));
 }
 
-.navLinkActive::after {
-  display: none; /* Replaced by the dedicated .activeUnderline component */
-}
-
-/* Dedicated Solid Active Underline Indicator */
-.activeUnderline {
+/* Single Continuous Smooth Sliding Underline */
+.slidingUnderline {
   position: absolute;
   bottom: 0;
   left: 0;
-  right: 0;
   height: 3px;
   background: #38bdf8;
   border-radius: 3px 3px 0 0;
-  box-shadow: 0 -1px 8px rgba(56, 189, 248, 0.7);
+  box-shadow: 0 -1px 8px rgba(56, 189, 248, 0.75), 0 0 14px rgba(56, 189, 248, 0.4);
   z-index: 2;
-  animation: underlineFadeIn 0.2s ease-out;
-}
-
-@keyframes underlineFadeIn {
-  from {
-    transform: scaleX(0.4);
-    opacity: 0;
-  }
-  to {
-    transform: scaleX(1);
-    opacity: 1;
-  }
+  pointer-events: none;
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), width 0.28s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease;
+  will-change: transform, width;
 }
 
 /* ==========================================================================
@@ -298,7 +268,7 @@
 .progressBar {
   height: 100%;
   background: linear-gradient(90deg, #ff6b00 0%, #38bdf8 50%, #22c55e 100%);
-  transition: width 0.15s ease-out;
+  transition: width 0.1s linear;
   box-shadow: 0 0 8px rgba(56, 189, 248, 0.7);
 }
 
@@ -322,7 +292,7 @@
   .beaconPing {
     animation: none;
   }
-  .activeUnderline {
-    animation: none;
+  .slidingUnderline {
+    transition: none;
   }
 }
