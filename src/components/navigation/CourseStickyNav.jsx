@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { 
-  Sparkles, 
+  Layers, 
   BookOpen, 
-  Award, 
+  UserCheck, 
   Briefcase, 
   Star, 
   HelpCircle, 
@@ -11,14 +11,15 @@ import {
 } from 'lucide-react';
 import styles from './CourseStickyNav.module.css';
 
+// Professional enterprise icons for technical course navigation
 const defaultNavItems = [
-  { id: 'overview', label: 'Overview', icon: Sparkles },
+  { id: 'overview', label: 'Overview', icon: Layers },
   { id: 'syllabus', label: 'Syllabus', icon: BookOpen },
-  { id: 'trainers', label: 'Trainers', icon: Award },
+  { id: 'trainers', label: 'Trainers', icon: UserCheck },
   { id: 'placement', label: 'Placement', icon: Briefcase },
-  { id: 'reviews', label: 'Reviews', icon: Star, badge: '4.8★' },
+  { id: 'reviews', label: 'Reviews', icon: Star },
   { id: 'faq', label: 'FAQ', icon: HelpCircle },
-  { id: 'events', label: 'Events', icon: Calendar, isLive: true }
+  { id: 'events', label: 'Events', icon: Calendar }
 ];
 
 export function CourseStickyNav({ 
@@ -88,7 +89,7 @@ export function CourseStickyNav({
     >
       <div className={styles.container}>
         
-        {/* Left Side: Contextual Mini Course Branding (Click scrolls to top) */}
+        {/* Left Side: Contextual Mini Course Branding */}
         <div 
           className={styles.brandPill} 
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
@@ -101,7 +102,7 @@ export function CourseStickyNav({
           <span className={styles.brandText}>{courseTitle}</span>
         </div>
 
-        {/* Center: 7 Creative Section Tabs with Micro-Icons */}
+        {/* Center: Clean Professional Tabs with Underline Indicator Only (No Box) */}
         <div className={styles.navTrack}>
           {items.map((item) => {
             const Icon = item.icon;
@@ -114,16 +115,9 @@ export function CourseStickyNav({
                 className={`${styles.navLink} ${isActive ? styles.navLinkActive : ''}`}
                 aria-current={isActive ? 'true' : undefined}
               >
-                {Icon && <Icon size={14} className={styles.tabIcon} />}
-                <span>{item.label}</span>
-                {item.badge && <span className={styles.tabBadge}>{item.badge}</span>}
-                {item.isLive && (
-                  <span className={styles.liveTag}>
-                    <span className={styles.liveDot} />
-                    LIVE
-                  </span>
-                )}
-                {isActive && <span className={styles.activeGlowLine} />}
+                {Icon && <Icon size={15} strokeWidth={1.8} className={styles.tabIcon} />}
+                <span className={styles.tabText}>{item.label}</span>
+                {isActive && <span className={styles.activeUnderline} />}
               </a>
             );
           })}

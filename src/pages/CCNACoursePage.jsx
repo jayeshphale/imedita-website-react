@@ -593,7 +593,7 @@ export function CCNACoursePage() {
       {/* =========================================================================
           3. COURSE STICKY SUB-NAVBAR (QUICK JUMP TO KEY SECTIONS)
           ========================================================================= */}
-      <CourseStickyNav />
+      <CourseStickyNav onOpenDemo={handleOpenDemo} />
 
       {/* =========================================================================
           4. KEY METRICS STRIP
