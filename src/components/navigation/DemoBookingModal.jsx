@@ -53,7 +53,8 @@ export const DemoBookingModal = ({ isOpen, onClose, preselectedCourse = '' }) =>
         boxShadow: '0 25px 50px -12px rgba(15, 23, 42, 0.25)',
         width: '100%',
         maxWidth: '520px',
-        overflow: 'hidden',
+        maxHeight: 'calc(100vh - 32px)',
+        overflowY: 'auto',
         position: 'relative'
       }}>
         {/* Modal Header */}

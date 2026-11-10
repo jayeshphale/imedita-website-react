@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { ArrowUpRight, ChevronLeft, ChevronRight, Award, Download, CheckCircle2, Server, Cpu } from 'lucide-react';
-import instructorImg from '../../assets/instructors.png';
-import careerRoadmapImg from '../../assets/career-roadmap.png';
-import serverEngineerImg from '../../assets/server-datacenter-engineer.png';
-import examTeamImg from '../../assets/exam-vouchers-team.png';
-import certifiedBadgeImg from '../../assets/certified-badge.png';
+import instructorImg from '../../assets/instructors.webp';
+import careerRoadmapImg from '../../assets/career-roadmap.webp';
+import serverEngineerImg from '../../assets/server-datacenter-engineer.webp';
+import examTeamImg from '../../assets/exam-vouchers-team.webp';
+import certifiedBadgeImg from '../../assets/certified-badge.webp';
 
 const SLIDES_DATA = [
   {
@@ -402,6 +402,8 @@ export function HeroSlider({ onOpenDemo }) {
                   src={slide.image}
                   alt={slide.altText}
                   className="hero-hardware-img"
+                  fetchPriority={slide.id === 0 ? "high" : "auto"}
+                  decoding="async"
                 />
               </div>
             </div>
@@ -410,6 +412,8 @@ export function HeroSlider({ onOpenDemo }) {
               src={slide.image}
               alt={slide.altText}
               className={slide.imageClass || 'hero-instructor-cutout'}
+              fetchPriority={slide.id === 0 ? "high" : "auto"}
+              decoding="async"
             />
           )}
 

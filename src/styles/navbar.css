@@ -889,6 +889,35 @@
   }
 }
 
+/* Ultra-Compact & Fold Phones (<= 360px) */
+@media (max-width: 360px) {
+  .main-navbar-container {
+    padding: 0 8px;
+    gap: 6px;
+  }
+
+  .main-nav-brand svg,
+  .main-nav-brand img {
+    height: 28px;
+  }
+
+  .main-demo-cta-btn {
+    padding: 5px 8px;
+    font-size: 11px;
+    gap: 4px;
+  }
+
+  .main-demo-cta-btn svg {
+    width: 13px;
+    height: 13px;
+  }
+
+  .mobile-hamburger-btn {
+    width: 36px;
+    height: 36px;
+  }
+}
+
 /* Ensure mobile drawer is strictly hidden on large screens */
 @media (min-width: 993px) {
   .mobile-nav-backdrop,

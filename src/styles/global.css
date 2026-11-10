@@ -183,7 +183,8 @@ button {
 
 /* Responsive Viewport Safety & Touch Optimizations */
 html,
-body {
+body,
+.app-root {
   max-width: 100vw;
   overflow-x: clip;
 }
@@ -193,6 +194,10 @@ svg,
 picture,
 video {
   max-width: 100%;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
 }
 
 @media (max-width: 768px) {

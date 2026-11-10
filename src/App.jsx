@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import './styles/global.css';
 import './styles/navbar.css';
@@ -7,8 +7,28 @@ import './styles/scroll-animations.css';
 
 import { MainLayout } from './components/layout/MainLayout';
 import { HomePage } from './pages/HomePage';
-import { CCNACoursePage } from './pages/CCNACoursePage';
-import { CCNAAutomationCoursePage } from './pages/CCNAAutomationCoursePage';
+
+const CCNACoursePage = lazy(() =>
+  import('./pages/CCNACoursePage').then((m) => ({ default: m.CCNACoursePage || m.default }))
+);
+const CCNAAutomationCoursePage = lazy(() =>
+  import('./pages/CCNAAutomationCoursePage').then((m) => ({ default: m.CCNAAutomationCoursePage || m.default }))
+);
+
+const PageFallback = () => (
+  <div style={{ minHeight: '60vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+    <div
+      style={{
+        width: '34px',
+        height: '34px',
+        border: '3px solid #e2e8f0',
+        borderTopColor: '#0b63e5',
+        borderRadius: '50%',
+        animation: 'spin 0.7s linear infinite'
+      }}
+    />
+  </div>
+);
 
 export default function App() {
   return (
@@ -16,8 +36,23 @@ export default function App() {
       <Routes>
         <Route path="/" element={<MainLayout />}>
           <Route index element={<HomePage />} />
-          <Route path="courses/ccna-training" element={<CCNACoursePage />} />
-          <Route path="courses/ccna-automation-training" element={<CCNAAutomationCoursePage />} />
+          
+          <Route
+            path="courses/ccna-training"
+            element={
+              <Suspense fallback={<PageFallback />}>
+                <CCNACoursePage />
+              </Suspense>
+            }
+          />
+          <Route
+            path="courses/ccna-automation-training"
+            element={
+              <Suspense fallback={<PageFallback />}>
+                <CCNAAutomationCoursePage />
+              </Suspense>
+            }
+          />
           
           {/* SEO & Alternative URL Alias Redirects for CCNA */}
           <Route path="courses/ccna-course" element={<Navigate to="/courses/ccna-training" replace />} />
