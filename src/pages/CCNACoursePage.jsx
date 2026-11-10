@@ -472,11 +472,14 @@ export function CCNACoursePage() {
 
                     <form className={styles.leadForm} onSubmit={handleHeroSubmit}>
                       <div className={styles.formGroup}>
-                        <label className={styles.formLabel}>Full Name</label>
+                        <label htmlFor="hero-name" className={styles.formLabel}>Full Name</label>
                         <div className={styles.inputWrapper}>
-                          <User size={16} className={styles.inputIcon} />
+                          <User size={16} className={styles.inputIcon} aria-hidden="true" />
                           <input
+                            id="hero-name"
                             type="text"
+                            name="name"
+                            autoComplete="name"
                             required
                             className={styles.formInput}
                             placeholder="e.g. Rahul Sharma"
@@ -487,11 +490,14 @@ export function CCNACoursePage() {
                       </div>
 
                       <div className={styles.formGroup}>
-                        <label className={styles.formLabel}>Email Address</label>
+                        <label htmlFor="hero-email" className={styles.formLabel}>Email Address</label>
                         <div className={styles.inputWrapper}>
-                          <Mail size={16} className={styles.inputIcon} />
+                          <Mail size={16} className={styles.inputIcon} aria-hidden="true" />
                           <input
+                            id="hero-email"
                             type="email"
+                            name="email"
+                            autoComplete="email"
                             required
                             className={styles.formInput}
                             placeholder="you@email.com"
@@ -502,10 +508,10 @@ export function CCNACoursePage() {
                       </div>
 
                       <div className={styles.formGroup}>
-                        <label className={styles.formLabel}>Phone Number</label>
+                        <label htmlFor="hero-phone" className={styles.formLabel}>Phone Number</label>
                         <div className={styles.phoneInputWrapper}>
                           <div className={styles.countryCodeBadge}>
-                            <svg width="18" height="13" viewBox="0 0 20 14" fill="none" className={styles.flagSvg}>
+                            <svg width="18" height="13" viewBox="0 0 20 14" fill="none" className={styles.flagSvg} aria-hidden="true">
                               <rect width="20" height="4.66" fill="#FF9933" rx="1" />
                               <rect y="4.66" width="20" height="4.66" fill="#FFFFFF" />
                               <rect y="9.33" width="20" height="4.67" fill="#138808" rx="1" />
@@ -516,11 +522,16 @@ export function CCNACoursePage() {
                             <div className={styles.codeDivider} />
                           </div>
                           <input
+                            id="hero-phone"
                             type="tel"
+                            name="tel"
+                            autoComplete="tel"
+                            inputMode="numeric"
                             required
                             className={styles.phoneInput}
                             placeholder="9876543210"
                             pattern="[0-9]{10}"
+                            maxLength={10}
                             value={heroForm.phone}
                             onChange={(e) => setHeroForm({ ...heroForm, phone: e.target.value.replace(/\D/g, '').slice(0, 10) })}
                           />
