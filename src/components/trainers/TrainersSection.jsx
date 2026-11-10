@@ -56,11 +56,11 @@ export function TrainersSection() {
                     <div className={styles.colLeft}>
                       <div className={styles.badgesRow}>
                         <span className={isTriple ? styles.badgeTriple : styles.badgeExpert}>
-                          <Award size={13} color={isTriple ? "#FBBF24" : "#38BDF8"} />
+                          <Award size={13} color={isTriple ? "#b45309" : "#0284c7"} />
                           <span>{badgeText}</span>
                         </span>
                         <span className={styles.badgeExp}>
-                          <Clock size={13} color="#94A3B8" />
+                          <Clock size={13} color="#475569" />
                           <span>{trainer.experience}</span>
                         </span>
                       </div>
