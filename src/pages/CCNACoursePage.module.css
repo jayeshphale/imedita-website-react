@@ -931,6 +931,30 @@
 .contentSection {
   padding: 5rem 1.5rem;
   border-bottom: 1px solid #e2e8f0;
+  scroll-margin-top: 130px;
+}
+
+:global(#overview),
+:global(#syllabus),
+:global(#trainers),
+:global(#placement),
+:global(#reviews),
+:global(#faq),
+:global(#events) {
+  scroll-margin-top: 130px;
+}
+
+@media (max-width: 1024px) {
+  .contentSection,
+  :global(#overview),
+  :global(#syllabus),
+  :global(#trainers),
+  :global(#placement),
+  :global(#reviews),
+  :global(#faq),
+  :global(#events) {
+    scroll-margin-top: 115px;
+  }
 }
 
 .sectionHeaderCenter {

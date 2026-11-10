@@ -33,6 +33,11 @@ import {
   Zap
 } from 'lucide-react';
 import { LogoMarquee } from '../components/marquee/LogoMarquee';
+import { CourseStickyNav } from '../components/navigation/CourseStickyNav';
+import { TrainersSection } from '../components/trainers/TrainersSection';
+import { PlacementPartners } from '../components/partners/PlacementPartners';
+import { GoogleReviews } from '../components/reviews/GoogleReviews';
+import { EventsSection } from '../components/events/EventsSection';
 import styles from './CCNACoursePage.module.css';
 
 // 6 Core CCNA Domains
@@ -586,7 +591,12 @@ export function CCNACoursePage() {
       <LogoMarquee />
 
       {/* =========================================================================
-          3. KEY METRICS STRIP
+          3. COURSE STICKY SUB-NAVBAR (QUICK JUMP TO KEY SECTIONS)
+          ========================================================================= */}
+      <CourseStickyNav />
+
+      {/* =========================================================================
+          4. KEY METRICS STRIP
           ========================================================================= */}
       <section className={styles.metricsStripSection}>
         <div className={styles.container}>
@@ -635,9 +645,9 @@ export function CCNACoursePage() {
       </section>
 
       {/* =========================================================================
-          3. WHY CCNA AT I-MEDITA (ADVANTAGES)
+          5. OVERVIEW: WHY CCNA AT I-MEDITA & ADVANTAGES
           ========================================================================= */}
-      <section className={styles.contentSection}>
+      <section className={styles.contentSection} id="overview">
         <div className={styles.container}>
           <div className={styles.sectionHeaderCenter}>
             <div className={styles.sectionEyebrow}>
@@ -762,7 +772,7 @@ export function CCNACoursePage() {
       {/* =========================================================================
           5. DETAILED SYLLABUS ACCORDION
           ========================================================================= */}
-      <section className={styles.contentSection}>
+      <section className={styles.contentSection} id="syllabus">
         <div className={styles.container}>
           <div className={styles.sectionHeaderCenter}>
             <div className={styles.sectionEyebrow}>
@@ -855,7 +865,19 @@ export function CCNACoursePage() {
       </section>
 
       {/* =========================================================================
-          7. EXAM DETAILS & CAREER OPPORTUNITIES
+          7. MASTER CCIE FACULTY & MENTORS (STICKY TAB #trainers)
+          ========================================================================= */}
+      <TrainersSection />
+
+      {/* =========================================================================
+          8. PLACEMENT PARTNERS & CAREER OPPORTUNITIES (STICKY TAB #placement)
+          ========================================================================= */}
+      <div id="placement">
+        <PlacementPartners />
+      </div>
+
+      {/* =========================================================================
+          9. EXAM DETAILS & CAREER OPPORTUNITIES
           ========================================================================= */}
       <section className={styles.contentSection}>
         <div className={styles.container}>
@@ -935,7 +957,17 @@ export function CCNACoursePage() {
       </section>
 
       {/* =========================================================================
-          8. UPCOMING LIVE BATCHES SCHEDULE
+          10. STUDENT GOOGLE REVIEWS & TESTIMONIALS (STICKY TAB #reviews)
+          ========================================================================= */}
+      <GoogleReviews />
+
+      {/* =========================================================================
+          11. UPCOMING TECHNICAL BOOTCAMPS & EVENTS (STICKY TAB #events)
+          ========================================================================= */}
+      <EventsSection onOpenDemo={handleOpenDemo} />
+
+      {/* =========================================================================
+          12. UPCOMING LIVE BATCHES SCHEDULE
           ========================================================================= */}
       <section className={styles.contentSection} style={{ background: '#f8fafc' }}>
         <div className={styles.container}>
@@ -1003,9 +1035,9 @@ export function CCNACoursePage() {
       </section>
 
       {/* =========================================================================
-          9. FREQUENTLY ASKED QUESTIONS (FAQS)
+          13. FREQUENTLY ASKED QUESTIONS (STICKY TAB #faq)
           ========================================================================= */}
-      <section className={styles.contentSection}>
+      <section className={styles.contentSection} id="faq">
         <div className={styles.container}>
           <div className={styles.sectionHeaderCenter}>
             <div className={styles.sectionEyebrow}>
