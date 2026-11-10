@@ -18,8 +18,8 @@ const defaultNavItems = [
   { id: 'trainers', label: 'Trainers', icon: UserCheck },
   { id: 'placement', label: 'Placement', icon: Briefcase },
   { id: 'reviews', label: 'Reviews', icon: Star },
-  { id: 'faq', label: 'FAQ', icon: HelpCircle },
-  { id: 'events', label: 'Events', icon: Calendar }
+  { id: 'events', label: 'Events', icon: Calendar },
+  { id: 'faq', label: 'FAQ', icon: HelpCircle }
 ];
 
 export function CourseStickyNav({ 
