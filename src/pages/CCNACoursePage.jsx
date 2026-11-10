@@ -40,6 +40,46 @@ import { GoogleReviews } from '../components/reviews/GoogleReviews';
 import { EventsSection } from '../components/events/EventsSection';
 import styles from './CCNACoursePage.module.css';
 
+// Why Choose I-Medita 6 Key Pillars
+const whyChooseCards = [
+  {
+    icon: Server,
+    iconBg: 'linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%)',
+    title: '100% Real Hardware Labs',
+    desc: 'Configure actual Cisco Catalyst 9300/2960 switches, ISR 4331 routers, and ASA 5506-X firewalls. Zero simulators or Packet Tracer limitations.'
+  },
+  {
+    icon: Award,
+    iconBg: 'linear-gradient(135deg, #10b981 0%, #059669 100%)',
+    title: 'Triple CCIE Certified Faculty',
+    desc: 'Learn directly from Saurabh Yadav (Triple CCIE #46962) and seasoned datacenter architects with 15+ years of live enterprise deployment experience.'
+  },
+  {
+    icon: Clock,
+    iconBg: 'linear-gradient(135deg, #f59e0b 0%, #d97706 100%)',
+    title: '24/7 Remote Rack Access',
+    desc: 'Practice on our cloud-connected datacenter racks anytime from home. Each student gets dedicated pod CLI access with zero queuing or lag.'
+  },
+  {
+    icon: Briefcase,
+    iconBg: 'linear-gradient(135deg, #f43f5e 0%, #e11d48 100%)',
+    title: 'Dedicated Placement Cell',
+    desc: 'Resume building, technical mock interview rounds, and direct placement drives with Fortune 500 tech giants like Orange Business, Airtel, and Wipro.'
+  },
+  {
+    icon: Shield,
+    iconBg: 'linear-gradient(135deg, #6366f1 0%, #4f46e5 100%)',
+    title: 'Global Exam Assurance',
+    desc: 'Comprehensive Cisco 200-301 mock tests, performance simlets, and official discounted exam vouchers yielding an authentic 100% passing record.'
+  },
+  {
+    icon: BookOpen,
+    iconBg: 'linear-gradient(135deg, #06b6d4 0%, #0891b2 100%)',
+    title: 'Lifetime LMS & Video Library',
+    desc: 'Never lose access to knowledge. Enjoy lifetime HD session recordings, topology diagrams, command syntaxes, and step-by-step configuration guides.'
+  }
+];
+
 // 6 Core CCNA Domains
 const ccnaDomains = [
   {
@@ -598,86 +638,52 @@ export function CCNACoursePage() {
       {/* =========================================================================
           4. OVERVIEW: WHY CCNA AT I-MEDITA & ADVANTAGES
           ========================================================================= */}
-      <section className={styles.contentSection} id="overview">
+      <section className={styles.overviewSection} id="overview">
         <div className={styles.container}>
           <div className={styles.sectionHeaderCenter}>
-            <div className={styles.sectionEyebrow}>
-              <Sparkles size={13} />
+            <div className={styles.overviewPill}>
               <span>Industry Leadership</span>
             </div>
-            <h2 className={styles.sectionTitle}>Why Choose I-Medita For Cisco CCNA?</h2>
-            <p className={styles.sectionSubtext}>
+            <h2 className={styles.overviewTitle}>Why Choose I-Medita For Cisco CCNA?</h2>
+            <p className={styles.overviewSubtext}>
               Ranked among India's top Cisco authorized academies with unmatched physical lab infrastructure 
               and corporate training rigor.
             </p>
           </div>
 
           <div className={styles.advantagesGrid}>
-            <div className={styles.advantageCard}>
-              <div className={styles.advantageIconWrap}>
-                <Server size={24} />
-              </div>
-              <h3 className={styles.advantageTitle}>100% Real Hardware Labs</h3>
-              <p className={styles.advantageDesc}>
-                Configure actual Cisco Catalyst 9300/2960 switches, ISR 4331 routers, and ASA 5506-X firewalls. 
-                Zero simulators or Packet Tracer limitations.
-              </p>
-            </div>
+            {whyChooseCards.map((card, idx) => {
+              const IconComp = card.icon;
+              return (
+                <div key={idx} className={styles.advantageCard}>
+                  <div
+                    className={styles.advantageIconSquircle}
+                    style={{ background: card.iconBg }}
+                  >
+                    <IconComp size={24} color="#ffffff" strokeWidth={2.2} />
+                  </div>
+                  <h3 className={styles.advantageTitle}>{card.title}</h3>
+                  <p className={styles.advantageDesc}>{card.desc}</p>
+                </div>
+              );
+            })}
+          </div>
 
-            <div className={styles.advantageCard}>
-              <div className={styles.advantageIconWrap}>
-                <Award size={24} />
-              </div>
-              <h3 className={styles.advantageTitle}>Triple CCIE Certified Faculty</h3>
-              <p className={styles.advantageDesc}>
-                Learn directly from Saurabh Yadav (Triple CCIE #46962) and seasoned datacenter architects with 
-                15+ years of live enterprise deployment experience.
+          {/* Bottom Dark Navy Banner matching the reference design */}
+          <div className={styles.overviewCtaBanner}>
+            <div className={styles.overviewCtaContent}>
+              <h3 className={styles.overviewCtaHeading}>Not Sure if CCNA Is Right for You?</h3>
+              <p className={styles.overviewCtaDesc}>
+                Join a free demo session, explore the curriculum, experience live Cisco labs, and get expert career guidance before you enroll.
               </p>
             </div>
-
-            <div className={styles.advantageCard}>
-              <div className={styles.advantageIconWrap}>
-                <Clock size={24} />
-              </div>
-              <h3 className={styles.advantageTitle}>24/7 Remote Rack Access</h3>
-              <p className={styles.advantageDesc}>
-                Practice on our cloud-connected datacenter racks anytime from home. Each student gets dedicated pod 
-                CLI access with zero queuing or lag.
-              </p>
-            </div>
-
-            <div className={styles.advantageCard}>
-              <div className={styles.advantageIconWrap}>
-                <Briefcase size={24} />
-              </div>
-              <h3 className={styles.advantageTitle}>Dedicated Placement Cell</h3>
-              <p className={styles.advantageDesc}>
-                Resume building, technical mock interview rounds, and direct placement drives with Fortune 500 tech 
-                giants like Orange Business, Airtel, and Wipro.
-              </p>
-            </div>
-
-            <div className={styles.advantageCard}>
-              <div className={styles.advantageIconWrap}>
-                <Shield size={24} />
-              </div>
-              <h3 className={styles.advantageTitle}>Global Exam Assurance</h3>
-              <p className={styles.advantageDesc}>
-                Comprehensive Cisco 200-301 mock tests, performance simlets, and official discounted exam vouchers 
-                yielding an authentic 100% passing record.
-              </p>
-            </div>
-
-            <div className={styles.advantageCard}>
-              <div className={styles.advantageIconWrap}>
-                <BookOpen size={24} />
-              </div>
-              <h3 className={styles.advantageTitle}>Lifetime LMS &amp; Video Library</h3>
-              <p className={styles.advantageDesc}>
-                Never lose access to knowledge. Enjoy lifetime HD session recordings, topology diagrams, command 
-                syntaxes, and step-by-step configuration guides.
-              </p>
-            </div>
+            <button
+              type="button"
+              className={styles.overviewCtaBtn}
+              onClick={() => handleOpenDemo('Cisco CCNA (200-301) Free Demo')}
+            >
+              Book Free Demo →
+            </button>
           </div>
         </div>
       </section>
