@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useCallback } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { 
   Layers, 
   BookOpen, 
@@ -30,75 +30,20 @@ export function CourseStickyNav({
   const [activeSection, setActiveSection] = useState(items[0]?.id || 'overview');
   const [isSticky, setIsSticky] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
-  const [indicatorStyle, setIndicatorStyle] = useState({ left: 0, width: 0, opacity: 0 });
 
   const navTrackRef = useRef(null);
-  const tabRefs = useRef({});
   const isClickScrolling = useRef(false);
   const scrollTimeoutRef = useRef(null);
-  const lastClickTimeRef = useRef(0);
 
-  // High-precision sliding indicator calculation using getBoundingClientRect
-  // Bypasses Chromium flexbox offsetLeft centering offset bugs completely
-  const updateSlidingIndicator = useCallback((sectionId) => {
-    const activeTab = tabRefs.current[sectionId];
-    const track = navTrackRef.current;
-    if (activeTab && track) {
-      const tabRect = activeTab.getBoundingClientRect();
-      const trackRect = track.getBoundingClientRect();
-      const relativeLeft = tabRect.left - trackRect.left + track.scrollLeft;
-
-      setIndicatorStyle({
-        left: relativeLeft,
-        width: tabRect.width,
-        opacity: 1
-      });
-
-      // On mobile / horizontal scroll: auto-center active tab smoothly
-      const trackWidth = track.clientWidth;
-      const targetScrollLeft = relativeLeft - (trackWidth / 2) + (tabRect.width / 2);
-
-      track.scrollTo({
-        left: Math.max(0, targetScrollLeft),
-        behavior: 'smooth'
-      });
-    }
-  }, []);
-
-  // Sync underline whenever active section changes
+  // Auto-scroll nav track horizontally on mobile/overflow viewports so active tab is always centered
   useEffect(() => {
-    updateSlidingIndicator(activeSection);
-  }, [activeSection, updateSlidingIndicator]);
-
-  // Recalculate indicator on window resize / fonts ready
-  useEffect(() => {
-    const handleResize = () => updateSlidingIndicator(activeSection);
-    window.addEventListener('resize', handleResize, { passive: true });
-    
-    // Initial sync after DOM paint
-    const timer = setTimeout(() => updateSlidingIndicator(activeSection), 60);
-
-    return () => {
-      window.removeEventListener('resize', handleResize);
-      clearTimeout(timer);
-    };
-  }, [activeSection, updateSlidingIndicator]);
-
-  // Release scroll lock on genuine manual interaction, ignoring residual click triggers
-  useEffect(() => {
-    const releaseScrollLock = () => {
-      if (Date.now() - lastClickTimeRef.current < 450) {
-        return; // Ignore momentum/touch/wheel fired in conjunction with click
+    if (navTrackRef.current) {
+      const activeEl = navTrackRef.current.querySelector(`.${styles.navLinkActive}`);
+      if (activeEl) {
+        activeEl.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
       }
-      isClickScrolling.current = false;
-    };
-    window.addEventListener('wheel', releaseScrollLock, { passive: true });
-    window.addEventListener('touchstart', releaseScrollLock, { passive: true });
-    return () => {
-      window.removeEventListener('wheel', releaseScrollLock);
-      window.removeEventListener('touchstart', releaseScrollLock);
-    };
-  }, []);
+    }
+  }, [activeSection]);
 
   // Smooth click handler with pixel-perfect offset calculation
   const handleNavClick = (e, targetId) => {
@@ -106,7 +51,7 @@ export function CourseStickyNav({
     const el = document.getElementById(targetId);
     if (!el) return;
 
-    lastClickTimeRef.current = Date.now();
+    // 1. Immediately highlight the clicked tab and place underline directly on it
     setActiveSection(targetId);
     isClickScrolling.current = true;
 
@@ -117,18 +62,18 @@ export function CourseStickyNav({
     const isMobile = window.innerWidth <= 1024;
     const navbarOffset = isMobile ? 114 : 124; // main nav (64/74px) + sticky subnav (50px)
     const elementPosition = el.getBoundingClientRect().top + window.pageYOffset;
-    const scrollTarget = Math.max(0, elementPosition - navbarOffset + 5);
+    const scrollTarget = Math.max(0, elementPosition - navbarOffset + 4);
 
     window.scrollTo({
       top: scrollTarget,
       behavior: 'smooth'
     });
 
-    // Re-enable scroll listener detection after smooth scroll finishes
+    // 2. Lock programmatic scroll for 1000ms so smooth scroll finishes cleanly
     scrollTimeoutRef.current = setTimeout(() => {
       isClickScrolling.current = false;
       setActiveSection(targetId);
-    }, 950);
+    }, 1000);
   };
 
   // High-performance RAF scroll listener for accurate section tracking
@@ -151,11 +96,11 @@ export function CourseStickyNav({
         // 2. Check sticky state threshold
         setIsSticky(scrollY > 350);
 
-        // 3. Accurate section intersection detection (skip during click smooth-scroll)
+        // 3. Accurate section intersection detection (only during manual scrolling)
         if (!isClickScrolling.current) {
           const isMobile = window.innerWidth <= 1024;
           const navbarOffset = isMobile ? 114 : 124;
-          const triggerLine = navbarOffset + 50; // Trigger line directly below sticky nav
+          const triggerLine = navbarOffset + 60; // Trigger line 60px below sticky navbar
 
           // Special case: reached bottom of page -> activate last item (FAQ)
           const isAtBottom = window.innerHeight + scrollY >= document.documentElement.scrollHeight - 70;
@@ -177,7 +122,7 @@ export function CourseStickyNav({
               }
             }
 
-            // Fallback for spacing gaps between sections
+            // Fallback for edge cases
             if (!foundSectionId) {
               for (let i = items.length - 1; i >= 0; i--) {
                 const item = items[i];
@@ -232,7 +177,7 @@ export function CourseStickyNav({
           <span className={styles.brandText}>{courseTitle}</span>
         </div>
 
-        {/* Center: Professional Tabs with Smooth Continuous Sliding Underline */}
+        {/* Center: Professional Tabs with Guaranteed Direct Underline on Active Tab */}
         <div className={styles.navTrack} ref={navTrackRef}>
           {items.map((item) => {
             const Icon = item.icon;
@@ -240,9 +185,6 @@ export function CourseStickyNav({
             return (
               <a
                 key={item.id}
-                ref={(el) => {
-                  if (el) tabRefs.current[item.id] = el;
-                }}
                 href={`#${item.id}`}
                 onClick={(e) => handleNavClick(e, item.id)}
                 className={`${styles.navLink} ${isActive ? styles.navLinkActive : ''}`}
@@ -250,20 +192,11 @@ export function CourseStickyNav({
               >
                 {Icon && <Icon size={15} strokeWidth={1.8} className={styles.tabIcon} />}
                 <span className={styles.tabText}>{item.label}</span>
+                {/* 100% Guaranteed Underline Rendered Directly on the Active Tab */}
+                {isActive && <span className={styles.activeUnderline} />}
               </a>
             );
           })}
-
-          {/* Single Continuous Sliding Underline Indicator */}
-          <span 
-            className={styles.slidingUnderline} 
-            style={{
-              transform: `translateX(${indicatorStyle.left}px)`,
-              width: `${indicatorStyle.width}px`,
-              opacity: indicatorStyle.opacity
-            }}
-            aria-hidden="true"
-          />
         </div>
 
         {/* Right Side: Quick Action CTA Button */}
