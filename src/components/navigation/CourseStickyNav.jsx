@@ -36,23 +36,27 @@ export function CourseStickyNav({
   const tabRefs = useRef({});
   const isClickScrolling = useRef(false);
   const scrollTimeoutRef = useRef(null);
+  const lastClickTimeRef = useRef(0);
 
-  // Smoothly reposition the single continuous sliding underline
+  // High-precision sliding indicator calculation using getBoundingClientRect
+  // Bypasses Chromium flexbox offsetLeft centering offset bugs completely
   const updateSlidingIndicator = useCallback((sectionId) => {
     const activeTab = tabRefs.current[sectionId];
     const track = navTrackRef.current;
     if (activeTab && track) {
+      const tabRect = activeTab.getBoundingClientRect();
+      const trackRect = track.getBoundingClientRect();
+      const relativeLeft = tabRect.left - trackRect.left + track.scrollLeft;
+
       setIndicatorStyle({
-        left: activeTab.offsetLeft,
-        width: activeTab.offsetWidth,
+        left: relativeLeft,
+        width: tabRect.width,
         opacity: 1
       });
 
       // On mobile / horizontal scroll: auto-center active tab smoothly
       const trackWidth = track.clientWidth;
-      const tabLeft = activeTab.offsetLeft;
-      const tabWidth = activeTab.offsetWidth;
-      const targetScrollLeft = tabLeft - (trackWidth / 2) + (tabWidth / 2);
+      const targetScrollLeft = relativeLeft - (trackWidth / 2) + (tabRect.width / 2);
 
       track.scrollTo({
         left: Math.max(0, targetScrollLeft),
@@ -72,7 +76,7 @@ export function CourseStickyNav({
     window.addEventListener('resize', handleResize, { passive: true });
     
     // Initial sync after DOM paint
-    const timer = setTimeout(() => updateSlidingIndicator(activeSection), 50);
+    const timer = setTimeout(() => updateSlidingIndicator(activeSection), 60);
 
     return () => {
       window.removeEventListener('resize', handleResize);
@@ -80,9 +84,12 @@ export function CourseStickyNav({
     };
   }, [activeSection, updateSlidingIndicator]);
 
-  // Handle manual interaction to release programmatic scroll lock immediately
+  // Release scroll lock on genuine manual interaction, ignoring residual click triggers
   useEffect(() => {
     const releaseScrollLock = () => {
+      if (Date.now() - lastClickTimeRef.current < 450) {
+        return; // Ignore momentum/touch/wheel fired in conjunction with click
+      }
       isClickScrolling.current = false;
     };
     window.addEventListener('wheel', releaseScrollLock, { passive: true });
@@ -99,7 +106,7 @@ export function CourseStickyNav({
     const el = document.getElementById(targetId);
     if (!el) return;
 
-    // Immediately update active section and glide indicator
+    lastClickTimeRef.current = Date.now();
     setActiveSection(targetId);
     isClickScrolling.current = true;
 
@@ -110,7 +117,7 @@ export function CourseStickyNav({
     const isMobile = window.innerWidth <= 1024;
     const navbarOffset = isMobile ? 114 : 124; // main nav (64/74px) + sticky subnav (50px)
     const elementPosition = el.getBoundingClientRect().top + window.pageYOffset;
-    const scrollTarget = Math.max(0, elementPosition - navbarOffset + 2);
+    const scrollTarget = Math.max(0, elementPosition - navbarOffset + 5);
 
     window.scrollTo({
       top: scrollTarget,
@@ -120,7 +127,8 @@ export function CourseStickyNav({
     // Re-enable scroll listener detection after smooth scroll finishes
     scrollTimeoutRef.current = setTimeout(() => {
       isClickScrolling.current = false;
-    }, 800);
+      setActiveSection(targetId);
+    }, 950);
   };
 
   // High-performance RAF scroll listener for accurate section tracking
@@ -147,10 +155,10 @@ export function CourseStickyNav({
         if (!isClickScrolling.current) {
           const isMobile = window.innerWidth <= 1024;
           const navbarOffset = isMobile ? 114 : 124;
-          const triggerLine = navbarOffset + 35; // Trigger line directly below sticky nav
+          const triggerLine = navbarOffset + 50; // Trigger line directly below sticky nav
 
           // Special case: reached bottom of page -> activate last item (FAQ)
-          const isAtBottom = window.innerHeight + scrollY >= document.documentElement.scrollHeight - 60;
+          const isAtBottom = window.innerHeight + scrollY >= document.documentElement.scrollHeight - 70;
           if (isAtBottom && items.length > 0) {
             setActiveSection(items[items.length - 1].id);
           } else {

@@ -770,99 +770,101 @@ export function CCNACoursePage() {
       </section>
 
       {/* =========================================================================
-          5. DETAILED SYLLABUS ACCORDION
+          5. DETAILED SYLLABUS ACCORDION & HARDWARE LABS (STICKY TAB #syllabus)
           ========================================================================= */}
-      <section className={styles.contentSection} id="syllabus">
-        <div className={styles.container}>
-          <div className={styles.sectionHeaderCenter}>
-            <div className={styles.sectionEyebrow}>
-              <FileText size={13} />
-              <span>Module Breakdown</span>
-            </div>
-            <h2 className={styles.sectionTitle}>Cisco CCNA 200-301 Course Syllabus</h2>
-            <p className={styles.sectionSubtext}>
-              Step-by-step technical curriculum designed to build real-world troubleshooting capability.
-            </p>
-          </div>
-
-          <div className={styles.syllabusContainer}>
-            <div className={styles.syllabusAccordion}>
-              {syllabusModules.map((mod) => {
-                const isOpen = openModule === mod.id;
-                return (
-                  <div key={mod.id} className={`${styles.accordionItem} ${isOpen ? styles.isOpen : ''}`}>
-                    <button
-                      type="button"
-                      className={styles.accordionTrigger}
-                      onClick={() => toggleModule(mod.id)}
-                    >
-                      <div className={styles.triggerLeft}>
-                        <span className={styles.moduleTag}>{mod.tag}</span>
-                        <span className={styles.moduleTitleText}>{mod.title}</span>
-                      </div>
-                      <ChevronDown
-                        size={18}
-                        className={`${styles.accordionChevron} ${isOpen ? styles.rotate : ''}`}
-                      />
-                    </button>
-
-                    {isOpen && (
-                      <div className={styles.accordionBody}>
-                        <div className={styles.topicsList}>
-                          {mod.topics.map((t, idx) => (
-                            <div key={idx} className={styles.topicItem}>
-                              <CheckCircle2 size={15} color="#0066FF" style={{ flexShrink: 0, marginTop: '3px' }} />
-                              <span>{t}</span>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-                    )}
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* =========================================================================
-          6. 80+ REAL CISCO LAB HARDWARE SHOWCASE
-          ========================================================================= */}
-      <section className={styles.labSection}>
-        <div className={styles.container}>
-          <div className={styles.sectionHeaderCenter}>
-            <div className={styles.sectionEyebrow} style={{ background: 'rgba(0,102,255,0.16)', color: '#38bdf8', borderColor: 'rgba(56,189,248,0.3)' }}>
-              <Server size={13} />
-              <span>Physical Equipment</span>
-            </div>
-            <h2 className={styles.sectionTitle} style={{ color: '#ffffff' }}>
-              80+ Real-World Cisco Hardware Labs
-            </h2>
-            <p className={styles.sectionSubtext} style={{ color: '#94a3b8' }}>
-              We do not rely on Packet Tracer. Students execute commands on genuine enterprise routing, 
-              switching, and security hardware.
-            </p>
-          </div>
-
-          <div className={styles.labDevicesGrid}>
-            {labDevices.map((dev, i) => (
-              <div key={i} className={styles.labDeviceCard}>
-                <div className={styles.deviceIconBox}>
-                  <Server size={22} />
-                </div>
-                <div className={styles.deviceCategory}>{dev.category}</div>
-                <h3 className={styles.deviceName}>{dev.name}</h3>
-                <p className={styles.deviceSpecs}>{dev.specs}</p>
-                <div className={styles.devicePill}>
-                  <CheckCircle2 size={12} />
-                  <span>{dev.status}</span>
-                </div>
+      <div id="syllabus">
+        <section className={styles.contentSection}>
+          <div className={styles.container}>
+            <div className={styles.sectionHeaderCenter}>
+              <div className={styles.sectionEyebrow}>
+                <FileText size={13} />
+                <span>Module Breakdown</span>
               </div>
-            ))}
+              <h2 className={styles.sectionTitle}>Cisco CCNA 200-301 Course Syllabus</h2>
+              <p className={styles.sectionSubtext}>
+                Step-by-step technical curriculum designed to build real-world troubleshooting capability.
+              </p>
+            </div>
+
+            <div className={styles.syllabusContainer}>
+              <div className={styles.syllabusAccordion}>
+                {syllabusModules.map((mod) => {
+                  const isOpen = openModule === mod.id;
+                  return (
+                    <div key={mod.id} className={`${styles.accordionItem} ${isOpen ? styles.isOpen : ''}`}>
+                      <button
+                        type="button"
+                        className={styles.accordionTrigger}
+                        onClick={() => toggleModule(mod.id)}
+                      >
+                        <div className={styles.triggerLeft}>
+                          <span className={styles.moduleTag}>{mod.tag}</span>
+                          <span className={styles.moduleTitleText}>{mod.title}</span>
+                        </div>
+                        <ChevronDown
+                          size={18}
+                          className={`${styles.accordionChevron} ${isOpen ? styles.rotate : ''}`}
+                        />
+                      </button>
+
+                      {isOpen && (
+                        <div className={styles.accordionBody}>
+                          <div className={styles.topicsList}>
+                            {mod.topics.map((t, idx) => (
+                              <div key={idx} className={styles.topicItem}>
+                                <CheckCircle2 size={15} color="#0066FF" style={{ flexShrink: 0, marginTop: '3px' }} />
+                                <span>{t}</span>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+
+        {/* =========================================================================
+            6. 80+ REAL CISCO LAB HARDWARE SHOWCASE
+            ========================================================================= */}
+        <section className={styles.labSection}>
+          <div className={styles.container}>
+            <div className={styles.sectionHeaderCenter}>
+              <div className={styles.sectionEyebrow} style={{ background: 'rgba(0,102,255,0.16)', color: '#38bdf8', borderColor: 'rgba(56,189,248,0.3)' }}>
+                <Server size={13} />
+                <span>Physical Equipment</span>
+              </div>
+              <h2 className={styles.sectionTitle} style={{ color: '#ffffff' }}>
+                80+ Real-World Cisco Hardware Labs
+              </h2>
+              <p className={styles.sectionSubtext} style={{ color: '#94a3b8' }}>
+                We do not rely on Packet Tracer. Students execute commands on genuine enterprise routing, 
+                switching, and security hardware.
+              </p>
+            </div>
+
+            <div className={styles.labDevicesGrid}>
+              {labDevices.map((dev, i) => (
+                <div key={i} className={styles.labDeviceCard}>
+                  <div className={styles.deviceIconBox}>
+                    <Server size={22} />
+                  </div>
+                  <div className={styles.deviceCategory}>{dev.category}</div>
+                  <h3 className={styles.deviceName}>{dev.name}</h3>
+                  <p className={styles.deviceSpecs}>{dev.specs}</p>
+                  <div className={styles.devicePill}>
+                    <CheckCircle2 size={12} />
+                    <span>{dev.status}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      </div>
 
       {/* =========================================================================
           7. MASTER CCIE FACULTY & MENTORS (STICKY TAB #trainers)
@@ -874,87 +876,87 @@ export function CCNACoursePage() {
           ========================================================================= */}
       <div id="placement">
         <PlacementPartners />
-      </div>
 
-      {/* =========================================================================
-          9. EXAM DETAILS & CAREER OPPORTUNITIES
-          ========================================================================= */}
-      <section className={styles.contentSection}>
-        <div className={styles.container}>
-          <div className={styles.dualSplitGrid}>
-            {/* Left: Exam Details */}
-            <div className={styles.examDetailsCard}>
-              <div className={styles.cardHeaderBlock}>
-                <Award size={24} className={styles.cardIcon} />
-                <h3 className={styles.cardBlockTitle}>Cisco 200-301 Exam Information</h3>
+        {/* =========================================================================
+            9. EXAM DETAILS & CAREER OPPORTUNITIES
+            ========================================================================= */}
+        <section className={styles.contentSection}>
+          <div className={styles.container}>
+            <div className={styles.dualSplitGrid}>
+              {/* Left: Exam Details */}
+              <div className={styles.examDetailsCard}>
+                <div className={styles.cardHeaderBlock}>
+                  <Award size={24} className={styles.cardIcon} />
+                  <h3 className={styles.cardBlockTitle}>Cisco 200-301 Exam Information</h3>
+                </div>
+
+                <div className={styles.examRowsList}>
+                  <div className={styles.examRow}>
+                    <span className={styles.examLabel}>Exam Code</span>
+                    <span className={styles.examValue}>200-301 CCNA</span>
+                  </div>
+                  <div className={styles.examRow}>
+                    <span className={styles.examLabel}>Exam Duration</span>
+                    <span className={styles.examValue}>120 Minutes</span>
+                  </div>
+                  <div className={styles.examRow}>
+                    <span className={styles.examLabel}>Number of Questions</span>
+                    <span className={styles.examValue}>100 – 120 Questions</span>
+                  </div>
+                  <div className={styles.examRow}>
+                    <span className={styles.examLabel}>Question Formats</span>
+                    <span className={styles.examValue}>Multiple Choice, Drag &amp; Drop, Simlets</span>
+                  </div>
+                  <div className={styles.examRow}>
+                    <span className={styles.examLabel}>Passing Score</span>
+                    <span className={styles.examValue}>825 / 1000 (~82.5%)</span>
+                  </div>
+                  <div className={styles.examRow}>
+                    <span className={styles.examLabel}>Certification Validity</span>
+                    <span className={styles.examValue}>3 Years Globally Recognized</span>
+                  </div>
+                  <div className={styles.examRow}>
+                    <span className={styles.examLabel}>Testing Authority</span>
+                    <span className={styles.examValue}>Pearson VUE / I-Medita Exam Center</span>
+                  </div>
+                </div>
               </div>
 
-              <div className={styles.examRowsList}>
-                <div className={styles.examRow}>
-                  <span className={styles.examLabel}>Exam Code</span>
-                  <span className={styles.examValue}>200-301 CCNA</span>
+              {/* Right: Job Profiles & Salaries */}
+              <div className={styles.careerCard}>
+                <div className={styles.cardHeaderBlock}>
+                  <Briefcase size={24} className={styles.cardIcon} />
+                  <h3 className={styles.cardBlockTitle}>Job Profiles &amp; Career Growth</h3>
                 </div>
-                <div className={styles.examRow}>
-                  <span className={styles.examLabel}>Exam Duration</span>
-                  <span className={styles.examValue}>120 Minutes</span>
-                </div>
-                <div className={styles.examRow}>
-                  <span className={styles.examLabel}>Number of Questions</span>
-                  <span className={styles.examValue}>100 – 120 Questions</span>
-                </div>
-                <div className={styles.examRow}>
-                  <span className={styles.examLabel}>Question Formats</span>
-                  <span className={styles.examValue}>Multiple Choice, Drag &amp; Drop, Simlets</span>
-                </div>
-                <div className={styles.examRow}>
-                  <span className={styles.examLabel}>Passing Score</span>
-                  <span className={styles.examValue}>825 / 1000 (~82.5%)</span>
-                </div>
-                <div className={styles.examRow}>
-                  <span className={styles.examLabel}>Certification Validity</span>
-                  <span className={styles.examValue}>3 Years Globally Recognized</span>
-                </div>
-                <div className={styles.examRow}>
-                  <span className={styles.examLabel}>Testing Authority</span>
-                  <span className={styles.examValue}>Pearson VUE / I-Medita Exam Center</span>
-                </div>
-              </div>
-            </div>
 
-            {/* Right: Job Profiles & Salaries */}
-            <div className={styles.careerCard}>
-              <div className={styles.cardHeaderBlock}>
-                <Briefcase size={24} className={styles.cardIcon} />
-                <h3 className={styles.cardBlockTitle}>Job Profiles &amp; Career Growth</h3>
-              </div>
+                <p style={{ fontSize: '0.875rem', color: '#64748b', lineHeight: 1.6, marginBottom: '1.25rem' }}>
+                  CCNA is the gold standard foundation for IT networking and cybersecurity infrastructure careers. 
+                  Our certified alumni step into high-demand enterprise roles:
+                </p>
 
-              <p style={{ fontSize: '0.875rem', color: '#64748b', lineHeight: 1.6, marginBottom: '1.25rem' }}>
-                CCNA is the gold standard foundation for IT networking and cybersecurity infrastructure careers. 
-                Our certified alumni step into high-demand enterprise roles:
-              </p>
-
-              <div className={styles.rolesGrid}>
-                <div className={styles.roleCard}>
-                  <div className={styles.roleTitle}>Network Engineer</div>
-                  <div className={styles.roleSalary}>₹4.5 LPA – ₹7.5 LPA</div>
-                </div>
-                <div className={styles.roleCard}>
-                  <div className={styles.roleTitle}>NOC Support Engineer</div>
-                  <div className={styles.roleSalary}>₹3.8 LPA – ₹5.8 LPA</div>
-                </div>
-                <div className={styles.roleCard}>
-                  <div className={styles.roleTitle}>Network Administrator</div>
-                  <div className={styles.roleSalary}>₹5.0 LPA – ₹8.5 LPA</div>
-                </div>
-                <div className={styles.roleCard}>
-                  <div className={styles.roleTitle}>Security Analyst (L1)</div>
-                  <div className={styles.roleSalary}>₹4.8 LPA – ₹7.8 LPA</div>
+                <div className={styles.rolesGrid}>
+                  <div className={styles.roleCard}>
+                    <div className={styles.roleTitle}>Network Engineer</div>
+                    <div className={styles.roleSalary}>₹4.5 LPA – ₹7.5 LPA</div>
+                  </div>
+                  <div className={styles.roleCard}>
+                    <div className={styles.roleTitle}>NOC Support Engineer</div>
+                    <div className={styles.roleSalary}>₹3.8 LPA – ₹5.8 LPA</div>
+                  </div>
+                  <div className={styles.roleCard}>
+                    <div className={styles.roleTitle}>Network Administrator</div>
+                    <div className={styles.roleSalary}>₹5.0 LPA – ₹8.5 LPA</div>
+                  </div>
+                  <div className={styles.roleCard}>
+                    <div className={styles.roleTitle}>Security Analyst (L1)</div>
+                    <div className={styles.roleSalary}>₹4.8 LPA – ₹7.8 LPA</div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </div>
 
       {/* =========================================================================
           10. STUDENT GOOGLE REVIEWS & TESTIMONIALS (STICKY TAB #reviews)
@@ -964,75 +966,77 @@ export function CCNACoursePage() {
       {/* =========================================================================
           11. UPCOMING TECHNICAL BOOTCAMPS & EVENTS (STICKY TAB #events)
           ========================================================================= */}
-      <EventsSection onOpenDemo={handleOpenDemo} />
+      <div id="events">
+        <EventsSection onOpenDemo={handleOpenDemo} />
 
-      {/* =========================================================================
-          12. UPCOMING LIVE BATCHES SCHEDULE
-          ========================================================================= */}
-      <section className={styles.contentSection} style={{ background: '#f8fafc' }}>
-        <div className={styles.container}>
-          <div className={styles.sectionHeaderCenter}>
-            <div className={styles.sectionEyebrow}>
-              <Calendar size={13} />
-              <span>Enrollment Schedule</span>
+        {/* =========================================================================
+            12. UPCOMING LIVE BATCHES SCHEDULE
+            ========================================================================= */}
+        <section className={styles.contentSection} style={{ background: '#f8fafc' }}>
+          <div className={styles.container}>
+            <div className={styles.sectionHeaderCenter}>
+              <div className={styles.sectionEyebrow}>
+                <Calendar size={13} />
+                <span>Enrollment Schedule</span>
+              </div>
+              <h2 className={styles.sectionTitle}>Upcoming Cisco CCNA Live Batches</h2>
+              <p className={styles.sectionSubtext}>
+                Flexible weekend and weekday batches available in classroom and interactive live online formats.
+              </p>
             </div>
-            <h2 className={styles.sectionTitle}>Upcoming Cisco CCNA Live Batches</h2>
-            <p className={styles.sectionSubtext}>
-              Flexible weekend and weekday batches available in classroom and interactive live online formats.
-            </p>
-          </div>
 
-          <div className={styles.batchesTableWrapper}>
-            <table className={styles.batchesTable}>
-              <thead>
-                <tr>
-                  <th>Start Date</th>
-                  <th>Batch Type</th>
-                  <th>Training Mode</th>
-                  <th>Timings</th>
-                  <th>Status</th>
-                  <th>Action</th>
-                </tr>
-              </thead>
-              <tbody>
-                {upcomingBatches.map((batch) => (
-                  <tr key={batch.id}>
-                    <td>
-                      <div style={{ fontWeight: 750, color: '#0f172a' }}>{batch.startDate}</div>
-                      <div style={{ fontSize: '0.75rem', color: '#64748b' }}>{batch.duration}</div>
-                    </td>
-                    <td>
-                      <span className={styles.batchBadge} style={{ background: '#f1f5f9', color: '#334155' }}>
-                        {batch.type}
-                      </span>
-                    </td>
-                    <td>
-                      <span className={`${styles.batchBadge} ${batch.mode.includes('Classroom') ? styles.batchBadgeClassroom : styles.batchBadgeLive}`}>
-                        {batch.mode}
-                      </span>
-                    </td>
-                    <td style={{ color: '#475569', fontWeight: 600 }}>{batch.timing}</td>
-                    <td>
-                      <span style={{ color: '#059669', fontWeight: 700, fontSize: '0.75rem' }}>
-                        ● {batch.seats}
-                      </span>
-                    </td>
-                    <td>
-                      <button
-                        type="button"
-                        className={styles.enrollBtnSmall}
-                        onClick={() => handleOpenDemo(`Cisco CCNA - ${batch.startDate}`)}
-                      >
-                        Book Seat
-                      </button>
-                    </td>
+            <div className={styles.batchesTableWrapper}>
+              <table className={styles.batchesTable}>
+                <thead>
+                  <tr>
+                    <th>Start Date</th>
+                    <th>Batch Type</th>
+                    <th>Training Mode</th>
+                    <th>Timings</th>
+                    <th>Status</th>
+                    <th>Action</th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
+                </thead>
+                <tbody>
+                  {upcomingBatches.map((batch) => (
+                    <tr key={batch.id}>
+                      <td>
+                        <div style={{ fontWeight: 750, color: '#0f172a' }}>{batch.startDate}</div>
+                        <div style={{ fontSize: '0.75rem', color: '#64748b' }}>{batch.duration}</div>
+                      </td>
+                      <td>
+                        <span className={styles.batchBadge} style={{ background: '#f1f5f9', color: '#334155' }}>
+                          {batch.type}
+                        </span>
+                      </td>
+                      <td>
+                        <span className={`${styles.batchBadge} ${batch.mode.includes('Classroom') ? styles.batchBadgeClassroom : styles.batchBadgeLive}`}>
+                          {batch.mode}
+                        </span>
+                      </td>
+                      <td style={{ color: '#475569', fontWeight: 600 }}>{batch.timing}</td>
+                      <td>
+                        <span style={{ color: '#059669', fontWeight: 700, fontSize: '0.75rem' }}>
+                          ● {batch.seats}
+                        </span>
+                      </td>
+                      <td>
+                        <button
+                          type="button"
+                          className={styles.enrollBtnSmall}
+                          onClick={() => handleOpenDemo(`Cisco CCNA - ${batch.startDate}`)}
+                        >
+                          Book Seat
+                        </button>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </div>
 
       {/* =========================================================================
           13. FREQUENTLY ASKED QUESTIONS (STICKY TAB #faq)
