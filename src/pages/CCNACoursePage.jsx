@@ -24,7 +24,11 @@ import {
   Briefcase,
   HelpCircle,
   ExternalLink,
-  Laptop
+  Laptop,
+  User,
+  Mail,
+  ShieldCheck,
+  Check
 } from 'lucide-react';
 import styles from './CCNACoursePage.module.css';
 
@@ -267,6 +271,21 @@ export function CCNACoursePage() {
   const [openModule, setOpenModule] = useState('mod-1');
   const [openFaq, setOpenFaq] = useState(0);
 
+  // Hero Lead Form State
+  const [heroForm, setHeroForm] = useState({ name: '', email: '', phone: '' });
+  const [heroSubmitted, setHeroSubmitted] = useState(false);
+  const [heroLoading, setHeroLoading] = useState(false);
+
+  const handleHeroSubmit = (e) => {
+    e.preventDefault();
+    if (!heroForm.name.trim() || !heroForm.phone.trim()) return;
+    setHeroLoading(true);
+    setTimeout(() => {
+      setHeroLoading(false);
+      setHeroSubmitted(true);
+    }, 600);
+  };
+
   const toggleModule = (id) => {
     setOpenModule(openModule === id ? null : id);
   };
@@ -278,7 +297,7 @@ export function CCNACoursePage() {
   return (
     <div className={styles.coursePageRoot}>
       {/* =========================================================================
-          1. HERO HEADER WITH BREADCRUMBS & FLOATING SPECS CARD
+          1. HERO HEADER WITH BREADCRUMBS & FLOATING LEAD CARD
           ========================================================================= */}
       <section className={styles.courseHero}>
         <div className={styles.heroGridOverlay} aria-hidden="true" />
@@ -298,159 +317,179 @@ export function CCNACoursePage() {
           <div className={styles.heroSplit}>
             {/* Left Column: Course Intro */}
             <div className={styles.heroLeft}>
-              <div className={styles.heroBadge}>
-                <Award size={14} />
-                <span>Official Cisco 200-301 CCNA Curriculum</span>
+              {/* Rating Badge */}
+              <div className={styles.ratingBadge}>
+                <Star size={14} className={styles.ratingStar} />
+                <span>Rated 4.9/5 by 11,210+ students</span>
               </div>
 
+              {/* Main Headline with doodle underline */}
               <h1 className={styles.heroHeading}>
-                Cisco CCNA Training <br />
-                <span className={styles.highlightText}>200-301 Certification</span>
+                Cisco{' '}
+                <span className={styles.highlightWrapper}>
+                  <span className={styles.highlightOrange}>CCNA Training</span>
+                  <svg
+                    className={styles.doodleUnderline}
+                    viewBox="0 0 280 18"
+                    fill="none"
+                    preserveAspectRatio="none"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M 3 8 C 70 3, 175 3, 277 8"
+                      stroke="#ffffff"
+                      strokeWidth="3.2"
+                      strokeLinecap="round"
+                    />
+                    <path
+                      d="M 12 14 C 85 11, 185 11, 266 14"
+                      stroke="#ffffff"
+                      strokeWidth="2.2"
+                      strokeLinecap="round"
+                      opacity="0.9"
+                    />
+                  </svg>
+                </span>
+                <br />
+                200-301 CCNA
               </h1>
 
+              {/* Paragraph Subtext */}
               <p className={styles.heroSubtext}>
-                Master Enterprise Routing, Switching, Cyber Security &amp; Python Automation directly under 
-                Triple CCIE Certified Mentors. Gain 24/7 access to physical Cisco hardware racks (No Simulators), 
-                80+ hands-on real-world labs, and 100% written job placement assurance.
+                Master enterprise networking with hands-on Cisco CCNA 200-301 training. Learn routing, 
+                switching, IPv4/IPv6, network security, and automation through real Cisco labs while 
+                preparing for the globally recognized CCNA certification.
               </p>
 
-              {/* Key Highlights Pills */}
-              <div className={styles.heroPillsRow}>
-                <div className={styles.featurePill}>
-                  <Clock size={14} className={styles.pillIcon} />
-                  <span>60+ Hours Live Training</span>
+              {/* 2x2 Feature Highlights */}
+              <div className={styles.heroStatsGrid}>
+                <div className={styles.statItem}>
+                  <Users size={16} className={styles.statIcon} />
+                  <span>11,210+ Students Trained</span>
                 </div>
-                <div className={styles.featurePill}>
-                  <Server size={14} className={styles.pillIcon} />
-                  <span>80+ Real Hardware Labs</span>
+                <div className={styles.statItem}>
+                  <Clock size={16} className={styles.statIcon} />
+                  <span>24×7 Lab Access</span>
                 </div>
-                <div className={styles.featurePill}>
-                  <Users size={14} className={styles.pillIcon} />
-                  <span>1-on-1 CCIE Mentorship</span>
+                <div className={styles.statItem}>
+                  <Briefcase size={16} className={styles.statIcon} />
+                  <span>Placement Support</span>
                 </div>
-                <div className={styles.featurePill}>
-                  <Award size={14} className={styles.pillIcon} />
-                  <span>Global Exam Preparation</span>
+                <div className={styles.statItem}>
+                  <Award size={16} className={styles.statIcon} />
+                  <span>CCIE-Certified Trainers</span>
                 </div>
               </div>
 
-              {/* Action Buttons */}
-              <div className={styles.heroCtaRow}>
-                <button
-                  type="button"
-                  className={styles.primaryCtaBtn}
-                  onClick={() => handleOpenDemo('Cisco CCNA (200-301)')}
-                >
-                  <PhoneCall size={16} />
-                  <span>Book Free 2-Hour Live Demo</span>
-                </button>
-
-                <button
-                  type="button"
-                  className={styles.secondaryCtaBtn}
-                  onClick={() => handleOpenDemo('Cisco CCNA 200-301 Syllabus')}
-                >
-                  <Download size={16} />
-                  <span>Download Syllabus (PDF)</span>
-                </button>
-              </div>
-
-              {/* Trust Strip */}
-              <div className={styles.heroTrustStrip}>
-                <div className={styles.trustProofItem}>
-                  <CheckCircle2 size={16} className={styles.trustCheckIcon} />
-                  <span>100% Written Job Guarantee</span>
-                </div>
-                <div className={styles.trustProofItem}>
-                  <CheckCircle2 size={16} className={styles.trustCheckIcon} />
-                  <span>24/7 Dedicated Rack Access</span>
-                </div>
-                <div className={styles.trustProofItem}>
-                  <CheckCircle2 size={16} className={styles.trustCheckIcon} />
-                  <span>Official Cisco Exam Center</span>
-                </div>
+              {/* Urgency Strip */}
+              <div className={styles.urgencyStrip}>
+                <Sparkles size={14} className={styles.urgencyIcon} />
+                <span>Upcoming Batch Filling Fast • Free Demo Sessions Available • Limited Seats</span>
               </div>
             </div>
 
-            {/* Right Column: Floating Specs & Pricing Card */}
+            {/* Right Column: Floating Lead Capture Form Card */}
             <div className={styles.heroRight}>
-              <div className={styles.courseCardSurface}>
-                <div className={styles.cardHeaderPrice}>
-                  <div>
-                    <div className={styles.priceLabel}>All-Inclusive Fee</div>
-                    <div className={styles.priceVal}>
-                      ₹13,900
-                      <span className={styles.originalPrice}>₹16,900</span>
+              <div className={styles.leadCard}>
+                {heroSubmitted ? (
+                  <div className={styles.formSuccessState}>
+                    <div className={styles.successIconCircle}>
+                      <Check size={28} />
                     </div>
+                    <h3 className={styles.successTitle}>Demo Session Reserved!</h3>
+                    <p className={styles.successMsg}>
+                      Thank you, <strong>{heroForm.name}</strong>. Our senior CCIE mentor will reach out to you on <strong>+91 {heroForm.phone}</strong> shortly with your lab credentials and batch schedule.
+                    </p>
+                    <button
+                      type="button"
+                      className={styles.resetBtn}
+                      onClick={() => {
+                        setHeroSubmitted(false);
+                        setHeroForm({ name: '', email: '', phone: '' });
+                      }}
+                    >
+                      Book Another Demo
+                    </button>
                   </div>
-                  <span className={styles.discountBadge}>18% Limited Offer</span>
-                </div>
+                ) : (
+                  <>
+                    <div className={styles.leadPill}>
+                      <span className={styles.leadPillDot}>•</span>
+                      <span>FREE DEMO - LIMITED SEATS</span>
+                    </div>
 
-                <div className={styles.specsList}>
-                  <div className={styles.specRow}>
-                    <span className={styles.specName}>
-                      <Star size={14} color="#F59E0B" fill="#F59E0B" />
-                      Student Rating
-                    </span>
-                    <span className={styles.specValue}>4.9 / 5.0 (11,210+ Alumni)</span>
-                  </div>
+                    <h2 className={styles.leadTitle}>Talk to a Training Expert Today</h2>
+                    <p className={styles.leadSubtitle}>Get a personalised roadmap – lab walkthrough.</p>
 
-                  <div className={styles.specRow}>
-                    <span className={styles.specName}>
-                      <Laptop size={14} color="#0066FF" />
-                      Learning Modes
-                    </span>
-                    <span className={styles.specValue}>Classroom (Pune) &amp; Online</span>
-                  </div>
+                    <form className={styles.leadForm} onSubmit={handleHeroSubmit}>
+                      <div className={styles.formGroup}>
+                        <label className={styles.formLabel}>Full Name</label>
+                        <div className={styles.inputWrapper}>
+                          <User size={16} className={styles.inputIcon} />
+                          <input
+                            type="text"
+                            required
+                            className={styles.formInput}
+                            placeholder="e.g. Rahul Sharma"
+                            value={heroForm.name}
+                            onChange={(e) => setHeroForm({ ...heroForm, name: e.target.value })}
+                          />
+                        </div>
+                      </div>
 
-                  <div className={styles.specRow}>
-                    <span className={styles.specName}>
-                      <Clock size={14} color="#0066FF" />
-                      Course Duration
-                    </span>
-                    <span className={styles.specValue}>6 to 8 Weeks (60+ Hours)</span>
-                  </div>
+                      <div className={styles.formGroup}>
+                        <label className={styles.formLabel}>Email Address</label>
+                        <div className={styles.inputWrapper}>
+                          <Mail size={16} className={styles.inputIcon} />
+                          <input
+                            type="email"
+                            required
+                            className={styles.formInput}
+                            placeholder="you@email.com"
+                            value={heroForm.email}
+                            onChange={(e) => setHeroForm({ ...heroForm, email: e.target.value })}
+                          />
+                        </div>
+                      </div>
 
-                  <div className={styles.specRow}>
-                    <span className={styles.specName}>
-                      <Server size={14} color="#0066FF" />
-                      Lab Infrastructure
-                    </span>
-                    <span className={styles.specValue}>Real Cisco Catalyst &amp; ISR Racks</span>
-                  </div>
+                      <div className={styles.formGroup}>
+                        <label className={styles.formLabel}>Phone Number</label>
+                        <div className={styles.phoneInputWrapper}>
+                          <div className={styles.countryCodeBadge}>
+                            <svg width="18" height="13" viewBox="0 0 20 14" fill="none" className={styles.flagSvg}>
+                              <rect width="20" height="4.66" fill="#FF9933" rx="1" />
+                              <rect y="4.66" width="20" height="4.66" fill="#FFFFFF" />
+                              <rect y="9.33" width="20" height="4.67" fill="#138808" rx="1" />
+                              <circle cx="10" cy="7" r="1.8" stroke="#000080" strokeWidth="0.6" fill="none" />
+                              <circle cx="10" cy="7" r="0.4" fill="#000080" />
+                            </svg>
+                            <span className={styles.countryCode}>+91</span>
+                            <div className={styles.codeDivider} />
+                          </div>
+                          <input
+                            type="tel"
+                            required
+                            className={styles.phoneInput}
+                            placeholder="9876543210"
+                            pattern="[0-9]{10}"
+                            value={heroForm.phone}
+                            onChange={(e) => setHeroForm({ ...heroForm, phone: e.target.value.replace(/\D/g, '').slice(0, 10) })}
+                          />
+                        </div>
+                      </div>
 
-                  <div className={styles.specRow}>
-                    <span className={styles.specName}>
-                      <Briefcase size={14} color="#0066FF" />
-                      Placement Drives
-                    </span>
-                    <span className={styles.specValue}>150+ Corporate Partners</span>
-                  </div>
-                </div>
+                      <button type="submit" className={styles.heroSubmitBtn} disabled={heroLoading}>
+                        <span>{heroLoading ? 'Securing Seat...' : 'Book Free Demo'}</span>
+                        <ArrowRight size={16} />
+                      </button>
 
-                <div className={styles.cardActionBlock}>
-                  <button
-                    type="button"
-                    className={styles.cardEnrollBtn}
-                    onClick={() => handleOpenDemo('Cisco CCNA (200-301)')}
-                  >
-                    <span>Reserve Your Batch Seat</span>
-                    <ArrowRight size={16} />
-                  </button>
-
-                  <button
-                    type="button"
-                    className={styles.cardDemoBtn}
-                    onClick={() => handleOpenDemo('Cisco CCNA (200-301)')}
-                  >
-                    <span>Request Free Counseling Call</span>
-                  </button>
-                </div>
-
-                <div className={styles.moneyBackNote}>
-                  <Shield size={13} color="#10B981" />
-                  <span>Attend 2 Demo Sessions Before Submitting Fees</span>
-                </div>
+                      <div className={styles.formTrustNote}>
+                        <ShieldCheck size={14} className={styles.trustShieldIcon} />
+                        <span>No spam · Only career guidance</span>
+                      </div>
+                    </form>
+                  </>
+                )}
               </div>
             </div>
           </div>
