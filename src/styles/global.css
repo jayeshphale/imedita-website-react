@@ -120,6 +120,10 @@ button {
   position: relative;
 }
 
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
 @media (max-width: 768px) {
   .section {
     padding: 56px 0;
