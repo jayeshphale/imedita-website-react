@@ -1183,91 +1183,124 @@
 }
 
 /* --------------------------------------------------------------------------
-   5. WHAT YOU WILL LEARN (6 CORE DOMAINS)
+   5. WHAT YOU WILL LEARN (10 MODULES GRID - MATCHING USER DESIGN)
    -------------------------------------------------------------------------- */
-.domainsGrid {
+.curriculumSection {
+  background-color: #ffffff;
+  padding: 5.5rem 1.5rem 6.5rem;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+@media (min-width: 768px) {
+  .curriculumSection {
+    padding: 6.5rem 2rem 7.5rem;
+  }
+}
+
+.curriculumPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 1.25rem;
+  border-radius: 9999px;
+  background-color: #e0f2fe;
+  border: 1px solid #bae6fd;
+  color: #0284c7;
+  font-size: 0.72rem;
+  font-weight: 750;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 1.15rem;
+}
+
+.curriculumHeading {
+  font-size: clamp(2rem, 3.4vw, 2.75rem);
+  font-weight: 850;
+  color: #0b1f3a;
+  letter-spacing: -0.025em;
+  line-height: 1.25;
+  margin-bottom: 1rem;
+}
+
+.curriculumSubtext {
+  font-size: 0.95rem;
+  color: #64748b;
+  line-height: 1.65;
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.curriculumGrid {
   display: grid;
   grid-template-columns: 1fr;
   gap: 1.5rem;
+  margin-top: 3.5rem;
 }
 
 @media (min-width: 640px) {
-  .domainsGrid {
+  .curriculumGrid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
   }
 }
 
 @media (min-width: 1024px) {
-  .domainsGrid {
-    grid-template-columns: repeat(3, 1fr);
+  .curriculumGrid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+  }
+
+  /* Center the 9th and 10th card in row 3 under columns 2 and 3 */
+  .curriculumGrid > div:nth-child(9) {
+    grid-column: 2;
   }
 }
 
-.domainCard {
+.curriculumCard {
   background: #ffffff;
   border: 1px solid #e2e8f0;
-  border-radius: 1.15rem;
-  padding: 1.5rem;
-  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.03);
-}
-
-.domainHeader {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 1rem;
-}
-
-.domainNumber {
-  font-family: monospace;
-  font-size: 0.75rem;
-  font-weight: 750;
-  color: #0066ff;
-  background: #eff6ff;
-  border: 1px solid #dbeafe;
-  padding: 0.2rem 0.55rem;
-  border-radius: 6px;
-}
-
-.domainWeight {
-  font-size: 0.725rem;
-  font-weight: 700;
-  color: #059669;
-  background: #ecfdf5;
-  border: 1px solid #d1fae5;
-  padding: 0.2rem 0.55rem;
-  border-radius: 6px;
-}
-
-.domainTitle {
-  font-size: 1.05rem;
-  font-weight: 800;
-  color: #0f172a;
-  margin-bottom: 0.65rem;
-}
-
-.domainPointsList {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+  border-radius: 1.25rem;
+  padding: 2rem 1.65rem;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+  transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
   display: flex;
   flex-direction: column;
-  gap: 0.45rem;
+  text-align: left;
 }
 
-.domainPoint {
+.curriculumCard:hover {
+  transform: translateY(-4px);
+  border-color: #cbd5e1;
+  box-shadow: 0 16px 32px -8px rgba(15, 23, 42, 0.08);
+}
+
+.curriculumIconWrap {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background-color: #0b1f3a;
   display: flex;
-  align-items: flex-start;
-  gap: 0.5rem;
-  font-size: 0.8rem;
-  color: #475569;
-  line-height: 1.45;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(11, 31, 58, 0.2);
+  margin-bottom: 1.35rem;
+  flex-shrink: 0;
 }
 
-.pointDot {
-  color: #0066ff;
-  font-size: 1rem;
-  line-height: 1;
+.curriculumCardTitle {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #0b1f3a;
+  margin: 0 0 0.65rem;
+  line-height: 1.3;
+}
+
+.curriculumCardDesc {
+  font-size: 0.85rem;
+  color: #64748b;
+  line-height: 1.6;
+  margin: 0;
 }
 
 /* --------------------------------------------------------------------------

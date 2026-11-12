@@ -30,7 +30,12 @@ import {
   ShieldCheck,
   Check,
   Flame,
-  Zap
+  Zap,
+  Globe,
+  GitFork,
+  Route,
+  Wrench,
+  Wifi
 } from 'lucide-react';
 import { LogoMarquee } from '../components/marquee/LogoMarquee';
 import { CourseStickyNav } from '../components/navigation/CourseStickyNav';
@@ -80,73 +85,57 @@ const whyChooseCards = [
   }
 ];
 
-// 6 Core CCNA Domains
-const ccnaDomains = [
+// What You'll Learn in Cisco CCNA 200-301 Training (10 Core Modules matching Curriculum)
+const whatYouLearnItems = [
   {
-    num: '01',
-    weight: '20% of Exam',
-    title: 'Network Fundamentals',
-    points: [
-      'Routers, switches, next-generation firewalls & wireless access points',
-      'TCP/IP & OSI 7-Layer architectural models',
-      'IPv4 & IPv6 addressing schemes and VLSM subnetting calculation',
-      'Cisco IOS command line interface (CLI) navigation & configuration'
-    ]
+    icon: Network,
+    title: 'Networking Fundamentals',
+    desc: 'Learn the OSI model, TCP/IP, Ethernet, and core networking concepts used in enterprise networks.'
   },
   {
-    num: '02',
-    weight: '20% of Exam',
-    title: 'Network Access & Switching',
-    points: [
-      'VLAN segmentation, access ports & 802.1Q trunking configuration',
-      'Inter-VLAN routing (Router-on-a-Stick & Layer 3 SVIs)',
-      'Spanning Tree Protocol (STP, Rapid PVST+ & PortFast)',
-      'EtherChannel aggregation (LACP & PAgP link bundling)'
-    ]
+    icon: Globe,
+    title: 'IPv4 & IPv6 Addressing',
+    desc: 'Master IPv4 and IPv6 addressing, subnetting, and IP planning for modern network infrastructure.'
   },
   {
-    num: '03',
-    weight: '25% of Exam',
-    title: 'IP Connectivity & Routing',
-    points: [
-      'Routing table components, longest prefix match & administrative distance',
-      'IPv4 & IPv6 static routing and default floating routes',
-      'Single-Area & Multi-Area Open Shortest Path First (OSPFv2)',
-      'First Hop Redundancy Protocols (HSRP concepts & gateway election)'
-    ]
+    icon: Server,
+    title: 'Routers & Switches',
+    desc: 'Configure, manage, and troubleshoot Cisco routers and switches using Cisco IOS.'
   },
   {
-    num: '04',
-    weight: '10% of Exam',
-    title: 'IP Services & Operations',
-    points: [
-      'Dynamic NAT & Port Address Translation (PAT) deployment',
-      'DHCP Server, Client, and DHCP Relay Agent configurations',
-      'Network Time Protocol (NTP) & Domain Name System (DNS) operations',
-      'SNMPv2/v3, Syslog logging levels, and SSHv2 remote management'
-    ]
+    icon: GitFork,
+    title: 'VLANs & Trunking',
+    desc: 'Implement VLANs, trunking, and inter-VLAN routing to build secure and scalable networks.'
   },
   {
-    num: '05',
-    weight: '15% of Exam',
-    title: 'Security Fundamentals',
-    points: [
-      'Standard & Extended IPv4 Access Control Lists (ACLs)',
-      'Layer 2 security: Port Security, DHCP Snooping & Dynamic ARP Inspection',
-      'Authentication, Authorization, and Accounting (AAA) with TACACS+/RADIUS',
-      'Site-to-Site IPSec VPNs & WPA2/WPA3 enterprise wireless security'
-    ]
+    icon: Route,
+    title: 'Routing Protocols',
+    desc: 'Configure static routing and OSPF to enable efficient communication across enterprise networks.'
   },
   {
-    num: '06',
-    weight: '10% of Exam',
-    title: 'Automation & Programmability',
-    points: [
-      'Software-Defined Networking (SDN) & Cisco DNA Center controller architecture',
-      'REST APIs: CRUD operations, HTTP status codes, JSON & XML data encoding',
-      'Configuration management tools: Ansible, Puppet & Chef overviews',
-      'Python scripting basics for network device automation'
-    ]
+    icon: Layers,
+    title: 'NAT, DHCP & DNS',
+    desc: 'Deploy essential IP services including NAT, DHCP, and DNS for network connectivity.'
+  },
+  {
+    icon: ShieldCheck,
+    title: 'Network Security',
+    desc: 'Secure network devices using ACLs, port security, and Cisco security best practices.'
+  },
+  {
+    icon: Wrench,
+    title: 'Troubleshooting',
+    desc: 'Identify and resolve real-world network issues using industry-standard troubleshooting techniques.'
+  },
+  {
+    icon: Wifi,
+    title: 'Wireless Networking',
+    desc: 'Understand wireless networking fundamentals, WLCs, access points, and Wi-Fi security.'
+  },
+  {
+    icon: Cpu,
+    title: 'SDN & Automation',
+    desc: 'Explore Cisco DNA Center, SD-WAN, SD-Access, and network automation fundamentals.'
   }
 ];
 
@@ -689,39 +678,35 @@ export function CCNACoursePage() {
       </section>
 
       {/* =========================================================================
-          4. WHAT YOU WILL LEARN (6 CORE DOMAINS)
+          5. WHAT YOU WILL LEARN IN CISCO CCNA 200-301 TRAINING (10 CORE MODULES)
           ========================================================================= */}
-      <section className={styles.contentSection} style={{ background: '#f8fafc' }}>
+      <section className={styles.curriculumSection}>
         <div className={styles.container}>
           <div className={styles.sectionHeaderCenter}>
-            <div className={styles.sectionEyebrow}>
-              <BookOpen size={13} />
-              <span>Exam Blueprint</span>
+            <div className={styles.curriculumPill}>
+              <span>Course Curriculum</span>
             </div>
-            <h2 className={styles.sectionTitle}>What You'll Learn in Cisco CCNA 200-301</h2>
-            <p className={styles.sectionSubtext}>
-              Comprehensive, industry-aligned coverage of all 6 official Cisco certification domains.
+            <h2 className={styles.curriculumHeading}>
+              What You'll Learn in Cisco CCNA 200-301<br />Training
+            </h2>
+            <p className={styles.curriculumSubtext}>
+              Master the Cisco CCNA 200-301 exam objectives through hands-on labs, real-world networking scenarios, and expert-led training designed for enterprise environments.
             </p>
           </div>
 
-          <div className={styles.domainsGrid}>
-            {ccnaDomains.map((domain, i) => (
-              <div key={i} className={styles.domainCard}>
-                <div className={styles.domainHeader}>
-                  <span className={styles.domainNumber}>DOMAIN {domain.num}</span>
-                  <span className={styles.domainWeight}>{domain.weight}</span>
+          <div className={styles.curriculumGrid}>
+            {whatYouLearnItems.map((item, idx) => {
+              const IconComp = item.icon;
+              return (
+                <div key={idx} className={styles.curriculumCard}>
+                  <div className={styles.curriculumIconWrap}>
+                    <IconComp size={20} color="#ffffff" strokeWidth={2.2} />
+                  </div>
+                  <h3 className={styles.curriculumCardTitle}>{item.title}</h3>
+                  <p className={styles.curriculumCardDesc}>{item.desc}</p>
                 </div>
-                <h3 className={styles.domainTitle}>{domain.title}</h3>
-                <ul className={styles.domainPointsList}>
-                  {domain.points.map((pt, idx) => (
-                    <li key={idx} className={styles.domainPoint}>
-                      <span className={styles.pointDot}>•</span>
-                      <span>{pt}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
