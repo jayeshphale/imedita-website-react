@@ -1123,15 +1123,17 @@ export function CCNACoursePage() {
               </p>
 
               {!isOverviewExpanded && (
-                <button
-                  type="button"
-                  className={styles.readMoreDashedBtn}
-                  onClick={() => setIsOverviewExpanded(true)}
-                  aria-expanded="false"
-                >
-                  <span>Read More</span>
-                  <ChevronDown size={17} />
-                </button>
+                <div className={styles.readMoreWrap}>
+                  <button
+                    type="button"
+                    className={styles.readMoreBtn}
+                    onClick={() => setIsOverviewExpanded(true)}
+                    aria-expanded="false"
+                  >
+                    <span>Read More</span>
+                    <ChevronDown size={17} />
+                  </button>
+                </div>
               )}
 
               {isOverviewExpanded && (

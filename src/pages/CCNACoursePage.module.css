@@ -2271,28 +2271,52 @@
   margin-bottom: 1.25rem;
 }
 
-.readMoreDashedBtn {
-  width: 100%;
-  border: 1.5px dashed #93c5fd;
-  border-radius: 8px;
-  background-color: transparent;
-  padding: 0.85rem 1.5rem;
+.readMoreWrap {
   display: flex;
-  align-items: center;
   justify-content: center;
-  gap: 0.5rem;
+  margin-top: 1.5rem;
+}
+
+.readMoreBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  background-color: transparent;
+  border: none;
   color: #0066cc;
   font-size: 0.92rem;
   font-weight: 650;
   cursor: pointer;
-  transition: all 180ms ease;
+  padding: 0.45rem 1.15rem;
+  border-radius: 6px;
+  transition: all 160ms ease;
+}
+
+.readMoreBtn:hover {
+  color: #004499;
+  background-color: #eff6ff;
+}
+
+.readMoreDashedBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  background-color: transparent;
+  border: none;
+  color: #0066cc;
+  font-size: 0.92rem;
+  font-weight: 650;
+  cursor: pointer;
+  padding: 0.45rem 1.15rem;
+  border-radius: 6px;
+  transition: all 160ms ease;
   margin-top: 1.5rem;
 }
 
 .readMoreDashedBtn:hover {
-  border-color: #2563eb;
+  color: #004499;
   background-color: #eff6ff;
-  color: #1d4ed8;
 }
 
 .expandedOverviewContent {
