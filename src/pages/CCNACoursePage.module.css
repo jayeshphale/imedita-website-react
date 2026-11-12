@@ -2312,7 +2312,7 @@
 .slicesDeck {
   display: flex;
   gap: 0.85rem;
-  height: 520px;
+  height: 535px;
   max-width: 1200px;
   margin: 0 auto;
   align-items: stretch;
@@ -2332,6 +2332,7 @@
   border-radius: 1.25rem;
   overflow: hidden;
   position: relative;
+  min-height: 0;
   transition: flex 520ms cubic-bezier(0.25, 1, 0.35, 1),
               box-shadow 420ms cubic-bezier(0.25, 1, 0.35, 1),
               border-color 300ms ease,
@@ -2359,6 +2360,8 @@
   cursor: default;
   display: flex;
   flex-direction: column;
+  min-height: 0;
+  height: 100%;
 }
 
 /* Collapsed Rail (Smooth Crossfade) */
@@ -2421,6 +2424,7 @@
 .sliceExpandedView {
   width: 100%;
   height: 100%;
+  min-height: 0;
   padding: 2.25rem 2.5rem;
   display: flex;
   flex-direction: column;
@@ -2485,6 +2489,12 @@
     pointer-events: auto;
     transform: none;
     transition: opacity 300ms ease;
+    height: auto;
+  }
+
+  .sliceBodyScroll {
+    overflow-y: visible !important;
+    padding-right: 0 !important;
   }
 }
 
@@ -2531,19 +2541,50 @@
 }
 
 .sliceBodyScroll {
-  flex: 1;
+  flex: 1 1 auto;
+  min-height: 0;
   overflow-y: auto;
-  padding-right: 0.5rem;
+  overflow-x: hidden;
+  padding-right: 0.75rem;
   scrollbar-width: thin;
+  scrollbar-color: #93c5fd #f1f5f9;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-y: contain;
 }
 
 .sliceBodyScroll::-webkit-scrollbar {
-  width: 5px;
+  width: 6px;
+}
+
+.sliceBodyScroll::-webkit-scrollbar-track {
+  background: #f1f5f9;
+  border-radius: 9999px;
+  margin: 6px 0;
 }
 
 .sliceBodyScroll::-webkit-scrollbar-thumb {
-  background: #cbd5e1;
-  border-radius: 4px;
+  background: #93c5fd;
+  border-radius: 9999px;
+  transition: background-color 200ms ease;
+}
+
+.sliceBodyScroll::-webkit-scrollbar-thumb:hover {
+  background: #0066cc;
+}
+
+.sliceBodyScroll::-webkit-scrollbar-thumb:active {
+  background: #004499;
+}
+
+.sliceBodyScroll::-webkit-scrollbar-button {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+.sliceBodyScroll::-webkit-scrollbar-corner {
+  background: transparent;
 }
 
 .sliceParagraph {

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Link, useOutletContext } from 'react-router-dom';
 import {
   Award,
@@ -426,6 +426,49 @@ export function CCNACoursePage() {
   const [openFaq, setOpenFaq] = useState(0);
   const [activeRoadmapStage, setActiveRoadmapStage] = useState(0);
   const [activeSlice, setActiveSlice] = useState(0);
+
+  // CCNA Course Overview Slices - Non-passive wheel handler + Lenis coordination
+  const slicesDeckRef = useRef(null);
+
+  useEffect(() => {
+    const deck = slicesDeckRef.current;
+    if (!deck) return;
+
+    const handleWheel = (e) => {
+      // Find the currently expanded slice container
+      const activeCard = deck.querySelector(`.${styles.sliceColActive}`);
+      if (!activeCard) return;
+
+      // Only handle if mouse is hovering over the active expanded card
+      if (!activeCard.contains(e.target)) return;
+
+      const scrollEl = activeCard.querySelector(`.${styles.sliceBodyScroll}`);
+      if (!scrollEl) return;
+
+      const { scrollTop, scrollHeight, clientHeight } = scrollEl;
+      const maxScroll = scrollHeight - clientHeight;
+      if (maxScroll <= 4) return; // If content fully fits, allow standard page scroll
+
+      const delta = e.deltaY;
+      const isScrollingDown = delta > 0;
+      const isScrollingUp = delta < 0;
+      const canScrollDown = scrollTop < maxScroll - 2;
+      const canScrollUp = scrollTop > 2;
+
+      // Smoothly scroll the card content while within boundaries
+      if ((isScrollingDown && canScrollDown) || (isScrollingUp && canScrollUp)) {
+        e.preventDefault();
+        e.stopPropagation();
+        scrollEl.scrollTop += delta;
+      }
+      // When reaching top/bottom extreme, event bubbles naturally so outer page scroll continues!
+    };
+
+    deck.addEventListener('wheel', handleWheel, { passive: false });
+    return () => {
+      deck.removeEventListener('wheel', handleWheel);
+    };
+  }, [activeSlice]);
 
   // Hero Lead Form State
   const [heroForm, setHeroForm] = useState({ name: '', email: '', phone: '' });
@@ -1149,7 +1192,7 @@ export function CCNACoursePage() {
             </div>
 
             {/* Expanding Flex Panels Matrix */}
-            <div className={styles.slicesDeck}>
+            <div className={styles.slicesDeck} ref={slicesDeckRef} data-lenis-prevent>
 
               {/* Panel 0: Why CCNA? */}
               <div
@@ -1166,7 +1209,7 @@ export function CCNACoursePage() {
                     <span className={styles.sliceBadge}>01 • Market Leadership</span>
                     <h3 className={styles.sliceTitle}>Why CCNA Course/CCNA Training?</h3>
                   </div>
-                  <div className={styles.sliceBodyScroll}>
+                  <div className={styles.sliceBodyScroll} data-lenis-prevent>
                     <p className={styles.sliceParagraph}>
                       Cisco is the worldwide leader in IT and networking. Cisco has transformed the way people connect, communicate, and collaborate. Cisco products and solutions are deployed in companies from small &amp; medium sizes to large enterprises.
                     </p>
@@ -1196,7 +1239,7 @@ export function CCNACoursePage() {
                     <h3 className={styles.sliceTitle}>Who Should Take CCNA Course/CCNA Training?</h3>
                     <p className={styles.sliceSubtitle}>The CCNA course is ideal for:</p>
                   </div>
-                  <div className={styles.sliceBodyScroll}>
+                  <div className={styles.sliceBodyScroll} data-lenis-prevent>
                     <div className={styles.sliceAudienceGrid}>
                       {[
                         'Candidates passionate about achieving Cisco CCNA Certification.',
@@ -1233,7 +1276,7 @@ export function CCNACoursePage() {
                     <span className={styles.sliceBadge}>03 • Eligibility Criteria</span>
                     <h3 className={styles.sliceTitle}>Pre-Requisites For CCNA Course/CCNA Training</h3>
                   </div>
-                  <div className={styles.sliceBodyScroll}>
+                  <div className={styles.sliceBodyScroll} data-lenis-prevent>
                     <p className={styles.sliceParagraph}>
                       There are no formal pre-requisites for the CCNA Global Certification Exam, but before appearing for the CCNA Course/CCNA Training, candidates should possess the following knowledge:
                     </p>
@@ -1277,7 +1320,7 @@ export function CCNACoursePage() {
                       The 200-301 Cisco CCNA Course/CCNA Training program will train and make you competent to achieve the following job titles:
                     </p>
                   </div>
-                  <div className={styles.sliceBodyScroll}>
+                  <div className={styles.sliceBodyScroll} data-lenis-prevent>
                     <div className={styles.sliceRolesGrid}>
                       {[
                         'Network Associate',
@@ -1317,7 +1360,7 @@ export function CCNACoursePage() {
                       During the CCNA Course/CCNA Training, we provide students the opportunity to work on the following devices:
                     </p>
                   </div>
-                  <div className={styles.sliceBodyScroll}>
+                  <div className={styles.sliceBodyScroll} data-lenis-prevent>
                     <div className={styles.sliceDevicesGrid}>
                       <div className={styles.sliceDeviceBox}>
                         <span className={styles.sliceDeviceTag}>Router</span>
@@ -1357,7 +1400,7 @@ export function CCNACoursePage() {
                     <span className={styles.sliceBadge}>06 • Global Certification</span>
                     <h3 className={styles.sliceTitle}>CCNA Course/CCNA Training – Exam Details</h3>
                   </div>
-                  <div className={styles.sliceBodyScroll}>
+                  <div className={styles.sliceBodyScroll} data-lenis-prevent>
                     <div className={styles.sliceExamTable}>
                       <div className={styles.sliceExamRow}>
                         <span className={styles.sliceExamKey}>Certification Name</span>
