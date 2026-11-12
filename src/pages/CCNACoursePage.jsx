@@ -180,137 +180,72 @@ const roadmapStages = [
   {
     stageNum: '01',
     stageLabel: 'STAGE 01',
-    shortTitle: 'Concepts',
     tabTitle: 'Learn Concepts',
     tabIcon: BookOpen,
     tag: 'Live Training',
-    timeline: 'Weeks 1-2 • 24 Hours',
-    outcome: 'Theory & Protocol Architecture',
-    heading: 'Stage 01: Core Networking Concept Mastery',
-    description: 'Interactive instructor-led sessions covering the official Cisco CCNA 200-301 curriculum, deep-diving into protocol mechanics, packet headers, and real enterprise traffic flows.',
+    heading: 'Learn concepts',
+    description: 'Live instructor-led sessions covering the complete CCNA 200-301 curriculum, including networking theory, protocol behavior, and real-world scenarios.',
     checklist: [
-      {
-        title: 'Complete CCNA 200-301 Curriculum:',
-        text: 'From OSI & TCP/IP models to IPv4/IPv6 VLSM subnetting and routing algorithms.'
-      },
-      {
-        title: 'Flexible Weekend & Weekday Batches:',
-        text: 'Interactive live cohorts designed for both working IT professionals and college graduates.'
-      },
-      {
-        title: 'Lifetime HD Video Revision on LMS:',
-        text: 'Every class session is recorded in 1080p and instantly uploaded to your student portal & mobile app.'
-      }
-    ],
-    tools: ['OSI 7-Layer', 'TCP/IP Model', 'Cisco IOS CLI', 'Wireshark Sniffer', 'Subnetting Drills']
+      'Complete CCNA 200-301 syllabus coverage',
+      'Weekday batches (Mon-Thu) and weekend batches (Sat-Sun) available',
+      'All classes are recorded and available on our learning portal and mobile app'
+    ]
   },
   {
     stageNum: '02',
     stageLabel: 'STAGE 02',
-    shortTitle: 'Real Labs',
     tabTitle: 'Real Labs',
     tabIcon: Server,
     tag: 'Hands-on Practice',
-    timeline: 'Weeks 3-4 • 30 Hours',
-    outcome: 'Physical Cisco Hardware CLI Mastery',
-    heading: 'Stage 02: Real Hardware Lab Execution',
-    description: 'Transition from theory to actual physical enterprise racks. Configure Catalyst 9300/2960 switches, ISR 4331 routers, and ASA firewalls with 24/7 remote pod CLI access.',
+    heading: 'Real Hardware Labs',
+    description: 'Work on actual physical Cisco Catalyst switches, ISR routers, and firewalls with 24/7 dedicated remote console access from home.',
     checklist: [
-      {
-        title: 'Genuine Cisco Hardware Pods:',
-        text: 'Zero reliance on Packet Tracer or simulators. Experience authentic CLI responses, reboot sequences, and LED statuses.'
-      },
-      {
-        title: '24/7 Cloud Remote Console Access:',
-        text: 'Practice from the comfort of your home with dedicated rack console lines and zero queuing or lag.'
-      },
-      {
-        title: 'Enterprise Routing & Switching Labs:',
-        text: 'Hands-on configuration of VLANs, 802.1Q trunking, Inter-VLAN routing, and Multi-Area OSPFv2.'
-      }
-    ],
-    tools: ['Catalyst 9300 Switches', 'ISR 4331 Routers', 'ASA 5506-X Firewalls', '24/7 Console Line', 'Putty / SecureCRT']
+      'Configure actual Cisco Catalyst 9300/2960 and ISR 4331 hardware CLI',
+      '24/7 remote pod access with dedicated console lines and zero lag',
+      'Zero simulators or Packet Tracer limitations — 100% production IOS'
+    ]
   },
   {
     stageNum: '03',
     stageLabel: 'STAGE 03',
-    shortTitle: 'Assignments',
     tabTitle: 'Assignments',
     tabIcon: FileCheck2,
     tag: 'Practical Validation',
-    timeline: 'Weeks 5-6 • 20 Hours',
-    outcome: 'Complex Topology Troubleshooting',
-    heading: 'Stage 03: Topology Assignments & Workbooks',
-    description: 'Tackle real-world corporate topology challenges designed to test your diagnostic skills, verify command syntaxes, and build unshakeable network engineering confidence.',
+    heading: 'Assignments & Workbooks',
+    description: 'Reinforce your technical knowledge with challenging enterprise network topologies, configuration exercises, and step-by-step lab workbooks.',
     checklist: [
-      {
-        title: 'Step-by-Step Lab Workbooks:',
-        text: 'Standard operating procedure manuals detailing device initialization, cabling verification, and verification commands.'
-      },
-      {
-        title: 'Real Incident Break-Fix Challenges:',
-        text: 'Diagnose injected faults such as routing loops, duplex mismatches, ACL blocks, and VLAN leaks.'
-      },
-      {
-        title: '1-on-1 Trainer Review & Feedback:',
-        text: 'Triple CCIE certified faculty conducts detailed configuration reviews to refine your CLI speed.'
-      }
-    ],
-    tools: ['Enterprise Topologies', 'Break-Fix Scenarios', 'Lab Workbooks', 'Syntax Cheatsheets', 'Root Cause Logs']
+      'Comprehensive lab workbooks with step-by-step command guides',
+      'Real-world network break-fix scenarios and troubleshooting drills',
+      '1-on-1 trainer code review and configuration debugging support'
+    ]
   },
   {
     stageNum: '04',
     stageLabel: 'STAGE 04',
-    shortTitle: 'Interviews',
     tabTitle: 'Mock Interviews',
     tabIcon: Mic,
     tag: 'Career Preparation',
-    timeline: 'Weeks 7-8 • 16 Hours',
-    outcome: 'Fortune 500 Interview Readiness',
-    heading: 'Stage 04: CCIE Mock Interviews & Placement Prep',
-    description: 'Transform your technical expertise into job offers with extensive 1-on-1 technical mock interview rounds, corporate resume optimization, and behavioral grooming.',
+    heading: 'Mock Interviews & Grooming',
+    description: 'Prepare for global networking recruiters through intensive 1-on-1 technical mock interview rounds, resume optimization, and behavioral grooming.',
     checklist: [
-      {
-        title: '1-on-1 Panel Mocks by CCIE Mentors:',
-        text: 'Face rigorous technical questioning on enterprise routing, switching, NAT, ACLs, and automation.'
-      },
-      {
-        title: 'ATS-Optimized Networking Resume:',
-        text: 'Highlight real hardware projects, lab competencies, and technical keywords favored by MNC recruiters.'
-      },
-      {
-        title: 'Soft Skills & Behavioral Coaching:',
-        text: 'Master client communication, scenario-based storytelling, interview confidence, and salary negotiation.'
-      }
-    ],
-    tools: ['CCIE Interview Panel', 'ATS Resume Builder', 'Scenario Question Bank', 'LinkedIn Optimization', 'HR Negotiation']
+      '1-on-1 technical mock interview rounds conducted by CCIE architects',
+      'ATS-friendly resume building, LinkedIn optimization, and portfolio review',
+      'HR behavioral training and interview question bank with placement guidance'
+    ]
   },
   {
     stageNum: '05',
     stageLabel: 'STAGE 05',
-    shortTitle: 'Certification',
     tabTitle: 'Certification',
     tabIcon: Award,
     tag: 'Global Credential',
-    timeline: 'Weeks 9-10 • Final Exam',
-    outcome: 'Global Certification & Job Placement',
-    heading: 'Stage 05: Cisco CCNA Certification & Placement',
-    description: 'Clear your official Cisco 200-301 global certification exam with 100% confidence and attend direct interview drives with India’s leading networking enterprises.',
+    heading: 'CCNA Certification & Placement',
+    description: 'Clear your official Cisco 200-301 global certification exam with 100% confidence and attend direct campus placement drives with Fortune 500 tech partners.',
     checklist: [
-      {
-        title: 'Official Exam Mock Test Engines:',
-        text: 'Full-length 120-minute timed mock exams with performance simlets that mimic the exact Pearson VUE testing environment.'
-      },
-      {
-        title: 'Discounted Cisco Exam Vouchers:',
-        text: 'Avail exclusive institutional exam voucher discounts and booking guidance through authorized channels.'
-      },
-      {
-        title: 'Direct Campus Placement Drives:',
-        text: 'Immediate placement interviews with Orange Business, Airtel, Wipro, Dimension Data, and 150+ network hiring partners.'
-      }
-    ],
-    tools: ['Cisco 200-301 Global Exam', 'Official Pearson VUE Simlets', 'Discount Voucher', 'Placement Drives', '100% Assurance']
+      'Official Cisco CCNA 200-301 mock tests, exam dumps, and performance simlets',
+      'Discounted official Cisco exam voucher booking assistance',
+      'Direct interview drives with Orange Business, Airtel, Wipro, and TCS'
+    ]
   }
 ];
 
@@ -944,59 +879,45 @@ export function CCNACoursePage() {
       </section>
 
       {/* =========================================================================
-          6. STEP-BY-STEP LEARNING ROADMAP (INTERACTIVE 5-STAGE PATH)
+          6. STEP-BY-STEP LEARNING ROADMAP (CLEAN & NEAT 5-STAGE PATH)
           ========================================================================= */}
       <section className={styles.roadmapSection}>
         <div className={styles.container}>
           <div className={styles.sectionHeaderCenter}>
             <div className={styles.roadmapPill}>
-              <Sparkles size={13} className={styles.pillSparkle} />
               <span>Your CCNA Learning Roadmap</span>
             </div>
             <h2 className={styles.roadmapHeading}>
-              Your Step-by-Step Journey to{' '}
-              <span className={styles.gradientText}>Cisco CCNA Certification</span>
+              Your Step-by-Step Journey to Cisco CCNA<br />Certification
             </h2>
             <p className={styles.roadmapSubtext}>
-              Follow an industry-proven 5-stage learning path engineered by CCIE network architects to transform you from foundational theory to corporate datacenter readiness.
+              Follow a structured 5-stage learning path designed to help you master Cisco CCNA 200-301 concepts, gain hands-on networking experience, and become job-ready.
             </p>
           </div>
 
-          {/* Stepper Node Line Track with Animated Fill */}
-          <div className={styles.stepperContainer}>
-            <div className={styles.stepperTrack}>
-              <div className={styles.stepperBaseLine} />
-              <div
-                className={styles.stepperActiveLine}
-                style={{ width: `${(activeRoadmapStage / (roadmapStages.length - 1)) * 100}%` }}
-              />
-
-              {roadmapStages.map((st, i) => {
-                const isCompleted = i < activeRoadmapStage;
-                const isCurrent = i === activeRoadmapStage;
-                return (
-                  <div key={st.stageNum} className={styles.stepNodeWrapper}>
-                    <button
-                      type="button"
-                      className={`${styles.stepNode} ${isCurrent ? styles.stepNodeActive : ''} ${isCompleted ? styles.stepNodeDone : ''}`}
-                      onClick={() => setActiveRoadmapStage(i)}
-                      aria-label={`Go to Stage ${st.stageNum}: ${st.tabTitle}`}
-                    >
-                      {isCompleted ? (
-                        <Check size={16} strokeWidth={2.8} />
-                      ) : (
-                        <span>{st.stageNum}</span>
-                      )}
-                    </button>
-                    <span
-                      className={`${styles.stepNodeLabel} ${isCurrent ? styles.stepNodeLabelActive : ''}`}
-                    >
-                      {st.shortTitle}
-                    </span>
-                  </div>
-                );
-              })}
-            </div>
+          {/* Stepper Node Line Track */}
+          <div className={styles.stepperTrack}>
+            {roadmapStages.map((st, i) => {
+              const isCompleted = i <= activeRoadmapStage;
+              const isCurrent = i === activeRoadmapStage;
+              return (
+                <React.Fragment key={st.stageNum}>
+                  <button
+                    type="button"
+                    className={`${styles.stepNode} ${isCurrent ? styles.stepNodeActive : ''} ${isCompleted ? styles.stepNodeDone : ''}`}
+                    onClick={() => setActiveRoadmapStage(i)}
+                    aria-label={`Go to Stage ${st.stageNum}`}
+                  >
+                    <span>{st.stageNum}</span>
+                  </button>
+                  {i < roadmapStages.length - 1 && (
+                    <div
+                      className={`${styles.stepLine} ${i < activeRoadmapStage ? styles.stepLineDone : ''}`}
+                    />
+                  )}
+                </React.Fragment>
+              );
+            })}
           </div>
 
           {/* 5 Stage Tab Cards */}
@@ -1011,10 +932,7 @@ export function CCNACoursePage() {
                   className={`${styles.stageTabCard} ${isActive ? styles.stageTabActive : ''}`}
                   onClick={() => setActiveRoadmapStage(i)}
                 >
-                  <div className={styles.stageTabHeaderRow}>
-                    <span className={styles.stageTabLabel}>{st.stageLabel}</span>
-                    <span className={styles.stageTabTimeline}>{st.timeline.split('•')[0].trim()}</span>
-                  </div>
+                  <span className={styles.stageTabLabel}>{st.stageLabel}</span>
                   <div className={styles.stageTabIconWrap}>
                     <TabIcon size={22} />
                   </div>
@@ -1031,55 +949,28 @@ export function CCNACoursePage() {
             return (
               <div key={currentStage.stageNum} className={styles.roadmapActiveCard}>
                 <div className={styles.roadmapCardBody}>
-                  {/* Left Column: Stage Number & Hero Icon */}
+                  {/* Left Column: Big Stage Number & Squircle Icon */}
                   <div className={styles.roadmapCardLeft}>
                     <span className={styles.roadmapBigNum}>{currentStage.stageNum}</span>
                     <div className={styles.roadmapStageIconBox}>
-                      <CurrentIcon size={22} color="#ffffff" />
+                      <CurrentIcon size={24} color="#0066cc" />
                     </div>
                   </div>
 
                   {/* Right Column: Stage Tag, Heading, Description & Checklist */}
                   <div className={styles.roadmapCardRight}>
-                    <div className={styles.stageMetaRow}>
-                      <span className={styles.roadmapStageTag}>{currentStage.tag}</span>
-                      <span className={styles.stageTimelinePill}>
-                        <Clock size={12} />
-                        <span>{currentStage.timeline}</span>
-                      </span>
-                      <span className={styles.stageMilestonePill}>
-                        <Sparkles size={12} />
-                        <span><strong>Milestone:</strong> {currentStage.outcome}</span>
-                      </span>
-                    </div>
-
+                    <span className={styles.roadmapStageTag}>{currentStage.tag}</span>
                     <h3 className={styles.roadmapStageHeading}>{currentStage.heading}</h3>
                     <p className={styles.roadmapStageDesc}>{currentStage.description}</p>
 
-                    <div className={styles.roadmapChecklist}>
+                    <ul className={styles.roadmapChecklist}>
                       {currentStage.checklist.map((item, idx) => (
-                        <div key={idx} className={styles.roadmapCheckCard}>
-                          <div className={styles.checkIconWrap}>
-                            <CheckCircle2 size={15} className={styles.checkIcon} />
-                          </div>
-                          <div className={styles.checkText}>
-                            <strong className={styles.checkTitle}>{item.title}</strong>{' '}
-                            <span>{item.text}</span>
-                          </div>
-                        </div>
+                        <li key={idx} className={styles.roadmapCheckItem}>
+                          <CheckCircle2 size={18} className={styles.checkIcon} />
+                          <span>{item}</span>
+                        </li>
                       ))}
-                    </div>
-
-                    <div className={styles.toolsRow}>
-                      <span className={styles.toolsLabel}>Tools & Tech:</span>
-                      <div className={styles.toolsPillGroup}>
-                        {currentStage.tools.map((tool, tIdx) => (
-                          <span key={tIdx} className={styles.toolPill}>
-                            {tool}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
+                    </ul>
                   </div>
                 </div>
 
@@ -1092,24 +983,16 @@ export function CCNACoursePage() {
                     disabled={activeRoadmapStage === 0}
                   >
                     <ChevronLeft size={16} />
-                    <span>Previous Stage</span>
+                    <span>Previous</span>
                   </button>
 
-                  <div className={styles.stageDotsIndicator}>
-                    {roadmapStages.map((_, dotIdx) => (
-                      <button
-                        key={dotIdx}
-                        type="button"
-                        className={`${styles.stageDot} ${dotIdx === activeRoadmapStage ? styles.stageDotActive : ''}`}
-                        onClick={() => setActiveRoadmapStage(dotIdx)}
-                        aria-label={`Jump to stage ${dotIdx + 1}`}
-                      />
-                    ))}
-                  </div>
+                  <span className={styles.stageProgressText}>
+                    Stage {activeRoadmapStage + 1} of {roadmapStages.length}
+                  </span>
 
                   <button
                     type="button"
-                    className={`${styles.nextBtn} ${activeRoadmapStage === roadmapStages.length - 1 ? styles.nextBtnFinal : ''}`}
+                    className={styles.nextBtn}
                     onClick={() => {
                       if (activeRoadmapStage < roadmapStages.length - 1) {
                         setActiveRoadmapStage(prev => prev + 1);
@@ -1118,11 +1001,7 @@ export function CCNACoursePage() {
                       }
                     }}
                   >
-                    <span>
-                      {activeRoadmapStage === roadmapStages.length - 1
-                        ? 'Book Free Demo'
-                        : `Next: ${roadmapStages[activeRoadmapStage + 1].shortTitle}`}
-                    </span>
+                    <span>{activeRoadmapStage === roadmapStages.length - 1 ? 'Book Free Demo' : 'Next'}</span>
                     <ChevronRight size={16} />
                   </button>
                 </div>
@@ -1138,19 +1017,13 @@ export function CCNACoursePage() {
               <p className={styles.roadmapCtaSubtext}>
                 Experience our teaching methodology, live labs, and learning platform before you enroll.
               </p>
-              <div className={styles.ctaHighlightsRow}>
-                <span className={styles.ctaHighlightBadge}>✓ 24×7 Rack Access</span>
-                <span className={styles.ctaHighlightBadge}>✓ Triple CCIE Faculty</span>
-                <span className={styles.ctaHighlightBadge}>✓ 100% Placement Assurance</span>
-              </div>
             </div>
             <button
               type="button"
               className={styles.roadmapCtaBtn}
               onClick={() => handleOpenDemo('Cisco CCNA (200-301) Roadmap Free Demo')}
             >
-              <span>Book a Free Demo</span>
-              <ArrowRight size={16} />
+              Book a Free Demo →
             </button>
           </div>
         </div>

@@ -1558,30 +1558,30 @@
 }
 
 /* --------------------------------------------------------------------------
-   6. STEP-BY-STEP LEARNING ROADMAP (COMPACT, SLEEK & HIGH-IMPACT)
+   6. STEP-BY-STEP LEARNING ROADMAP (CLEAN, NEAT & BALANCED)
    -------------------------------------------------------------------------- */
 .roadmapSection {
   background-color: #f8fafc;
   background-image: 
-    radial-gradient(circle at 10% 20%, rgba(0, 102, 255, 0.035) 0%, transparent 45%),
-    radial-gradient(circle at 90% 80%, rgba(14, 165, 233, 0.04) 0%, transparent 45%),
-    linear-gradient(to bottom, #ffffff 0%, #f1f6fa 100%);
-  padding: 4rem 1.25rem 4.5rem;
+    radial-gradient(circle at 10% 20%, rgba(0, 102, 255, 0.03) 0%, transparent 40%),
+    radial-gradient(circle at 90% 80%, rgba(14, 165, 233, 0.04) 0%, transparent 40%),
+    linear-gradient(to bottom, #ffffff 0%, #f8fafc 100%);
+  padding: 4.5rem 1.5rem 5rem;
   border-bottom: 1px solid #e2e8f0;
   position: relative;
 }
 
 @media (min-width: 768px) {
   .roadmapSection {
-    padding: 4.5rem 2rem 5rem;
+    padding: 5rem 2rem 5.5rem;
   }
 }
 
 .roadmapPill {
   display: inline-flex;
   align-items: center;
-  gap: 0.45rem;
-  padding: 0.35rem 1.1rem;
+  gap: 0.5rem;
+  padding: 0.35rem 1.15rem;
   border-radius: 9999px;
   background-color: #e0f2fe;
   border: 1px solid #bae6fd;
@@ -1591,7 +1591,6 @@
   letter-spacing: 0.08em;
   text-transform: uppercase;
   margin-bottom: 0.85rem;
-  box-shadow: 0 2px 6px rgba(2, 132, 199, 0.1);
 }
 
 .roadmapHeading {
@@ -1599,94 +1598,55 @@
   font-weight: 850;
   color: #0b1f3a;
   letter-spacing: -0.025em;
-  line-height: 1.22;
+  line-height: 1.25;
   margin-bottom: 0.65rem;
 }
 
 .roadmapSubtext {
-  font-size: 0.94rem;
+  font-size: 0.95rem;
   color: #64748b;
-  line-height: 1.55;
+  line-height: 1.6;
   max-width: 720px;
-  margin: 0 auto 1.65rem;
+  margin: 0 auto 2.25rem;
 }
 
-/* Stepper Track with Dynamic Fill Line */
-.stepperContainer {
-  max-width: 480px;
-  margin: 0 auto 1.15rem;
-  padding: 0 0.75rem;
-}
-
+/* Stepper Node Line Track */
 .stepperTrack {
-  position: relative;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-}
-
-.stepperBaseLine {
-  position: absolute;
-  top: 16px;
-  left: 16px;
-  right: 16px;
-  height: 3px;
-  background-color: #e2e8f0;
-  z-index: 1;
-  border-radius: 9999px;
-}
-
-.stepperActiveLine {
-  position: absolute;
-  top: 16px;
-  left: 16px;
-  height: 3px;
-  background: linear-gradient(90deg, #0066cc 0%, #38bdf8 100%);
-  z-index: 2;
-  border-radius: 9999px;
-  transition: width 320ms cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: 0 0 8px rgba(0, 102, 204, 0.4);
-}
-
-.stepNodeWrapper {
-  position: relative;
-  z-index: 3;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.35rem;
+  justify-content: center;
+  max-width: 440px;
+  margin: 0 auto 1.75rem;
 }
 
 .stepNode {
-  width: 32px;
-  height: 32px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
   border: 2px solid #cbd5e1;
   background-color: #ffffff;
   color: #64748b;
   font-family: 'JetBrains Mono', monospace;
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   font-weight: 750;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   transition: all 200ms ease;
-  box-shadow: 0 2px 5px rgba(15, 23, 42, 0.05);
+  flex-shrink: 0;
 }
 
 .stepNode:hover {
   border-color: #0066cc;
   color: #0066cc;
-  transform: scale(1.06);
 }
 
 .stepNodeActive {
   border-color: #0066cc !important;
   background-color: #ffffff !important;
   color: #0066cc !important;
-  box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.16), 0 0 12px rgba(0, 102, 204, 0.25) !important;
-  transform: scale(1.08);
+  box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.15) !important;
 }
 
 .stepNodeDone {
@@ -1695,115 +1655,76 @@
   color: #ffffff !important;
 }
 
-.stepNodeLabel {
-  font-size: 0.68rem;
-  font-weight: 650;
-  color: #64748b;
-  transition: color 200ms ease;
-  white-space: nowrap;
+.stepLine {
+  flex: 1;
+  height: 2px;
+  background-color: #e2e8f0;
+  transition: background-color 200ms ease;
 }
 
-.stepNodeLabelActive {
-  color: #0066cc;
-  font-weight: 800;
+.stepLineDone {
+  background-color: #0066cc;
 }
 
 /* 5 Stage Tab Cards */
 .stageTabsGrid {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  gap: 0.75rem;
-  max-width: 1020px;
-  margin: 0 auto 1.15rem;
+  gap: 1rem;
+  max-width: 980px;
+  margin: 0 auto 1.75rem;
 }
 
 .stageTabCard {
   background: #ffffff;
   border: 1px solid #e2e8f0;
-  border-radius: 0.85rem;
-  padding: 0.75rem 0.65rem;
+  border-radius: 1rem;
+  padding: 1.15rem 0.75rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
   cursor: pointer;
-  transition: all 200ms cubic-bezier(0.16, 1, 0.3, 1);
-  position: relative;
-  overflow: hidden;
-  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.03);
-}
-
-.stageTabCard::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: linear-gradient(90deg, #0066cc 0%, #38bdf8 100%);
-  opacity: 0;
-  transition: opacity 200ms ease;
+  transition: all 200ms ease;
+  box-shadow: 0 1px 4px rgba(15, 23, 42, 0.03);
 }
 
 .stageTabCard:hover {
   border-color: #cbd5e1;
   transform: translateY(-2px);
-  box-shadow: 0 6px 14px -3px rgba(15, 23, 42, 0.08);
 }
 
 .stageTabActive {
   border: 2px solid #0066cc !important;
-  background-color: #f8fafc !important;
-  box-shadow: 0 8px 20px -3px rgba(0, 102, 204, 0.14) !important;
+  background-color: #ffffff !important;
+  box-shadow: 0 8px 20px -4px rgba(0, 102, 204, 0.12) !important;
   transform: translateY(-2px);
 }
 
-.stageTabActive::before {
-  opacity: 1;
-}
-
-.stageTabHeaderRow {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  margin-bottom: 0.3rem;
-}
-
 .stageTabLabel {
-  font-size: 0.64rem;
+  font-size: 0.68rem;
   font-weight: 750;
   color: #64748b;
   text-transform: uppercase;
   letter-spacing: 0.05em;
+  margin-bottom: 0.65rem;
 }
 
 .stageTabActive .stageTabLabel {
   color: #0066cc;
 }
 
-.stageTabTimeline {
-  font-size: 0.6rem;
-  font-weight: 700;
-  color: #0284c7;
-  background-color: #eff6ff;
-  border: 1px solid #dbeafe;
-  padding: 0.08rem 0.35rem;
-  border-radius: 9999px;
-  white-space: nowrap;
-}
-
 .stageTabIconWrap {
-  width: 34px;
-  height: 34px;
-  border-radius: 9px;
-  background-color: #f1f5f9;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background-color: #f8fafc;
   border: 1px solid #e2e8f0;
   display: flex;
   align-items: center;
   justify-content: center;
   color: #64748b;
-  margin-bottom: 0.35rem;
+  margin-bottom: 0.65rem;
   transition: all 200ms ease;
 }
 
@@ -1814,15 +1735,13 @@
 }
 
 .stageTabActive .stageTabIconWrap {
-  background: linear-gradient(135deg, #0066cc 0%, #0284c7 100%) !important;
-  color: #ffffff !important;
-  border-color: transparent !important;
-  box-shadow: 0 3px 10px rgba(0, 102, 204, 0.35);
-  transform: scale(1.05);
+  background-color: #eff6ff !important;
+  color: #0066cc !important;
+  border-color: #bfdbfe !important;
 }
 
 .stageTabTitle {
-  font-size: 0.82rem;
+  font-size: 0.88rem;
   font-weight: 750;
   color: #0b1f3a;
   transition: color 200ms ease;
@@ -1835,20 +1754,20 @@
 /* Active Detailed Stage Card */
 .roadmapActiveCard {
   background: #ffffff;
-  border: 1px solid rgba(226, 232, 240, 0.95);
-  border-radius: 1.15rem;
-  padding: 1.75rem 2.25rem;
-  max-width: 1020px;
+  border: 1px solid #e2e8f0;
+  border-radius: 1.25rem;
+  padding: 2.25rem 2.5rem;
+  max-width: 980px;
   margin: 0 auto;
-  box-shadow: 0 10px 30px -8px rgba(15, 23, 42, 0.05), 0 0 0 1px rgba(0, 102, 204, 0.04);
+  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05);
   text-align: left;
-  animation: stageCardFadeIn 240ms cubic-bezier(0.16, 1, 0.3, 1);
+  animation: stageFade 200ms ease;
 }
 
-@keyframes stageCardFadeIn {
+@keyframes stageFade {
   from {
     opacity: 0;
-    transform: translateY(6px);
+    transform: translateY(4px);
   }
   to {
     opacity: 1;
@@ -1858,8 +1777,8 @@
 
 .roadmapCardBody {
   display: grid;
-  grid-template-columns: 72px 1fr;
-  gap: 1.5rem;
+  grid-template-columns: 80px 1fr;
+  gap: 2rem;
   align-items: flex-start;
 }
 
@@ -1867,186 +1786,89 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.65rem;
-  padding-top: 0.15rem;
+  gap: 0.75rem;
 }
 
 .roadmapBigNum {
-  font-size: 3rem;
-  font-weight: 900;
-  color: #bae6fd;
-  line-height: 0.95;
+  font-size: 3.25rem;
+  font-weight: 850;
+  color: #93c5fd;
+  line-height: 1;
   font-family: 'JetBrains Mono', monospace;
-  letter-spacing: -0.04em;
   user-select: none;
 }
 
 .roadmapStageIconBox {
-  width: 44px;
-  height: 44px;
+  width: 48px;
+  height: 48px;
   border-radius: 12px;
-  background: linear-gradient(145deg, #0b1f3a 0%, #152e52 100%);
-  border: 1px solid rgba(56, 189, 248, 0.25);
+  background-color: #eff6ff;
+  border: 1px solid #bfdbfe;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #ffffff;
-  box-shadow: 0 6px 14px -2px rgba(11, 31, 58, 0.25);
+  color: #0066cc;
 }
 
 .roadmapCardRight {
   flex: 1;
 }
 
-.stageMetaRow {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 0.45rem;
-  margin-bottom: 0.5rem;
-}
-
 .roadmapStageTag {
   display: inline-block;
-  padding: 0.22rem 0.65rem;
+  padding: 0.25rem 0.75rem;
   border-radius: 9999px;
   background-color: #e0f2fe;
   color: #0284c7;
-  font-size: 0.7rem;
+  font-size: 0.72rem;
   font-weight: 750;
-  letter-spacing: 0.03em;
-}
-
-.stageTimelinePill {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
-  padding: 0.22rem 0.6rem;
-  border-radius: 9999px;
-  background-color: #f1f5f9;
-  border: 1px solid #e2e8f0;
-  color: #475569;
-  font-size: 0.7rem;
-  font-weight: 650;
-}
-
-.stageMilestonePill {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
-  padding: 0.22rem 0.7rem;
-  border-radius: 9999px;
-  background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
-  border: 1px solid #bbf7d0;
-  color: #15803d;
-  font-size: 0.7rem;
-  font-weight: 650;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.65rem;
 }
 
 .roadmapStageHeading {
-  font-size: 1.3rem;
+  font-size: 1.45rem;
   font-weight: 850;
   color: #0b1f3a;
-  margin: 0 0 0.35rem;
+  margin: 0 0 0.5rem;
   line-height: 1.25;
 }
 
 .roadmapStageDesc {
-  font-size: 0.88rem;
-  color: #475569;
-  line-height: 1.5;
-  margin: 0 0 0.85rem;
-  max-width: 800px;
+  font-size: 0.92rem;
+  color: #64748b;
+  line-height: 1.6;
+  margin: 0 0 1.25rem;
+  max-width: 720px;
 }
 
-/* Structured Micro-Card Checklist */
 .roadmapChecklist {
+  list-style: none;
+  padding: 0;
+  margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 0.4rem;
-  margin-bottom: 0.95rem;
-}
-
-.roadmapCheckCard {
-  background-color: #f8fafc;
-  border: 1px solid #f1f5f9;
-  border-radius: 0.6rem;
-  padding: 0.5rem 0.8rem;
-  display: flex;
-  align-items: flex-start;
   gap: 0.65rem;
-  transition: all 160ms ease;
 }
 
-.roadmapCheckCard:hover {
-  background-color: #ffffff;
-  border-color: #bfdbfe;
-  box-shadow: 0 2px 8px rgba(0, 102, 204, 0.05);
-}
-
-.checkIconWrap {
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  background-color: #ecfdf5;
-  border: 1px solid #a7f3d0;
+.roadmapCheckItem {
   display: flex;
   align-items: center;
-  justify-content: center;
-  color: #059669;
+  gap: 0.65rem;
+  font-size: 0.88rem;
+  color: #334155;
+  line-height: 1.5;
+}
+
+.checkIcon {
+  color: #10b981;
   flex-shrink: 0;
-  margin-top: 1px;
-}
-
-.checkText {
-  font-size: 0.82rem;
-  color: #475569;
-  line-height: 1.45;
-}
-
-.checkTitle {
-  color: #0b1f3a;
-  font-weight: 750;
-}
-
-/* Tools / Technology Row */
-.toolsRow {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 0.45rem;
-  padding-top: 0.75rem;
-  border-top: 1px dashed #e2e8f0;
-}
-
-.toolsLabel {
-  font-size: 0.68rem;
-  font-weight: 750;
-  color: #64748b;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-
-.toolsPillGroup {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.35rem;
-}
-
-.toolPill {
-  font-size: 0.68rem;
-  font-weight: 650;
-  color: #0369a1;
-  background-color: #f0f9ff;
-  border: 1px solid #bae6fd;
-  padding: 0.15rem 0.45rem;
-  border-radius: 5px;
 }
 
 /* Card Navigation Bar */
 .roadmapCardNav {
-  margin-top: 1.15rem;
-  padding-top: 1rem;
+  margin-top: 2rem;
+  padding-top: 1.25rem;
   border-top: 1px solid #f1f5f9;
   display: flex;
   align-items: center;
@@ -2057,12 +1879,12 @@
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
-  padding: 0.45rem 1.15rem;
+  padding: 0.5rem 1.25rem;
   border-radius: 9999px;
   border: 1px solid #e2e8f0;
   background-color: #ffffff;
   color: #64748b;
-  font-size: 0.8rem;
+  font-size: 0.82rem;
   font-weight: 700;
   cursor: pointer;
   transition: all 180ms ease;
@@ -2071,7 +1893,6 @@
 .prevBtn:hover:not(:disabled) {
   border-color: #cbd5e1;
   color: #0b1f3a;
-  transform: translateX(-2px);
 }
 
 .prevBtn:disabled {
@@ -2079,146 +1900,101 @@
   cursor: not-allowed;
 }
 
-.stageDotsIndicator {
-  display: flex;
-  align-items: center;
-  gap: 0.45rem;
-}
-
-.stageDot {
-  width: 8px;
-  height: 8px;
-  border-radius: 9999px;
-  background-color: #cbd5e1;
-  border: none;
-  cursor: pointer;
-  transition: all 200ms ease;
-  padding: 0;
-}
-
-.stageDotActive {
-  width: 22px;
-  background: #0066cc;
-  box-shadow: 0 0 6px rgba(0, 102, 204, 0.4);
+.stageProgressText {
+  font-size: 0.82rem;
+  font-weight: 650;
+  color: #64748b;
 }
 
 .nextBtn {
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
-  padding: 0.5rem 1.35rem;
+  padding: 0.55rem 1.45rem;
   border-radius: 9999px;
   border: none;
-  background: #0066cc;
+  background-color: #0066cc;
   color: #ffffff;
-  font-size: 0.82rem;
+  font-size: 0.84rem;
   font-weight: 750;
   cursor: pointer;
   transition: all 180ms ease;
-  box-shadow: 0 3px 10px rgba(0, 102, 204, 0.25);
+  box-shadow: 0 4px 12px rgba(0, 102, 204, 0.25);
 }
 
 .nextBtn:hover {
   background-color: #0052a3;
-  transform: translateX(2px);
-  box-shadow: 0 5px 14px rgba(0, 102, 204, 0.35);
+  box-shadow: 0 6px 16px rgba(0, 102, 204, 0.35);
 }
 
-.nextBtnFinal {
-  background: linear-gradient(135deg, #ff6b00 0%, #ea580c 100%) !important;
-  box-shadow: 0 3px 12px rgba(234, 88, 12, 0.35) !important;
-}
-
-.nextBtnFinal:hover {
-  box-shadow: 0 5px 16px rgba(234, 88, 12, 0.5) !important;
-}
-
-/* Bottom Dark Navy CTA Banner with Trust Badges */
+/* Bottom Dark Navy CTA Banner */
 .roadmapCtaBanner {
-  margin-top: 1.75rem;
-  background: radial-gradient(circle at 85% 30%, rgba(0, 102, 255, 0.18) 0%, transparent 60%), #0f2744;
-  border: 1px solid rgba(56, 189, 248, 0.2);
-  border-radius: 1.15rem;
-  padding: 1.5rem 2rem;
-  max-width: 1020px;
+  margin-top: 2.5rem;
+  background-color: #0f2744;
+  border-radius: 1.25rem;
+  padding: 2.25rem 2.75rem;
+  max-width: 980px;
   margin-left: auto;
   margin-right: auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 2rem;
-  box-shadow: 0 14px 30px -8px rgba(15, 39, 68, 0.3);
+  box-shadow: 0 15px 35px -5px rgba(15, 39, 68, 0.25);
   text-align: left;
 }
 
 .roadmapCtaPill {
   display: inline-block;
-  padding: 0.2rem 0.65rem;
+  padding: 0.25rem 0.75rem;
   border-radius: 9999px;
   background-color: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
   color: #38bdf8;
-  font-size: 0.66rem;
+  font-size: 0.68rem;
   font-weight: 750;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  margin-bottom: 0.35rem;
+  margin-bottom: 0.65rem;
 }
 
 .roadmapCtaHeading {
-  font-size: clamp(1.15rem, 1.8vw, 1.4rem);
+  font-size: clamp(1.3rem, 2vw, 1.65rem);
   font-weight: 850;
   color: #ffffff;
-  margin: 0 0 0.3rem;
+  margin: 0 0 0.4rem;
   letter-spacing: -0.015em;
 }
 
 .roadmapCtaSubtext {
-  font-size: 0.86rem;
+  font-size: 0.92rem;
   color: #94a3b8;
-  line-height: 1.5;
-  margin: 0 0 0.65rem;
+  line-height: 1.55;
+  margin: 0;
   max-width: 580px;
-}
-
-.ctaHighlightsRow {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-}
-
-.ctaHighlightBadge {
-  font-size: 0.72rem;
-  color: #38bdf8;
-  font-weight: 650;
-  background: rgba(56, 189, 248, 0.08);
-  border: 1px solid rgba(56, 189, 248, 0.2);
-  padding: 0.18rem 0.5rem;
-  border-radius: 5px;
 }
 
 .roadmapCtaBtn {
   display: inline-flex;
   align-items: center;
-  gap: 0.55rem;
+  justify-content: center;
   background: linear-gradient(135deg, #ff6b00 0%, #ea580c 100%);
   color: #ffffff;
-  font-size: 0.88rem;
+  font-size: 0.92rem;
   font-weight: 750;
-  padding: 0.72rem 1.65rem;
+  padding: 0.85rem 2rem;
   border-radius: 9999px;
   border: none;
   cursor: pointer;
   white-space: nowrap;
-  box-shadow: 0 4px 14px rgba(234, 88, 12, 0.45);
+  box-shadow: 0 4px 16px rgba(234, 88, 12, 0.4);
   transition: all 180ms ease;
   flex-shrink: 0;
 }
 
 .roadmapCtaBtn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(234, 88, 12, 0.6);
-  filter: brightness(1.06);
+  box-shadow: 0 8px 24px rgba(234, 88, 12, 0.55);
+  filter: brightness(1.05);
 }
 
 @media (max-width: 900px) {
@@ -2239,31 +2015,26 @@
   }
   .roadmapCardBody {
     grid-template-columns: 1fr;
-    gap: 1.15rem;
+    gap: 1.25rem;
   }
   .roadmapCardLeft {
     flex-direction: row;
     justify-content: flex-start;
-    gap: 0.85rem;
   }
   .roadmapActiveCard {
-    padding: 1.5rem 1.25rem;
+    padding: 1.75rem 1.25rem;
   }
   .roadmapCtaBanner {
     flex-direction: column;
     text-align: center;
-    padding: 1.5rem 1.25rem;
-    gap: 1.25rem;
+    padding: 2rem 1.5rem;
+    gap: 1.5rem;
   }
   .roadmapCtaLeft {
     text-align: center;
   }
   .roadmapCtaBtn {
     width: 100%;
-    justify-content: center;
-  }
-  .ctaHighlightsRow {
-    justify-content: center;
   }
 }
 
