@@ -1203,6 +1203,7 @@ export function CCNACoursePage() {
                   <div className={styles.sliceRailNum}>01</div>
                   <div className={styles.sliceRailIcon}><Globe size={18} /></div>
                   <span className={styles.sliceRailText}>Why CCNA Course?</span>
+                  <div className={styles.sliceRailChevron}><ChevronDown size={18} /></div>
                 </div>
                 <div className={styles.sliceExpandedView} aria-hidden={activeSlice !== 0}>
                   <div className={styles.sliceTopRow}>
@@ -1232,6 +1233,7 @@ export function CCNACoursePage() {
                   <div className={styles.sliceRailNum}>02</div>
                   <div className={styles.sliceRailIcon}><Users size={18} /></div>
                   <span className={styles.sliceRailText}>Who Should Take?</span>
+                  <div className={styles.sliceRailChevron}><ChevronDown size={18} /></div>
                 </div>
                 <div className={styles.sliceExpandedView} aria-hidden={activeSlice !== 1}>
                   <div className={styles.sliceTopRow}>
@@ -1270,6 +1272,7 @@ export function CCNACoursePage() {
                   <div className={styles.sliceRailNum}>03</div>
                   <div className={styles.sliceRailIcon}><ShieldCheck size={18} /></div>
                   <span className={styles.sliceRailText}>Pre-Requisites</span>
+                  <div className={styles.sliceRailChevron}><ChevronDown size={18} /></div>
                 </div>
                 <div className={styles.sliceExpandedView} aria-hidden={activeSlice !== 2}>
                   <div className={styles.sliceTopRow}>
@@ -1311,6 +1314,7 @@ export function CCNACoursePage() {
                   <div className={styles.sliceRailNum}>04</div>
                   <div className={styles.sliceRailIcon}><Briefcase size={18} /></div>
                   <span className={styles.sliceRailText}>Job Profiles Post CCNA</span>
+                  <div className={styles.sliceRailChevron}><ChevronDown size={18} /></div>
                 </div>
                 <div className={styles.sliceExpandedView} aria-hidden={activeSlice !== 3}>
                   <div className={styles.sliceTopRow}>
@@ -1351,6 +1355,7 @@ export function CCNACoursePage() {
                   <div className={styles.sliceRailNum}>05</div>
                   <div className={styles.sliceRailIcon}><Server size={18} /></div>
                   <span className={styles.sliceRailText}>Devices &amp; Tools</span>
+                  <div className={styles.sliceRailChevron}><ChevronDown size={18} /></div>
                 </div>
                 <div className={styles.sliceExpandedView} aria-hidden={activeSlice !== 4}>
                   <div className={styles.sliceTopRow}>
@@ -1394,6 +1399,7 @@ export function CCNACoursePage() {
                   <div className={styles.sliceRailNum}>06</div>
                   <div className={styles.sliceRailIcon}><Award size={18} /></div>
                   <span className={styles.sliceRailText}>Exam Details (200-301)</span>
+                  <div className={styles.sliceRailChevron}><ChevronDown size={18} /></div>
                 </div>
                 <div className={styles.sliceExpandedView} aria-hidden={activeSlice !== 5}>
                   <div className={styles.sliceTopRow}>
