@@ -3283,100 +3283,724 @@
 }
 
 /* --------------------------------------------------------------------------
-   7. 80+ REAL CISCO LAB HARDWARE PODS (DARK ENTERPRISE BLUEPRINT)
+   7. 80+ REAL-WORLD CISCO HANDS-ON LABS (DARK ENTERPRISE BLUEPRINT)
    -------------------------------------------------------------------------- */
-.labSection {
-  background-color: #0b0f19;
+.handsOnLabSection {
+  background-color: #060913;
   color: #ffffff;
   padding: 5.5rem 1.5rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   position: relative;
   overflow: hidden;
+  background-image: 
+    radial-gradient(ellipse at 50% -10%, rgba(14, 165, 233, 0.14) 0%, transparent 60%),
+    radial-gradient(circle at 90% 90%, rgba(16, 185, 129, 0.06) 0%, transparent 50%),
+    radial-gradient(circle at 10% 80%, rgba(59, 130, 246, 0.06) 0%, transparent 50%);
 }
 
-.labDevicesGrid {
+.handsOnHeaderCenter {
+  text-align: center;
+  max-width: 860px;
+  margin: 0 auto 3.25rem;
+}
+
+.handsOnEyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.38rem 0.95rem;
+  border-radius: 9999px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  background: rgba(14, 165, 233, 0.12);
+  color: #38bdf8;
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  box-shadow: 0 0 20px rgba(14, 165, 233, 0.15);
+  margin-bottom: 1.15rem;
+}
+
+.handsOnTitle {
+  font-size: clamp(1.85rem, 3.8vw, 2.75rem);
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: -0.025em;
+  line-height: 1.22;
+  margin-bottom: 1rem;
+}
+
+.handsOnHighlight {
+  background: linear-gradient(135deg, #38bdf8 0%, #0ea5e9 50%, #60a5fa 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.handsOnSubtext {
+  font-size: clamp(0.925rem, 1.35vw, 1.05rem);
+  color: #94a3b8;
+  line-height: 1.68;
+  margin: 0 auto;
+}
+
+/* --------------------------------------------------------------------------
+   YOUR LAB ENVIRONMENT (4 INFRASTRUCTURE CARDS)
+   -------------------------------------------------------------------------- */
+.labEnvWrapper {
+  background: rgba(15, 23, 42, 0.65);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 1.5rem;
+  padding: 2.25rem 2rem;
+  backdrop-filter: blur(14px);
+  margin-bottom: 3.5rem;
+  box-shadow: 0 20px 45px -15px rgba(0, 0, 0, 0.5);
+  position: relative;
+}
+
+.labEnvHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.75rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.labEnvTitleGroup {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.labEnvTitleIcon {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: rgba(14, 165, 233, 0.15);
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #38bdf8;
+}
+
+.labEnvHeading {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.labEnvLivePulse {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #34d399;
+  background: rgba(16, 185, 129, 0.12);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  border-radius: 9999px;
+  padding: 0.32rem 0.8rem;
+}
+
+.pulseDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #10b981;
+  box-shadow: 0 0 10px #10b981;
+  animation: pulseGlow 2s infinite ease-in-out;
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.45;
+    transform: scale(0.85);
+  }
+}
+
+.labEnvGrid {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 1.5rem;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
 }
 
-@media (min-width: 640px) {
-  .labDevicesGrid {
+@media (max-width: 1024px) {
+  .labEnvGrid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-@media (min-width: 1024px) {
-  .labDevicesGrid {
-    grid-template-columns: repeat(4, 1fr);
+@media (max-width: 580px) {
+  .labEnvGrid {
+    grid-template-columns: 1fr;
   }
 }
 
-.labDeviceCard {
-  background: rgba(15, 23, 42, 0.75);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 1.25rem;
-  padding: 1.5rem;
+.labEnvCard {
+  background: rgba(30, 41, 59, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 1.15rem;
+  padding: 1.4rem 1.25rem;
   display: flex;
   flex-direction: column;
+  gap: 0.9rem;
   transition: all 220ms ease;
 }
 
-.labDeviceCard:hover {
-  border-color: rgba(56, 189, 248, 0.45);
-  box-shadow: 0 16px 36px -10px rgba(0, 102, 255, 0.25);
-  transform: translateY(-4px);
+.labEnvCard:hover {
+  background: rgba(30, 41, 59, 0.8);
+  border-color: rgba(56, 189, 248, 0.4);
+  transform: translateY(-3px);
+  box-shadow: 0 14px 28px -8px rgba(14, 165, 233, 0.25);
 }
 
-.deviceIconBox {
+.labEnvCardTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.labEnvCardIcon {
   width: 44px;
   height: 44px;
-  border-radius: 10px;
-  background: rgba(0, 102, 255, 0.16);
-  border: 1px solid rgba(56, 189, 248, 0.35);
-  color: #38bdf8;
+  border-radius: 11px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 1rem;
-}
-
-.deviceCategory {
-  font-size: 0.7rem;
-  font-weight: 700;
-  text-transform: uppercase;
+  background: linear-gradient(135deg, rgba(14, 165, 233, 0.2) 0%, rgba(2, 132, 199, 0.08) 100%);
+  border: 1px solid rgba(56, 189, 248, 0.3);
   color: #38bdf8;
-  letter-spacing: 0.08em;
-  margin-bottom: 0.25rem;
 }
 
-.deviceName {
-  font-size: 1.1rem;
-  font-weight: 800;
-  color: #ffffff;
-  margin-bottom: 0.5rem;
-}
-
-.deviceSpecs {
-  font-size: 0.775rem;
-  color: #94a3b8;
-  line-height: 1.5;
-  margin-bottom: 1rem;
-}
-
-.devicePill {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
+.labEnvCardTag {
   font-size: 0.675rem;
   font-weight: 700;
-  color: #34d399;
-  background: rgba(16, 185, 129, 0.12);
-  border: 1px solid rgba(16, 185, 129, 0.25);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #38bdf8;
+  background: rgba(14, 165, 233, 0.12);
+  border: 1px solid rgba(56, 189, 248, 0.22);
   padding: 0.2rem 0.55rem;
+  border-radius: 6px;
+}
+
+.labEnvCardText {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #f1f5f9;
+  line-height: 1.48;
+  margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   FILTER TABS FOR 5 LAB CATEGORIES
+   -------------------------------------------------------------------------- */
+.labFilterBar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.55rem;
+  flex-wrap: wrap;
+  margin-bottom: 2.25rem;
+  width: 100%;
+}
+
+.labFilterBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.55rem 1.15rem;
   border-radius: 9999px;
-  width: fit-content;
-  margin-top: auto;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #94a3b8;
+  background: rgba(15, 23, 42, 0.65);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+  transition: all 180ms ease;
+  white-space: nowrap;
+}
+
+.labFilterBtn:hover {
+  color: #ffffff;
+  border-color: rgba(56, 189, 248, 0.4);
+  background: rgba(15, 23, 42, 0.9);
+}
+
+.labFilterBtnActive {
+  background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%) !important;
+  color: #ffffff !important;
+  border-color: #38bdf8 !important;
+  box-shadow: 0 4px 18px rgba(2, 132, 199, 0.45);
+}
+
+@media (max-width: 640px) {
+  .labFilterBar {
+    gap: 0.4rem;
+  }
+  .labFilterBtn {
+    padding: 0.4rem 0.82rem;
+    font-size: 0.76rem;
+    gap: 0.35rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .labFilterBtn {
+    padding: 0.35rem 0.65rem;
+    font-size: 0.72rem;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   5 LAB CATEGORIES CARDS GRID
+   -------------------------------------------------------------------------- */
+.labCatsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+}
+
+@media (min-width: 1100px) {
+  .labCatsGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .labCatsGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.labCatCard {
+  background: rgba(15, 23, 42, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1.35rem;
+  padding: 1.65rem 1.45rem;
+  display: flex;
+  flex-direction: column;
+  transition: all 240ms cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  cursor: pointer;
+}
+
+.labCatCard:hover {
+  transform: translateY(-4px);
+  border-color: rgba(56, 189, 248, 0.45);
+  box-shadow: 0 16px 36px -10px rgba(0, 102, 255, 0.28);
+}
+
+.labCatCardActive {
+  border-color: rgba(56, 189, 248, 0.65) !important;
+  box-shadow: 0 0 25px rgba(14, 165, 233, 0.25) !important;
+  background: rgba(15, 23, 42, 0.88) !important;
+}
+
+.labCatTop {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+
+.labCatIconTitle {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.labCatIcon {
+  width: 44px;
+  height: 44px;
+  border-radius: 11px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.labCatTitle {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0 0 0.15rem;
+}
+
+.labCatSublabel {
+  font-size: 0.72rem;
+  color: #94a3b8;
+  display: block;
+}
+
+.labCatBadge {
+  font-size: 0.7rem;
+  font-weight: 700;
+  border-radius: 9999px;
+  padding: 0.22rem 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+}
+
+.labItemsList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  flex-grow: 1;
+}
+
+.labItemRow {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.55rem 0.75rem;
+  border-radius: 9px;
+  background: rgba(30, 41, 59, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  transition: all 180ms ease;
+}
+
+.labItemRow:hover {
+  background: rgba(30, 41, 59, 0.75);
+  border-color: rgba(255, 255, 255, 0.12);
+  transform: translateX(3px);
+}
+
+.labItemPrompt {
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  font-size: 0.76rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.labItemText {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #e2e8f0;
+  flex-grow: 1;
+}
+
+.labItemCheck {
+  flex-shrink: 0;
+  opacity: 0.75;
+}
+
+.labCardFooter {
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.labPreviewBtn {
+  width: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  background: rgba(30, 41, 59, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  padding: 0.5rem 0.85rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #94a3b8;
+  cursor: pointer;
+  transition: all 180ms ease;
+}
+
+.labPreviewBtn:hover,
+.labCatCardActive .labPreviewBtn {
+  background: rgba(14, 165, 233, 0.15);
+  color: #38bdf8;
+  border-color: rgba(56, 189, 248, 0.35);
+}
+
+/* --------------------------------------------------------------------------
+   INTERACTIVE CISCO IOS CLI TERMINAL CONSOLE
+   -------------------------------------------------------------------------- */
+.terminalWrapper {
+  margin-top: 3.25rem;
+  background: #080c18;
+  border: 1px solid rgba(56, 189, 248, 0.28);
+  border-radius: 1.25rem;
+  overflow: hidden;
+  box-shadow: 0 24px 50px -15px rgba(0, 0, 0, 0.65);
+}
+
+.terminalHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #0f172a;
+  padding: 0.85rem 1.35rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  flex-wrap: wrap;
+  gap: 0.85rem;
+}
+
+.terminalLeft {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.terminalDots {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.dotRed {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: #ef4444;
+}
+
+.dotYellow {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: #f59e0b;
+}
+
+.dotGreen {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: #10b981;
+}
+
+.terminalTitle {
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  font-size: 0.78rem;
+  color: #94a3b8;
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.terminalCategoryPills {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+
+.terminalPillBtn {
+  background: rgba(30, 41, 59, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #94a3b8;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 0.28rem 0.65rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 160ms ease;
+}
+
+.terminalPillBtn:hover {
+  color: #ffffff;
+  border-color: rgba(56, 189, 248, 0.3);
+}
+
+.terminalPillBtnActive {
+  background: rgba(14, 165, 233, 0.2) !important;
+  color: #38bdf8 !important;
+  border-color: rgba(56, 189, 248, 0.4) !important;
+}
+
+.terminalBody {
+  padding: 1.75rem 1.65rem;
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  font-size: 0.85rem;
+  line-height: 1.75;
+  color: #38bdf8;
+  background: #050811;
+  overflow-x: auto;
+}
+
+.terminalBanner {
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.95rem;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.terminalComment {
+  color: #64748b;
+  font-size: 0.78rem;
+}
+
+.terminalLine {
+  display: block;
+  white-space: pre-wrap;
+  word-break: break-all;
+  margin-bottom: 0.2rem;
+}
+
+.terminalPrompt {
+  color: #34d399;
+  font-weight: 700;
+}
+
+.terminalSuccess {
+  color: #38bdf8;
+  font-weight: 600;
+}
+
+.terminalOutput {
+  color: #cbd5e1;
+}
+
+.terminalCursorLine {
+  margin-top: 0.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.terminalCursor {
+  color: #38bdf8;
+  animation: blinkCursor 1s infinite step-start;
+  margin-left: 2px;
+}
+
+@keyframes blinkCursor {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   BOTTOM LAB CALLOUT BANNER
+   -------------------------------------------------------------------------- */
+.labCtaStrip {
+  margin-top: 3rem;
+  background: linear-gradient(135deg, rgba(14, 165, 233, 0.12) 0%, rgba(2, 132, 199, 0.05) 100%);
+  border: 1px solid rgba(56, 189, 248, 0.28);
+  border-radius: 1.35rem;
+  padding: 2rem 2.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.labCtaInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  max-width: 580px;
+}
+
+.labCtaTitle {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.labCtaSubtext {
+  font-size: 0.88rem;
+  color: #94a3b8;
+  margin: 0;
+  line-height: 1.55;
+}
+
+.labCtaActions {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  flex-wrap: wrap;
+}
+
+.labPrimaryBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+  color: #ffffff;
+  padding: 0.8rem 1.45rem;
+  border-radius: 0.75rem;
+  font-size: 0.88rem;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  transition: all 180ms ease;
+  box-shadow: 0 6px 20px rgba(2, 132, 199, 0.4);
+}
+
+.labPrimaryBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(2, 132, 199, 0.55);
+}
+
+.labSecondaryBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  background: rgba(15, 23, 42, 0.85);
+  color: #e2e8f0;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 0.8rem 1.35rem;
+  border-radius: 0.75rem;
+  font-size: 0.88rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 180ms ease;
+}
+
+.labSecondaryBtn:hover {
+  background: rgba(30, 41, 59, 0.95);
+  border-color: rgba(56, 189, 248, 0.4);
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .handsOnLabSection {
+    padding: 3.5rem 1rem;
+  }
+  .labEnvWrapper {
+    padding: 1.5rem 1.15rem;
+  }
+  .labCtaStrip {
+    padding: 1.5rem 1.25rem;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .labCtaActions {
+    width: 100%;
+    flex-direction: column;
+  }
+  .labPrimaryBtn,
+  .labSecondaryBtn {
+    width: 100%;
+    justify-content: center;
+  }
 }
 
 /* --------------------------------------------------------------------------

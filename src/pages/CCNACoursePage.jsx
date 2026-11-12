@@ -332,6 +332,168 @@ const syllabusModules = [
   }
 ];
 
+// ---------------------------------------------------------------------------
+// 80+ HANDS-ON LABS & LAB ENVIRONMENT DATA
+// ---------------------------------------------------------------------------
+const handsOnLabEnvironment = [
+  {
+    icon: Server,
+    title: '24×7 Access to Real Cisco Routers & Switches',
+    tag: 'Physical Racks'
+  },
+  {
+    icon: Layers,
+    title: 'Layer 2 & Layer 3 Enterprise Lab Infrastructure',
+    tag: 'Multi-Tier Fabric'
+  },
+  {
+    icon: Laptop,
+    title: 'Cisco Packet Tracer, GNS3 & EVE-NG',
+    tag: 'Simulation Suites'
+  },
+  {
+    icon: Users,
+    title: 'Dedicated Lab Trainers for One-to-One Support',
+    tag: '1-on-1 Mentorship'
+  }
+];
+
+const handsOnLabCategories = [
+  {
+    id: 'ios-cli',
+    title: 'Cisco IOS & CLI',
+    badge: '5 Labs',
+    icon: Terminal,
+    color: '#0284c7',
+    tagColor: '#38bdf8',
+    badgeColor: 'rgba(14, 165, 233, 0.12)',
+    borderColor: 'rgba(56, 189, 248, 0.3)',
+    cliSummary: 'Device Boot, CLI Navigation & Base Config',
+    cliSnippet: [
+      'Switch# configure terminal',
+      'Switch(config)# hostname CCNA-SW-Core01',
+      'CCNA-SW-Core01(config)# enable secret Cisco@123',
+      'CCNA-SW-Core01(config)# line console 0',
+      'CCNA-SW-Core01(config-line)# password cisco',
+      'CCNA-SW-Core01(config-line)# login',
+      'CCNA-SW-Core01# copy running-config startup-config',
+      '[OK] IOS Configuration successfully saved.'
+    ],
+    items: [
+      'Cisco CLI',
+      'IOS Commands',
+      'Device Configuration',
+      'Password Recovery',
+      'IOS Backup & Restore'
+    ]
+  },
+  {
+    id: 'routing',
+    title: 'Routing Labs',
+    badge: '4 Labs',
+    icon: Route,
+    color: '#3b82f6',
+    tagColor: '#60a5fa',
+    badgeColor: 'rgba(59, 130, 246, 0.12)',
+    borderColor: 'rgba(96, 165, 250, 0.3)',
+    cliSummary: 'Static & Dynamic OSPF Routing Verification',
+    cliSnippet: [
+      'Router(config)# router ospf 1',
+      'Router(config-router)# router-id 1.1.1.1',
+      'Router(config-router)# network 10.10.10.0 0.0.0.255 area 0',
+      'Router(config)# ipv6 unicast-routing',
+      'Router(config)# ipv6 route 2001:db8::/32 GigabitEthernet0/1',
+      'Router# show ip route ospf',
+      'O  10.20.0.0/24 [110/2] via 10.10.10.2, 00:08:42, GigabitEthernet0/1'
+    ],
+    items: [
+      'Static Routing',
+      'OSPF',
+      'IPv6 Routing',
+      'Route Verification'
+    ]
+  },
+  {
+    id: 'switching',
+    title: 'Switching Labs',
+    badge: '5 Labs',
+    icon: GitFork,
+    color: '#10b981',
+    tagColor: '#2dd4bf',
+    badgeColor: 'rgba(16, 185, 129, 0.12)',
+    borderColor: 'rgba(45, 212, 191, 0.3)',
+    cliSummary: 'VLAN Segmentation, 802.1Q & EtherChannel',
+    cliSnippet: [
+      'Switch(config)# vlan 10,20,30',
+      'Switch(config-vlan)# name USERS_CORP',
+      'Switch(config)# interface range Gi1/0/1 - 2',
+      'Switch(config-if-range)# switchport mode trunk',
+      'Switch(config-if-range)# channel-group 1 mode active',
+      'Switch(config-if)# spanning-tree portfast default',
+      'Switch# show etherchannel summary [Po1: SU (in use)]'
+    ],
+    items: [
+      'VLAN',
+      'Trunking',
+      'EtherChannel',
+      'STP',
+      'HSRP'
+    ]
+  },
+  {
+    id: 'security',
+    title: 'Security Labs',
+    badge: '5 Labs',
+    icon: ShieldCheck,
+    color: '#f43f5e',
+    tagColor: '#fb7185',
+    badgeColor: 'rgba(244, 63, 94, 0.12)',
+    borderColor: 'rgba(251, 113, 133, 0.3)',
+    cliSummary: 'ACL Filtering, NAT Overload & Port Security',
+    cliSnippet: [
+      'Router(config)# ip access-list extended SECURE_TRAFFIC',
+      'Router(config-ext-nacl)# permit tcp any host 10.1.1.10 eq 443',
+      'Router(config-ext-nacl)# deny ip any any',
+      'Router(config)# ip nat inside source list 1 interface Gi0/0 overload',
+      'Switch(config-if)# switchport port-security',
+      'Switch(config-if)# switchport port-security violation shutdown',
+      'Router# show ip nat translations [Inside Global: Active]'
+    ],
+    items: [
+      'ACL',
+      'NAT',
+      'DHCP',
+      'SSH',
+      'Port Security'
+    ]
+  },
+  {
+    id: 'enterprise',
+    title: 'Enterprise Labs',
+    badge: '5 Labs',
+    icon: Cpu,
+    color: '#f59e0b',
+    tagColor: '#fbbf24',
+    badgeColor: 'rgba(245, 158, 11, 0.12)',
+    borderColor: 'rgba(251, 191, 36, 0.3)',
+    cliSummary: 'Cisco DNA Center, WLC, Syslog & SD-WAN Fabric',
+    cliSnippet: [
+      'DNAC# test telemetry connectivity /api/v1/network-device',
+      'WLC-9800# show wlan summary [SSID: Enterprise-Secure-WPA3]',
+      'Router(config)# snmp-server community IMEDITA-RO RO',
+      'Router(config)# logging host 10.20.1.10 trap informational',
+      'vEdge-Router# show sdwan control connections [STATE: UP]'
+    ],
+    items: [
+      'Cisco DNA Center',
+      'WLC',
+      'SNMP',
+      'Syslog',
+      'SD-WAN'
+    ]
+  }
+];
+
 // Physical Lab Devices Used
 const labDevices = [
   {
@@ -426,6 +588,10 @@ export function CCNACoursePage() {
   const [openFaq, setOpenFaq] = useState(0);
   const [activeRoadmapStage, setActiveRoadmapStage] = useState(0);
   const [activeSlice, setActiveSlice] = useState(0);
+  const [activeLabFilter, setActiveLabFilter] = useState('all');
+  const [activeLabTerminal, setActiveLabTerminal] = useState('ios-cli');
+
+  const activeTerminalData = handsOnLabCategories.find((c) => c.id === activeLabTerminal) || handsOnLabCategories[0];
 
   // CCNA Course Overview Slices - Non-passive wheel handler + Lenis coordination
   const slicesDeckRef = useRef(null);
@@ -1464,38 +1630,244 @@ export function CCNACoursePage() {
 
           </div>
         </section>
-        <section className={styles.labSection}>
+        {/* =========================================================================
+            80+ REAL-WORLD CISCO HANDS-ON LABS & LAB ENVIRONMENT
+            ========================================================================= */}
+        <section id="hands-on-labs-section" className={styles.handsOnLabSection}>
           <div className={styles.container}>
-            <div className={styles.sectionHeaderCenter}>
-              <div className={styles.sectionEyebrow} style={{ background: 'rgba(0,102,255,0.16)', color: '#38bdf8', borderColor: 'rgba(56,189,248,0.3)' }}>
-                <Server size={13} />
-                <span>Physical Equipment</span>
+            {/* 1. Header Area */}
+            <div className={styles.handsOnHeaderCenter}>
+              <div className={styles.handsOnEyebrow}>
+                <Terminal size={14} />
+                <span>Hands-on Labs</span>
               </div>
-              <h2 className={styles.sectionTitle} style={{ color: '#ffffff' }}>
-                80+ Real-World Cisco Hardware Labs
+              <h2 className={styles.handsOnTitle}>
+                <span className={styles.handsOnHighlight}>80+ Real-World Cisco Labs</span> for Practical Learning
               </h2>
-              <p className={styles.sectionSubtext} style={{ color: '#94a3b8' }}>
-                We do not rely on Packet Tracer. Students execute commands on genuine enterprise routing, 
-                switching, and security hardware.
+              <p className={styles.handsOnSubtext}>
+                Build real-world networking skills through 80+ hands-on labs using Cisco routers, switches, wireless controllers, and enterprise network simulation tools. Practice real configuration, troubleshooting, and deployment scenarios aligned with the Cisco CCNA 200-301 certification.
               </p>
             </div>
 
-            <div className={styles.labDevicesGrid}>
-              {labDevices.map((dev, i) => (
-                <div key={i} className={styles.labDeviceCard}>
-                  <div className={styles.deviceIconBox}>
-                    <Server size={22} />
+            {/* 2. Your Lab Environment Showcase */}
+            <div className={styles.labEnvWrapper}>
+              <div className={styles.labEnvHeader}>
+                <div className={styles.labEnvTitleGroup}>
+                  <div className={styles.labEnvTitleIcon}>
+                    <Server size={18} />
                   </div>
-                  <div className={styles.deviceCategory}>{dev.category}</div>
-                  <h3 className={styles.deviceName}>{dev.name}</h3>
-                  <p className={styles.deviceSpecs}>{dev.specs}</p>
-                  <div className={styles.devicePill}>
-                    <CheckCircle2 size={12} />
-                    <span>{dev.status}</span>
+                  <h3 className={styles.labEnvHeading}>Your lab environment</h3>
+                </div>
+                <div className={styles.labEnvLivePulse}>
+                  <span className={styles.pulseDot} />
+                  <span>24×7 Active Cloud Racks</span>
+                </div>
+              </div>
+
+              <div className={styles.labEnvGrid}>
+                {handsOnLabEnvironment.map((item, idx) => {
+                  const EnvIcon = item.icon;
+                  return (
+                    <div key={idx} className={styles.labEnvCard}>
+                      <div className={styles.labEnvCardTop}>
+                        <div className={styles.labEnvCardIcon}>
+                          <EnvIcon size={20} />
+                        </div>
+                        <span className={styles.labEnvCardTag}>{item.tag}</span>
+                      </div>
+                      <h4 className={styles.labEnvCardText}>{item.title}</h4>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* 3. Filter Tabs for 5 Lab Categories */}
+            <div className={styles.labFilterBar}>
+              <button
+                type="button"
+                className={`${styles.labFilterBtn} ${activeLabFilter === 'all' ? styles.labFilterBtnActive : ''}`}
+                onClick={() => setActiveLabFilter('all')}
+              >
+                <span>All Labs (80+)</span>
+              </button>
+              {handsOnLabCategories.map((cat) => {
+                const CatIcon = cat.icon;
+                const isActive = activeLabFilter === cat.id;
+                return (
+                  <button
+                    key={cat.id}
+                    type="button"
+                    className={`${styles.labFilterBtn} ${isActive ? styles.labFilterBtnActive : ''}`}
+                    onClick={() => {
+                      setActiveLabFilter(cat.id);
+                      setActiveLabTerminal(cat.id);
+                    }}
+                  >
+                    <CatIcon size={14} />
+                    <span>{cat.title}</span>
+                  </button>
+                );
+              })}
+            </div>
+
+            {/* 4. Category Cards Grid */}
+            <div className={styles.labCatsGrid}>
+              {handsOnLabCategories
+                .filter((cat) => activeLabFilter === 'all' || activeLabFilter === cat.id)
+                .map((cat) => {
+                  const CatIcon = cat.icon;
+                  const isTerminalActive = activeLabTerminal === cat.id;
+                  return (
+                    <div
+                      key={cat.id}
+                      className={`${styles.labCatCard} ${isTerminalActive ? styles.labCatCardActive : ''}`}
+                      onClick={() => setActiveLabTerminal(cat.id)}
+                    >
+                      <div className={styles.labCatTop}>
+                        <div className={styles.labCatIconTitle}>
+                          <div
+                            className={styles.labCatIcon}
+                            style={{
+                              background: cat.badgeColor,
+                              border: `1px solid ${cat.borderColor}`,
+                              color: cat.color
+                            }}
+                          >
+                            <CatIcon size={20} />
+                          </div>
+                          <div>
+                            <h3 className={styles.labCatTitle}>{cat.title}</h3>
+                            <span className={styles.labCatSublabel}>{cat.cliSummary}</span>
+                          </div>
+                        </div>
+                        <span
+                          className={styles.labCatBadge}
+                          style={{
+                            background: cat.badgeColor,
+                            color: cat.color,
+                            border: `1px solid ${cat.borderColor}`
+                          }}
+                        >
+                          {cat.badge}
+                        </span>
+                      </div>
+
+                      <ul className={styles.labItemsList}>
+                        {cat.items.map((item, itemIdx) => (
+                          <li key={itemIdx} className={styles.labItemRow}>
+                            <span className={styles.labItemPrompt} style={{ color: cat.color }}>
+                              &gt;_
+                            </span>
+                            <span className={styles.labItemText}>{item}</span>
+                            <CheckCircle2
+                              size={14}
+                              className={styles.labItemCheck}
+                              style={{ color: cat.color }}
+                            />
+                          </li>
+                        ))}
+                      </ul>
+
+                      <div className={styles.labCardFooter}>
+                        <button
+                          type="button"
+                          className={styles.labPreviewBtn}
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            setActiveLabTerminal(cat.id);
+                          }}
+                        >
+                          <Terminal size={13} />
+                          <span>{isTerminalActive ? 'Viewing CLI Simulation' : 'Inspect CLI Commands'}</span>
+                        </button>
+                      </div>
+                    </div>
+                  );
+                })}
+            </div>
+
+            {/* 5. Interactive Cisco IOS CLI Terminal Console */}
+            {activeTerminalData && (
+              <div className={styles.terminalWrapper}>
+                <div className={styles.terminalHeader}>
+                  <div className={styles.terminalLeft}>
+                    <div className={styles.terminalDots}>
+                      <span className={styles.dotRed} />
+                      <span className={styles.dotYellow} />
+                      <span className={styles.dotGreen} />
+                    </div>
+                    <div className={styles.terminalTitle}>
+                      <Terminal size={14} color="#38bdf8" />
+                      <span>cisco-ios-cli@im-pod-01:~ ({activeTerminalData.title} Simulation)</span>
+                    </div>
+                  </div>
+                  <div className={styles.terminalCategoryPills}>
+                    {handsOnLabCategories.map((c) => (
+                      <button
+                        key={c.id}
+                        type="button"
+                        className={`${styles.terminalPillBtn} ${activeLabTerminal === c.id ? styles.terminalPillBtnActive : ''}`}
+                        onClick={() => setActiveLabTerminal(c.id)}
+                      >
+                        {c.title}
+                      </button>
+                    ))}
                   </div>
                 </div>
-              ))}
+
+                <div className={styles.terminalBody}>
+                  <div className={styles.terminalBanner}>
+                    <span className={styles.terminalComment}># Cisco Systems Enterprise IOS Command Line Interface</span>
+                    <span className={styles.terminalComment}># Active Domain: {activeTerminalData.title} • Status: Connected (Zero-Lag Remote Pod)</span>
+                  </div>
+                  {activeTerminalData.cliSnippet.map((line, lineIdx) => (
+                    <div key={lineIdx} className={styles.terminalLine}>
+                      {line.startsWith('[') ? (
+                        <span className={styles.terminalSuccess}>{line}</span>
+                      ) : line.includes('#') || line.includes('>') ? (
+                        <span className={styles.terminalPrompt}>{line}</span>
+                      ) : (
+                        <span className={styles.terminalOutput}>{line}</span>
+                      )}
+                    </div>
+                  ))}
+                  <div className={styles.terminalCursorLine}>
+                    <span className={styles.terminalPrompt}>CCNA-Edge# </span>
+                    <span className={styles.terminalCursor}>█</span>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {/* 6. Action Callout Banner */}
+            <div className={styles.labCtaStrip}>
+              <div className={styles.labCtaInfo}>
+                <h4 className={styles.labCtaTitle}>Ready to Practice on Genuine Cisco Hardware?</h4>
+                <p className={styles.labCtaSubtext}>
+                  Book a free 2-hour hands-on session with our CCIE mentors and experience real rack configurations.
+                </p>
+              </div>
+              <div className={styles.labCtaActions}>
+                <button
+                  type="button"
+                  className={styles.labPrimaryBtn}
+                  onClick={() => handleOpenDemo('Cisco CCNA 80+ Hands-on Lab Demo')}
+                >
+                  <Terminal size={16} />
+                  <span>Book Free 2-Hour Lab Demo</span>
+                </button>
+                <button
+                  type="button"
+                  className={styles.labSecondaryBtn}
+                  onClick={() => handleOpenDemo('Cisco CCNA Lab Blueprint')}
+                >
+                  <Download size={15} />
+                  <span>Download Lab Blueprint</span>
+                </button>
+              </div>
             </div>
+
           </div>
         </section>
       </div>
