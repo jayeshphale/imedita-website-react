@@ -1031,20 +1031,11 @@ export function CCNACoursePage() {
             return (
               <div key={currentStage.stageNum} className={styles.roadmapActiveCard}>
                 <div className={styles.roadmapCardBody}>
-                  {/* Left Column: Watermark & Stage Icon Box */}
+                  {/* Left Column: Stage Number & Hero Icon */}
                   <div className={styles.roadmapCardLeft}>
-                    <div className={styles.roadmapWatermarkBox}>
-                      <span className={styles.roadmapWatermark}>
-                        {currentStage.stageNum}
-                      </span>
-                      <div className={styles.roadmapStageIconBox}>
-                        <CurrentIcon size={28} color="#ffffff" />
-                      </div>
-                    </div>
-
-                    <div className={styles.stageOutcomeCard}>
-                      <span className={styles.outcomeLabel}>Target Milestone:</span>
-                      <strong className={styles.outcomeValue}>{currentStage.outcome}</strong>
+                    <span className={styles.roadmapBigNum}>{currentStage.stageNum}</span>
+                    <div className={styles.roadmapStageIconBox}>
+                      <CurrentIcon size={22} color="#ffffff" />
                     </div>
                   </div>
 
@@ -1056,9 +1047,9 @@ export function CCNACoursePage() {
                         <Clock size={12} />
                         <span>{currentStage.timeline}</span>
                       </span>
-                      <span className={styles.stageIndexPill}>
+                      <span className={styles.stageMilestonePill}>
                         <Sparkles size={12} />
-                        <span>Stage {currentStage.stageNum} of 05</span>
+                        <span><strong>Milestone:</strong> {currentStage.outcome}</span>
                       </span>
                     </div>
 
@@ -1069,7 +1060,7 @@ export function CCNACoursePage() {
                       {currentStage.checklist.map((item, idx) => (
                         <div key={idx} className={styles.roadmapCheckCard}>
                           <div className={styles.checkIconWrap}>
-                            <CheckCircle2 size={16} className={styles.checkIcon} />
+                            <CheckCircle2 size={15} className={styles.checkIcon} />
                           </div>
                           <div className={styles.checkText}>
                             <strong className={styles.checkTitle}>{item.title}</strong>{' '}
@@ -1080,7 +1071,7 @@ export function CCNACoursePage() {
                     </div>
 
                     <div className={styles.toolsRow}>
-                      <span className={styles.toolsLabel}>Tools & Infrastructure:</span>
+                      <span className={styles.toolsLabel}>Tools & Tech:</span>
                       <div className={styles.toolsPillGroup}>
                         {currentStage.tools.map((tool, tIdx) => (
                           <span key={tIdx} className={styles.toolPill}>
