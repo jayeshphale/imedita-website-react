@@ -425,6 +425,7 @@ export function CCNACoursePage() {
   const [openModule, setOpenModule] = useState('mod-1');
   const [openFaq, setOpenFaq] = useState(0);
   const [activeRoadmapStage, setActiveRoadmapStage] = useState(0);
+  const [activeSlice, setActiveSlice] = useState(0);
 
   // Hero Lead Form State
   const [heroForm, setHeroForm] = useState({ name: '', email: '', phone: '' });
@@ -1101,230 +1102,335 @@ export function CCNACoursePage() {
         </section>
 
         {/* =========================================================================
-            CCNA COURSE OVERVIEW (MODERN BENTO GRID ARCHITECTURE)
+            CCNA COURSE OVERVIEW (INTERACTIVE EXPANDING SLICES SHOWCASE)
             ========================================================================= */}
-        <section id="course-overview-section" className={styles.bentoSection}>
+        <section id="course-overview-section" className={styles.slicesSection}>
           <div className={styles.container}>
             {/* Header */}
-            <div className={styles.bentoHeader}>
-              <span className={styles.bentoPill}>
+            <div className={styles.slicesHeader}>
+              <span className={styles.slicesPill}>
                 <BookOpen size={13} />
                 <span>CCNA COURSE OVERVIEW</span>
               </span>
-              <h2 className={styles.bentoHeading}>
+              <h2 className={styles.slicesHeading}>
                 Why CCNA Course/CCNA Training?
               </h2>
-              <p className={styles.bentoSubtext}>
-                Discover why Cisco 200-301 CCNA is the undisputed foundation for enterprise networking careers, hands-on physical hardware practice, and global credential validation.
+              <p className={styles.slicesSubtext}>
+                Click any pillar to explore the complete curriculum specifications, target profiles, physical lab devices, and certification exam details.
               </p>
             </div>
 
-            {/* Modern Bento Grid */}
-            <div className={styles.bentoGrid}>
+            {/* Quick-Nav Pill Switcher */}
+            <div className={styles.slicesPillBar} role="tablist">
+              {[
+                { label: '01. Why CCNA?', icon: Globe },
+                { label: '02. Who Should Take?', icon: Users },
+                { label: '03. Pre-Requisites', icon: ShieldCheck },
+                { label: '04. Job Profiles', icon: Briefcase },
+                { label: '05. Devices & Tools', icon: Server },
+                { label: '06. Exam Details', icon: Award }
+              ].map((tab, idx) => {
+                const TabIcon = tab.icon;
+                const isTabActive = activeSlice === idx;
+                return (
+                  <button
+                    key={idx}
+                    type="button"
+                    role="tab"
+                    aria-selected={isTabActive}
+                    className={`${styles.slicesPillBtn} ${isTabActive ? styles.slicesPillBtnActive : ''}`}
+                    onClick={() => setActiveSlice(idx)}
+                  >
+                    <TabIcon size={14} />
+                    <span>{tab.label}</span>
+                  </button>
+                );
+              })}
+            </div>
 
-              {/* Bento Card 1: Top Wide Overview (Worldwide Leader & Indian Dominance) */}
-              <div className={`${styles.bentoCard} ${styles.bentoCardFull}`}>
-                <div className={styles.bentoTopSplit}>
-                  <div className={styles.bentoSplitLeft}>
-                    <div className={styles.bentoIconBadge} style={{ background: 'linear-gradient(135deg, #0284c7 0%, #0369a1 100%)' }}>
-                      <Globe size={22} color="#ffffff" />
-                    </div>
-                    <h3 className={styles.bentoCardTitle}>Worldwide IT Leadership &amp; India Market Dominance</h3>
-                    <p className={styles.bentoParagraph}>
-                      Cisco is the worldwide leader in IT and networking. Cisco has transformed the way people connect, communicate, and collaborate. Cisco products and solutions are deployed in companies from small &amp; medium sizes to large enterprises.
-                    </p>
-                    <p className={styles.bentoParagraph}>
-                      Cisco is the most dominant player in India for network infrastructure, a clear leader in all segments – Ethernet Switch, Routers and WLAN. Hence there is a good scope for Cisco Networking Professionals in India.
-                    </p>
+            {/* Expanding Flex Panels Matrix */}
+            <div className={styles.slicesDeck}>
+
+              {/* Panel 0: Why CCNA? */}
+              <div
+                className={`${styles.sliceCol} ${activeSlice === 0 ? styles.sliceColActive : styles.sliceColCollapsed}`}
+                onClick={() => setActiveSlice(0)}
+              >
+                {activeSlice !== 0 ? (
+                  <div className={styles.sliceRail}>
+                    <div className={styles.sliceRailNum}>01</div>
+                    <div className={styles.sliceRailIcon}><Globe size={18} /></div>
+                    <span className={styles.sliceRailText}>Why CCNA Course?</span>
                   </div>
-
-                  <div className={styles.bentoSplitRight}>
-                    <div className={styles.bentoHighlightBox}>
-                      <div className={styles.bentoMiniBadge}>
-                        <Zap size={14} color="#0066cc" />
-                        <span>Core Competency &amp; Career Scope</span>
-                      </div>
-                      <p className={styles.bentoParagraph} style={{ marginBottom: 0 }}>
+                ) : (
+                  <div className={styles.sliceExpandedView}>
+                    <div className={styles.sliceTopRow}>
+                      <span className={styles.sliceBadge}>01 • Market Leadership</span>
+                      <h3 className={styles.sliceTitle}>Why CCNA Course/CCNA Training?</h3>
+                    </div>
+                    <div className={styles.sliceBodyScroll}>
+                      <p className={styles.sliceParagraph}>
+                        Cisco is the worldwide leader in IT and networking. Cisco has transformed the way people connect, communicate, and collaborate. Cisco products and solutions are deployed in companies from small &amp; medium sizes to large enterprises.
+                      </p>
+                      <p className={styles.sliceParagraph}>
+                        Cisco is the most dominant player in India for network infrastructure, a clear leader in all segments – Ethernet Switch, Routers and WLAN. Hence there is a good scope for Cisco Networking Professionals in India.
+                      </p>
+                      <p className={styles.sliceParagraph}>
                         CCNA certification demonstrates the skills and knowledge required to install, operate, configure, and verify basic IPv4 and IPv6 networks. The CCNA Course/CCNA Training also gives you a foundation in networking fundamentals, IP services, security fundamentals, automation, and programmability. The CCNA training course and exam give you the foundation to take your career in any direction in the IT Domain.
                       </p>
                     </div>
                   </div>
-                </div>
+                )}
               </div>
 
-              {/* Bento Card 2: Target Audience (Who Should Take) */}
-              <div className={`${styles.bentoCard} ${styles.bentoCardAudience}`}>
-                <div className={styles.bentoCardHeader}>
-                  <div className={styles.bentoIconBadge} style={{ background: 'linear-gradient(135deg, #0066cc 0%, #004499 100%)' }}>
-                    <Users size={20} color="#ffffff" />
+              {/* Panel 1: Who Should Take? */}
+              <div
+                className={`${styles.sliceCol} ${activeSlice === 1 ? styles.sliceColActive : styles.sliceColCollapsed}`}
+                onClick={() => setActiveSlice(1)}
+              >
+                {activeSlice !== 1 ? (
+                  <div className={styles.sliceRail}>
+                    <div className={styles.sliceRailNum}>02</div>
+                    <div className={styles.sliceRailIcon}><Users size={18} /></div>
+                    <span className={styles.sliceRailText}>Who Should Take?</span>
                   </div>
-                  <div>
-                    <h3 className={styles.bentoCardTitle}>Who Should Take CCNA Course/CCNA Training?</h3>
-                    <p className={styles.bentoCardSubtitle}>The CCNA course is ideal for:</p>
-                  </div>
-                </div>
-
-                <div className={styles.bentoAudienceList}>
-                  {[
-                    'Candidates passionate about achieving Cisco CCNA Certification.',
-                    'Students enthusiastic about making a career as a Network Engineer can take the CCNA Course/CCNA Training.',
-                    'Working professionals in IT networking can take the CCNA training course to enhance their knowledge and skills.',
-                    'Professionals employed in network administration, operations, and management.',
-                    'Entry-level network engineer, Network administrator, Network support technician, Network Engineers, Help desk technician.',
-                    'Technicians involved in the installation, operation, and verification of Cisco networks.'
-                  ].map((item, idx) => (
-                    <div key={idx} className={styles.bentoAudienceItem}>
-                      <div className={styles.bentoCheckCircle}>
-                        <Check size={11} color="#ffffff" strokeWidth={3} />
+                ) : (
+                  <div className={styles.sliceExpandedView}>
+                    <div className={styles.sliceTopRow}>
+                      <span className={styles.sliceBadge}>02 • Target Audience</span>
+                      <h3 className={styles.sliceTitle}>Who Should Take CCNA Course/CCNA Training?</h3>
+                      <p className={styles.sliceSubtitle}>The CCNA course is ideal for:</p>
+                    </div>
+                    <div className={styles.sliceBodyScroll}>
+                      <div className={styles.sliceAudienceGrid}>
+                        {[
+                          'Candidates passionate about achieving Cisco CCNA Certification.',
+                          'Students enthusiastic about making a career as a Network Engineer can take the CCNA Course/CCNA Training.',
+                          'Working professionals in IT networking can take the CCNA training course to enhance their knowledge and skills.',
+                          'Professionals employed in network administration, operations, and management.',
+                          'Entry-level network engineer, Network administrator, Network support technician, Network Engineers, Help desk technician.',
+                          'Technicians involved in the installation, operation, and verification of Cisco networks.'
+                        ].map((item, idx) => (
+                          <div key={idx} className={styles.sliceAudienceItem}>
+                            <div className={styles.sliceCheck}>
+                              <Check size={11} color="#ffffff" strokeWidth={3} />
+                            </div>
+                            <span>{item}</span>
+                          </div>
+                        ))}
                       </div>
-                      <span className={styles.bentoAudienceText}>{item}</span>
                     </div>
-                  ))}
-                </div>
+                  </div>
+                )}
               </div>
 
-              {/* Bento Card 3: Stack of Pre-Requisites + Job Profiles */}
-              <div className={styles.bentoColStack}>
-                {/* 3A: Pre-Requisites */}
-                <div className={styles.bentoCard}>
-                  <div className={styles.bentoCardHeader}>
-                    <div className={styles.bentoIconBadge} style={{ background: 'linear-gradient(135deg, #0284c7 0%, #0369a1 100%)' }}>
-                      <ShieldCheck size={20} color="#ffffff" />
-                    </div>
-                    <div>
-                      <h3 className={styles.bentoCardTitle}>Pre-Requisites For CCNA Course/CCNA Training</h3>
-                    </div>
+              {/* Panel 2: Pre-Requisites */}
+              <div
+                className={`${styles.sliceCol} ${activeSlice === 2 ? styles.sliceColActive : styles.sliceColCollapsed}`}
+                onClick={() => setActiveSlice(2)}
+              >
+                {activeSlice !== 2 ? (
+                  <div className={styles.sliceRail}>
+                    <div className={styles.sliceRailNum}>03</div>
+                    <div className={styles.sliceRailIcon}><ShieldCheck size={18} /></div>
+                    <span className={styles.sliceRailText}>Pre-Requisites</span>
                   </div>
-                  <p className={styles.bentoSubtextNote}>
-                    There are no formal pre-requisites for the CCNA Global Certification Exam, but before appearing for the CCNA Course/CCNA Training, candidates should possess the following knowledge:
-                  </p>
-                  <div className={styles.bentoPrereqGrid}>
-                    <div className={styles.bentoPrereqChip}>
-                      <Laptop size={16} color="#0066cc" />
-                      <span>Basic Computer literacy</span>
+                ) : (
+                  <div className={styles.sliceExpandedView}>
+                    <div className={styles.sliceTopRow}>
+                      <span className={styles.sliceBadge}>03 • Eligibility Criteria</span>
+                      <h3 className={styles.sliceTitle}>Pre-Requisites For CCNA Course/CCNA Training</h3>
                     </div>
-                    <div className={styles.bentoPrereqChip}>
-                      <Globe size={16} color="#0066cc" />
-                      <span>Basic Internet usage skills</span>
-                    </div>
-                    <div className={styles.bentoPrereqChip}>
-                      <Network size={16} color="#0066cc" />
-                      <span>Basic IP address knowledge</span>
-                    </div>
-                    <div className={styles.bentoPrereqChip}>
-                      <Cpu size={16} color="#0066cc" />
-                      <span>Basic PC operating system navigation skills</span>
-                    </div>
-                  </div>
-                </div>
-
-                {/* 3B: Job Profiles Post CCNA */}
-                <div className={styles.bentoCard}>
-                  <div className={styles.bentoCardHeader}>
-                    <div className={styles.bentoIconBadge} style={{ background: 'linear-gradient(135deg, #059669 0%, #047857 100%)' }}>
-                      <Briefcase size={20} color="#ffffff" />
-                    </div>
-                    <div>
-                      <h3 className={styles.bentoCardTitle}>Job Profiles Available Post CCNA Course/CCNA Training</h3>
-                    </div>
-                  </div>
-                  <p className={styles.bentoSubtextNote}>
-                    The 200-301 Cisco CCNA Course/CCNA Training program will train and make you competent to achieve the following job titles:
-                  </p>
-                  <div className={styles.bentoRolesGrid}>
-                    {[
-                      'Network Associate',
-                      'Network Administrator',
-                      'Network Engineer',
-                      'Network Operations Center (NOC) Engineer',
-                      'Network Support Engineer',
-                      'Entry-level Network Engineer',
-                      'Help Desk Technician',
-                      'Network Support Technician'
-                    ].map((role, idx) => (
-                      <div key={idx} className={styles.bentoRoleBadge}>
-                        <span className={styles.bentoRoleDot} />
-                        <span>{role}</span>
+                    <div className={styles.sliceBodyScroll}>
+                      <p className={styles.sliceParagraph}>
+                        There are no formal pre-requisites for the CCNA Global Certification Exam, but before appearing for the CCNA Course/CCNA Training, candidates should possess the following knowledge:
+                      </p>
+                      <div className={styles.slicePrereqGrid}>
+                        <div className={styles.slicePrereqCard}>
+                          <div className={styles.slicePrereqIcon}><Laptop size={18} color="#0066cc" /></div>
+                          <span>Basic Computer literacy</span>
+                        </div>
+                        <div className={styles.slicePrereqCard}>
+                          <div className={styles.slicePrereqIcon}><Globe size={18} color="#0066cc" /></div>
+                          <span>Basic Internet usage skills</span>
+                        </div>
+                        <div className={styles.slicePrereqCard}>
+                          <div className={styles.slicePrereqIcon}><Network size={18} color="#0066cc" /></div>
+                          <span>Basic IP address knowledge</span>
+                        </div>
+                        <div className={styles.slicePrereqCard}>
+                          <div className={styles.slicePrereqIcon}><Cpu size={18} color="#0066cc" /></div>
+                          <span>Basic PC operating system navigation skills</span>
+                        </div>
                       </div>
-                    ))}
+                    </div>
                   </div>
-                </div>
+                )}
               </div>
 
-              {/* Bento Card 4: Devices & Hardware (Left Wide) */}
-              <div className={`${styles.bentoCard} ${styles.bentoCardHardware}`}>
-                <div className={styles.bentoCardHeader}>
-                  <div className={styles.bentoIconBadge} style={{ background: 'linear-gradient(135deg, #0b1f3a 0%, #1e3a8a 100%)' }}>
-                    <Server size={20} color="#ffffff" />
+              {/* Panel 3: Job Profiles Post CCNA */}
+              <div
+                className={`${styles.sliceCol} ${activeSlice === 3 ? styles.sliceColActive : styles.sliceColCollapsed}`}
+                onClick={() => setActiveSlice(3)}
+              >
+                {activeSlice !== 3 ? (
+                  <div className={styles.sliceRail}>
+                    <div className={styles.sliceRailNum}>04</div>
+                    <div className={styles.sliceRailIcon}><Briefcase size={18} /></div>
+                    <span className={styles.sliceRailText}>Job Profiles Post CCNA</span>
                   </div>
-                  <div>
-                    <h3 className={styles.bentoCardTitle}>Devices To Be Used During The CCNA Course/CCNA Training</h3>
-                    <p className={styles.bentoCardSubtitle}>
-                      During the CCNA Course/CCNA Training, we provide students the opportunity to work on the following devices:
-                    </p>
+                ) : (
+                  <div className={styles.sliceExpandedView}>
+                    <div className={styles.sliceTopRow}>
+                      <span className={styles.sliceBadge}>04 • Career Opportunities</span>
+                      <h3 className={styles.sliceTitle}>Job Profiles Available Post CCNA Course/CCNA Training</h3>
+                      <p className={styles.sliceSubtitle}>
+                        The 200-301 Cisco CCNA Course/CCNA Training program will train and make you competent to achieve the following job titles:
+                      </p>
+                    </div>
+                    <div className={styles.sliceBodyScroll}>
+                      <div className={styles.sliceRolesGrid}>
+                        {[
+                          'Network Associate',
+                          'Network Administrator',
+                          'Network Engineer',
+                          'Network Operations Center (NOC) Engineer',
+                          'Network Support Engineer',
+                          'Entry-level Network Engineer',
+                          'Help Desk Technician',
+                          'Network Support Technician'
+                        ].map((role, idx) => (
+                          <div key={idx} className={styles.sliceRoleBadge}>
+                            <span className={styles.sliceRoleDot} />
+                            <span>{role}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
                   </div>
-                </div>
-
-                <div className={styles.bentoDevicesRow}>
-                  <div className={styles.bentoDeviceBox}>
-                    <span className={styles.bentoDeviceTag}>Router</span>
-                    <p className={styles.bentoDeviceDesc}>2611 XM, 1841, 1905, 2811, and other latest series.</p>
-                  </div>
-                  <div className={styles.bentoDeviceBox}>
-                    <span className={styles.bentoDeviceTag}>Switches</span>
-                    <p className={styles.bentoDeviceDesc}>2950, 2960, 3750, 3560, and other latest series.</p>
-                  </div>
-                  <div className={styles.bentoDeviceBox}>
-                    <span className={styles.bentoDeviceTag}>Tools to be used</span>
-                    <p className={styles.bentoDeviceDesc}>Cisco IOS, Putty, GNS, Cisco Packet Tracer, and EVE-NG.</p>
-                  </div>
-                </div>
-
-                <div className={styles.bentoDeviceCallout}>
-                  <CheckCircle2 size={18} color="#0066cc" style={{ flexShrink: 0, marginTop: 2 }} />
-                  <p>
-                    The above devices will provide candidates with hands-on knowledge and make them confident in operating these tools. Candidates become efficient at setting up, managing, and operating enterprise networks at the entry-level after completing the CCNA Course/CCNA Training.
-                  </p>
-                </div>
+                )}
               </div>
 
-              {/* Bento Card 5: Exam Blueprint (Right Card) */}
-              <div className={`${styles.bentoCard} ${styles.bentoCardExam}`}>
-                <div className={styles.bentoCardHeader}>
-                  <div className={styles.bentoIconBadge} style={{ background: 'linear-gradient(135deg, #ea580c 0%, #c2410c 100%)' }}>
-                    <Award size={20} color="#ffffff" />
+              {/* Panel 4: Devices & Tools */}
+              <div
+                className={`${styles.sliceCol} ${activeSlice === 4 ? styles.sliceColActive : styles.sliceColCollapsed}`}
+                onClick={() => setActiveSlice(4)}
+              >
+                {activeSlice !== 4 ? (
+                  <div className={styles.sliceRail}>
+                    <div className={styles.sliceRailNum}>05</div>
+                    <div className={styles.sliceRailIcon}><Server size={18} /></div>
+                    <span className={styles.sliceRailText}>Devices &amp; Tools</span>
                   </div>
-                  <div>
-                    <h3 className={styles.bentoCardTitle}>CCNA Course/CCNA Training – Exam Details</h3>
-                    <p className={styles.bentoCardSubtitle}>Official Cisco Systems testing parameters</p>
+                ) : (
+                  <div className={styles.sliceExpandedView}>
+                    <div className={styles.sliceTopRow}>
+                      <span className={styles.sliceBadge}>05 • Physical Equipment</span>
+                      <h3 className={styles.sliceTitle}>Devices To Be Used During The CCNA Course/CCNA Training</h3>
+                      <p className={styles.sliceSubtitle}>
+                        During the CCNA Course/CCNA Training, we provide students the opportunity to work on the following devices:
+                      </p>
+                    </div>
+                    <div className={styles.sliceBodyScroll}>
+                      <div className={styles.sliceDevicesGrid}>
+                        <div className={styles.sliceDeviceBox}>
+                          <span className={styles.sliceDeviceTag}>Router</span>
+                          <p className={styles.sliceDeviceText}>2611 XM, 1841, 1905, 2811, and other latest series.</p>
+                        </div>
+                        <div className={styles.sliceDeviceBox}>
+                          <span className={styles.sliceDeviceTag}>Switches</span>
+                          <p className={styles.sliceDeviceText}>2950, 2960, 3750, 3560, and other latest series.</p>
+                        </div>
+                        <div className={styles.sliceDeviceBox}>
+                          <span className={styles.sliceDeviceTag}>Tools to be used</span>
+                          <p className={styles.sliceDeviceText}>Cisco IOS, Putty, GNS, Cisco Packet Tracer, and EVE-NG.</p>
+                        </div>
+                      </div>
+                      <div className={styles.sliceDeviceCallout}>
+                        <CheckCircle2 size={16} color="#0284c7" style={{ flexShrink: 0, marginTop: 2 }} />
+                        <p>
+                          The above devices will provide candidates with hands-on knowledge and make them confident in operating these tools. Candidates become efficient at setting up, managing, and operating enterprise networks at the entry-level after completing the CCNA Course/CCNA Training.
+                        </p>
+                      </div>
+                    </div>
                   </div>
-                </div>
+                )}
+              </div>
 
-                <div className={styles.bentoExamList}>
-                  <div className={styles.bentoExamRow}>
-                    <span className={styles.bentoExamKey}>Certification Name</span>
-                    <strong className={styles.bentoExamVal}>CCNA – Cisco Certified Network Associate</strong>
+              {/* Panel 5: Exam Details */}
+              <div
+                className={`${styles.sliceCol} ${activeSlice === 5 ? styles.sliceColActive : styles.sliceColCollapsed}`}
+                onClick={() => setActiveSlice(5)}
+              >
+                {activeSlice !== 5 ? (
+                  <div className={styles.sliceRail}>
+                    <div className={styles.sliceRailNum}>06</div>
+                    <div className={styles.sliceRailIcon}><Award size={18} /></div>
+                    <span className={styles.sliceRailText}>Exam Details (200-301)</span>
                   </div>
-                  <div className={styles.bentoExamRow}>
-                    <span className={styles.bentoExamKey}>Exam Code</span>
-                    <strong className={styles.bentoExamVal}>200-301 CCNA</strong>
+                ) : (
+                  <div className={styles.sliceExpandedView}>
+                    <div className={styles.sliceTopRow}>
+                      <span className={styles.sliceBadge}>06 • Global Certification</span>
+                      <h3 className={styles.sliceTitle}>CCNA Course/CCNA Training – Exam Details</h3>
+                    </div>
+                    <div className={styles.sliceBodyScroll}>
+                      <div className={styles.sliceExamTable}>
+                        <div className={styles.sliceExamRow}>
+                          <span className={styles.sliceExamKey}>Certification Name</span>
+                          <strong className={styles.sliceExamVal}>CCNA – Cisco Certified Network Associate</strong>
+                        </div>
+                        <div className={styles.sliceExamRow}>
+                          <span className={styles.sliceExamKey}>Exam Code</span>
+                          <strong className={styles.sliceExamVal}>200-301 CCNA</strong>
+                        </div>
+                        <div className={styles.sliceExamRow}>
+                          <span className={styles.sliceExamKey}>Exam Duration</span>
+                          <strong className={styles.sliceExamVal}>120 minutes</strong>
+                        </div>
+                        <div className={styles.sliceExamRow}>
+                          <span className={styles.sliceExamKey}>Available Languages</span>
+                          <strong className={styles.sliceExamVal}>English, Japanese</strong>
+                        </div>
+                        <div className={styles.sliceExamRow}>
+                          <span className={styles.sliceExamKey}>Exam Location</span>
+                          <strong className={styles.sliceExamVal}>Examination at Pearson Vue Centers</strong>
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                  <div className={styles.bentoExamRow}>
-                    <span className={styles.bentoExamKey}>Exam Duration</span>
-                    <strong className={styles.bentoExamVal}>120 minutes</strong>
-                  </div>
-                  <div className={styles.bentoExamRow}>
-                    <span className={styles.bentoExamKey}>Available Languages</span>
-                    <strong className={styles.bentoExamVal}>English, Japanese</strong>
-                  </div>
-                  <div className={styles.bentoExamRow}>
-                    <span className={styles.bentoExamKey}>Exam Location</span>
-                    <strong className={styles.bentoExamVal}>Examination at Pearson Vue Centers</strong>
-                  </div>
-                </div>
+                )}
               </div>
 
             </div>
+
+            {/* Bottom Stepper & Nav */}
+            <div className={styles.slicesBottomNav}>
+              <span className={styles.slicesCounter}>
+                Section {activeSlice + 1} of 6
+              </span>
+              <div className={styles.slicesBtnGroup}>
+                <button
+                  type="button"
+                  className={styles.sliceNavBtn}
+                  disabled={activeSlice === 0}
+                  onClick={() => setActiveSlice((prev) => Math.max(0, prev - 1))}
+                >
+                  <ChevronLeft size={16} />
+                  <span>Previous</span>
+                </button>
+                <button
+                  type="button"
+                  className={styles.sliceNavBtnNext}
+                  disabled={activeSlice === 5}
+                  onClick={() => setActiveSlice((prev) => Math.min(5, prev + 1))}
+                >
+                  <span>Next Section</span>
+                  <ChevronRight size={16} />
+                </button>
+              </div>
+            </div>
+
           </div>
         </section>
         <section className={styles.labSection}>

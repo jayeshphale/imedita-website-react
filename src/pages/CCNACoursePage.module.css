@@ -2213,31 +2213,31 @@
 }
 
 /* --------------------------------------------------------------------------
-   7.5. CCNA COURSE OVERVIEW (MODERN EXECUTIVE BENTO GRID ARCHITECTURE)
+   7.5. CCNA COURSE OVERVIEW (INTERACTIVE EXPANDING SLICES SHOWCASE)
    -------------------------------------------------------------------------- */
-.bentoSection {
+.slicesSection {
   background-color: #f8fafc;
   background-image: 
     radial-gradient(circle at 10% 18%, rgba(0, 102, 204, 0.04) 0%, transparent 45%),
     radial-gradient(circle at 90% 82%, rgba(14, 165, 233, 0.045) 0%, transparent 45%);
-  padding: 5.5rem 1.5rem 6.5rem;
+  padding: 5rem 1.5rem 5.5rem;
   border-bottom: 1px solid #e2e8f0;
   position: relative;
 }
 
 @media (min-width: 768px) {
-  .bentoSection {
-    padding: 6rem 2rem 7rem;
+  .slicesSection {
+    padding: 5.5rem 2rem 6.5rem;
   }
 }
 
-.bentoHeader {
+.slicesHeader {
   text-align: center;
   max-width: 840px;
-  margin: 0 auto 3.25rem;
+  margin: 0 auto 2.5rem;
 }
 
-.bentoPill {
+.slicesPill {
   display: inline-flex;
   align-items: center;
   gap: 0.45rem;
@@ -2253,7 +2253,7 @@
   margin-bottom: 1rem;
 }
 
-.bentoHeading {
+.slicesHeading {
   font-size: clamp(2rem, 3.2vw, 2.65rem);
   font-weight: 850;
   color: #0b1f3a;
@@ -2262,7 +2262,7 @@
   margin-bottom: 0.85rem;
 }
 
-.bentoSubtext {
+.slicesSubtext {
   font-size: 0.98rem;
   color: #64748b;
   line-height: 1.6;
@@ -2270,235 +2270,295 @@
   margin: 0 auto;
 }
 
-/* Bento 12-Column Grid Layout */
-.bentoGrid {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  gap: 1.5rem;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-/* Base Bento Card */
-.bentoCard {
-  background: #ffffff;
-  border: 1px solid #e2e8f0;
-  border-radius: 1.25rem;
-  padding: 2.15rem 2.25rem;
-  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05);
-  transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
-  position: relative;
-  overflow: hidden;
-  text-align: left;
-  display: flex;
-  flex-direction: column;
-}
-
-.bentoCard::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: linear-gradient(90deg, #0066cc 0%, #38bdf8 100%);
-  opacity: 0;
-  transition: opacity 220ms ease;
-}
-
-.bentoCard:hover {
-  border-color: #bfdbfe;
-  box-shadow: 0 14px 30px -4px rgba(0, 102, 204, 0.1);
-  transform: translateY(-3px);
-}
-
-.bentoCard:hover::before {
-  opacity: 1;
-}
-
-@media (max-width: 640px) {
-  .bentoCard {
-    padding: 1.75rem 1.35rem;
-  }
-}
-
-/* Card 1: Full Width Top Overview */
-.bentoCardFull {
-  grid-column: span 12;
-}
-
-.bentoTopSplit {
-  display: grid;
-  grid-template-columns: 1.2fr 1fr;
-  gap: 2.25rem;
-  align-items: center;
-}
-
-@media (max-width: 900px) {
-  .bentoTopSplit {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-}
-
-.bentoSplitLeft {
-  display: flex;
-  flex-direction: column;
-}
-
-.bentoSplitRight {
-  display: flex;
-  flex-direction: column;
-}
-
-.bentoHighlightBox {
-  background: #f8fafc;
-  border: 1.5px solid #e0f2fe;
-  border-radius: 1rem;
-  padding: 1.65rem 1.75rem;
-  position: relative;
-}
-
-.bentoMiniBadge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  padding: 0.25rem 0.75rem;
-  border-radius: 9999px;
-  background-color: #eff6ff;
-  border: 1px solid #bfdbfe;
-  color: #0066cc;
-  font-size: 0.75rem;
-  font-weight: 750;
-  margin-bottom: 0.85rem;
-}
-
-/* Card 2: Target Audience */
-.bentoCardAudience {
-  grid-column: span 7;
-}
-
-@media (max-width: 960px) {
-  .bentoCardAudience {
-    grid-column: span 12;
-  }
-}
-
-/* Card 3: Stack of Pre-Requisites & Job Roles */
-.bentoColStack {
-  grid-column: span 5;
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
-
-@media (max-width: 960px) {
-  .bentoColStack {
-    grid-column: span 12;
-  }
-}
-
-/* Card 4: Hardware & Devices */
-.bentoCardHardware {
-  grid-column: span 7;
-}
-
-@media (max-width: 960px) {
-  .bentoCardHardware {
-    grid-column: span 12;
-  }
-}
-
-/* Card 5: Exam Blueprint */
-.bentoCardExam {
-  grid-column: span 5;
-}
-
-@media (max-width: 960px) {
-  .bentoCardExam {
-    grid-column: span 12;
-  }
-}
-
-/* Shared Header for Bento Cards */
-.bentoCardHeader {
-  display: flex;
-  align-items: flex-start;
-  gap: 1rem;
-  margin-bottom: 1.25rem;
-}
-
-.bentoIconBadge {
-  width: 44px;
-  height: 44px;
-  border-radius: 12px;
+/* Quick-Nav Pill Bar */
+.slicesPillBar {
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-shrink: 0;
-  box-shadow: 0 4px 12px rgba(0, 102, 204, 0.2);
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
 }
 
-.bentoCardTitle {
-  font-size: 1.22rem;
+.slicesPillBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.48rem 1.15rem;
+  border-radius: 9999px;
+  background: #ffffff;
+  border: 1.5px solid #e2e8f0;
+  color: #64748b;
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 180ms ease;
+}
+
+.slicesPillBtn:hover {
+  border-color: #93c5fd;
+  color: #0066cc;
+  background: #eff6ff;
+}
+
+.slicesPillBtnActive {
+  background: #0066cc !important;
+  border-color: #0066cc !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 14px rgba(0, 102, 204, 0.25);
+}
+
+/* Expanding Flex Panels Matrix */
+.slicesDeck {
+  display: flex;
+  gap: 0.85rem;
+  height: 520px;
+  max-width: 1200px;
+  margin: 0 auto;
+  align-items: stretch;
+}
+
+@media (max-width: 900px) {
+  .slicesDeck {
+    flex-direction: column;
+    height: auto;
+    gap: 0.75rem;
+  }
+}
+
+.sliceCol {
+  background: #ffffff;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 1.25rem;
+  overflow: hidden;
+  position: relative;
+  transition: all 420ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.sliceColCollapsed {
+  flex: 0.75;
+  min-width: 68px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f8fafc;
+}
+
+.sliceColCollapsed:hover {
+  background: #eff6ff;
+  border-color: #93c5fd;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 900px) {
+  .sliceColCollapsed {
+    min-width: auto;
+    height: 56px;
+    flex: none;
+    justify-content: flex-start;
+    padding: 0 1.25rem;
+  }
+}
+
+.sliceColActive {
+  flex: 6.5;
+  background: #ffffff;
+  border-color: #93c5fd;
+  box-shadow: 0 16px 36px -8px rgba(0, 102, 204, 0.12);
+  cursor: default;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 900px) {
+  .sliceColActive {
+    flex: none;
+    width: 100%;
+  }
+}
+
+/* Collapsed Rail */
+.sliceRail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  padding: 1.75rem 0.5rem;
+  user-select: none;
+}
+
+@media (max-width: 900px) {
+  .sliceRail {
+    flex-direction: row;
+    width: 100%;
+    padding: 0;
+    justify-content: flex-start;
+    gap: 0.85rem;
+  }
+}
+
+.sliceRailNum {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: #94a3b8;
+}
+
+.sliceRailIcon {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #0066cc;
+  box-shadow: 0 2px 8px rgba(0, 102, 204, 0.08);
+}
+
+.sliceRailText {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  font-size: 0.88rem;
+  font-weight: 750;
+  color: #334155;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  margin-top: 1rem;
+}
+
+@media (max-width: 900px) {
+  .sliceRailText {
+    writing-mode: horizontal-tb;
+    transform: none;
+    margin-top: 0;
+  }
+}
+
+/* Expanded Content */
+.sliceExpandedView {
+  padding: 2.25rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+  text-align: left;
+  animation: sliceFadeIn 280ms ease;
+}
+
+@keyframes sliceFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 640px) {
+  .sliceExpandedView {
+    padding: 1.65rem 1.25rem;
+  }
+}
+
+.sliceTopRow {
+  margin-bottom: 1.25rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.sliceBadge {
+  display: inline-block;
+  padding: 0.22rem 0.75rem;
+  border-radius: 9999px;
+  background: #e0f2fe;
+  border: 1px solid #bae6fd;
+  color: #0284c7;
+  font-size: 0.72rem;
+  font-weight: 750;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 0.45rem;
+}
+
+.sliceTitle {
+  font-size: clamp(1.28rem, 2.2vw, 1.55rem);
   font-weight: 850;
   color: #0b1f3a;
-  letter-spacing: -0.015em;
   margin: 0 0 0.35rem;
-  line-height: 1.35;
+  letter-spacing: -0.015em;
+  line-height: 1.3;
 }
 
-.bentoCardSubtitle {
-  font-size: 0.9rem;
+.sliceSubtitle {
+  font-size: 0.91rem;
   color: #64748b;
   margin: 0;
   line-height: 1.5;
 }
 
-.bentoParagraph {
+.sliceBodyScroll {
+  flex: 1;
+  overflow-y: auto;
+  padding-right: 0.5rem;
+  scrollbar-width: thin;
+}
+
+.sliceBodyScroll::-webkit-scrollbar {
+  width: 5px;
+}
+
+.sliceBodyScroll::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+
+.sliceParagraph {
   font-size: 0.94rem;
   color: #475569;
-  line-height: 1.72;
+  line-height: 1.75;
   margin-bottom: 1.15rem;
 }
 
-.bentoParagraph:last-child {
-  margin-bottom: 0;
+/* Audience Grid */
+.sliceAudienceGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.85rem;
 }
 
-.bentoSubtextNote {
-  font-size: 0.91rem;
-  color: #64748b;
-  line-height: 1.6;
-  margin: 0 0 1rem;
+@media (min-width: 640px) {
+  .sliceAudienceGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.85rem 1.25rem;
+  }
 }
 
-/* Audience List */
-.bentoAudienceList {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-  flex: 1;
-}
-
-.bentoAudienceItem {
+.sliceAudienceItem {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.75rem;
+  padding: 0.85rem 1rem;
   display: flex;
   align-items: flex-start;
   gap: 0.75rem;
-  background: #f8fafc;
-  border: 1px solid #f1f5f9;
-  border-radius: 0.75rem;
-  padding: 0.85rem 1rem;
+  font-size: 0.89rem;
+  color: #334155;
+  line-height: 1.5;
   transition: all 180ms ease;
 }
 
-.bentoAudienceItem:hover {
+.sliceAudienceItem:hover {
   border-color: #93c5fd;
-  background-color: #eff6ff;
-  transform: translateX(3px);
+  background: #eff6ff;
 }
 
-.bentoCheckCircle {
+.sliceCheck {
   width: 18px;
   height: 18px;
   border-radius: 50%;
@@ -2510,83 +2570,98 @@
   margin-top: 2px;
 }
 
-.bentoAudienceText {
-  font-size: 0.89rem;
-  color: #334155;
-  line-height: 1.55;
-}
-
 /* Prerequisites Grid */
-.bentoPrereqGrid {
+.slicePrereqGrid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 0.75rem;
+  gap: 1rem;
+  margin-top: 0.5rem;
 }
 
 @media (max-width: 500px) {
-  .bentoPrereqGrid {
+  .slicePrereqGrid {
     grid-template-columns: 1fr;
   }
 }
 
-.bentoPrereqChip {
+.slicePrereqCard {
   background: #f8fafc;
   border: 1px solid #e2e8f0;
-  border-radius: 0.75rem;
-  padding: 0.75rem 0.85rem;
+  border-radius: 0.85rem;
+  padding: 1rem 1rem;
   display: flex;
   align-items: center;
-  gap: 0.6rem;
-  font-size: 0.84rem;
-  font-weight: 650;
+  gap: 0.75rem;
+  font-size: 0.88rem;
+  font-weight: 700;
   color: #1e293b;
   transition: all 180ms ease;
 }
 
-.bentoPrereqChip:hover {
+.slicePrereqCard:hover {
   border-color: #93c5fd;
-  background-color: #eff6ff;
-  color: #0066cc;
+  background: #eff6ff;
+  transform: translateY(-2px);
 }
 
-/* Job Profiles Grid */
-.bentoRolesGrid {
+.slicePrereqIcon {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.65rem;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
 }
 
-.bentoRoleBadge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.5rem 0.95rem;
-  background-color: #f8fafc;
+/* Roles Grid */
+.sliceRolesGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.85rem 1rem;
+  margin-top: 0.5rem;
+}
+
+@media (max-width: 550px) {
+  .sliceRolesGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.sliceRoleBadge {
+  background: #f8fafc;
   border: 1px solid #e2e8f0;
-  border-radius: 9999px;
-  font-size: 0.84rem;
-  font-weight: 650;
+  border-radius: 0.75rem;
+  padding: 0.85rem 1.15rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.9rem;
+  font-weight: 700;
   color: #0f172a;
   transition: all 180ms ease;
 }
 
-.bentoRoleBadge:hover {
+.sliceRoleBadge:hover {
   border-color: #0066cc;
-  background-color: #eff6ff;
+  background: #eff6ff;
   color: #0066cc;
   transform: translateY(-2px);
-  box-shadow: 0 4px 10px rgba(0, 102, 204, 0.12);
+  box-shadow: 0 4px 10px rgba(0, 102, 204, 0.1);
 }
 
-.bentoRoleDot {
-  width: 7px;
-  height: 7px;
+.sliceRoleDot {
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
   background-color: #0066cc;
+  flex-shrink: 0;
 }
 
-/* Hardware Devices Row */
-.bentoDevicesRow {
+/* Devices & Hardware */
+.sliceDevicesGrid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
@@ -2594,12 +2669,12 @@
 }
 
 @media (max-width: 700px) {
-  .bentoDevicesRow {
+  .sliceDevicesGrid {
     grid-template-columns: 1fr;
   }
 }
 
-.bentoDeviceBox {
+.sliceDeviceBox {
   background: #f8fafc;
   border: 1px solid #e2e8f0;
   border-radius: 0.85rem;
@@ -2607,12 +2682,12 @@
   transition: all 180ms ease;
 }
 
-.bentoDeviceBox:hover {
+.sliceDeviceBox:hover {
   border-color: #93c5fd;
-  background-color: #eff6ff;
+  background: #eff6ff;
 }
 
-.bentoDeviceTag {
+.sliceDeviceTag {
   font-size: 0.74rem;
   font-weight: 750;
   color: #0284c7;
@@ -2622,18 +2697,18 @@
   margin-bottom: 0.45rem;
 }
 
-.bentoDeviceDesc {
+.sliceDeviceText {
   font-size: 0.88rem;
   color: #334155;
   line-height: 1.5;
   margin: 0;
 }
 
-.bentoDeviceCallout {
+.sliceDeviceCallout {
   background: #f0fdf4;
   border: 1px solid #bbf7d0;
-  border-radius: 0.85rem;
-  padding: 1rem 1.25rem;
+  border-radius: 0.75rem;
+  padding: 0.95rem 1.25rem;
   display: flex;
   align-items: flex-start;
   gap: 0.75rem;
@@ -2642,19 +2717,18 @@
   line-height: 1.6;
 }
 
-.bentoDeviceCallout p {
+.sliceDeviceCallout p {
   margin: 0;
 }
 
-/* Exam Blueprint List */
-.bentoExamList {
+/* Exam Table */
+.sliceExamTable {
   border: 1px solid #e2e8f0;
   border-radius: 0.85rem;
   overflow: hidden;
-  margin-top: 0.5rem;
 }
 
-.bentoExamRow {
+.sliceExamRow {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -2665,33 +2739,33 @@
   transition: background 160ms ease;
 }
 
-.bentoExamRow:last-child {
+.sliceExamRow:last-child {
   border-bottom: none;
 }
 
-.bentoExamRow:nth-child(even) {
+.sliceExamRow:nth-child(even) {
   background: #f8fafc;
 }
 
-.bentoExamRow:hover {
+.sliceExamRow:hover {
   background: #eff6ff;
 }
 
 @media (max-width: 550px) {
-  .bentoExamRow {
+  .sliceExamRow {
     flex-direction: column;
     align-items: flex-start;
     gap: 0.25rem;
   }
 }
 
-.bentoExamKey {
+.sliceExamKey {
   font-size: 0.84rem;
   font-weight: 650;
   color: #64748b;
 }
 
-.bentoExamVal {
+.sliceExamVal {
   font-size: 0.91rem;
   font-weight: 750;
   color: #0b1f3a;
@@ -2699,9 +2773,85 @@
 }
 
 @media (max-width: 550px) {
-  .bentoExamVal {
+  .sliceExamVal {
     text-align: left;
   }
+}
+
+/* Bottom Stepper & Nav */
+.slicesBottomNav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 1.75rem auto 0;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.slicesCounter {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #94a3b8;
+  letter-spacing: 0.02em;
+}
+
+.slicesBtnGroup {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.sliceNavBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.45rem 1rem;
+  border-radius: 9999px;
+  border: 1px solid #cbd5e1;
+  background: #ffffff;
+  color: #475569;
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 160ms ease;
+}
+
+.sliceNavBtn:hover:not(:disabled) {
+  border-color: #94a3b8;
+  color: #0b1f3a;
+}
+
+.sliceNavBtn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.sliceNavBtnNext {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.48rem 1.2rem;
+  border-radius: 9999px;
+  border: none;
+  background: #0066cc;
+  color: #ffffff;
+  font-size: 0.82rem;
+  font-weight: 750;
+  cursor: pointer;
+  transition: all 160ms ease;
+  box-shadow: 0 4px 10px rgba(0, 102, 204, 0.2);
+}
+
+.sliceNavBtnNext:hover:not(:disabled) {
+  background: #0052a3;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px rgba(0, 102, 204, 0.3);
+}
+
+.sliceNavBtnNext:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
 }
 
 /* --------------------------------------------------------------------------
