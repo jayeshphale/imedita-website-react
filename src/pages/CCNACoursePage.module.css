@@ -2213,6 +2213,162 @@
 }
 
 /* --------------------------------------------------------------------------
+   7.5. CCNA COURSE OVERVIEW (COLLAPSIBLE / READ MORE - MATCHING USER DESIGN)
+   -------------------------------------------------------------------------- */
+.courseOverviewSection {
+  background-color: #f8fafc;
+  padding: 4.5rem 1.5rem 5rem;
+  border-bottom: 1px solid #e2e8f0;
+  position: relative;
+}
+
+@media (min-width: 768px) {
+  .courseOverviewSection {
+    padding: 5.5rem 2rem 6rem;
+  }
+}
+
+.courseOverviewHeader {
+  text-align: center;
+  margin-bottom: 2.25rem;
+}
+
+.courseOverviewPill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.35rem 1.15rem;
+  border-radius: 9999px;
+  background-color: #e0f2fe;
+  border: 1px solid #bae6fd;
+  color: #0284c7;
+  font-size: 0.72rem;
+  font-weight: 750;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.courseOverviewHeading {
+  font-size: clamp(1.95rem, 3.2vw, 2.5rem);
+  font-weight: 850;
+  color: #0b1f3a;
+  letter-spacing: -0.025em;
+  line-height: 1.25;
+  margin: 0 auto;
+}
+
+.courseOverviewProse {
+  max-width: 880px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.courseOverviewParagraph {
+  font-size: 0.94rem;
+  color: #475569;
+  line-height: 1.75;
+  margin-bottom: 1.25rem;
+}
+
+.readMoreDashedBtn {
+  width: 100%;
+  border: 1.5px dashed #93c5fd;
+  border-radius: 8px;
+  background-color: transparent;
+  padding: 0.85rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  color: #0066cc;
+  font-size: 0.92rem;
+  font-weight: 650;
+  cursor: pointer;
+  transition: all 180ms ease;
+  margin-top: 1.5rem;
+}
+
+.readMoreDashedBtn:hover {
+  border-color: #2563eb;
+  background-color: #eff6ff;
+  color: #1d4ed8;
+}
+
+.expandedOverviewContent {
+  animation: fadeInOverview 240ms ease;
+}
+
+@keyframes fadeInOverview {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.overviewBlock {
+  margin-top: 2.25rem;
+}
+
+.overviewSubheading {
+  font-size: 1.3rem;
+  font-weight: 850;
+  color: #0b1f3a;
+  letter-spacing: -0.015em;
+  margin: 0 0 0.85rem;
+}
+
+.overviewSubtext {
+  font-size: 0.94rem;
+  color: #475569;
+  line-height: 1.65;
+  margin-bottom: 0.85rem;
+}
+
+.overviewBulletList {
+  list-style-type: disc;
+  padding-left: 1.45rem;
+  margin: 0 0 1.25rem;
+}
+
+.overviewBulletList li {
+  font-size: 0.92rem;
+  color: #475569;
+  line-height: 1.7;
+  margin-bottom: 0.45rem;
+}
+
+.readLessWrap {
+  display: flex;
+  justify-content: center;
+  margin-top: 2.75rem;
+}
+
+.readLessBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: transparent;
+  border: none;
+  color: #0066cc;
+  font-size: 0.9rem;
+  font-weight: 650;
+  cursor: pointer;
+  padding: 0.4rem 0.85rem;
+  border-radius: 6px;
+  transition: all 160ms ease;
+}
+
+.readLessBtn:hover {
+  color: #004499;
+  background-color: #eff6ff;
+}
+
+/* --------------------------------------------------------------------------
    7. 80+ REAL CISCO LAB HARDWARE PODS (DARK ENTERPRISE BLUEPRINT)
    -------------------------------------------------------------------------- */
 .labSection {
