@@ -1156,31 +1156,28 @@ export function CCNACoursePage() {
                 className={`${styles.sliceCol} ${activeSlice === 0 ? styles.sliceColActive : styles.sliceColCollapsed}`}
                 onClick={() => setActiveSlice(0)}
               >
-                {activeSlice !== 0 ? (
-                  <div className={styles.sliceRail}>
-                    <div className={styles.sliceRailNum}>01</div>
-                    <div className={styles.sliceRailIcon}><Globe size={18} /></div>
-                    <span className={styles.sliceRailText}>Why CCNA Course?</span>
+                <div className={styles.sliceRail} aria-hidden={activeSlice === 0}>
+                  <div className={styles.sliceRailNum}>01</div>
+                  <div className={styles.sliceRailIcon}><Globe size={18} /></div>
+                  <span className={styles.sliceRailText}>Why CCNA Course?</span>
+                </div>
+                <div className={styles.sliceExpandedView} aria-hidden={activeSlice !== 0}>
+                  <div className={styles.sliceTopRow}>
+                    <span className={styles.sliceBadge}>01 • Market Leadership</span>
+                    <h3 className={styles.sliceTitle}>Why CCNA Course/CCNA Training?</h3>
                   </div>
-                ) : (
-                  <div className={styles.sliceExpandedView}>
-                    <div className={styles.sliceTopRow}>
-                      <span className={styles.sliceBadge}>01 • Market Leadership</span>
-                      <h3 className={styles.sliceTitle}>Why CCNA Course/CCNA Training?</h3>
-                    </div>
-                    <div className={styles.sliceBodyScroll}>
-                      <p className={styles.sliceParagraph}>
-                        Cisco is the worldwide leader in IT and networking. Cisco has transformed the way people connect, communicate, and collaborate. Cisco products and solutions are deployed in companies from small &amp; medium sizes to large enterprises.
-                      </p>
-                      <p className={styles.sliceParagraph}>
-                        Cisco is the most dominant player in India for network infrastructure, a clear leader in all segments – Ethernet Switch, Routers and WLAN. Hence there is a good scope for Cisco Networking Professionals in India.
-                      </p>
-                      <p className={styles.sliceParagraph}>
-                        CCNA certification demonstrates the skills and knowledge required to install, operate, configure, and verify basic IPv4 and IPv6 networks. The CCNA Course/CCNA Training also gives you a foundation in networking fundamentals, IP services, security fundamentals, automation, and programmability. The CCNA training course and exam give you the foundation to take your career in any direction in the IT Domain.
-                      </p>
-                    </div>
+                  <div className={styles.sliceBodyScroll}>
+                    <p className={styles.sliceParagraph}>
+                      Cisco is the worldwide leader in IT and networking. Cisco has transformed the way people connect, communicate, and collaborate. Cisco products and solutions are deployed in companies from small &amp; medium sizes to large enterprises.
+                    </p>
+                    <p className={styles.sliceParagraph}>
+                      Cisco is the most dominant player in India for network infrastructure, a clear leader in all segments – Ethernet Switch, Routers and WLAN. Hence there is a good scope for Cisco Networking Professionals in India.
+                    </p>
+                    <p className={styles.sliceParagraph}>
+                      CCNA certification demonstrates the skills and knowledge required to install, operate, configure, and verify basic IPv4 and IPv6 networks. The CCNA Course/CCNA Training also gives you a foundation in networking fundamentals, IP services, security fundamentals, automation, and programmability. The CCNA training course and exam give you the foundation to take your career in any direction in the IT Domain.
+                    </p>
                   </div>
-                )}
+                </div>
               </div>
 
               {/* Panel 1: Who Should Take? */}
@@ -1188,40 +1185,37 @@ export function CCNACoursePage() {
                 className={`${styles.sliceCol} ${activeSlice === 1 ? styles.sliceColActive : styles.sliceColCollapsed}`}
                 onClick={() => setActiveSlice(1)}
               >
-                {activeSlice !== 1 ? (
-                  <div className={styles.sliceRail}>
-                    <div className={styles.sliceRailNum}>02</div>
-                    <div className={styles.sliceRailIcon}><Users size={18} /></div>
-                    <span className={styles.sliceRailText}>Who Should Take?</span>
+                <div className={styles.sliceRail} aria-hidden={activeSlice === 1}>
+                  <div className={styles.sliceRailNum}>02</div>
+                  <div className={styles.sliceRailIcon}><Users size={18} /></div>
+                  <span className={styles.sliceRailText}>Who Should Take?</span>
+                </div>
+                <div className={styles.sliceExpandedView} aria-hidden={activeSlice !== 1}>
+                  <div className={styles.sliceTopRow}>
+                    <span className={styles.sliceBadge}>02 • Target Audience</span>
+                    <h3 className={styles.sliceTitle}>Who Should Take CCNA Course/CCNA Training?</h3>
+                    <p className={styles.sliceSubtitle}>The CCNA course is ideal for:</p>
                   </div>
-                ) : (
-                  <div className={styles.sliceExpandedView}>
-                    <div className={styles.sliceTopRow}>
-                      <span className={styles.sliceBadge}>02 • Target Audience</span>
-                      <h3 className={styles.sliceTitle}>Who Should Take CCNA Course/CCNA Training?</h3>
-                      <p className={styles.sliceSubtitle}>The CCNA course is ideal for:</p>
-                    </div>
-                    <div className={styles.sliceBodyScroll}>
-                      <div className={styles.sliceAudienceGrid}>
-                        {[
-                          'Candidates passionate about achieving Cisco CCNA Certification.',
-                          'Students enthusiastic about making a career as a Network Engineer can take the CCNA Course/CCNA Training.',
-                          'Working professionals in IT networking can take the CCNA training course to enhance their knowledge and skills.',
-                          'Professionals employed in network administration, operations, and management.',
-                          'Entry-level network engineer, Network administrator, Network support technician, Network Engineers, Help desk technician.',
-                          'Technicians involved in the installation, operation, and verification of Cisco networks.'
-                        ].map((item, idx) => (
-                          <div key={idx} className={styles.sliceAudienceItem}>
-                            <div className={styles.sliceCheck}>
-                              <Check size={11} color="#ffffff" strokeWidth={3} />
-                            </div>
-                            <span>{item}</span>
+                  <div className={styles.sliceBodyScroll}>
+                    <div className={styles.sliceAudienceGrid}>
+                      {[
+                        'Candidates passionate about achieving Cisco CCNA Certification.',
+                        'Students enthusiastic about making a career as a Network Engineer can take the CCNA Course/CCNA Training.',
+                        'Working professionals in IT networking can take the CCNA training course to enhance their knowledge and skills.',
+                        'Professionals employed in network administration, operations, and management.',
+                        'Entry-level network engineer, Network administrator, Network support technician, Network Engineers, Help desk technician.',
+                        'Technicians involved in the installation, operation, and verification of Cisco networks.'
+                      ].map((item, idx) => (
+                        <div key={idx} className={styles.sliceAudienceItem}>
+                          <div className={styles.sliceCheck}>
+                            <Check size={11} color="#ffffff" strokeWidth={3} />
                           </div>
-                        ))}
-                      </div>
+                          <span>{item}</span>
+                        </div>
+                      ))}
                     </div>
                   </div>
-                )}
+                </div>
               </div>
 
               {/* Panel 2: Pre-Requisites */}
@@ -1229,43 +1223,40 @@ export function CCNACoursePage() {
                 className={`${styles.sliceCol} ${activeSlice === 2 ? styles.sliceColActive : styles.sliceColCollapsed}`}
                 onClick={() => setActiveSlice(2)}
               >
-                {activeSlice !== 2 ? (
-                  <div className={styles.sliceRail}>
-                    <div className={styles.sliceRailNum}>03</div>
-                    <div className={styles.sliceRailIcon}><ShieldCheck size={18} /></div>
-                    <span className={styles.sliceRailText}>Pre-Requisites</span>
+                <div className={styles.sliceRail} aria-hidden={activeSlice === 2}>
+                  <div className={styles.sliceRailNum}>03</div>
+                  <div className={styles.sliceRailIcon}><ShieldCheck size={18} /></div>
+                  <span className={styles.sliceRailText}>Pre-Requisites</span>
+                </div>
+                <div className={styles.sliceExpandedView} aria-hidden={activeSlice !== 2}>
+                  <div className={styles.sliceTopRow}>
+                    <span className={styles.sliceBadge}>03 • Eligibility Criteria</span>
+                    <h3 className={styles.sliceTitle}>Pre-Requisites For CCNA Course/CCNA Training</h3>
                   </div>
-                ) : (
-                  <div className={styles.sliceExpandedView}>
-                    <div className={styles.sliceTopRow}>
-                      <span className={styles.sliceBadge}>03 • Eligibility Criteria</span>
-                      <h3 className={styles.sliceTitle}>Pre-Requisites For CCNA Course/CCNA Training</h3>
-                    </div>
-                    <div className={styles.sliceBodyScroll}>
-                      <p className={styles.sliceParagraph}>
-                        There are no formal pre-requisites for the CCNA Global Certification Exam, but before appearing for the CCNA Course/CCNA Training, candidates should possess the following knowledge:
-                      </p>
-                      <div className={styles.slicePrereqGrid}>
-                        <div className={styles.slicePrereqCard}>
-                          <div className={styles.slicePrereqIcon}><Laptop size={18} color="#0066cc" /></div>
-                          <span>Basic Computer literacy</span>
-                        </div>
-                        <div className={styles.slicePrereqCard}>
-                          <div className={styles.slicePrereqIcon}><Globe size={18} color="#0066cc" /></div>
-                          <span>Basic Internet usage skills</span>
-                        </div>
-                        <div className={styles.slicePrereqCard}>
-                          <div className={styles.slicePrereqIcon}><Network size={18} color="#0066cc" /></div>
-                          <span>Basic IP address knowledge</span>
-                        </div>
-                        <div className={styles.slicePrereqCard}>
-                          <div className={styles.slicePrereqIcon}><Cpu size={18} color="#0066cc" /></div>
-                          <span>Basic PC operating system navigation skills</span>
-                        </div>
+                  <div className={styles.sliceBodyScroll}>
+                    <p className={styles.sliceParagraph}>
+                      There are no formal pre-requisites for the CCNA Global Certification Exam, but before appearing for the CCNA Course/CCNA Training, candidates should possess the following knowledge:
+                    </p>
+                    <div className={styles.slicePrereqGrid}>
+                      <div className={styles.slicePrereqCard}>
+                        <div className={styles.slicePrereqIcon}><Laptop size={18} color="#0066cc" /></div>
+                        <span>Basic Computer literacy</span>
+                      </div>
+                      <div className={styles.slicePrereqCard}>
+                        <div className={styles.slicePrereqIcon}><Globe size={18} color="#0066cc" /></div>
+                        <span>Basic Internet usage skills</span>
+                      </div>
+                      <div className={styles.slicePrereqCard}>
+                        <div className={styles.slicePrereqIcon}><Network size={18} color="#0066cc" /></div>
+                        <span>Basic IP address knowledge</span>
+                      </div>
+                      <div className={styles.slicePrereqCard}>
+                        <div className={styles.slicePrereqIcon}><Cpu size={18} color="#0066cc" /></div>
+                        <span>Basic PC operating system navigation skills</span>
                       </div>
                     </div>
                   </div>
-                )}
+                </div>
               </div>
 
               {/* Panel 3: Job Profiles Post CCNA */}
@@ -1273,42 +1264,39 @@ export function CCNACoursePage() {
                 className={`${styles.sliceCol} ${activeSlice === 3 ? styles.sliceColActive : styles.sliceColCollapsed}`}
                 onClick={() => setActiveSlice(3)}
               >
-                {activeSlice !== 3 ? (
-                  <div className={styles.sliceRail}>
-                    <div className={styles.sliceRailNum}>04</div>
-                    <div className={styles.sliceRailIcon}><Briefcase size={18} /></div>
-                    <span className={styles.sliceRailText}>Job Profiles Post CCNA</span>
+                <div className={styles.sliceRail} aria-hidden={activeSlice === 3}>
+                  <div className={styles.sliceRailNum}>04</div>
+                  <div className={styles.sliceRailIcon}><Briefcase size={18} /></div>
+                  <span className={styles.sliceRailText}>Job Profiles Post CCNA</span>
+                </div>
+                <div className={styles.sliceExpandedView} aria-hidden={activeSlice !== 3}>
+                  <div className={styles.sliceTopRow}>
+                    <span className={styles.sliceBadge}>04 • Career Opportunities</span>
+                    <h3 className={styles.sliceTitle}>Job Profiles Available Post CCNA Course/CCNA Training</h3>
+                    <p className={styles.sliceSubtitle}>
+                      The 200-301 Cisco CCNA Course/CCNA Training program will train and make you competent to achieve the following job titles:
+                    </p>
                   </div>
-                ) : (
-                  <div className={styles.sliceExpandedView}>
-                    <div className={styles.sliceTopRow}>
-                      <span className={styles.sliceBadge}>04 • Career Opportunities</span>
-                      <h3 className={styles.sliceTitle}>Job Profiles Available Post CCNA Course/CCNA Training</h3>
-                      <p className={styles.sliceSubtitle}>
-                        The 200-301 Cisco CCNA Course/CCNA Training program will train and make you competent to achieve the following job titles:
-                      </p>
-                    </div>
-                    <div className={styles.sliceBodyScroll}>
-                      <div className={styles.sliceRolesGrid}>
-                        {[
-                          'Network Associate',
-                          'Network Administrator',
-                          'Network Engineer',
-                          'Network Operations Center (NOC) Engineer',
-                          'Network Support Engineer',
-                          'Entry-level Network Engineer',
-                          'Help Desk Technician',
-                          'Network Support Technician'
-                        ].map((role, idx) => (
-                          <div key={idx} className={styles.sliceRoleBadge}>
-                            <span className={styles.sliceRoleDot} />
-                            <span>{role}</span>
-                          </div>
-                        ))}
-                      </div>
+                  <div className={styles.sliceBodyScroll}>
+                    <div className={styles.sliceRolesGrid}>
+                      {[
+                        'Network Associate',
+                        'Network Administrator',
+                        'Network Engineer',
+                        'Network Operations Center (NOC) Engineer',
+                        'Network Support Engineer',
+                        'Entry-level Network Engineer',
+                        'Help Desk Technician',
+                        'Network Support Technician'
+                      ].map((role, idx) => (
+                        <div key={idx} className={styles.sliceRoleBadge}>
+                          <span className={styles.sliceRoleDot} />
+                          <span>{role}</span>
+                        </div>
+                      ))}
                     </div>
                   </div>
-                )}
+                </div>
               </div>
 
               {/* Panel 4: Devices & Tools */}
@@ -1316,45 +1304,42 @@ export function CCNACoursePage() {
                 className={`${styles.sliceCol} ${activeSlice === 4 ? styles.sliceColActive : styles.sliceColCollapsed}`}
                 onClick={() => setActiveSlice(4)}
               >
-                {activeSlice !== 4 ? (
-                  <div className={styles.sliceRail}>
-                    <div className={styles.sliceRailNum}>05</div>
-                    <div className={styles.sliceRailIcon}><Server size={18} /></div>
-                    <span className={styles.sliceRailText}>Devices &amp; Tools</span>
+                <div className={styles.sliceRail} aria-hidden={activeSlice === 4}>
+                  <div className={styles.sliceRailNum}>05</div>
+                  <div className={styles.sliceRailIcon}><Server size={18} /></div>
+                  <span className={styles.sliceRailText}>Devices &amp; Tools</span>
+                </div>
+                <div className={styles.sliceExpandedView} aria-hidden={activeSlice !== 4}>
+                  <div className={styles.sliceTopRow}>
+                    <span className={styles.sliceBadge}>05 • Physical Equipment</span>
+                    <h3 className={styles.sliceTitle}>Devices To Be Used During The CCNA Course/CCNA Training</h3>
+                    <p className={styles.sliceSubtitle}>
+                      During the CCNA Course/CCNA Training, we provide students the opportunity to work on the following devices:
+                    </p>
                   </div>
-                ) : (
-                  <div className={styles.sliceExpandedView}>
-                    <div className={styles.sliceTopRow}>
-                      <span className={styles.sliceBadge}>05 • Physical Equipment</span>
-                      <h3 className={styles.sliceTitle}>Devices To Be Used During The CCNA Course/CCNA Training</h3>
-                      <p className={styles.sliceSubtitle}>
-                        During the CCNA Course/CCNA Training, we provide students the opportunity to work on the following devices:
+                  <div className={styles.sliceBodyScroll}>
+                    <div className={styles.sliceDevicesGrid}>
+                      <div className={styles.sliceDeviceBox}>
+                        <span className={styles.sliceDeviceTag}>Router</span>
+                        <p className={styles.sliceDeviceText}>2611 XM, 1841, 1905, 2811, and other latest series.</p>
+                      </div>
+                      <div className={styles.sliceDeviceBox}>
+                        <span className={styles.sliceDeviceTag}>Switches</span>
+                        <p className={styles.sliceDeviceText}>2950, 2960, 3750, 3560, and other latest series.</p>
+                      </div>
+                      <div className={styles.sliceDeviceBox}>
+                        <span className={styles.sliceDeviceTag}>Tools to be used</span>
+                        <p className={styles.sliceDeviceText}>Cisco IOS, Putty, GNS, Cisco Packet Tracer, and EVE-NG.</p>
+                      </div>
+                    </div>
+                    <div className={styles.sliceDeviceCallout}>
+                      <CheckCircle2 size={16} color="#0284c7" style={{ flexShrink: 0, marginTop: 2 }} />
+                      <p>
+                        The above devices will provide candidates with hands-on knowledge and make them confident in operating these tools. Candidates become efficient at setting up, managing, and operating enterprise networks at the entry-level after completing the CCNA Course/CCNA Training.
                       </p>
                     </div>
-                    <div className={styles.sliceBodyScroll}>
-                      <div className={styles.sliceDevicesGrid}>
-                        <div className={styles.sliceDeviceBox}>
-                          <span className={styles.sliceDeviceTag}>Router</span>
-                          <p className={styles.sliceDeviceText}>2611 XM, 1841, 1905, 2811, and other latest series.</p>
-                        </div>
-                        <div className={styles.sliceDeviceBox}>
-                          <span className={styles.sliceDeviceTag}>Switches</span>
-                          <p className={styles.sliceDeviceText}>2950, 2960, 3750, 3560, and other latest series.</p>
-                        </div>
-                        <div className={styles.sliceDeviceBox}>
-                          <span className={styles.sliceDeviceTag}>Tools to be used</span>
-                          <p className={styles.sliceDeviceText}>Cisco IOS, Putty, GNS, Cisco Packet Tracer, and EVE-NG.</p>
-                        </div>
-                      </div>
-                      <div className={styles.sliceDeviceCallout}>
-                        <CheckCircle2 size={16} color="#0284c7" style={{ flexShrink: 0, marginTop: 2 }} />
-                        <p>
-                          The above devices will provide candidates with hands-on knowledge and make them confident in operating these tools. Candidates become efficient at setting up, managing, and operating enterprise networks at the entry-level after completing the CCNA Course/CCNA Training.
-                        </p>
-                      </div>
-                    </div>
                   </div>
-                )}
+                </div>
               </div>
 
               {/* Panel 5: Exam Details */}
@@ -1362,44 +1347,41 @@ export function CCNACoursePage() {
                 className={`${styles.sliceCol} ${activeSlice === 5 ? styles.sliceColActive : styles.sliceColCollapsed}`}
                 onClick={() => setActiveSlice(5)}
               >
-                {activeSlice !== 5 ? (
-                  <div className={styles.sliceRail}>
-                    <div className={styles.sliceRailNum}>06</div>
-                    <div className={styles.sliceRailIcon}><Award size={18} /></div>
-                    <span className={styles.sliceRailText}>Exam Details (200-301)</span>
+                <div className={styles.sliceRail} aria-hidden={activeSlice === 5}>
+                  <div className={styles.sliceRailNum}>06</div>
+                  <div className={styles.sliceRailIcon}><Award size={18} /></div>
+                  <span className={styles.sliceRailText}>Exam Details (200-301)</span>
+                </div>
+                <div className={styles.sliceExpandedView} aria-hidden={activeSlice !== 5}>
+                  <div className={styles.sliceTopRow}>
+                    <span className={styles.sliceBadge}>06 • Global Certification</span>
+                    <h3 className={styles.sliceTitle}>CCNA Course/CCNA Training – Exam Details</h3>
                   </div>
-                ) : (
-                  <div className={styles.sliceExpandedView}>
-                    <div className={styles.sliceTopRow}>
-                      <span className={styles.sliceBadge}>06 • Global Certification</span>
-                      <h3 className={styles.sliceTitle}>CCNA Course/CCNA Training – Exam Details</h3>
-                    </div>
-                    <div className={styles.sliceBodyScroll}>
-                      <div className={styles.sliceExamTable}>
-                        <div className={styles.sliceExamRow}>
-                          <span className={styles.sliceExamKey}>Certification Name</span>
-                          <strong className={styles.sliceExamVal}>CCNA – Cisco Certified Network Associate</strong>
-                        </div>
-                        <div className={styles.sliceExamRow}>
-                          <span className={styles.sliceExamKey}>Exam Code</span>
-                          <strong className={styles.sliceExamVal}>200-301 CCNA</strong>
-                        </div>
-                        <div className={styles.sliceExamRow}>
-                          <span className={styles.sliceExamKey}>Exam Duration</span>
-                          <strong className={styles.sliceExamVal}>120 minutes</strong>
-                        </div>
-                        <div className={styles.sliceExamRow}>
-                          <span className={styles.sliceExamKey}>Available Languages</span>
-                          <strong className={styles.sliceExamVal}>English, Japanese</strong>
-                        </div>
-                        <div className={styles.sliceExamRow}>
-                          <span className={styles.sliceExamKey}>Exam Location</span>
-                          <strong className={styles.sliceExamVal}>Examination at Pearson Vue Centers</strong>
-                        </div>
+                  <div className={styles.sliceBodyScroll}>
+                    <div className={styles.sliceExamTable}>
+                      <div className={styles.sliceExamRow}>
+                        <span className={styles.sliceExamKey}>Certification Name</span>
+                        <strong className={styles.sliceExamVal}>CCNA – Cisco Certified Network Associate</strong>
+                      </div>
+                      <div className={styles.sliceExamRow}>
+                        <span className={styles.sliceExamKey}>Exam Code</span>
+                        <strong className={styles.sliceExamVal}>200-301 CCNA</strong>
+                      </div>
+                      <div className={styles.sliceExamRow}>
+                        <span className={styles.sliceExamKey}>Exam Duration</span>
+                        <strong className={styles.sliceExamVal}>120 minutes</strong>
+                      </div>
+                      <div className={styles.sliceExamRow}>
+                        <span className={styles.sliceExamKey}>Available Languages</span>
+                        <strong className={styles.sliceExamVal}>English, Japanese</strong>
+                      </div>
+                      <div className={styles.sliceExamRow}>
+                        <span className={styles.sliceExamKey}>Exam Location</span>
+                        <strong className={styles.sliceExamVal}>Examination at Pearson Vue Centers</strong>
                       </div>
                     </div>
                   </div>
-                )}
+                </div>
               </div>
 
             </div>
