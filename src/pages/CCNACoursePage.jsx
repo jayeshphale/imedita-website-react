@@ -35,7 +35,9 @@ import {
   GitFork,
   Route,
   Wrench,
-  Wifi
+  Wifi,
+  ArrowUpRight,
+  ArrowDown
 } from 'lucide-react';
 import { LogoMarquee } from '../components/marquee/LogoMarquee';
 import { CourseStickyNav } from '../components/navigation/CourseStickyNav';
@@ -88,54 +90,84 @@ const whyChooseCards = [
 // What You'll Learn in Cisco CCNA 200-301 Training (10 Core Modules matching Curriculum)
 const whatYouLearnItems = [
   {
+    modNum: '01',
     icon: Network,
     title: 'Networking Fundamentals',
-    desc: 'Learn the OSI model, TCP/IP, Ethernet, and core networking concepts used in enterprise networks.'
+    desc: 'Master the OSI 7-layer model, TCP/IP protocol suite, Ethernet cabling, and core routing & switching roles.',
+    tags: ['OSI Model', 'TCP/IP', 'Ethernet'],
+    labHighlight: 'Physical Cable & Port Mapping'
   },
   {
+    modNum: '02',
     icon: Globe,
     title: 'IPv4 & IPv6 Addressing',
-    desc: 'Master IPv4 and IPv6 addressing, subnetting, and IP planning for modern network infrastructure.'
+    desc: 'Master IPv4 and IPv6 subnetting calculation, VLSM design, public vs. private subnets, and modern dual-stack architecture.',
+    tags: ['Subnetting', 'VLSM', 'Dual-Stack'],
+    labHighlight: 'VLSM Subnet Calculation Lab'
   },
   {
+    modNum: '03',
     icon: Server,
     title: 'Routers & Switches',
-    desc: 'Configure, manage, and troubleshoot Cisco routers and switches using Cisco IOS.'
+    desc: 'Configure, manage, and troubleshoot Cisco Catalyst 9300/2960 switches and ISR 4331 routers using Cisco IOS CLI.',
+    tags: ['Catalyst 9300', 'ISR 4331', 'Cisco IOS'],
+    labHighlight: 'Live Cisco CLI Hardware Lab'
   },
   {
+    modNum: '04',
     icon: GitFork,
     title: 'VLANs & Trunking',
-    desc: 'Implement VLANs, trunking, and inter-VLAN routing to build secure and scalable networks.'
+    desc: 'Implement broadcast containment via VLANs, 802.1Q encapsulation trunking, Router-on-a-Stick, and Layer 3 SVIs.',
+    tags: ['802.1Q', 'Inter-VLAN', 'SVI Routing'],
+    labHighlight: 'Inter-VLAN Multi-Switch Pod'
   },
   {
+    modNum: '05',
     icon: Route,
     title: 'Routing Protocols',
-    desc: 'Configure static routing and OSPF to enable efficient communication across enterprise networks.'
+    desc: 'Configure static routing, default floating routes, and Single/Multi-Area Open Shortest Path First (OSPFv2) dynamic routing.',
+    tags: ['OSPFv2', 'Static Routing', 'Metric & AD'],
+    labHighlight: 'Multi-Area OSPF Topology'
   },
   {
+    modNum: '06',
     icon: Layers,
     title: 'NAT, DHCP & DNS',
-    desc: 'Deploy essential IP services including NAT, DHCP, and DNS for network connectivity.'
+    desc: 'Deploy Dynamic NAT, Port Address Translation (PAT), DHCP server pools, DHCP relay helper-addresses, and DNS resolution.',
+    tags: ['NAT / PAT', 'DHCP Relay', 'DNS / NTP'],
+    labHighlight: 'Enterprise Gateway Services'
   },
   {
+    modNum: '07',
     icon: ShieldCheck,
     title: 'Network Security',
-    desc: 'Secure network devices using ACLs, port security, and Cisco security best practices.'
+    desc: 'Harden network infrastructure using standard/extended ACLs, dynamic port security, DHCP snooping, DAI, and TACACS+/AAA.',
+    tags: ['ACL Filtering', 'Port Security', 'AAA Hardening'],
+    labHighlight: 'Security & Access Control Lab'
   },
   {
+    modNum: '08',
     icon: Wrench,
     title: 'Troubleshooting',
-    desc: 'Identify and resolve real-world network issues using industry-standard troubleshooting techniques.'
+    desc: 'Systematically diagnose packet drops, duplex mismatches, routing blackholes, and MTU issues using industry-standard techniques.',
+    tags: ['Packet Tracing', 'Root Cause', 'Show Commands'],
+    labHighlight: 'Real Incident Break-Fix Lab'
   },
   {
+    modNum: '09',
     icon: Wifi,
     title: 'Wireless Networking',
-    desc: 'Understand wireless networking fundamentals, WLCs, access points, and Wi-Fi security.'
+    desc: 'Design and manage Wi-Fi 6 enterprise architectures, Cisco Wireless LAN Controllers (WLCs), Lightweight APs, and WPA3 security.',
+    tags: ['Cisco WLC', 'Lightweight APs', 'WPA3 Enterprise'],
+    labHighlight: 'Live WLC GUI & CLI Config'
   },
   {
+    modNum: '10',
     icon: Cpu,
     title: 'SDN & Automation',
-    desc: 'Explore Cisco DNA Center, SD-WAN, SD-Access, and network automation fundamentals.'
+    desc: 'Explore controller-led architectures (Cisco DNA Center, SD-WAN, SD-Access), REST API CRUD operations, JSON/YAML, and Python.',
+    tags: ['DNA Center', 'SD-WAN', 'Python & REST'],
+    labHighlight: 'Python Network Automation'
   }
 ];
 
@@ -684,13 +716,16 @@ export function CCNACoursePage() {
         <div className={styles.container}>
           <div className={styles.sectionHeaderCenter}>
             <div className={styles.curriculumPill}>
-              <span>Course Curriculum</span>
+              <Sparkles size={13} className={styles.pillSparkle} />
+              <span>Official Cisco Curriculum</span>
             </div>
             <h2 className={styles.curriculumHeading}>
-              What You'll Learn in Cisco CCNA 200-301<br />Training
+              What You'll Learn in{' '}
+              <span className={styles.gradientText}>Cisco CCNA 200-301</span>
+              <br />Professional Training
             </h2>
             <p className={styles.curriculumSubtext}>
-              Master the Cisco CCNA 200-301 exam objectives through hands-on labs, real-world networking scenarios, and expert-led training designed for enterprise environments.
+              Master all 10 essential networking domains through 80+ hours of physical rack sessions, real-world topologies, and CCIE instructor-led troubleshooting walkthroughs.
             </p>
           </div>
 
@@ -699,14 +734,67 @@ export function CCNACoursePage() {
               const IconComp = item.icon;
               return (
                 <div key={idx} className={styles.curriculumCard}>
-                  <div className={styles.curriculumIconWrap}>
-                    <IconComp size={20} color="#ffffff" strokeWidth={2.2} />
+                  {/* Top Row: Squircle Icon + Tech Mono Module Badge */}
+                  <div className={styles.cardTopRow}>
+                    <div className={styles.curriculumIconWrap}>
+                      <IconComp size={22} color="#ffffff" strokeWidth={2.2} />
+                    </div>
+                    <span className={styles.moduleBadge}>MOD {item.modNum}</span>
                   </div>
+
+                  {/* Title & Description */}
                   <h3 className={styles.curriculumCardTitle}>{item.title}</h3>
                   <p className={styles.curriculumCardDesc}>{item.desc}</p>
+
+                  {/* Interactive Micro Topic Pills */}
+                  <div className={styles.tagsRow}>
+                    {item.tags.map((tag, tIdx) => (
+                      <span key={tIdx} className={styles.microTag}>
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+
+                  {/* Card Footer: Lab Pod Highlight & Interactive Arrow */}
+                  <div className={styles.cardFooter}>
+                    <span className={styles.labBadge}>
+                      <span className={styles.greenPulseDot} />
+                      <span>{item.labHighlight}</span>
+                    </span>
+                    <ArrowUpRight size={14} className={styles.cardArrow} />
+                  </div>
                 </div>
               );
             })}
+          </div>
+
+          {/* Interactive Bottom Curriculum Action Banner */}
+          <div className={styles.curriculumFooterBanner}>
+            <div className={styles.footerBannerLeft}>
+              <div className={styles.footerBannerIcon}>
+                <CheckCircle2 size={24} color="#0066cc" />
+              </div>
+              <div>
+                <h4 className={styles.footerBannerTitle}>Want the Full Day-by-Day Lab Breakdown?</h4>
+                <p className={styles.footerBannerSubtext}>
+                  Explore our comprehensive lab topology guides, command syntax cheatsheets, and official Cisco 200-301 blueprint.
+                </p>
+              </div>
+            </div>
+            <div className={styles.footerBannerActions}>
+              <a href="#syllabus" className={styles.viewSyllabusBtn}>
+                <span>View Detailed Syllabus</span>
+                <ArrowDown size={14} />
+              </a>
+              <button
+                type="button"
+                className={styles.downloadBrochureBtn}
+                onClick={() => handleOpenDemo('Cisco CCNA (200-301) Syllabus PDF')}
+              >
+                <Download size={14} />
+                <span>Get Syllabus PDF</span>
+              </button>
+            </div>
           </div>
         </div>
       </section>
