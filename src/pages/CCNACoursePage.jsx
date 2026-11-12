@@ -1102,129 +1102,279 @@ export function CCNACoursePage() {
         </section>
 
         {/* =========================================================================
-            COURSE OVERVIEW (COLLAPSIBLE / READ MORE - MATCHING REFERENCE DESIGN)
+            CCNA COURSE OVERVIEW (CREATIVE & ATTRACTIVE DESIGN)
             ========================================================================= */}
         <section id="course-overview-section" className={styles.courseOverviewSection}>
           <div className={styles.container}>
+            {/* Header */}
             <div className={styles.courseOverviewHeader}>
-              <span className={styles.courseOverviewPill}>CCNA COURSE OVERVIEW</span>
-              <h2 className={styles.courseOverviewHeading}>Why CCNA Course/CCNA Training?</h2>
+              <span className={styles.courseOverviewPill}>
+                <BookOpen size={13} />
+                <span>CCNA COURSE OVERVIEW</span>
+              </span>
+              <h2 className={styles.courseOverviewHeading}>
+                Why CCNA Course/CCNA Training?
+              </h2>
+              <p className={styles.courseOverviewSubtext}>
+                Empowering networking professionals with real Cisco hardware mastery, industry-recognized credentials, and enterprise deployment readiness.
+              </p>
             </div>
 
-            <div className={styles.courseOverviewProse}>
-              <p className={styles.courseOverviewParagraph}>
-                Cisco is the worldwide leader in IT and networking. Cisco has transformed the way people connect, communicate, and collaborate. Cisco products and solutions are deployed in companies from small &amp; medium sizes to large enterprises.
-              </p>
-              <p className={styles.courseOverviewParagraph}>
-                Cisco is the most dominant player in India for network infrastructure, a clear leader in all segments – Ethernet Switch, Routers and WLAN. Hence there is a good scope for Cisco Networking Professionals in India.
-              </p>
-              <p className={styles.courseOverviewParagraph}>
-                CCNA certification demonstrates the skills and knowledge required to install, operate, configure, and verify basic IPv4 and IPv6 networks. The CCNA Course/CCNA Training also gives you a foundation in networking fundamentals, IP services, security fundamentals, automation, and programmability. The CCNA training course and exam give you the foundation to take your career in any direction in the IT Domain.
-              </p>
-
-              {!isOverviewExpanded && (
-                <div className={styles.readMoreWrap}>
-                  <button
-                    type="button"
-                    className={styles.readMoreBtn}
-                    onClick={() => setIsOverviewExpanded(true)}
-                    aria-expanded="false"
-                  >
-                    <span>Read More</span>
-                    <ChevronDown size={17} />
-                  </button>
+            {/* Overview Intro Cards (3 Creative Visual Feature Highlights) */}
+            <div className={styles.overviewCardsGrid}>
+              <div className={styles.overviewFeatureCard}>
+                <div className={styles.featureCardIcon} style={{ background: 'linear-gradient(135deg, #0284c7 0%, #0369a1 100%)' }}>
+                  <Globe size={22} color="#ffffff" />
                 </div>
-              )}
+                <h3 className={styles.featureCardTitle}>Worldwide Leader in IT</h3>
+                <p className={styles.featureCardText}>
+                  Cisco is the worldwide leader in IT and networking. Cisco has transformed the way people connect, communicate, and collaborate. Cisco products and solutions are deployed in companies from small &amp; medium sizes to large enterprises.
+                </p>
+              </div>
 
-              {isOverviewExpanded && (
-                <div className={styles.expandedOverviewContent}>
-                  <div className={styles.overviewBlock}>
-                    <h3 className={styles.overviewSubheading}>Who Should Take CCNA Course/CCNA Training?</h3>
-                    <p className={styles.overviewSubtext}>The CCNA course is ideal for:</p>
-                    <ul className={styles.overviewBulletList}>
-                      <li>Candidates passionate about achieving Cisco CCNA Certification.</li>
-                      <li>Students enthusiastic about making a career as a Network Engineer can take the CCNA Course/CCNA Training.</li>
-                      <li>Working professionals in IT networking can take the CCNA training course to enhance their knowledge and skills.</li>
-                      <li>Professionals employed in network administration, operations, and management.</li>
-                      <li>Entry-level network engineer, Network administrator, Network support technician, Network Engineers, Help desk technician.</li>
-                      <li>Technicians involved in the installation, operation, and verification of Cisco networks.</li>
-                    </ul>
+              <div className={styles.overviewFeatureCard}>
+                <div className={styles.featureCardIcon} style={{ background: 'linear-gradient(135deg, #0066cc 0%, #004499 100%)' }}>
+                  <Network size={22} color="#ffffff" />
+                </div>
+                <h3 className={styles.featureCardTitle}>Dominant Player in India</h3>
+                <p className={styles.featureCardText}>
+                  Cisco is the most dominant player in India for network infrastructure, a clear leader in all segments – Ethernet Switch, Routers and WLAN. Hence there is immense scope and sustained hiring for Cisco Networking Professionals in India.
+                </p>
+              </div>
+
+              <div className={styles.overviewFeatureCard}>
+                <div className={styles.featureCardIcon} style={{ background: 'linear-gradient(135deg, #059669 0%, #047857 100%)' }}>
+                  <Zap size={22} color="#ffffff" />
+                </div>
+                <h3 className={styles.featureCardTitle}>Core Networking Mastery</h3>
+                <p className={styles.featureCardText}>
+                  CCNA certification demonstrates the skills and knowledge required to install, operate, configure, and verify basic IPv4 and IPv6 networks, IP services, enterprise security, and programmability to launch your IT career in any direction.
+                </p>
+              </div>
+            </div>
+
+            {/* Interactive Toggle Button */}
+            <div className={styles.overviewToggleContainer}>
+              <button
+                type="button"
+                className={styles.overviewCreativeBtn}
+                onClick={() => setIsOverviewExpanded(!isOverviewExpanded)}
+                aria-expanded={isOverviewExpanded}
+              >
+                <span>{isOverviewExpanded ? 'Hide Detailed Course Specifications' : 'Explore Detailed Course Specifications & Exam Blueprint'}</span>
+                {isOverviewExpanded ? <ChevronUp size={18} /> : <ChevronDown size={18} />}
+              </button>
+            </div>
+
+            {/* Expanded Creative Specifications */}
+            {isOverviewExpanded && (
+              <div className={styles.expandedOverviewGrid}>
+
+                {/* 1. Who Should Take */}
+                <div className={styles.creativeSpecCard}>
+                  <div className={styles.specHeaderRow}>
+                    <div className={styles.specIconSquare}>
+                      <Users size={18} color="#0066cc" />
+                    </div>
+                    <div>
+                      <h3 className={styles.specTitle}>Who Should Take CCNA Course/CCNA Training?</h3>
+                      <p className={styles.specSubtitle}>The CCNA course is ideal for:</p>
+                    </div>
                   </div>
-
-                  <div className={styles.overviewBlock}>
-                    <h3 className={styles.overviewSubheading}>Pre-Requisites For CCNA Course/CCNA Training</h3>
-                    <p className={styles.overviewSubtext}>
-                      There are no formal pre-requisites for the CCNA Global Certification Exam, but before appearing for the CCNA Course/CCNA Training, candidates should possess the following knowledge:
-                    </p>
-                    <ul className={styles.overviewBulletList}>
-                      <li>Basic Computer literacy</li>
-                      <li>Basic Internet usage skills</li>
-                      <li>Basic IP address knowledge</li>
-                      <li>Basic PC operating system navigation skills</li>
-                    </ul>
+                  <div className={styles.audienceItemsGrid}>
+                    <div className={styles.audienceItem}>
+                      <div className={styles.audienceDot}>
+                        <Check size={11} color="#ffffff" strokeWidth={3} />
+                      </div>
+                      <span>Candidates passionate about achieving Cisco CCNA Certification.</span>
+                    </div>
+                    <div className={styles.audienceItem}>
+                      <div className={styles.audienceDot}>
+                        <Check size={11} color="#ffffff" strokeWidth={3} />
+                      </div>
+                      <span>Students enthusiastic about making a career as a Network Engineer can take the CCNA Course/CCNA Training.</span>
+                    </div>
+                    <div className={styles.audienceItem}>
+                      <div className={styles.audienceDot}>
+                        <Check size={11} color="#ffffff" strokeWidth={3} />
+                      </div>
+                      <span>Working professionals in IT networking can take the CCNA training course to enhance their knowledge and skills.</span>
+                    </div>
+                    <div className={styles.audienceItem}>
+                      <div className={styles.audienceDot}>
+                        <Check size={11} color="#ffffff" strokeWidth={3} />
+                      </div>
+                      <span>Professionals employed in network administration, operations, and management.</span>
+                    </div>
+                    <div className={styles.audienceItem}>
+                      <div className={styles.audienceDot}>
+                        <Check size={11} color="#ffffff" strokeWidth={3} />
+                      </div>
+                      <span>Entry-level network engineer, Network administrator, Network support technician, Network Engineers, Help desk technician.</span>
+                    </div>
+                    <div className={styles.audienceItem}>
+                      <div className={styles.audienceDot}>
+                        <Check size={11} color="#ffffff" strokeWidth={3} />
+                      </div>
+                      <span>Technicians involved in the installation, operation, and verification of Cisco networks.</span>
+                    </div>
                   </div>
+                </div>
 
-                  <div className={styles.overviewBlock}>
-                    <h3 className={styles.overviewSubheading}>Job Profiles Available Post CCNA Course/CCNA Training</h3>
-                    <p className={styles.overviewSubtext}>
-                      The 200-301 Cisco CCNA Course/CCNA Training program will train and make you competent to achieve the following job titles:
-                    </p>
-                    <ul className={styles.overviewBulletList}>
-                      <li>Network Associate</li>
-                      <li>Network Administrator</li>
-                      <li>Network Engineer</li>
-                      <li>Network Operations Center (NOC) Engineer</li>
-                      <li>Network Support Engineer</li>
-                      <li>Entry-level Network Engineer</li>
-                      <li>Help Desk Technician</li>
-                      <li>Network Support Technician</li>
-                    </ul>
+                {/* 2. Pre-Requisites */}
+                <div className={styles.creativeSpecCard}>
+                  <div className={styles.specHeaderRow}>
+                    <div className={styles.specIconSquare}>
+                      <ShieldCheck size={18} color="#0066cc" />
+                    </div>
+                    <div>
+                      <h3 className={styles.specTitle}>Pre-Requisites For CCNA Course/CCNA Training</h3>
+                      <p className={styles.specSubtitle}>
+                        There are no formal pre-requisites for the CCNA Global Certification Exam, but before appearing for the CCNA Course/CCNA Training, candidates should possess the following knowledge:
+                      </p>
+                    </div>
                   </div>
+                  <div className={styles.prereqCardsRow}>
+                    <div className={styles.prereqBox}>
+                      <Laptop size={20} color="#0284c7" />
+                      <span>Basic Computer Literacy</span>
+                    </div>
+                    <div className={styles.prereqBox}>
+                      <Globe size={20} color="#0284c7" />
+                      <span>Basic Internet Usage Skills</span>
+                    </div>
+                    <div className={styles.prereqBox}>
+                      <Network size={20} color="#0284c7" />
+                      <span>Basic IP Address Knowledge</span>
+                    </div>
+                    <div className={styles.prereqBox}>
+                      <Cpu size={20} color="#0284c7" />
+                      <span>Basic PC Operating System Navigation</span>
+                    </div>
+                  </div>
+                </div>
 
-                  <div className={styles.overviewBlock}>
-                    <h3 className={styles.overviewSubheading}>Devices To Be Used During The CCNA Course/CCNA Training</h3>
-                    <p className={styles.overviewSubtext}>
-                      During the CCNA Course/CCNA Training, we provide students the opportunity to work on the following devices:
-                    </p>
-                    <ul className={styles.overviewBulletList}>
-                      <li>Router: 2611 XM, 1841, 1905, 2811, and other latest series.</li>
-                      <li>Switches: 2950, 2960, 3750, 3560, and other latest series.</li>
-                      <li>Tools to be used: Cisco IOS, Putty, GNS, Cisco Packet Tracer, and EVE-NG.</li>
-                    </ul>
-                    <p className={styles.overviewParagraph} style={{ marginTop: '0.85rem' }}>
+                {/* 3. Job Profiles Available */}
+                <div className={styles.creativeSpecCard}>
+                  <div className={styles.specHeaderRow}>
+                    <div className={styles.specIconSquare}>
+                      <Briefcase size={18} color="#0066cc" />
+                    </div>
+                    <div>
+                      <h3 className={styles.specTitle}>Job Profiles Available Post CCNA Course/CCNA Training</h3>
+                      <p className={styles.specSubtitle}>
+                        The 200-301 Cisco CCNA Course/CCNA Training program will train and make you competent to achieve the following job titles:
+                      </p>
+                    </div>
+                  </div>
+                  <div className={styles.jobRolesGrid}>
+                    {[
+                      'Network Associate',
+                      'Network Administrator',
+                      'Network Engineer',
+                      'Network Operations Center (NOC) Engineer',
+                      'Network Support Engineer',
+                      'Entry-level Network Engineer',
+                      'Help Desk Technician',
+                      'Network Support Technician'
+                    ].map((role, idx) => (
+                      <div key={idx} className={styles.jobRoleBadge}>
+                        <span className={styles.jobRoleDot} />
+                        <span>{role}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* 4. Devices To Be Used */}
+                <div className={styles.creativeSpecCard}>
+                  <div className={styles.specHeaderRow}>
+                    <div className={styles.specIconSquare}>
+                      <Server size={18} color="#0066cc" />
+                    </div>
+                    <div>
+                      <h3 className={styles.specTitle}>Devices To Be Used During The CCNA Course/CCNA Training</h3>
+                      <p className={styles.specSubtitle}>
+                        During the CCNA Course/CCNA Training, we provide students the opportunity to work on the following devices:
+                      </p>
+                    </div>
+                  </div>
+                  <div className={styles.devicesGrid3Col}>
+                    <div className={styles.deviceColBox}>
+                      <div className={styles.deviceColTag}>Router Series</div>
+                      <p className={styles.deviceColText}>2611 XM, 1841, 1905, 2811, and other latest enterprise series.</p>
+                    </div>
+                    <div className={styles.deviceColBox}>
+                      <div className={styles.deviceColTag}>Switch Series</div>
+                      <p className={styles.deviceColText}>2950, 2960, 3750, 3560, and other latest catalyst series.</p>
+                    </div>
+                    <div className={styles.deviceColBox}>
+                      <div className={styles.deviceColTag}>Tools &amp; Emulators</div>
+                      <p className={styles.deviceColText}>Cisco IOS, Putty, GNS, Cisco Packet Tracer, and EVE-NG.</p>
+                    </div>
+                  </div>
+                  <div className={styles.deviceCallout}>
+                    <CheckCircle2 size={18} color="#0066cc" />
+                    <p>
                       The above devices will provide candidates with hands-on knowledge and make them confident in operating these tools. Candidates become efficient at setting up, managing, and operating enterprise networks at the entry-level after completing the CCNA Course/CCNA Training.
                     </p>
                   </div>
+                </div>
 
-                  <div className={styles.overviewBlock}>
-                    <h3 className={styles.overviewSubheading}>CCNA Course/CCNA Training – Exam Details</h3>
-                    <ul className={styles.overviewBulletList}>
-                      <li>Certification Name: CCNA – Cisco Certified Network Associate</li>
-                      <li>Exam Code: 200-301 CCNA</li>
-                      <li>Exam Duration: 120 minutes</li>
-                      <li>Available Languages: English, Japanese</li>
-                      <li>Exam Location: Examination at Pearson Vue Centers</li>
-                    </ul>
+                {/* 5. Exam Details */}
+                <div className={styles.creativeSpecCard}>
+                  <div className={styles.specHeaderRow}>
+                    <div className={styles.specIconSquare}>
+                      <Award size={18} color="#0066cc" />
+                    </div>
+                    <div>
+                      <h3 className={styles.specTitle}>CCNA Course/CCNA Training – Exam Details</h3>
+                      <p className={styles.specSubtitle}>Key parameters for the official Cisco 200-301 CCNA global exam</p>
+                    </div>
                   </div>
-
-                  <div className={styles.readLessWrap}>
-                    <button
-                      type="button"
-                      className={styles.readLessBtn}
-                      onClick={() => {
-                        setIsOverviewExpanded(false);
-                        const el = document.getElementById('course-overview-section');
-                        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                      }}
-                      aria-expanded="true"
-                    >
-                      <span>Read Less</span>
-                      <ChevronUp size={16} />
-                    </button>
+                  <div className={styles.examSpecsPillGrid}>
+                    <div className={styles.examSpecTile}>
+                      <span className={styles.examSpecLabel}>Certification Name</span>
+                      <strong className={styles.examSpecVal}>CCNA – Cisco Certified Network Associate</strong>
+                    </div>
+                    <div className={styles.examSpecTile}>
+                      <span className={styles.examSpecLabel}>Exam Code</span>
+                      <strong className={styles.examSpecVal}>200-301 CCNA</strong>
+                    </div>
+                    <div className={styles.examSpecTile}>
+                      <span className={styles.examSpecLabel}>Exam Duration</span>
+                      <strong className={styles.examSpecVal}>120 minutes</strong>
+                    </div>
+                    <div className={styles.examSpecTile}>
+                      <span className={styles.examSpecLabel}>Available Languages</span>
+                      <strong className={styles.examSpecVal}>English, Japanese</strong>
+                    </div>
+                    <div className={styles.examSpecTile}>
+                      <span className={styles.examSpecLabel}>Exam Location</span>
+                      <strong className={styles.examSpecVal}>Examination at Pearson Vue Centers</strong>
+                    </div>
                   </div>
                 </div>
-              )}
-            </div>
+
+                {/* Read Less */}
+                <div className={styles.readLessWrap}>
+                  <button
+                    type="button"
+                    className={styles.readLessBtn}
+                    onClick={() => {
+                      setIsOverviewExpanded(false);
+                      const el = document.getElementById('course-overview-section');
+                      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }}
+                    aria-expanded="true"
+                  >
+                    <span>Read Less</span>
+                    <ChevronUp size={16} />
+                  </button>
+                </div>
+
+              </div>
+            )}
           </div>
         </section>
         <section className={styles.labSection}>

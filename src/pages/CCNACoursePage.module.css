@@ -2213,31 +2213,35 @@
 }
 
 /* --------------------------------------------------------------------------
-   7.5. CCNA COURSE OVERVIEW (COLLAPSIBLE / READ MORE - MATCHING USER DESIGN)
+   7.5. CCNA COURSE OVERVIEW (CREATIVE & ATTRACTIVE DESIGN)
    -------------------------------------------------------------------------- */
 .courseOverviewSection {
   background-color: #f8fafc;
-  padding: 4.5rem 1.5rem 5rem;
+  background-image: 
+    radial-gradient(circle at 12% 16%, rgba(0, 102, 204, 0.04) 0%, transparent 45%),
+    radial-gradient(circle at 88% 82%, rgba(14, 165, 233, 0.045) 0%, transparent 45%);
+  padding: 5rem 1.5rem 5.5rem;
   border-bottom: 1px solid #e2e8f0;
   position: relative;
 }
 
 @media (min-width: 768px) {
   .courseOverviewSection {
-    padding: 5.5rem 2rem 6rem;
+    padding: 6rem 2rem 6.5rem;
   }
 }
 
 .courseOverviewHeader {
   text-align: center;
-  margin-bottom: 2.25rem;
+  max-width: 840px;
+  margin: 0 auto 3rem;
 }
 
 .courseOverviewPill {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  padding: 0.35rem 1.15rem;
+  gap: 0.45rem;
+  padding: 0.38rem 1.25rem;
   border-radius: 9999px;
   background-color: #e0f2fe;
   border: 1px solid #bae6fd;
@@ -2250,83 +2254,145 @@
 }
 
 .courseOverviewHeading {
-  font-size: clamp(1.95rem, 3.2vw, 2.5rem);
+  font-size: clamp(2rem, 3.2vw, 2.65rem);
   font-weight: 850;
   color: #0b1f3a;
   letter-spacing: -0.025em;
   line-height: 1.25;
+  margin-bottom: 0.85rem;
+}
+
+.courseOverviewSubtext {
+  font-size: 1rem;
+  color: #64748b;
+  line-height: 1.65;
+  max-width: 700px;
   margin: 0 auto;
 }
 
-.courseOverviewProse {
-  max-width: 880px;
-  margin: 0 auto;
+/* 3 Creative Feature Overview Cards */
+.overviewCardsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  max-width: 1120px;
+  margin: 0 auto 2.5rem;
+}
+
+@media (min-width: 860px) {
+  .overviewCardsGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.overviewFeatureCard {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 1.15rem;
+  padding: 2.15rem 1.85rem;
+  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05);
+  transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
+  display: flex;
+  flex-direction: column;
   text-align: left;
+  position: relative;
+  overflow: hidden;
 }
 
-.courseOverviewParagraph {
-  font-size: 0.94rem;
-  color: #475569;
-  line-height: 1.75;
+.overviewFeatureCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #0066cc 0%, #38bdf8 100%);
+  opacity: 0;
+  transition: opacity 220ms ease;
+}
+
+.overviewFeatureCard:hover {
+  transform: translateY(-4px);
+  border-color: #93c5fd;
+  box-shadow: 0 14px 30px -6px rgba(0, 102, 204, 0.12);
+}
+
+.overviewFeatureCard:hover::before {
+  opacity: 1;
+}
+
+.featureCardIcon {
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin-bottom: 1.25rem;
+  box-shadow: 0 4px 14px rgba(0, 102, 204, 0.22);
+  flex-shrink: 0;
 }
 
-.readMoreWrap {
+.featureCardTitle {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #0b1f3a;
+  letter-spacing: -0.015em;
+  margin: 0 0 0.75rem;
+}
+
+.featureCardText {
+  font-size: 0.92rem;
+  color: #64748b;
+  line-height: 1.68;
+  margin: 0;
+}
+
+/* Interactive Creative Toggle Button */
+.overviewToggleContainer {
   display: flex;
   justify-content: center;
-  margin-top: 1.5rem;
+  margin: 0 auto 3rem;
 }
 
-.readMoreBtn {
+.overviewCreativeBtn {
   display: inline-flex;
   align-items: center;
-  gap: 0.45rem;
-  background-color: transparent;
-  border: none;
+  gap: 0.55rem;
+  background: #ffffff;
+  border: 1.5px solid #bfdbfe;
   color: #0066cc;
-  font-size: 0.92rem;
-  font-weight: 650;
+  font-size: 0.94rem;
+  font-weight: 750;
+  padding: 0.75rem 1.85rem;
+  border-radius: 9999px;
   cursor: pointer;
-  padding: 0.45rem 1.15rem;
-  border-radius: 6px;
-  transition: all 160ms ease;
+  transition: all 200ms ease;
+  box-shadow: 0 4px 14px rgba(0, 102, 204, 0.08);
 }
 
-.readMoreBtn:hover {
+.overviewCreativeBtn:hover {
+  border-color: #0066cc;
+  background: #eff6ff;
   color: #004499;
-  background-color: #eff6ff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(0, 102, 204, 0.18);
 }
 
-.readMoreDashedBtn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.45rem;
-  background-color: transparent;
-  border: none;
-  color: #0066cc;
-  font-size: 0.92rem;
-  font-weight: 650;
-  cursor: pointer;
-  padding: 0.45rem 1.15rem;
-  border-radius: 6px;
-  transition: all 160ms ease;
-  margin-top: 1.5rem;
-}
-
-.readMoreDashedBtn:hover {
-  color: #004499;
-  background-color: #eff6ff;
-}
-
-.expandedOverviewContent {
-  animation: fadeInOverview 240ms ease;
+/* Expanded Creative Grid */
+.expandedOverviewGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+  max-width: 1040px;
+  margin: 0 auto;
+  animation: fadeInOverview 260ms ease;
 }
 
 @keyframes fadeInOverview {
   from {
     opacity: 0;
-    transform: translateY(6px);
+    transform: translateY(8px);
   }
   to {
     opacity: 1;
@@ -2334,42 +2400,267 @@
   }
 }
 
-.overviewBlock {
-  margin-top: 2.25rem;
+.creativeSpecCard {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 1.25rem;
+  padding: 2.15rem 2.25rem;
+  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05);
+  text-align: left;
 }
 
-.overviewSubheading {
-  font-size: 1.3rem;
+@media (max-width: 640px) {
+  .creativeSpecCard {
+    padding: 1.65rem 1.35rem;
+  }
+}
+
+.specHeaderRow {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.specIconSquare {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background-color: #eff6ff;
+  border: 1px solid #bfdbfe;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.specTitle {
+  font-size: 1.24rem;
   font-weight: 850;
   color: #0b1f3a;
   letter-spacing: -0.015em;
-  margin: 0 0 0.85rem;
+  margin: 0 0 0.35rem;
 }
 
-.overviewSubtext {
-  font-size: 0.94rem;
-  color: #475569;
-  line-height: 1.65;
-  margin-bottom: 0.85rem;
+.specSubtitle {
+  font-size: 0.91rem;
+  color: #64748b;
+  margin: 0;
+  line-height: 1.5;
 }
 
-.overviewBulletList {
-  list-style-type: disc;
-  padding-left: 1.45rem;
-  margin: 0 0 1.25rem;
+/* 1. Audience Grid */
+.audienceItemsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.9rem 1.75rem;
 }
 
-.overviewBulletList li {
-  font-size: 0.92rem;
-  color: #475569;
-  line-height: 1.7;
+@media (min-width: 640px) {
+  .audienceItemsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.audienceItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  font-size: 0.91rem;
+  color: #334155;
+  line-height: 1.55;
+}
+
+.audienceDot {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background-color: #0066cc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* 2. Prerequisites */
+.prereqCardsRow {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+@media (min-width: 768px) {
+  .prereqCardsRow {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.prereqBox {
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.85rem;
+  padding: 1.25rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.55rem;
+  font-size: 0.87rem;
+  font-weight: 650;
+  color: #1e293b;
+  transition: all 180ms ease;
+}
+
+.prereqBox:hover {
+  border-color: #93c5fd;
+  background-color: #eff6ff;
+  transform: translateY(-2px);
+}
+
+/* 3. Job Profiles */
+.jobRolesGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+.jobRoleBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.55rem 1.2rem;
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 9999px;
+  font-size: 0.88rem;
+  font-weight: 650;
+  color: #0f172a;
+  transition: all 180ms ease;
+}
+
+.jobRoleBadge:hover {
+  background-color: #eff6ff;
+  border-color: #0066cc;
+  color: #0066cc;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 102, 204, 0.12);
+}
+
+.jobRoleDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: #0066cc;
+}
+
+/* 4. Devices 3-Col */
+.devicesGrid3Col {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+@media (min-width: 768px) {
+  .devicesGrid3Col {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.deviceColBox {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.85rem;
+  padding: 1.35rem 1.2rem;
+  transition: all 180ms ease;
+}
+
+.deviceColBox:hover {
+  border-color: #93c5fd;
+  background-color: #eff6ff;
+}
+
+.deviceColTag {
+  font-size: 0.74rem;
+  font-weight: 750;
+  color: #0284c7;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
   margin-bottom: 0.45rem;
 }
 
+.deviceColText {
+  font-size: 0.88rem;
+  color: #334155;
+  line-height: 1.55;
+  margin: 0;
+}
+
+.deviceCallout {
+  margin-top: 1.25rem;
+  padding: 1rem 1.35rem;
+  background-color: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: 0.85rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  font-size: 0.88rem;
+  color: #166534;
+  line-height: 1.6;
+}
+
+.deviceCallout p {
+  margin: 0;
+}
+
+/* 5. Exam Specs */
+.examSpecsPillGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.examSpecTile {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.85rem;
+  padding: 1.2rem 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  transition: all 180ms ease;
+}
+
+.examSpecTile:hover {
+  border-color: #93c5fd;
+  background-color: #eff6ff;
+}
+
+.examSpecLabel {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.examSpecVal {
+  font-size: 0.92rem;
+  font-weight: 750;
+  color: #0b1f3a;
+  line-height: 1.4;
+}
+
+/* Read Less */
 .readLessWrap {
   display: flex;
   justify-content: center;
-  margin-top: 2.75rem;
+  margin-top: 1.5rem;
 }
 
 .readLessBtn {
@@ -2379,10 +2670,10 @@
   background: transparent;
   border: none;
   color: #0066cc;
-  font-size: 0.9rem;
-  font-weight: 650;
+  font-size: 0.92rem;
+  font-weight: 750;
   cursor: pointer;
-  padding: 0.4rem 0.85rem;
+  padding: 0.5rem 1.15rem;
   border-radius: 6px;
   transition: all 160ms ease;
 }
