@@ -260,7 +260,8 @@ const syllabusModules = [
       'Characteristics of network topology architectures (2-Tier, 3-Tier, Spine-Leaf, WAN, Cloud)',
       'Physical cabling types: Single-mode fiber, Multimode fiber, Copper UTP & PoE specs',
       'IPv4 Subnetting mastery: Classless Inter-Domain Routing (CIDR) & VLSM drills',
-      'IPv6 Addressing: Global Unicast, Unique Local, Link-Local & EUI-64 generation'
+      'IPv6 Addressing: Global Unicast, Unique Local, Link-Local & EUI-64 generation',
+      'Cisco IOS CLI basics, initial device configuration & troubleshooting'
     ]
   },
   {
@@ -272,7 +273,8 @@ const syllabusModules = [
       'Configuring 802.1Q trunk ports, native VLAN security, and DTP negotiation',
       'Configuring Inter-VLAN routing using sub-interfaces and Switch Virtual Interfaces (SVI)',
       'Spanning Tree Protocol (IEEE 802.1D STP, 802.1w Rapid-PVST+, Root Bridge election)',
-      'Configuring Layer 2 and Layer 3 EtherChannel using LACP (802.3ad)'
+      'Configuring Layer 2 and Layer 3 EtherChannel using LACP (802.3ad)',
+      'Discovery protocols: Cisco Discovery Protocol (CDP) & LLDP configuration'
     ]
   },
   {
@@ -284,7 +286,8 @@ const syllabusModules = [
       'Configuring IPv4 and IPv6 Static Routes, Default Routes, and Floating Static Routes',
       'Configuring and verifying Single-Area and Multi-Area OSPFv2 (Neighbor states, DR/BDR election)',
       'OSPF Point-to-Point and Broadcast network types, Router ID, Passive Interfaces',
-      'First Hop Redundancy Protocol (FHRP) concepts: HSRP active/standby router mechanics'
+      'First Hop Redundancy Protocol (FHRP) concepts: HSRP active/standby router mechanics',
+      'Dynamic routing verification commands and route summarization principles'
     ]
   },
   {
@@ -296,7 +299,8 @@ const syllabusModules = [
       'Configuring Cisco IOS as DHCP Server, Client, and configuring IP Helper-Address relay',
       'Configuring NTP in client/server mode and verifying clock synchronization',
       'Configuring Syslog facilities, severity levels, and remote logging servers',
-      'Configuring SSHv2 with RSA key-pairs, local user accounts, and VTY line security'
+      'Configuring SSHv2 with RSA key-pairs, local user accounts, and VTY line security',
+      'Network management protocols: SNMPv2c/SNMPv3 and TFTP/FTP backup procedures'
     ]
   },
   {
@@ -308,7 +312,8 @@ const syllabusModules = [
       'Layer 2 mitigation: Port Security (Static, Dynamic, Sticky MAC) and violation modes',
       'Configuring DHCP Snooping, Trusted Ports, and Dynamic ARP Inspection (DAI)',
       'Configuring Device Access Control with local AAA and TACACS+/RADIUS server integration',
-      'Site-to-Site IPSec VPN concepts (IKE Phase 1 and Phase 2 tunnels, ESP encryption)'
+      'Site-to-Site IPSec VPN concepts (IKE Phase 1 and Phase 2 tunnels, ESP encryption)',
+      'Wireless security protocols: WPA2-Personal, WPA2-Enterprise (802.1X), and WPA3'
     ]
   },
   {
@@ -320,7 +325,8 @@ const syllabusModules = [
       'Underlay, Overlay, and Fabric concepts in Cisco SD-Access and Cisco SD-WAN',
       'Understanding REST APIs, URI structures, HTTP request verbs (GET, POST, PUT, DELETE)',
       'Data encoding formats: Interpreting and writing JSON and XML payloads',
-      'Introduction to Python network automation scripts (Netmiko & Paramiko libraries)'
+      'Introduction to Python network automation scripts (Netmiko & Paramiko libraries)',
+      'Configuration management tools comparison: Ansible, Puppet, and Chef basics'
     ]
   }
 ];
@@ -1033,16 +1039,15 @@ export function CCNACoursePage() {
           7. DETAILED SYLLABUS ACCORDION & HARDWARE LABS (STICKY TAB #syllabus)
           ========================================================================= */}
       <div id="syllabus">
-        <section className={styles.contentSection}>
+        <section className={styles.syllabusSection}>
           <div className={styles.container}>
             <div className={styles.sectionHeaderCenter}>
-              <div className={styles.sectionEyebrow}>
-                <FileText size={13} />
-                <span>Module Breakdown</span>
+              <div className={styles.syllabusPill}>
+                <span>Full Course Syllabus</span>
               </div>
-              <h2 className={styles.sectionTitle}>Cisco CCNA 200-301 Course Syllabus</h2>
-              <p className={styles.sectionSubtext}>
-                Step-by-step technical curriculum designed to build real-world troubleshooting capability.
+              <h2 className={styles.syllabusHeading}>Cisco CCNA 200-301 Course Syllabus</h2>
+              <p className={styles.syllabusSubtext}>
+                Master the complete Cisco CCNA 200-301 exam blueprint through 6 comprehensive modules covering networking fundamentals, routing, switching, security, automation, and hands-on enterprise networking labs.
               </p>
             </div>
 
@@ -1051,29 +1056,36 @@ export function CCNACoursePage() {
                 {syllabusModules.map((mod) => {
                   const isOpen = openModule === mod.id;
                   return (
-                    <div key={mod.id} className={`${styles.accordionItem} ${isOpen ? styles.isOpen : ''}`}>
+                    <div
+                      key={mod.id}
+                      className={`${styles.accordionItem} ${isOpen ? styles.accordionItemOpen : ''}`}
+                    >
                       <button
                         type="button"
                         className={styles.accordionTrigger}
                         onClick={() => toggleModule(mod.id)}
+                        aria-expanded={isOpen}
                       >
-                        <div className={styles.triggerLeft}>
-                          <span className={styles.moduleTag}>{mod.tag}</span>
-                          <span className={styles.moduleTitleText}>{mod.title}</span>
-                        </div>
+                        <span
+                          className={`${styles.moduleTitleText} ${isOpen ? styles.moduleTitleActive : ''}`}
+                        >
+                          {mod.tag}: {mod.title}
+                        </span>
                         <ChevronDown
                           size={18}
-                          className={`${styles.accordionChevron} ${isOpen ? styles.rotate : ''}`}
+                          className={`${styles.accordionChevron} ${isOpen ? styles.accordionChevronOpen : ''}`}
                         />
                       </button>
 
                       {isOpen && (
                         <div className={styles.accordionBody}>
-                          <div className={styles.topicsList}>
+                          <div className={styles.topicsGrid}>
                             {mod.topics.map((t, idx) => (
                               <div key={idx} className={styles.topicItem}>
-                                <CheckCircle2 size={15} color="#0066FF" style={{ flexShrink: 0, marginTop: '3px' }} />
-                                <span>{t}</span>
+                                <div className={styles.topicCheckWrap}>
+                                  <Check size={11} color="#ffffff" strokeWidth={3} />
+                                </div>
+                                <span className={styles.topicText}>{t}</span>
                               </div>
                             ))}
                           </div>
