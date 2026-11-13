@@ -583,6 +583,159 @@ const faqsData = [
   }
 ];
 
+// ---------------------------------------------------------------------------
+// AEO & SEO Structured Data Schemas (Course, FAQPage, BreadcrumbList, Organization)
+// ---------------------------------------------------------------------------
+const courseJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Course",
+  "@id": "https://www.imedita.com/courses/ccna-training/#course",
+  "name": "Cisco CCNA (200-301) Certification Training Course",
+  "alternateName": [
+    "Cisco CCNA Training",
+    "CCNA 200-301 Course",
+    "CCNA Certification Course Pune"
+  ],
+  "courseCode": "200-301",
+  "description": "Master enterprise networking with hands-on Cisco CCNA 200-301 training. Learn routing, switching, IPv4/IPv6, security, and automation through real physical Cisco hardware labs while preparing under Triple CCIE Mentors with 100% placement assistance.",
+  "url": "https://www.imedita.com/courses/ccna-training",
+  "educationalCredentialAwarded": "Cisco Certified Network Associate (CCNA 200-301)",
+  "inLanguage": ["en", "hi"],
+  "occupationalCredentialAwarded": "Cisco Certified Network Associate",
+  "provider": {
+    "@type": "EducationalOrganization",
+    "name": "I-Medita Learning Solutions",
+    "url": "https://www.imedita.com",
+    "logo": "https://imeditaoffload.s3.ap-south-1.amazonaws.com/wp-content/uploads/2023/12/10071401/imedita_logo.svg",
+    "sameAs": [
+      "https://www.linkedin.com/company/i-medita",
+      "https://www.youtube.com/user/imedita",
+      "https://www.facebook.com/imeditapune",
+      "https://www.instagram.com/imedita_learning"
+    ]
+  },
+  "teaches": [
+    "Network Fundamentals & OSI/TCP-IP Models",
+    "IPv4 & IPv6 Subnetting & Dual-Stack Architecture",
+    "Cisco Catalyst 9300 Switches & ISR 4331 Routers CLI",
+    "VLANs, 802.1Q Trunking & Inter-VLAN SVI Routing",
+    "OSPFv2 Dynamic Routing Protocol Configuration",
+    "Enterprise NAT, PAT, DHCP Relay & DNS Services",
+    "Network Security, ACLs & Port Security Hardening",
+    "Network Break-Fix Troubleshooting Methodologies",
+    "Wi-Fi 6 Enterprise Wireless LAN Controllers (WLC)",
+    "Cisco DNA Center, SD-WAN, REST APIs & Python Network Automation"
+  ],
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "reviewCount": "11210",
+    "bestRating": "5",
+    "worstRating": "1"
+  },
+  "offers": {
+    "@type": "Offer",
+    "category": "Paid",
+    "priceCurrency": "INR",
+    "availability": "https://schema.org/InStock",
+    "url": "https://www.imedita.com/courses/ccna-training"
+  },
+  "hasCourseInstance": [
+    {
+      "@type": "CourseInstance",
+      "name": "CCNA Classroom Training (Pune Campus)",
+      "courseMode": "Classroom",
+      "duration": "P8W",
+      "location": {
+        "@type": "Place",
+        "name": "I-Medita Pune Datacenter & Campus",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Baner - Balewadi Road",
+          "addressLocality": "Pune",
+          "addressRegion": "Maharashtra",
+          "postalCode": "411045",
+          "addressCountry": "IN"
+        }
+      }
+    },
+    {
+      "@type": "CourseInstance",
+      "name": "CCNA Live Interactive Online Training",
+      "courseMode": "Online",
+      "duration": "P6W"
+    }
+  ]
+};
+
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqsData.map((f) => ({
+    "@type": "Question",
+    "name": f.q,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": f.a
+    }
+  }))
+};
+
+const breadcrumbJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://www.imedita.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Courses",
+      "item": "https://www.imedita.com/#courses"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Cisco",
+      "item": "https://www.imedita.com/courses/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "CCNA 200-301 Certification",
+      "item": "https://www.imedita.com/courses/ccna-training"
+    }
+  ]
+};
+
+const organizationJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "EducationalOrganization",
+  "name": "I-Medita Learning Solutions",
+  "url": "https://www.imedita.com",
+  "logo": "https://imeditaoffload.s3.ap-south-1.amazonaws.com/wp-content/uploads/2023/12/10071401/imedita_logo.svg",
+  "telephone": "+91-8750004411",
+  "email": "info@imedita.com",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Baner",
+    "addressLocality": "Pune",
+    "addressRegion": "Maharashtra",
+    "postalCode": "411045",
+    "addressCountry": "IN"
+  },
+  "sameAs": [
+    "https://www.linkedin.com/company/i-medita",
+    "https://www.youtube.com/user/imedita",
+    "https://www.facebook.com/imeditapune",
+    "https://www.instagram.com/imedita_learning"
+  ]
+};
+
 export function CCNACoursePage() {
   const context = useOutletContext() || {};
   const handleOpenDemo = context.handleOpenDemo || (() => {});
@@ -661,39 +814,199 @@ export function CCNACoursePage() {
     setOpenFaq(openFaq === idx ? null : idx);
   };
 
+  // Sync meta tags for search engines and answer bots
+  useEffect(() => {
+    const descMeta = document.querySelector('meta[name="description"]');
+    if (descMeta) {
+      descMeta.setAttribute(
+        'content',
+        "Master Cisco CCNA 200-301 in Pune & Online with India's highest-rated networking academy. 24/7 real physical Cisco rack labs, Triple CCIE mentors, 100% placement support, and official certification preparation."
+      );
+    }
+  }, []);
+
   return (
-    <div className={styles.coursePageRoot}>
+    <main
+      className={styles.coursePageRoot}
+      id="main-content"
+      itemScope
+      itemType="https://schema.org/Course"
+    >
+      {/* =========================================================================
+          SEO & AEO DOCUMENT HEAD METADATA (React 19 Native Head Tags)
+          ========================================================================= */}
+      <title>Cisco CCNA (200-301) Certification Training Course | I-Medita Pune</title>
+      <meta
+        name="description"
+        content="Master Cisco CCNA 200-301 in Pune & Online with India's highest-rated networking academy. 24/7 real physical Cisco rack labs, Triple CCIE mentors, 100% placement support, and official certification preparation."
+      />
+      <link rel="canonical" href="https://www.imedita.com/courses/ccna-training/" />
+      <meta
+        name="keywords"
+        content="CCNA course, CCNA training, Cisco CCNA 200-301, CCNA certification Pune, Cisco training institute, CCNA networking course, CCNA syllabus 200-301, CCNA labs"
+      />
+      <meta
+        name="robots"
+        content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"
+      />
+
+      {/* OpenGraph & Social Sharing Meta */}
+      <meta property="og:locale" content="en_US" />
+      <meta property="og:type" content="article" />
+      <meta
+        property="og:title"
+        content="Cisco CCNA (200-301) Certification Training Course | I-Medita Pune"
+      />
+      <meta
+        property="og:description"
+        content="Master Cisco CCNA 200-301 in Pune & Online with India's highest-rated networking academy. 24/7 real physical Cisco rack labs, Triple CCIE mentors, and 100% placement support."
+      />
+      <meta property="og:url" content="https://www.imedita.com/courses/ccna-training/" />
+      <meta property="og:site_name" content="I-Medita Learning Solutions" />
+      <meta
+        property="og:image"
+        content="https://imeditaoffload.s3.ap-south-1.amazonaws.com/wp-content/uploads/2024/06/10071301/imedita_71.jpg"
+      />
+
+      {/* Twitter Card */}
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta
+        name="twitter:title"
+        content="Cisco CCNA (200-301) Certification Training Course | I-Medita"
+      />
+      <meta
+        name="twitter:description"
+        content="Master Cisco CCNA 200-301 in Pune & Online. Real Cisco hardware labs, Triple CCIE mentors, and 100% placement assistance."
+      />
+      <meta
+        name="twitter:image"
+        content="https://imeditaoffload.s3.ap-south-1.amazonaws.com/wp-content/uploads/2024/06/10071301/imedita_71.jpg"
+      />
+
+      {/* AEO & SEO Structured Data (JSON-LD) */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(courseJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+      />
+
+      {/* Course Machine Microdata */}
+      <meta itemProp="name" content="Cisco CCNA (200-301) Certification Training" />
+      <meta itemProp="courseCode" content="200-301" />
+      <meta
+        itemProp="description"
+        content="Master enterprise networking with hands-on Cisco CCNA 200-301 training. Learn routing, switching, IPv4/IPv6, security, and automation through real physical Cisco hardware labs while preparing under Triple CCIE Mentors with 100% written placement assistance."
+      />
+      <meta
+        itemProp="educationalCredentialAwarded"
+        content="Cisco Certified Network Associate (CCNA 200-301)"
+      />
+      <link itemProp="url" href="https://www.imedita.com/courses/ccna-training" />
+
       {/* =========================================================================
           1. HERO HEADER WITH BREADCRUMBS & FLOATING LEAD CARD
           ========================================================================= */}
-      <section className={styles.courseHero}>
+      <header
+        className={styles.courseHero}
+        role="banner"
+        aria-labelledby="course-hero-heading"
+      >
         {/* Ambient Glow Lights */}
         <div className={styles.glowOrbBlue} aria-hidden="true" />
         <div className={styles.glowOrbOrange} aria-hidden="true" />
         <div className={styles.heroGridOverlay} aria-hidden="true" />
 
         <div className={styles.container}>
-          {/* Breadcrumbs */}
+          {/* Breadcrumbs with Semantic Microdata */}
           <nav className={styles.breadcrumbs} aria-label="Breadcrumb navigation">
-            <Link to="/" className={styles.breadcrumbLink}>Home</Link>
-            <span className={styles.breadcrumbSep}>/</span>
-            <Link to="/#courses" className={styles.breadcrumbLink}>Courses</Link>
-            <span className={styles.breadcrumbSep}>/</span>
-            <span className={styles.breadcrumbLink}>Cisco</span>
-            <span className={styles.breadcrumbSep}>/</span>
-            <span className={styles.breadcrumbCurrent}>CCNA 200-301 Certification</span>
+            <ol
+              itemScope
+              itemType="https://schema.org/BreadcrumbList"
+              style={{ display: 'contents', listStyle: 'none', margin: 0, padding: 0 }}
+            >
+              <li
+                itemScope
+                itemProp="itemListElement"
+                itemType="https://schema.org/ListItem"
+                style={{ display: 'inline' }}
+              >
+                <Link to="/" className={styles.breadcrumbLink} itemProp="item">
+                  <span itemProp="name">Home</span>
+                </Link>
+                <meta itemProp="position" content="1" />
+              </li>
+              <span className={styles.breadcrumbSep} aria-hidden="true">/</span>
+              <li
+                itemScope
+                itemProp="itemListElement"
+                itemType="https://schema.org/ListItem"
+                style={{ display: 'inline' }}
+              >
+                <Link to="/#courses" className={styles.breadcrumbLink} itemProp="item">
+                  <span itemProp="name">Courses</span>
+                </Link>
+                <meta itemProp="position" content="2" />
+              </li>
+              <span className={styles.breadcrumbSep} aria-hidden="true">/</span>
+              <li
+                itemScope
+                itemProp="itemListElement"
+                itemType="https://schema.org/ListItem"
+                style={{ display: 'inline' }}
+              >
+                <span className={styles.breadcrumbLink} itemProp="name">Cisco</span>
+                <meta itemProp="position" content="3" />
+              </li>
+              <span className={styles.breadcrumbSep} aria-hidden="true">/</span>
+              <li
+                itemScope
+                itemProp="itemListElement"
+                itemType="https://schema.org/ListItem"
+                style={{ display: 'inline' }}
+              >
+                <span
+                  className={styles.breadcrumbCurrent}
+                  itemProp="name"
+                  aria-current="page"
+                >
+                  CCNA 200-301 Certification
+                </span>
+                <meta itemProp="position" content="4" />
+              </li>
+            </ol>
           </nav>
 
           <div className={styles.heroSplit}>
             {/* Left Column: Course Intro */}
             <div className={styles.heroLeft}>
-              {/* Rating Badge with Live Indicator */}
-              <div className={styles.ratingBadge}>
-                <div className={styles.liveStatusDotWrap}>
+              {/* Rating Badge with Live Indicator & Microdata */}
+              <div
+                className={styles.ratingBadge}
+                itemProp="aggregateRating"
+                itemScope
+                itemType="https://schema.org/AggregateRating"
+                aria-label="Rating 4.9 out of 5 stars based on 11,210+ verified students"
+              >
+                <meta itemProp="ratingValue" content="4.9" />
+                <meta itemProp="reviewCount" content="11210" />
+                <meta itemProp="bestRating" content="5" />
+                <meta itemProp="worstRating" content="1" />
+                <div className={styles.liveStatusDotWrap} aria-hidden="true">
                   <span className={styles.livePulseRing} />
                   <span className={styles.liveStatusDot} />
                 </div>
-                <div className={styles.starRow}>
+                <div className={styles.starRow} aria-hidden="true">
                   {[...Array(5)].map((_, i) => (
                     <Star key={i} size={13} className={styles.ratingStar} fill="#F59E0B" color="#F59E0B" />
                   ))}
@@ -702,13 +1015,13 @@ export function CCNACoursePage() {
                   <strong>4.9/5</strong> by <strong>11,210+</strong> students
                 </span>
                 <span className={styles.verifiedPartnerBadge}>
-                  <CheckCircle2 size={12} className={styles.verifiedIcon} />
+                  <CheckCircle2 size={12} className={styles.verifiedIcon} aria-hidden="true" />
                   <span>Authorized Labs</span>
                 </span>
               </div>
 
               {/* Main Headline with doodle underline */}
-              <h1 className={styles.heroHeading}>
+              <h1 className={styles.heroHeading} id="course-hero-heading" itemProp="name">
                 Cisco{' '}
                 <span className={styles.highlightWrapper}>
                   <span className={styles.highlightOrange}>CCNA Training</span>
@@ -739,14 +1052,14 @@ export function CCNACoursePage() {
               </h1>
 
               {/* Paragraph Subtext with Keyword Highlighting */}
-              <p className={styles.heroSubtext}>
+              <p className={styles.heroSubtext} itemProp="description">
                 Master enterprise networking with hands-on <strong className={styles.textHighlight}>Cisco CCNA 200-301</strong> training. 
                 Learn routing, switching, IPv4/IPv6, security, and automation through <strong className={styles.textHighlight}>real physical Cisco hardware labs</strong> while 
                 preparing under <strong className={styles.textHighlight}>Triple CCIE Mentors</strong> with 100% written placement assistance.
               </p>
 
               {/* 2x2 Feature Highlights as Glass Micro-Cards */}
-              <div className={styles.heroStatsCards}>
+              <div className={styles.heroStatsCards} role="group" aria-label="Key Course Highlights">
                 <div className={styles.statCard}>
                   <div className={styles.statCardIcon}>
                     <Users size={18} />
@@ -942,12 +1255,14 @@ export function CCNACoursePage() {
             </div>
           </div>
         </div>
-      </section>
+      </header>
 
       {/* =========================================================================
           2. ENTERPRISE RECOGNITION (GLOBAL CLIENTS LOGO MARQUEE)
           ========================================================================= */}
-      <LogoMarquee />
+      <section aria-label="Corporate Hiring Network and Enterprise Alumni Companies">
+        <LogoMarquee />
+      </section>
 
       {/* =========================================================================
           3. COURSE STICKY SUB-NAVBAR (QUICK JUMP TO KEY SECTIONS)
@@ -957,13 +1272,19 @@ export function CCNACoursePage() {
       {/* =========================================================================
           4. OVERVIEW: WHY CCNA AT I-MEDITA & ADVANTAGES
           ========================================================================= */}
-      <section className={styles.overviewSection} id="overview">
+      <section
+        className={styles.overviewSection}
+        id="overview"
+        aria-labelledby="overview-heading"
+      >
         <div className={styles.container}>
           <div className={styles.sectionHeaderCenter}>
             <div className={styles.overviewPill}>
               <span>Industry Leadership</span>
             </div>
-            <h2 className={styles.overviewTitle}>Why Choose I-Medita For Cisco CCNA?</h2>
+            <h2 className={styles.overviewTitle} id="overview-heading">
+              Why Choose I-Medita For Cisco CCNA?
+            </h2>
             <p className={styles.overviewSubtext}>
               Ranked among India's top Cisco authorized academies with unmatched physical lab infrastructure 
               and corporate training rigor.
@@ -974,16 +1295,17 @@ export function CCNACoursePage() {
             {whyChooseCards.map((card, idx) => {
               const IconComp = card.icon;
               return (
-                <div key={idx} className={styles.advantageCard}>
+                <article key={idx} className={styles.advantageCard}>
                   <div
                     className={styles.advantageIconSquircle}
                     style={{ background: card.iconBg }}
+                    aria-hidden="true"
                   >
                     <IconComp size={24} color="#ffffff" strokeWidth={2.2} />
                   </div>
                   <h3 className={styles.advantageTitle}>{card.title}</h3>
                   <p className={styles.advantageDesc}>{card.desc}</p>
-                </div>
+                </article>
               );
             })}
           </div>
@@ -1010,14 +1332,18 @@ export function CCNACoursePage() {
       {/* =========================================================================
           5. WHAT YOU WILL LEARN IN CISCO CCNA 200-301 TRAINING (10 CORE MODULES)
           ========================================================================= */}
-      <section className={styles.curriculumSection}>
+      <section
+        className={styles.curriculumSection}
+        id="curriculum"
+        aria-labelledby="curriculum-heading"
+      >
         <div className={styles.container}>
           <div className={styles.sectionHeaderCenter}>
             <div className={styles.curriculumPill}>
-              <Sparkles size={13} className={styles.pillSparkle} />
+              <Sparkles size={13} className={styles.pillSparkle} aria-hidden="true" />
               <span>Official Cisco Curriculum</span>
             </div>
-            <h2 className={styles.curriculumHeading}>
+            <h2 className={styles.curriculumHeading} id="curriculum-heading">
               What You'll Learn in{' '}
               <span className={styles.gradientText}>Cisco CCNA 200-301</span>
               <br />Professional Training
@@ -1031,10 +1357,10 @@ export function CCNACoursePage() {
             {whatYouLearnItems.map((item, idx) => {
               const IconComp = item.icon;
               return (
-                <div key={idx} className={styles.curriculumCard}>
+                <article key={idx} className={styles.curriculumCard}>
                   {/* Top Row: Squircle Icon + Tech Mono Module Badge */}
                   <div className={styles.cardTopRow}>
-                    <div className={styles.curriculumIconWrap}>
+                    <div className={styles.curriculumIconWrap} aria-hidden="true">
                       <IconComp size={22} color="#ffffff" strokeWidth={2.2} />
                     </div>
                     <span className={styles.moduleBadge}>MOD {item.modNum}</span>
@@ -1056,12 +1382,12 @@ export function CCNACoursePage() {
                   {/* Card Footer: Lab Pod Highlight & Interactive Arrow */}
                   <div className={styles.cardFooter}>
                     <span className={styles.labBadge}>
-                      <span className={styles.greenPulseDot} />
+                      <span className={styles.greenPulseDot} aria-hidden="true" />
                       <span>{item.labHighlight}</span>
                     </span>
-                    <ArrowUpRight size={14} className={styles.cardArrow} />
+                    <ArrowUpRight size={14} className={styles.cardArrow} aria-hidden="true" />
                   </div>
-                </div>
+                </article>
               );
             })}
           </div>
@@ -1100,13 +1426,17 @@ export function CCNACoursePage() {
       {/* =========================================================================
           6. STEP-BY-STEP LEARNING ROADMAP (CLEAN & NEAT 5-STAGE PATH)
           ========================================================================= */}
-      <section className={styles.roadmapSection}>
+      <section
+        className={styles.roadmapSection}
+        id="learning-roadmap"
+        aria-labelledby="roadmap-heading"
+      >
         <div className={styles.container}>
           <div className={styles.sectionHeaderCenter}>
             <div className={styles.roadmapPill}>
               <span>Your CCNA Learning Roadmap</span>
             </div>
-            <h2 className={styles.roadmapHeading}>
+            <h2 className={styles.roadmapHeading} id="roadmap-heading">
               Your Step-by-Step Journey to Cisco CCNA<br />Certification
             </h2>
             <p className={styles.roadmapSubtext}>
@@ -1115,7 +1445,7 @@ export function CCNACoursePage() {
           </div>
 
           {/* Stepper Node Line Track */}
-          <div className={styles.stepperTrack}>
+          <div className={styles.stepperTrack} role="tablist" aria-label="Roadmap Stepper Progression">
             {roadmapStages.map((st, i) => {
               const isCompleted = i <= activeRoadmapStage;
               const isCurrent = i === activeRoadmapStage;
@@ -1123,15 +1453,19 @@ export function CCNACoursePage() {
                 <React.Fragment key={st.stageNum}>
                   <button
                     type="button"
+                    role="tab"
+                    aria-selected={isCurrent}
+                    aria-controls={`roadmap-panel-${st.stageNum}`}
                     className={`${styles.stepNode} ${isCurrent ? styles.stepNodeActive : ''} ${isCompleted ? styles.stepNodeDone : ''}`}
                     onClick={() => setActiveRoadmapStage(i)}
-                    aria-label={`Go to Stage ${st.stageNum}`}
+                    aria-label={`Go to Stage ${st.stageNum}: ${st.tabTitle}`}
                   >
                     <span>{st.stageNum}</span>
                   </button>
                   {i < roadmapStages.length - 1 && (
                     <div
                       className={`${styles.stepLine} ${i < activeRoadmapStage ? styles.stepLineDone : ''}`}
+                      aria-hidden="true"
                     />
                   )}
                 </React.Fragment>
@@ -1140,7 +1474,7 @@ export function CCNACoursePage() {
           </div>
 
           {/* 5 Stage Tab Cards */}
-          <div className={styles.stageTabsGrid}>
+          <div className={styles.stageTabsGrid} role="tablist" aria-label="5 Stage Tab Selector">
             {roadmapStages.map((st, i) => {
               const isActive = i === activeRoadmapStage;
               const TabIcon = st.tabIcon;
@@ -1148,11 +1482,14 @@ export function CCNACoursePage() {
                 <button
                   key={st.stageNum}
                   type="button"
+                  role="tab"
+                  aria-selected={isActive}
+                  aria-controls={`roadmap-panel-${st.stageNum}`}
                   className={`${styles.stageTabCard} ${isActive ? styles.stageTabActive : ''}`}
                   onClick={() => setActiveRoadmapStage(i)}
                 >
                   <span className={styles.stageTabLabel}>{st.stageLabel}</span>
-                  <div className={styles.stageTabIconWrap}>
+                  <div className={styles.stageTabIconWrap} aria-hidden="true">
                     <TabIcon size={22} />
                   </div>
                   <span className={styles.stageTabTitle}>{st.tabTitle}</span>
@@ -1166,12 +1503,17 @@ export function CCNACoursePage() {
             const currentStage = roadmapStages[activeRoadmapStage];
             const CurrentIcon = currentStage.tabIcon;
             return (
-              <div key={currentStage.stageNum} className={styles.roadmapActiveCard}>
+              <article
+                key={currentStage.stageNum}
+                className={styles.roadmapActiveCard}
+                role="tabpanel"
+                id={`roadmap-panel-${currentStage.stageNum}`}
+              >
                 <div className={styles.roadmapCardBody}>
                   {/* Left Column: Big Stage Number & Squircle Icon */}
                   <div className={styles.roadmapCardLeft}>
-                    <span className={styles.roadmapBigNum}>{currentStage.stageNum}</span>
-                    <div className={styles.roadmapStageIconBox}>
+                    <span className={styles.roadmapBigNum} aria-hidden="true">{currentStage.stageNum}</span>
+                    <div className={styles.roadmapStageIconBox} aria-hidden="true">
                       <CurrentIcon size={24} color="#0066cc" />
                     </div>
                   </div>
@@ -1185,7 +1527,7 @@ export function CCNACoursePage() {
                     <ul className={styles.roadmapChecklist}>
                       {currentStage.checklist.map((item, idx) => (
                         <li key={idx} className={styles.roadmapCheckItem}>
-                          <CheckCircle2 size={18} className={styles.checkIcon} />
+                          <CheckCircle2 size={18} className={styles.checkIcon} aria-hidden="true" />
                           <span>{item}</span>
                         </li>
                       ))}
@@ -1200,8 +1542,9 @@ export function CCNACoursePage() {
                     className={styles.prevBtn}
                     onClick={() => setActiveRoadmapStage(prev => Math.max(0, prev - 1))}
                     disabled={activeRoadmapStage === 0}
+                    aria-label="Previous Stage"
                   >
-                    <ChevronLeft size={16} />
+                    <ChevronLeft size={16} aria-hidden="true" />
                     <span>Previous</span>
                   </button>
 
@@ -1219,12 +1562,13 @@ export function CCNACoursePage() {
                         handleOpenDemo('Cisco CCNA (200-301) Roadmap Free Demo');
                       }
                     }}
+                    aria-label={activeRoadmapStage === roadmapStages.length - 1 ? 'Book Free Demo Session' : 'Next Stage'}
                   >
                     <span>{activeRoadmapStage === roadmapStages.length - 1 ? 'Book Free Demo' : 'Next'}</span>
-                    <ChevronRight size={16} />
+                    <ChevronRight size={16} aria-hidden="true" />
                   </button>
                 </div>
-              </div>
+              </article>
             );
           })()}
 
@@ -1252,13 +1596,18 @@ export function CCNACoursePage() {
           7. DETAILED SYLLABUS ACCORDION & HARDWARE LABS (STICKY TAB #syllabus)
           ========================================================================= */}
       <div id="syllabus">
-        <section className={styles.syllabusSection}>
+        <section
+          className={styles.syllabusSection}
+          aria-labelledby="syllabus-heading"
+        >
           <div className={styles.container}>
             <div className={styles.sectionHeaderCenter}>
               <div className={styles.syllabusPill}>
                 <span>Full Course Syllabus</span>
               </div>
-              <h2 className={styles.syllabusHeading}>Cisco CCNA 200-301 Course Syllabus</h2>
+              <h2 className={styles.syllabusHeading} id="syllabus-heading">
+                Cisco CCNA 200-301 Course Syllabus
+              </h2>
               <p className={styles.syllabusSubtext}>
                 Master the complete Cisco CCNA 200-301 exam blueprint through 6 comprehensive modules covering networking fundamentals, routing, switching, security, automation, and hands-on enterprise networking labs.
               </p>
@@ -1278,6 +1627,7 @@ export function CCNACoursePage() {
                         className={styles.accordionTrigger}
                         onClick={() => toggleModule(mod.id)}
                         aria-expanded={isOpen}
+                        aria-controls={`syllabus-mod-body-${mod.id}`}
                       >
                         <span
                           className={`${styles.moduleTitleText} ${isOpen ? styles.moduleTitleActive : ''}`}
@@ -1287,11 +1637,16 @@ export function CCNACoursePage() {
                         <ChevronDown
                           size={18}
                           className={`${styles.accordionChevron} ${isOpen ? styles.accordionChevronOpen : ''}`}
+                          aria-hidden="true"
                         />
                       </button>
 
                       {isOpen && (
-                        <div className={styles.accordionBody}>
+                        <div
+                          className={styles.accordionBody}
+                          id={`syllabus-mod-body-${mod.id}`}
+                          role="region"
+                        >
                           <div className={styles.topicsGrid}>
                             {mod.topics.map((t, idx) => (
                               <div key={idx} className={styles.topicItem}>
@@ -1877,17 +2232,23 @@ export function CCNACoursePage() {
       {/* =========================================================================
           7. MASTER CCIE FACULTY & MENTORS (STICKY TAB #trainers)
           ========================================================================= */}
-      <TrainersSection />
+      <section id="trainers" aria-label="Triple CCIE Certified Faculty and Lab Mentors">
+        <TrainersSection />
+      </section>
 
       {/* =========================================================================
           7b. WHAT SETS US APART: CCNA INSTITUTES COMPARISON TABLE
           ========================================================================= */}
-      <ComparisonSection onOpenDemo={handleOpenDemo} />
+      <section aria-label="Institute Comparison: I-Medita vs Other CCNA Training Institutes">
+        <ComparisonSection onOpenDemo={handleOpenDemo} />
+      </section>
 
       {/* =========================================================================
           7c. WHERE CCNA TAKES YOU OVER THE NEXT 6 YEARS (CAREER GROWTH ROADMAP)
           ========================================================================= */}
-      <CareerGrowthRoadmap onOpenDemo={handleOpenDemo} />
+      <section id="career-growth" aria-label="CCNA Career Growth and Salary Progression Roadmap">
+        <CareerGrowthRoadmap onOpenDemo={handleOpenDemo} />
+      </section>
 
       {/* =========================================================================
           7d. CAMPUS & LAB FACILITIES (EXPERIENCE OUR DATACENTER & LAB LIFE)
@@ -1897,50 +2258,59 @@ export function CCNACoursePage() {
       {/* =========================================================================
           8. PLACEMENT PARTNERS (STICKY TAB #placement)
           ========================================================================= */}
-      <div id="placement">
+      <section id="placement" aria-label="Global Placement Partners and Enterprise Recruiters">
         <PlacementPartners />
-      </div>
+      </section>
 
       {/* =========================================================================
           10. STUDENT GOOGLE REVIEWS & TESTIMONIALS (STICKY TAB #reviews)
           ========================================================================= */}
-      <GoogleReviews />
+      <section id="reviews" aria-label="Student Google Reviews and Verified Ratings">
+        <GoogleReviews />
+      </section>
 
       {/* =========================================================================
           11. UPCOMING LIVE BATCHES SCHEDULE
           ========================================================================= */}
-      <section className={styles.contentSection} id="batches" style={{ background: '#f8fafc' }}>
+      <section
+        className={styles.contentSection}
+        id="batches"
+        aria-labelledby="batches-heading"
+        style={{ background: '#f8fafc' }}
+      >
         <div className={styles.container}>
           <div className={styles.sectionHeaderCenter}>
             <div className={styles.sectionEyebrow}>
-              <Calendar size={13} />
+              <Calendar size={13} aria-hidden="true" />
               <span>Enrollment Schedule</span>
             </div>
-            <h2 className={styles.sectionTitle}>Upcoming Cisco CCNA Live Batches</h2>
+            <h2 className={styles.sectionTitle} id="batches-heading">Upcoming Cisco CCNA Live Batches</h2>
             <p className={styles.sectionSubtext}>
               Flexible weekend and weekday batches available in classroom and interactive live online formats.
             </p>
           </div>
 
-          <div className={styles.tableScrollHint}>
+          <div className={styles.tableScrollHint} aria-hidden="true">
             <ArrowRight size={13} />
             <span>Scroll horizontally to view complete batch schedule</span>
           </div>
           <div className={styles.batchesTableWrapper}>
-            <table className={styles.batchesTable}>
+            <table className={styles.batchesTable} aria-label="Upcoming Cisco CCNA Live Batches Schedule">
               <thead>
                 <tr>
-                  <th>Start Date</th>
-                  <th>Batch Type</th>
-                  <th>Training Mode</th>
-                  <th>Timings</th>
-                  <th>Status</th>
-                  <th>Action</th>
+                  <th scope="col">Start Date</th>
+                  <th scope="col">Batch Type</th>
+                  <th scope="col">Training Mode</th>
+                  <th scope="col">Timings</th>
+                  <th scope="col">Status</th>
+                  <th scope="col">Action</th>
                 </tr>
               </thead>
               <tbody>
                 {upcomingBatches.map((batch) => (
-                  <tr key={batch.id}>
+                  <tr key={batch.id} itemScope itemType="https://schema.org/CourseInstance">
+                    <meta itemProp="name" content={`Cisco CCNA 200-301 - ${batch.startDate} (${batch.type})`} />
+                    <meta itemProp="courseMode" content={batch.mode} />
                     <td>
                       <div style={{ fontWeight: 750, color: '#0f172a' }}>{batch.startDate}</div>
                       <div style={{ fontSize: '0.75rem', color: '#64748b' }}>{batch.duration}</div>
@@ -1966,6 +2336,7 @@ export function CCNACoursePage() {
                         type="button"
                         className={styles.enrollBtnSmall}
                         onClick={() => handleOpenDemo(`Cisco CCNA - ${batch.startDate}`)}
+                        aria-label={`Book Seat for ${batch.startDate} ${batch.type}`}
                       >
                         Book Seat
                       </button>
@@ -1981,14 +2352,20 @@ export function CCNACoursePage() {
       {/* =========================================================================
           13. FREQUENTLY ASKED QUESTIONS (STICKY TAB #faq)
           ========================================================================= */}
-      <section className={styles.contentSection} id="faq">
+      <section
+        className={styles.contentSection}
+        id="faq"
+        aria-labelledby="faq-heading"
+        itemScope
+        itemType="https://schema.org/FAQPage"
+      >
         <div className={styles.container}>
           <div className={styles.sectionHeaderCenter}>
             <div className={styles.sectionEyebrow}>
-              <HelpCircle size={13} />
+              <HelpCircle size={13} aria-hidden="true" />
               <span>Clear Doubts</span>
             </div>
-            <h2 className={styles.sectionTitle}>Frequently Asked Questions</h2>
+            <h2 className={styles.sectionTitle} id="faq-heading">Frequently Asked Questions</h2>
             <p className={styles.sectionSubtext}>
               Everything you need to know about CCNA training, fees, lab access, and placement assistance.
             </p>
@@ -1998,13 +2375,21 @@ export function CCNACoursePage() {
             {faqsData.map((faq, i) => {
               const isOpen = openFaq === i;
               return (
-                <div key={i} className={styles.faqItem}>
+                <article
+                  key={i}
+                  className={styles.faqItem}
+                  itemScope
+                  itemProp="mainEntity"
+                  itemType="https://schema.org/Question"
+                >
                   <button
                     type="button"
                     className={styles.faqQuestion}
                     onClick={() => toggleFaq(i)}
+                    aria-expanded={isOpen}
+                    aria-controls={`faq-answer-${i}`}
                   >
-                    <span>{faq.q}</span>
+                    <span itemProp="name">{faq.q}</span>
                     <ChevronDown
                       size={18}
                       style={{
@@ -2012,14 +2397,22 @@ export function CCNACoursePage() {
                         transition: 'transform 200ms ease',
                         flexShrink: 0
                       }}
+                      aria-hidden="true"
                     />
                   </button>
                   {isOpen && (
-                    <div className={styles.faqAnswer}>
-                      <p>{faq.a}</p>
+                    <div
+                      className={styles.faqAnswer}
+                      id={`faq-answer-${i}`}
+                      role="region"
+                      itemScope
+                      itemProp="acceptedAnswer"
+                      itemType="https://schema.org/Answer"
+                    >
+                      <p itemProp="text">{faq.a}</p>
                     </div>
                   )}
-                </div>
+                </article>
               );
             })}
           </div>
@@ -2029,10 +2422,14 @@ export function CCNACoursePage() {
       {/* =========================================================================
           10. FINAL BOTTOM LEAD CALL-TO-ACTION SECTION
           ========================================================================= */}
-      <section className={styles.bottomCtaSection}>
+      <footer
+        className={styles.bottomCtaSection}
+        role="region"
+        aria-labelledby="bottom-cta-heading"
+      >
         <div className={styles.container}>
           <div className={styles.bottomCtaCard}>
-            <h2 className={styles.bottomTitle}>
+            <h2 className={styles.bottomTitle} id="bottom-cta-heading">
               Ready to Become a <br />
               <span className={styles.highlightText}>Cisco Certified Network Associate?</span>
             </h2>
@@ -2046,7 +2443,7 @@ export function CCNACoursePage() {
                 className={styles.primaryCtaBtn}
                 onClick={() => handleOpenDemo('Cisco CCNA (200-301)')}
               >
-                <PhoneCall size={16} />
+                <PhoneCall size={16} aria-hidden="true" />
                 <span>Book Free 2-Hour Practical Demo</span>
               </button>
 
@@ -2055,14 +2452,14 @@ export function CCNACoursePage() {
                 className={styles.secondaryCtaBtn}
                 onClick={() => handleOpenDemo('Cisco CCNA (200-301) Syllabus')}
               >
-                <Download size={16} />
+                <Download size={16} aria-hidden="true" />
                 <span>Download CCNA 200-301 Syllabus</span>
               </button>
             </div>
           </div>
         </div>
-      </section>
-    </div>
+      </footer>
+    </main>
   );
 }
 
