@@ -16,12 +16,14 @@ const getTrainerBadge = (trainer) => {
 export function TrainersSection() {
   return (
     <section className={styles.trainersSection} id="trainers">
-      {/* Ambient Glow Lights & Technical Lining Box Grid Overlay (Matching Hero Section) */}
-      <div className={styles.glowOrbBlue} aria-hidden="true" />
-      <div className={styles.glowOrbOrange} aria-hidden="true" />
-      <div className={styles.heroGridOverlay} aria-hidden="true" />
-      <div className={styles.ambientGlow} aria-hidden="true" />
-      <div className={styles.orbitRingBg} aria-hidden="true" />
+      {/* Background Decor Container (Clips ambient glow orbs safely without breaking child sticky cards) */}
+      <div className={styles.bgDecorationContainer} aria-hidden="true">
+        <div className={styles.glowOrbBlue} />
+        <div className={styles.glowOrbOrange} />
+        <div className={styles.heroGridOverlay} />
+        <div className={styles.ambientGlow} />
+        <div className={styles.orbitRingBg} />
+      </div>
 
       <div className={styles.sectionContainer}>
         

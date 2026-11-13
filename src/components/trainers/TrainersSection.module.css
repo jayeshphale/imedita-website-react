@@ -14,14 +14,24 @@
   padding: 5.5rem 1.5rem 12rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   color: #94a3b8;
-  overflow: hidden;
-  contain: paint;
+  /* CRITICAL: Keep overflow: visible on trainersSection so child .cardItem position: sticky can overstack */
 }
 
 @media (min-width: 768px) {
   .trainersSection {
     padding: 7rem 2rem 14rem;
   }
+}
+
+/* Background Decor Container (Clips ambient glow orbs safely without breaking child sticky cards) */
+.bgDecorationContainer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 1;
 }
 
 /* Ambient Background Glow Lights (Matching Hero Section) */
@@ -204,7 +214,7 @@
 .cardItem {
   position: -webkit-sticky;
   position: sticky;
-  top: 96px;
+  top: 130px;
   padding-top: calc(var(--stack-index, 0) * 14px);
   z-index: calc(var(--stack-index, 0) + 1);
   will-change: transform;
@@ -449,7 +459,7 @@
     padding: 3.5rem 1rem 8rem;
   }
   .cardItem {
-    top: 76px;
+    top: 118px;
     padding-top: calc(var(--stack-index, 0) * 8px);
   }
   .cardSurface {
