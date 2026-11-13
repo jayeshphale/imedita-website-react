@@ -2239,14 +2239,14 @@ export function CCNACoursePage() {
       {/* =========================================================================
           7b. WHAT SETS US APART: CCNA INSTITUTES COMPARISON TABLE
           ========================================================================= */}
-      <section aria-label="Institute Comparison: I-Medita vs Other CCNA Training Institutes">
+      <section aria-label="Institute Comparison: I-Medita vs Other CCNA Training Institutes" style={{ background: '#f1f6fa' }}>
         <ComparisonSection onOpenDemo={handleOpenDemo} />
       </section>
 
       {/* =========================================================================
           7c. WHERE CCNA TAKES YOU OVER THE NEXT 6 YEARS (CAREER GROWTH ROADMAP)
           ========================================================================= */}
-      <section id="career-growth" aria-label="CCNA Career Growth and Salary Progression Roadmap">
+      <section id="career-growth" aria-label="CCNA Career Growth and Salary Progression Roadmap" style={{ background: '#ffffff' }}>
         <CareerGrowthRoadmap onOpenDemo={handleOpenDemo} />
       </section>
 
@@ -2258,14 +2258,14 @@ export function CCNACoursePage() {
       {/* =========================================================================
           8. PLACEMENT PARTNERS (STICKY TAB #placement)
           ========================================================================= */}
-      <section id="placement" aria-label="Global Placement Partners and Enterprise Recruiters">
+      <section id="placement" aria-label="Global Placement Partners and Enterprise Recruiters" style={{ background: '#ffffff' }}>
         <PlacementPartners />
       </section>
 
       {/* =========================================================================
           10. STUDENT GOOGLE REVIEWS & TESTIMONIALS (STICKY TAB #reviews)
           ========================================================================= */}
-      <section id="reviews" aria-label="Student Google Reviews and Verified Ratings">
+      <section id="reviews" aria-label="Student Google Reviews and Verified Ratings" style={{ background: '#f1f6fa' }}>
         <GoogleReviews />
       </section>
 
@@ -2358,7 +2358,7 @@ export function CCNACoursePage() {
         aria-labelledby="faq-heading"
         itemScope
         itemType="https://schema.org/FAQPage"
-        style={{ background: '#f8fafc', borderBottom: '1px solid #e2e8f0' }}
+        style={{ background: '#f1f6fa', borderBottom: '1px solid #e2e8f0' }}
       >
         <div className={styles.container}>
           <div className={styles.sectionHeaderCenter}>

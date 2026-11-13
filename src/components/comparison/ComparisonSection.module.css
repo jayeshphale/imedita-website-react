@@ -7,10 +7,9 @@
 .comparisonSection {
   position: relative;
   width: 100%;
-  background-color: #f8fafc;
+  background-color: #f1f6fa;
   background-image: 
-    radial-gradient(ellipse 80% 50% at 50% 0%, #eff6ff 0%, #f8fafc 80%),
-    linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+    radial-gradient(ellipse 80% 50% at 50% 0%, rgba(224, 242, 254, 0.4) 0%, transparent 80%);
   padding: clamp(3.5rem, 5.5vw, 6rem) 1.25rem clamp(4rem, 6vw, 6.5rem);
   border-top: 1px solid #e2e8f0;
   border-bottom: 1px solid #e2e8f0;

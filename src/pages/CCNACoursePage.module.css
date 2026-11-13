@@ -1633,12 +1633,12 @@
    6. STEP-BY-STEP LEARNING ROADMAP (CLEAN, NEAT & BALANCED)
    -------------------------------------------------------------------------- */
 .roadmapSection {
-  background-color: #f8fafc;
+  background-color: #f1f6fa;
   background-image: 
     radial-gradient(circle at 10% 20%, rgba(0, 102, 255, 0.03) 0%, transparent 40%),
-    radial-gradient(circle at 90% 80%, rgba(14, 165, 233, 0.04) 0%, transparent 40%),
-    linear-gradient(to bottom, #ffffff 0%, #f8fafc 100%);
+    radial-gradient(circle at 90% 80%, rgba(14, 165, 233, 0.04) 0%, transparent 40%);
   padding: 4.5rem 1.5rem 5rem;
+  border-top: 1px solid #e2e8f0;
   border-bottom: 1px solid #e2e8f0;
   position: relative;
 }
@@ -2356,11 +2356,12 @@
    7.5. CCNA COURSE OVERVIEW (INTERACTIVE EXPANDING SLICES SHOWCASE)
    -------------------------------------------------------------------------- */
 .slicesSection {
-  background-color: #f8fafc;
+  background-color: #f1f6fa;
   background-image: 
     radial-gradient(circle at 10% 18%, rgba(0, 102, 204, 0.04) 0%, transparent 45%),
     radial-gradient(circle at 90% 82%, rgba(14, 165, 233, 0.045) 0%, transparent 45%);
   padding: 5rem 1.5rem 5.5rem;
+  border-top: 1px solid #e2e8f0;
   border-bottom: 1px solid #e2e8f0;
   position: relative;
 }
