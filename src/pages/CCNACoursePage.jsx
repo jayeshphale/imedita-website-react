@@ -49,6 +49,7 @@ import { CourseStickyNav } from '../components/navigation/CourseStickyNav';
 import { TrainersSection } from '../components/trainers/TrainersSection';
 import { ComparisonSection } from '../components/comparison/ComparisonSection';
 import { CareerGrowthRoadmap } from '../components/career/CareerGrowthRoadmap';
+import { CampusLife } from '../components/campus/CampusLife';
 import { PlacementPartners } from '../components/partners/PlacementPartners';
 import { GoogleReviews } from '../components/reviews/GoogleReviews';
 import { EventsSection } from '../components/events/EventsSection';
@@ -1888,6 +1889,11 @@ export function CCNACoursePage() {
           7c. WHERE CCNA TAKES YOU OVER THE NEXT 6 YEARS (CAREER GROWTH ROADMAP)
           ========================================================================= */}
       <CareerGrowthRoadmap onOpenDemo={handleOpenDemo} />
+
+      {/* =========================================================================
+          7d. CAMPUS & LAB FACILITIES (EXPERIENCE OUR DATACENTER & LAB LIFE)
+          ========================================================================= */}
+      <CampusLife />
 
       {/* =========================================================================
           8. PLACEMENT PARTNERS & CAREER OPPORTUNITIES (STICKY TAB #placement)
