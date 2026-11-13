@@ -48,6 +48,7 @@ import { LogoMarquee } from '../components/marquee/LogoMarquee';
 import { CourseStickyNav } from '../components/navigation/CourseStickyNav';
 import { TrainersSection } from '../components/trainers/TrainersSection';
 import { ComparisonSection } from '../components/comparison/ComparisonSection';
+import { CareerGrowthRoadmap } from '../components/career/CareerGrowthRoadmap';
 import { PlacementPartners } from '../components/partners/PlacementPartners';
 import { GoogleReviews } from '../components/reviews/GoogleReviews';
 import { EventsSection } from '../components/events/EventsSection';
@@ -1882,6 +1883,11 @@ export function CCNACoursePage() {
           7b. WHAT SETS US APART: CCNA INSTITUTES COMPARISON TABLE
           ========================================================================= */}
       <ComparisonSection onOpenDemo={handleOpenDemo} />
+
+      {/* =========================================================================
+          7c. WHERE CCNA TAKES YOU OVER THE NEXT 6 YEARS (CAREER GROWTH ROADMAP)
+          ========================================================================= */}
+      <CareerGrowthRoadmap />
 
       {/* =========================================================================
           8. PLACEMENT PARTNERS & CAREER OPPORTUNITIES (STICKY TAB #placement)
