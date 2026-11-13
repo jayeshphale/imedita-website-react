@@ -1,0 +1,575 @@
+/* ==========================================================================
+   WHAT SETS US APART: CCNA INSTITUTES COMPARISON TABLE
+   High-Clarity Light Theme • Razorpay / Stripe Fintech Minimalist Aesthetic
+   100% Fluid & Fully Responsive Across All Devices
+   ========================================================================== */
+
+.comparisonSection {
+  position: relative;
+  width: 100%;
+  background-color: #f8fafc;
+  background-image: 
+    radial-gradient(ellipse 80% 50% at 50% 0%, #eff6ff 0%, #f8fafc 80%),
+    linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+  padding: clamp(3.5rem, 5.5vw, 6rem) 1.25rem clamp(4rem, 6vw, 6.5rem);
+  border-top: 1px solid #e2e8f0;
+  border-bottom: 1px solid #e2e8f0;
+  color: #0f172a;
+  box-sizing: border-box;
+}
+
+.sectionContainer {
+  position: relative;
+  max-width: 1080px;
+  margin: 0 auto;
+  z-index: 5;
+}
+
+/* ==========================================================================
+   1. SECTION HEADER
+   ========================================================================== */
+.headerBlock {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto clamp(2.5rem, 4vw, 3.5rem);
+}
+
+.eyebrowBadge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.35rem 1.15rem;
+  border-radius: 9999px;
+  background-color: #e0f2fe;
+  border: 1px solid #bae6fd;
+  color: #0284c7;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.sectionHeading {
+  font-size: clamp(1.85rem, 3.2vw, 2.65rem);
+  font-weight: 850;
+  color: #0b2545;
+  letter-spacing: -0.025em;
+  line-height: 1.22;
+  margin: 0 0 1rem;
+}
+
+.headingBreak {
+  display: block;
+}
+
+@media (max-width: 640px) {
+  .headingBreak {
+    display: inline;
+  }
+}
+
+.sectionSubtext {
+  font-size: clamp(0.95rem, 1.3vw, 1.05rem);
+  color: #64748b;
+  line-height: 1.6;
+  margin: 0 auto;
+  max-width: 620px;
+}
+
+/* ==========================================================================
+   2. COMPARISON CARD & TABLE
+   ========================================================================== */
+.tableCard {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 1.25rem;
+  box-shadow: 
+    0 10px 30px -5px rgba(0, 0, 0, 0.05),
+    0 1px 3px rgba(0, 0, 0, 0.03);
+  overflow: hidden;
+  position: relative;
+}
+
+.mobileSwipeIndicator {
+  display: none;
+}
+
+@media (max-width: 680px) {
+  .mobileSwipeIndicator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.65rem 1rem;
+    background-color: #f1f5f9;
+    border-bottom: 1px solid #e2e8f0;
+    color: #0284c7;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .featureHeaderCol,
+  .featureCell {
+    position: sticky;
+    left: 0;
+    z-index: 5;
+    background-color: #ffffff;
+    box-shadow: 2px 0 6px rgba(0, 0, 0, 0.05);
+  }
+
+  .featureHeaderCol {
+    background-color: #ffffff;
+    z-index: 6;
+  }
+}
+
+.scrollWrapper {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Scrollbar polish */
+.scrollWrapper::-webkit-scrollbar {
+  height: 6px;
+}
+.scrollWrapper::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+.scrollWrapper::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 9999px;
+}
+
+.comparisonTable {
+  width: 100%;
+  min-width: 680px;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+/* Column Widths */
+.featureHeaderCol,
+.featureCell {
+  width: 32%;
+  padding-left: clamp(1.25rem, 2vw, 2rem);
+  padding-right: 1.25rem;
+}
+
+.imeditaHeaderCol,
+.imeditaCell,
+.imeditaScoreCell {
+  width: 35%;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.otherHeaderCol,
+.otherCell,
+.otherScoreCell {
+  width: 33%;
+  padding-left: 1.5rem;
+  padding-right: clamp(1.25rem, 2vw, 2rem);
+}
+
+/* ==========================================================================
+   3. TABLE HEADER ROW
+   ========================================================================== */
+.headerRow th {
+  padding-top: 1.35rem;
+  padding-bottom: 1.35rem;
+  vertical-align: middle;
+}
+
+.featureHeaderCol {
+  background-color: #ffffff;
+}
+
+.featureHeaderLabel {
+  font-size: 0.75rem;
+  font-weight: 750;
+  letter-spacing: 0.08em;
+  color: #94a3b8;
+  text-transform: uppercase;
+}
+
+/* I-Medita Column Header (Deep Navy) */
+.imeditaHeaderCol {
+  background: linear-gradient(145deg, #07234a 0%, #061e3f 100%);
+  color: #ffffff;
+  border-top-left-radius: 0;
+}
+
+/* Other Institutes Column Header (Dark Slate) */
+.otherHeaderCol {
+  background: #334155;
+  color: #ffffff;
+}
+
+.brandHeaderContent {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.brandIconBoxOrange {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: #ff6b00;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  flex-shrink: 0;
+  box-shadow: 0 2px 8px rgba(255, 107, 0, 0.35);
+}
+
+.brandIconBoxSlate {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #cbd5e1;
+  flex-shrink: 0;
+}
+
+.brandInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.brandTitle {
+  font-size: 1.15rem;
+  font-weight: 850;
+  color: #ffffff;
+  letter-spacing: -0.015em;
+  line-height: 1.2;
+}
+
+.otherTitle {
+  font-size: 1.05rem;
+  font-weight: 750;
+  color: #f1f5f9;
+  letter-spacing: -0.015em;
+  line-height: 1.2;
+}
+
+.topRatedPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  color: #e0f2fe;
+  font-size: 0.725rem;
+  font-weight: 600;
+  padding: 0.15rem 0.55rem;
+  border-radius: 9999px;
+  width: fit-content;
+}
+
+.starIcon {
+  color: #facc15;
+}
+
+.genericPill {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.22);
+  color: #94a3b8;
+  font-size: 0.725rem;
+  font-weight: 500;
+  padding: 0.15rem 0.55rem;
+  border-radius: 9999px;
+  width: fit-content;
+}
+
+/* ==========================================================================
+   4. DATA ROWS
+   ========================================================================== */
+.dataRow {
+  border-bottom: 1px solid #f1f5f9;
+  transition: background-color 150ms ease;
+}
+
+.dataRow:hover {
+  background-color: #fafbfc;
+}
+
+.dataRow td {
+  padding-top: 1.05rem;
+  padding-bottom: 1.05rem;
+  vertical-align: middle;
+}
+
+/* Feature cell */
+.featureInner {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.featureIconBadge {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background-color: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #475569;
+  flex-shrink: 0;
+  transition: all 180ms ease;
+}
+
+.dataRow:hover .featureIconBadge {
+  background-color: #e0f2fe;
+  border-color: #bae6fd;
+  color: #0284c7;
+}
+
+.featureName {
+  font-size: 0.875rem;
+  font-weight: 650;
+  color: #334155;
+  letter-spacing: -0.01em;
+}
+
+/* I-Medita Cell */
+.imeditaCell {
+  background-color: #f8fbff;
+  border-left: 1px solid #f0f4f8;
+  border-right: 1px solid #f0f4f8;
+}
+
+.valueInner {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.checkIcon {
+  color: #10b981;
+  flex-shrink: 0;
+}
+
+.imeditaText {
+  font-size: 0.875rem;
+  font-weight: 650;
+  color: #0f172a;
+  letter-spacing: -0.01em;
+}
+
+/* Other Cell */
+.otherCell {
+  background-color: #ffffff;
+}
+
+.crossIcon {
+  color: #f87171;
+  flex-shrink: 0;
+}
+
+.otherText {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #64748b;
+  letter-spacing: -0.01em;
+}
+
+/* ==========================================================================
+   5. OVERALL SCORE ROW
+   ========================================================================== */
+.scoreRow {
+  border-top: 1px solid #e2e8f0;
+  border-bottom: 1px solid #e2e8f0;
+  background-color: #ffffff;
+}
+
+.scoreRow td {
+  padding-top: 1.35rem;
+  padding-bottom: 1.35rem;
+  vertical-align: middle;
+}
+
+.overallScoreLabel {
+  font-size: 0.75rem;
+  font-weight: 750;
+  letter-spacing: 0.08em;
+  color: #94a3b8;
+  text-transform: uppercase;
+}
+
+.imeditaScoreCell {
+  background-color: #f0f7ff;
+  border-left: 1px solid #e0f2fe;
+  border-right: 1px solid #e0f2fe;
+}
+
+.scoreBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  max-width: 260px;
+}
+
+.scoreTopLine {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.scoreBrandLabel {
+  font-size: 0.725rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  color: #0284c7;
+  text-transform: uppercase;
+}
+
+.otherScoreLabel {
+  font-size: 0.725rem;
+  font-weight: 750;
+  letter-spacing: 0.06em;
+  color: #64748b;
+  text-transform: uppercase;
+}
+
+.scoreValueWrapper {
+  display: flex;
+  align-items: baseline;
+  gap: 0.2rem;
+}
+
+.scoreNumber {
+  font-size: 1.35rem;
+  font-weight: 850;
+  color: #0f172a;
+  line-height: 1;
+}
+
+.otherScoreNumber {
+  font-size: 1.35rem;
+  font-weight: 850;
+  color: #475569;
+  line-height: 1;
+}
+
+.scoreOutOf {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #64748b;
+}
+
+.progressBarTrack {
+  width: 100%;
+  height: 6px;
+  background-color: #e2e8f0;
+  border-radius: 9999px;
+  overflow: hidden;
+}
+
+.progressBarFillImedita {
+  height: 100%;
+  background: #07234a;
+  border-radius: 9999px;
+  transition: width 1s ease-out;
+}
+
+.progressBarFillOthers {
+  height: 100%;
+  background: #94a3b8;
+  border-radius: 9999px;
+  transition: width 1s ease-out;
+}
+
+/* ==========================================================================
+   6. CARD FOOTER CTA BAR
+   ========================================================================== */
+.cardFooterBar {
+  padding: 1.5rem clamp(1.25rem, 2vw, 2rem);
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.footerNoteText {
+  font-size: 0.875rem;
+  color: #64748b;
+  line-height: 1.55;
+  margin: 0;
+  max-width: 650px;
+}
+
+.enrollCtaBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.75rem 1.65rem;
+  border-radius: 0.65rem;
+  background-color: #ff6b00;
+  color: #ffffff;
+  font-size: 0.9rem;
+  font-weight: 750;
+  border: none;
+  cursor: pointer;
+  white-space: nowrap;
+  flex-shrink: 0;
+  box-shadow: 0 4px 14px rgba(255, 107, 0, 0.35);
+  transition: all 180ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.enrollCtaBtn:hover {
+  background-color: #ea580c;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(255, 107, 0, 0.45);
+}
+
+.enrollCtaBtn:active {
+  transform: translateY(0);
+}
+
+.btnArrow {
+  transition: transform 180ms ease;
+}
+
+.enrollCtaBtn:hover .btnArrow {
+  transform: translateX(3px);
+}
+
+/* ==========================================================================
+   7. RESPONSIVE BREAKPOINTS
+   ========================================================================== */
+@media (max-width: 768px) {
+  .cardFooterBar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.15rem;
+    padding: 1.25rem 1.25rem;
+  }
+
+  .enrollCtaBtn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .comparisonSection {
+    padding: 3rem 0.75rem 4rem;
+  }
+
+  .tableCard {
+    border-radius: 1rem;
+  }
+}

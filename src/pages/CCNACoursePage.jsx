@@ -47,6 +47,7 @@ import {
 import { LogoMarquee } from '../components/marquee/LogoMarquee';
 import { CourseStickyNav } from '../components/navigation/CourseStickyNav';
 import { TrainersSection } from '../components/trainers/TrainersSection';
+import { ComparisonSection } from '../components/comparison/ComparisonSection';
 import { PlacementPartners } from '../components/partners/PlacementPartners';
 import { GoogleReviews } from '../components/reviews/GoogleReviews';
 import { EventsSection } from '../components/events/EventsSection';
@@ -1876,6 +1877,11 @@ export function CCNACoursePage() {
           7. MASTER CCIE FACULTY & MENTORS (STICKY TAB #trainers)
           ========================================================================= */}
       <TrainersSection />
+
+      {/* =========================================================================
+          7b. WHAT SETS US APART: CCNA INSTITUTES COMPARISON TABLE
+          ========================================================================= */}
+      <ComparisonSection onOpenDemo={handleOpenDemo} />
 
       {/* =========================================================================
           8. PLACEMENT PARTNERS & CAREER OPPORTUNITIES (STICKY TAB #placement)
