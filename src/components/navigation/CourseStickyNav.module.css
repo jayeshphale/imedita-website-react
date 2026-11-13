@@ -276,6 +276,19 @@
 }
 
 @media (max-width: 640px) {
+  .container {
+    padding: 0 0.5rem;
+    gap: 0.5rem;
+  }
+  .navTrack {
+    gap: 0.45rem;
+    padding: 0 0.25rem;
+  }
+  .navLink {
+    padding: 0 0.35rem;
+    font-size: 0.78rem;
+    gap: 0.3rem;
+  }
   .ctaQuickBtn span {
     display: none; /* Compact icon mode on small mobile devices */
   }

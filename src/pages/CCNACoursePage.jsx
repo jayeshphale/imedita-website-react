@@ -1991,6 +1991,10 @@ export function CCNACoursePage() {
               </p>
             </div>
 
+            <div className={styles.tableScrollHint}>
+              <ArrowRight size={13} />
+              <span>Scroll horizontally to view complete batch schedule</span>
+            </div>
             <div className={styles.batchesTableWrapper}>
               <table className={styles.batchesTable}>
                 <thead>
