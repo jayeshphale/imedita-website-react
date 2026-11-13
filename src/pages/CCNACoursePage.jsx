@@ -1895,90 +1895,10 @@ export function CCNACoursePage() {
       <CampusLife />
 
       {/* =========================================================================
-          8. PLACEMENT PARTNERS & CAREER OPPORTUNITIES (STICKY TAB #placement)
+          8. PLACEMENT PARTNERS (STICKY TAB #placement)
           ========================================================================= */}
       <div id="placement">
         <PlacementPartners />
-
-        {/* =========================================================================
-            9. EXAM DETAILS & CAREER OPPORTUNITIES
-            ========================================================================= */}
-        <section className={styles.contentSection}>
-          <div className={styles.container}>
-            <div className={styles.dualSplitGrid}>
-              {/* Left: Exam Details */}
-              <div className={styles.examDetailsCard}>
-                <div className={styles.cardHeaderBlock}>
-                  <Award size={24} className={styles.cardIcon} />
-                  <h3 className={styles.cardBlockTitle}>Cisco 200-301 Exam Information</h3>
-                </div>
-
-                <div className={styles.examRowsList}>
-                  <div className={styles.examRow}>
-                    <span className={styles.examLabel}>Exam Code</span>
-                    <span className={styles.examValue}>200-301 CCNA</span>
-                  </div>
-                  <div className={styles.examRow}>
-                    <span className={styles.examLabel}>Exam Duration</span>
-                    <span className={styles.examValue}>120 Minutes</span>
-                  </div>
-                  <div className={styles.examRow}>
-                    <span className={styles.examLabel}>Number of Questions</span>
-                    <span className={styles.examValue}>100 – 120 Questions</span>
-                  </div>
-                  <div className={styles.examRow}>
-                    <span className={styles.examLabel}>Question Formats</span>
-                    <span className={styles.examValue}>Multiple Choice, Drag &amp; Drop, Simlets</span>
-                  </div>
-                  <div className={styles.examRow}>
-                    <span className={styles.examLabel}>Passing Score</span>
-                    <span className={styles.examValue}>825 / 1000 (~82.5%)</span>
-                  </div>
-                  <div className={styles.examRow}>
-                    <span className={styles.examLabel}>Certification Validity</span>
-                    <span className={styles.examValue}>3 Years Globally Recognized</span>
-                  </div>
-                  <div className={styles.examRow}>
-                    <span className={styles.examLabel}>Testing Authority</span>
-                    <span className={styles.examValue}>Pearson VUE / I-Medita Exam Center</span>
-                  </div>
-                </div>
-              </div>
-
-              {/* Right: Job Profiles & Salaries */}
-              <div className={styles.careerCard}>
-                <div className={styles.cardHeaderBlock}>
-                  <Briefcase size={24} className={styles.cardIcon} />
-                  <h3 className={styles.cardBlockTitle}>Job Profiles &amp; Career Growth</h3>
-                </div>
-
-                <p style={{ fontSize: '0.875rem', color: '#64748b', lineHeight: 1.6, marginBottom: '1.25rem' }}>
-                  CCNA is the gold standard foundation for IT networking and cybersecurity infrastructure careers. 
-                  Our certified alumni step into high-demand enterprise roles:
-                </p>
-
-                <div className={styles.rolesGrid}>
-                  <div className={styles.roleCard}>
-                    <div className={styles.roleTitle}>Network Engineer</div>
-                    <div className={styles.roleSalary}>₹4.5 LPA – ₹7.5 LPA</div>
-                  </div>
-                  <div className={styles.roleCard}>
-                    <div className={styles.roleTitle}>NOC Support Engineer</div>
-                    <div className={styles.roleSalary}>₹3.8 LPA – ₹5.8 LPA</div>
-                  </div>
-                  <div className={styles.roleCard}>
-                    <div className={styles.roleTitle}>Network Administrator</div>
-                    <div className={styles.roleSalary}>₹5.0 LPA – ₹8.5 LPA</div>
-                  </div>
-                  <div className={styles.roleCard}>
-                    <div className={styles.roleTitle}>Security Analyst (L1)</div>
-                    <div className={styles.roleSalary}>₹4.8 LPA – ₹7.8 LPA</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
       </div>
 
       {/* =========================================================================
