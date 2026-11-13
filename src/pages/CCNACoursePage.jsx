@@ -1887,7 +1887,7 @@ export function CCNACoursePage() {
       {/* =========================================================================
           7c. WHERE CCNA TAKES YOU OVER THE NEXT 6 YEARS (CAREER GROWTH ROADMAP)
           ========================================================================= */}
-      <CareerGrowthRoadmap />
+      <CareerGrowthRoadmap onOpenDemo={handleOpenDemo} />
 
       {/* =========================================================================
           8. PLACEMENT PARTNERS & CAREER OPPORTUNITIES (STICKY TAB #placement)
