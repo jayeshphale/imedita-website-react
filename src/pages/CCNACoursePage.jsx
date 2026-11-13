@@ -52,7 +52,6 @@ import { CareerGrowthRoadmap } from '../components/career/CareerGrowthRoadmap';
 import { CampusLife } from '../components/campus/CampusLife';
 import { PlacementPartners } from '../components/partners/PlacementPartners';
 import { GoogleReviews } from '../components/reviews/GoogleReviews';
-import { EventsSection } from '../components/events/EventsSection';
 import styles from './CCNACoursePage.module.css';
 
 // Why Choose I-Medita 6 Key Pillars
@@ -1894,11 +1893,6 @@ export function CCNACoursePage() {
           7d. CAMPUS & LAB FACILITIES (EXPERIENCE OUR DATACENTER & LAB LIFE)
           ========================================================================= */}
       <CampusLife />
-
-      {/* =========================================================================
-          7e. UPCOMING TECHNICAL BOOTCAMPS & EVENTS (STICKY TAB #events)
-          ========================================================================= */}
-      <EventsSection onOpenDemo={handleOpenDemo} />
 
       {/* =========================================================================
           8. PLACEMENT PARTNERS & CAREER OPPORTUNITIES (STICKY TAB #placement)
