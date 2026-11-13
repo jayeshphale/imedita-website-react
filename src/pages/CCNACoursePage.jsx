@@ -2276,7 +2276,7 @@ export function CCNACoursePage() {
         className={styles.contentSection}
         id="batches"
         aria-labelledby="batches-heading"
-        style={{ background: '#f8fafc' }}
+        style={{ background: '#ffffff', borderBottom: '1px solid #e2e8f0' }}
       >
         <div className={styles.container}>
           <div className={styles.sectionHeaderCenter}>
@@ -2358,6 +2358,7 @@ export function CCNACoursePage() {
         aria-labelledby="faq-heading"
         itemScope
         itemType="https://schema.org/FAQPage"
+        style={{ background: '#f8fafc', borderBottom: '1px solid #e2e8f0' }}
       >
         <div className={styles.container}>
           <div className={styles.sectionHeaderCenter}>

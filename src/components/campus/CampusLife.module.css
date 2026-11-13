@@ -7,7 +7,8 @@
 .campusOuterWrapper {
   position: relative;
   width: 100%;
-  background-color: #ffffff;
+  background-color: #f8fafc;
+  border-top: 1px solid #e2e8f0;
   border-bottom: 1px solid #e2e8f0;
 }
 
@@ -22,7 +23,7 @@
   position: relative;
   width: 100%;
   padding: 3.5rem 0;
-  background-color: #ffffff;
+  background-color: #f8fafc;
   overflow: hidden;
 }
 
