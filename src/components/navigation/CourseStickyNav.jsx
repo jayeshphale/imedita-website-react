@@ -11,14 +11,14 @@ import {
 } from 'lucide-react';
 import styles from './CourseStickyNav.module.css';
 
-// Professional enterprise icons for technical course navigation (Events before FAQ)
+// Professional enterprise icons for technical course navigation (Events before Placement)
 const defaultNavItems = [
   { id: 'overview', label: 'Overview', icon: Layers },
   { id: 'syllabus', label: 'Syllabus', icon: BookOpen },
   { id: 'trainers', label: 'Trainers', icon: UserCheck },
+  { id: 'events', label: 'Events', icon: Calendar },
   { id: 'placement', label: 'Placement', icon: Briefcase },
   { id: 'reviews', label: 'Reviews', icon: Star },
-  { id: 'events', label: 'Events', icon: Calendar },
   { id: 'faq', label: 'FAQ', icon: HelpCircle }
 ];
 

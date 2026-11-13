@@ -1896,6 +1896,11 @@ export function CCNACoursePage() {
       <CampusLife />
 
       {/* =========================================================================
+          7e. UPCOMING TECHNICAL BOOTCAMPS & EVENTS (STICKY TAB #events)
+          ========================================================================= */}
+      <EventsSection onOpenDemo={handleOpenDemo} />
+
+      {/* =========================================================================
           8. PLACEMENT PARTNERS & CAREER OPPORTUNITIES (STICKY TAB #placement)
           ========================================================================= */}
       <div id="placement">
@@ -1988,83 +1993,76 @@ export function CCNACoursePage() {
       <GoogleReviews />
 
       {/* =========================================================================
-          11. UPCOMING TECHNICAL BOOTCAMPS & EVENTS (STICKY TAB #events)
+          11. UPCOMING LIVE BATCHES SCHEDULE
           ========================================================================= */}
-      <div id="events">
-        <EventsSection onOpenDemo={handleOpenDemo} />
-
-        {/* =========================================================================
-            12. UPCOMING LIVE BATCHES SCHEDULE
-            ========================================================================= */}
-        <section className={styles.contentSection} style={{ background: '#f8fafc' }}>
-          <div className={styles.container}>
-            <div className={styles.sectionHeaderCenter}>
-              <div className={styles.sectionEyebrow}>
-                <Calendar size={13} />
-                <span>Enrollment Schedule</span>
-              </div>
-              <h2 className={styles.sectionTitle}>Upcoming Cisco CCNA Live Batches</h2>
-              <p className={styles.sectionSubtext}>
-                Flexible weekend and weekday batches available in classroom and interactive live online formats.
-              </p>
+      <section className={styles.contentSection} id="batches" style={{ background: '#f8fafc' }}>
+        <div className={styles.container}>
+          <div className={styles.sectionHeaderCenter}>
+            <div className={styles.sectionEyebrow}>
+              <Calendar size={13} />
+              <span>Enrollment Schedule</span>
             </div>
-
-            <div className={styles.tableScrollHint}>
-              <ArrowRight size={13} />
-              <span>Scroll horizontally to view complete batch schedule</span>
-            </div>
-            <div className={styles.batchesTableWrapper}>
-              <table className={styles.batchesTable}>
-                <thead>
-                  <tr>
-                    <th>Start Date</th>
-                    <th>Batch Type</th>
-                    <th>Training Mode</th>
-                    <th>Timings</th>
-                    <th>Status</th>
-                    <th>Action</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {upcomingBatches.map((batch) => (
-                    <tr key={batch.id}>
-                      <td>
-                        <div style={{ fontWeight: 750, color: '#0f172a' }}>{batch.startDate}</div>
-                        <div style={{ fontSize: '0.75rem', color: '#64748b' }}>{batch.duration}</div>
-                      </td>
-                      <td>
-                        <span className={styles.batchBadge} style={{ background: '#f1f5f9', color: '#334155' }}>
-                          {batch.type}
-                        </span>
-                      </td>
-                      <td>
-                        <span className={`${styles.batchBadge} ${batch.mode.includes('Classroom') ? styles.batchBadgeClassroom : styles.batchBadgeLive}`}>
-                          {batch.mode}
-                        </span>
-                      </td>
-                      <td style={{ color: '#475569', fontWeight: 600 }}>{batch.timing}</td>
-                      <td>
-                        <span style={{ color: '#059669', fontWeight: 700, fontSize: '0.75rem' }}>
-                          ● {batch.seats}
-                        </span>
-                      </td>
-                      <td>
-                        <button
-                          type="button"
-                          className={styles.enrollBtnSmall}
-                          onClick={() => handleOpenDemo(`Cisco CCNA - ${batch.startDate}`)}
-                        >
-                          Book Seat
-                        </button>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
+            <h2 className={styles.sectionTitle}>Upcoming Cisco CCNA Live Batches</h2>
+            <p className={styles.sectionSubtext}>
+              Flexible weekend and weekday batches available in classroom and interactive live online formats.
+            </p>
           </div>
-        </section>
-      </div>
+
+          <div className={styles.tableScrollHint}>
+            <ArrowRight size={13} />
+            <span>Scroll horizontally to view complete batch schedule</span>
+          </div>
+          <div className={styles.batchesTableWrapper}>
+            <table className={styles.batchesTable}>
+              <thead>
+                <tr>
+                  <th>Start Date</th>
+                  <th>Batch Type</th>
+                  <th>Training Mode</th>
+                  <th>Timings</th>
+                  <th>Status</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                {upcomingBatches.map((batch) => (
+                  <tr key={batch.id}>
+                    <td>
+                      <div style={{ fontWeight: 750, color: '#0f172a' }}>{batch.startDate}</div>
+                      <div style={{ fontSize: '0.75rem', color: '#64748b' }}>{batch.duration}</div>
+                    </td>
+                    <td>
+                      <span className={styles.batchBadge} style={{ background: '#f1f5f9', color: '#334155' }}>
+                        {batch.type}
+                      </span>
+                    </td>
+                    <td>
+                      <span className={`${styles.batchBadge} ${batch.mode.includes('Classroom') ? styles.batchBadgeClassroom : styles.batchBadgeLive}`}>
+                        {batch.mode}
+                      </span>
+                    </td>
+                    <td style={{ color: '#475569', fontWeight: 600 }}>{batch.timing}</td>
+                    <td>
+                      <span style={{ color: '#059669', fontWeight: 700, fontSize: '0.75rem' }}>
+                        ● {batch.seats}
+                      </span>
+                    </td>
+                    <td>
+                      <button
+                        type="button"
+                        className={styles.enrollBtnSmall}
+                        onClick={() => handleOpenDemo(`Cisco CCNA - ${batch.startDate}`)}
+                      >
+                        Book Seat
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
 
       {/* =========================================================================
           13. FREQUENTLY ASKED QUESTIONS (STICKY TAB #faq)
