@@ -490,9 +490,6 @@ export function CareerGrowthRoadmap({ onOpenDemo }) {
               <span>Get Free 1-on-1 Career Roadmap</span>
               <ArrowRight size={14} />
             </button>
-            <a href="tel:+918750004411" className={styles.catalystCallBtn}>
-              <span>Call Admissions: +91 87500 04411</span>
-            </a>
           </div>
         </div>
       </div>

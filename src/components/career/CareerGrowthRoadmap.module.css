@@ -833,18 +833,6 @@
   box-shadow: 0 8px 22px rgba(0, 102, 255, 0.38);
 }
 
-.catalystCallBtn {
-  font-size: 0.82rem;
-  font-weight: 750;
-  color: #0066ff;
-  text-decoration: underline;
-  text-underline-offset: 3px;
-  transition: color 150ms ease;
-}
-
-.catalystCallBtn:hover {
-  color: #004ecc;
-}
 
 @media (max-width: 960px) {
   .catalystBanner {
