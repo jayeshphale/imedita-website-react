@@ -52,6 +52,7 @@ import { CareerGrowthRoadmap } from '../components/career/CareerGrowthRoadmap';
 import { CampusLife } from '../components/campus/CampusLife';
 import { PlacementPartners } from '../components/partners/PlacementPartners';
 import { GoogleReviews } from '../components/reviews/GoogleReviews';
+import { CCNAFaqSection, faqsData } from '../components/faq/CCNAFaqSection';
 import styles from './CCNACoursePage.module.css';
 
 // Why Choose I-Medita 6 Key Pillars
@@ -555,34 +556,6 @@ const upcomingBatches = [
   }
 ];
 
-// FAQs Data
-const faqsData = [
-  {
-    q: 'Do I need any prior networking or coding experience to enroll in CCNA?',
-    a: 'No prior networking or coding experience is required! The CCNA 200-301 training starts from absolute networking basics (OSI model, IP addressing, and binary subnetting) and progressively builds up to advanced routing, firewall security, and Python automation. Basic computer operation familiarity is all you need.'
-  },
-  {
-    q: 'Will I practice on real Cisco routers and switches or simulators?',
-    a: 'At I-Medita, you will practice on 100% REAL physical Cisco hardware devices installed in our Pune datacenter labs (Catalyst 9300/2960 switches and ISR 4331 routers). We provide 24/7 remote rack access with real CLI terminals, as well as hands-on physical cabling and console sessions for classroom students.'
-  },
-  {
-    q: 'What is the passing score and format for the Cisco 200-301 CCNA exam?',
-    a: 'The Cisco 200-301 exam contains 100 to 120 questions to be solved within 120 minutes. Questions include multiple-choice (single and multiple select), drag-and-drop, and interactive configuration simlets. The passing score is approximately 825 out of 1000.'
-  },
-  {
-    q: 'Does I-Medita provide Cisco global exam voucher assistance?',
-    a: 'Yes! As an authorized certification partner, I-Medita provides students with up to 45% discounted official Cisco exam vouchers, along with comprehensive mock question banks, full-length practice tests, and exam preparation bootcamps with a 100% first-attempt passing track record.'
-  },
-  {
-    q: 'What placement assistance will I receive after completing CCNA?',
-    a: 'Our dedicated placement cell conducts weekly technical mock interviews, resume refinement sessions, and direct interview scheduling with over 150+ corporate hiring partners (including Orange Business, Airtel, Wipro, Dimension Data, and Infosys). Freshers typically secure starting packages between ₹4.2 LPA and ₹6.5 LPA.'
-  },
-  {
-    q: 'What happens if I miss a live session or need to revise?',
-    a: 'All live classroom and online sessions are recorded in high-definition and uploaded to your lifetime LMS portal within 2 hours. You can revisit recordings, lab workbooks, configuration configs, and command cheat sheets anytime from your laptop or mobile app.'
-  }
-];
-
 // ---------------------------------------------------------------------------
 // AEO & SEO Structured Data Schemas (Course, FAQPage, BreadcrumbList, Organization)
 // ---------------------------------------------------------------------------
@@ -740,7 +713,6 @@ export function CCNACoursePage() {
   const context = useOutletContext() || {};
   const handleOpenDemo = context.handleOpenDemo || (() => {});
   const [openModule, setOpenModule] = useState('mod-1');
-  const [openFaq, setOpenFaq] = useState(0);
   const [activeRoadmapStage, setActiveRoadmapStage] = useState(0);
   const [activeSlice, setActiveSlice] = useState(0);
   const [activeLabFilter, setActiveLabFilter] = useState('all');
@@ -808,10 +780,6 @@ export function CCNACoursePage() {
 
   const toggleModule = (id) => {
     setOpenModule(openModule === id ? null : id);
-  };
-
-  const toggleFaq = (idx) => {
-    setOpenFaq(openFaq === idx ? null : idx);
   };
 
   // Sync meta tags for search engines and answer bots
@@ -2352,73 +2320,7 @@ export function CCNACoursePage() {
       {/* =========================================================================
           13. FREQUENTLY ASKED QUESTIONS (STICKY TAB #faq)
           ========================================================================= */}
-      <section
-        className={styles.contentSection}
-        id="faq"
-        aria-labelledby="faq-heading"
-        itemScope
-        itemType="https://schema.org/FAQPage"
-        style={{ background: '#f1f6fa', borderBottom: '1px solid #e2e8f0' }}
-      >
-        <div className={styles.container}>
-          <div className={styles.sectionHeaderCenter}>
-            <div className={styles.sectionEyebrow}>
-              <HelpCircle size={13} aria-hidden="true" />
-              <span>Clear Doubts</span>
-            </div>
-            <h2 className={styles.sectionTitle} id="faq-heading">Frequently Asked Questions</h2>
-            <p className={styles.sectionSubtext}>
-              Everything you need to know about CCNA training, fees, lab access, and placement assistance.
-            </p>
-          </div>
-
-          <div className={styles.faqsList}>
-            {faqsData.map((faq, i) => {
-              const isOpen = openFaq === i;
-              return (
-                <article
-                  key={i}
-                  className={styles.faqItem}
-                  itemScope
-                  itemProp="mainEntity"
-                  itemType="https://schema.org/Question"
-                >
-                  <button
-                    type="button"
-                    className={styles.faqQuestion}
-                    onClick={() => toggleFaq(i)}
-                    aria-expanded={isOpen}
-                    aria-controls={`faq-answer-${i}`}
-                  >
-                    <span itemProp="name">{faq.q}</span>
-                    <ChevronDown
-                      size={18}
-                      style={{
-                        transform: isOpen ? 'rotate(180deg)' : 'none',
-                        transition: 'transform 200ms ease',
-                        flexShrink: 0
-                      }}
-                      aria-hidden="true"
-                    />
-                  </button>
-                  {isOpen && (
-                    <div
-                      className={styles.faqAnswer}
-                      id={`faq-answer-${i}`}
-                      role="region"
-                      itemScope
-                      itemProp="acceptedAnswer"
-                      itemType="https://schema.org/Answer"
-                    >
-                      <p itemProp="text">{faq.a}</p>
-                    </div>
-                  )}
-                </article>
-              );
-            })}
-          </div>
-        </div>
-      </section>
+      <CCNAFaqSection onOpenDemo={handleOpenDemo} />
 
       {/* =========================================================================
           10. FINAL BOTTOM LEAD CALL-TO-ACTION SECTION

@@ -1,0 +1,599 @@
+/* ==========================================================================
+   MODERN ENTERPRISE FAQ SECTION (CCNA 200-301)
+   High-Clarity Light Theme • Category Tabs • Instant Filter Search • Smooth Accordions
+   ========================================================================== */
+
+.faqSectionWrapper {
+  position: relative;
+  width: 100%;
+  background-color: #f1f6fa;
+  padding: clamp(4rem, 6vw, 6.5rem) 1.25rem clamp(4.5rem, 6.5vw, 7rem);
+  border-top: 1px solid #e2e8f0;
+  border-bottom: 1px solid #e2e8f0;
+  box-sizing: border-box;
+}
+
+.sectionContainer {
+  position: relative;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+/* ==========================================================================
+   1. SECTION HEADER & SEARCH BAR
+   ========================================================================== */
+.headerBlock {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto clamp(2rem, 3.5vw, 2.75rem);
+}
+
+.eyebrowBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.35rem 1.15rem;
+  border-radius: 9999px;
+  background-color: #e0f2fe;
+  border: 1px solid #bae6fd;
+  color: #0284c7;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.eyebrowIcon {
+  color: #0284c7;
+}
+
+.sectionHeading {
+  font-size: clamp(2rem, 3.5vw, 2.75rem);
+  font-weight: 850;
+  color: #061733;
+  letter-spacing: -0.025em;
+  line-height: 1.22;
+  margin: 0 0 0.85rem;
+}
+
+.sectionSubtext {
+  font-size: clamp(0.95rem, 1.2vw, 1.05rem);
+  color: #64748b;
+  line-height: 1.6;
+  margin: 0 auto 1.85rem;
+  max-width: 680px;
+}
+
+/* Instant Search Input Bar */
+.searchBarWrapper {
+  position: relative;
+  max-width: 620px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+}
+
+.searchIcon {
+  position: absolute;
+  left: 1.25rem;
+  color: #0284c7;
+  pointer-events: none;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 0.95rem 3rem 0.95rem 3.1rem;
+  font-size: 0.95rem;
+  font-family: inherit;
+  color: #061733;
+  background: #ffffff;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 9999px;
+  box-shadow: 0 4px 16px -2px rgba(15, 23, 42, 0.06);
+  transition: all 180ms ease;
+  box-sizing: border-box;
+}
+
+.searchInput:focus {
+  outline: none;
+  border-color: #0066ff;
+  box-shadow: 0 0 0 4px rgba(0, 102, 255, 0.12), 0 6px 20px -2px rgba(15, 23, 42, 0.08);
+}
+
+.searchInput::placeholder {
+  color: #94a3b8;
+}
+
+.clearSearchBtn {
+  position: absolute;
+  right: 1.15rem;
+  background: #f1f5f9;
+  border: none;
+  border-radius: 50%;
+  width: 26px;
+  height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #64748b;
+  cursor: pointer;
+  transition: all 150ms ease;
+}
+
+.clearSearchBtn:hover {
+  background: #e2e8f0;
+  color: #0f172a;
+}
+
+/* ==========================================================================
+   2. CATEGORY TABS (HORIZONTAL SCROLL / WRAP)
+   ========================================================================== */
+.categoryTabsContainer {
+  margin-bottom: 2rem;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 0.35rem;
+}
+
+.categoryTabsContainer::-webkit-scrollbar {
+  display: none;
+}
+
+.categoryTabsRow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+@media (max-width: 768px) {
+  .categoryTabsRow {
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    width: max-content;
+    padding: 0 0.25rem;
+  }
+}
+
+.categoryTabBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.55rem 1.05rem;
+  border-radius: 9999px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  color: #475569;
+  font-size: 0.825rem;
+  font-weight: 700;
+  cursor: pointer;
+  white-space: nowrap;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.03);
+  transition: all 180ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.categoryTabBtn:hover {
+  background: #ffffff;
+  border-color: #cbd5e1;
+  color: #0f172a;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.06);
+}
+
+.categoryTabIcon {
+  color: #0284c7;
+  transition: color 180ms ease;
+}
+
+.categoryCountBadge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.1rem 0.45rem;
+  border-radius: 9999px;
+  background: #f1f5f9;
+  color: #64748b;
+  font-size: 0.7rem;
+  font-weight: 800;
+}
+
+.categoryTabBtnActive {
+  background: #061733 !important;
+  border-color: #061733 !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 14px rgba(6, 23, 51, 0.25) !important;
+}
+
+.categoryTabBtnActive .categoryTabIcon {
+  color: #38bdf8 !important;
+}
+
+.categoryTabBtnActive .categoryCountBadge {
+  background: rgba(255, 255, 255, 0.18) !important;
+  color: #ffffff !important;
+}
+
+/* ==========================================================================
+   3. SEARCH RESULTS FEEDBACK ROW
+   ========================================================================== */
+.searchFeedbackRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+  padding: 0.65rem 1.15rem;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.75rem;
+  font-size: 0.85rem;
+  color: #475569;
+}
+
+.resetFilterBtn {
+  background: none;
+  border: none;
+  color: #0066ff;
+  font-weight: 700;
+  font-size: 0.825rem;
+  cursor: pointer;
+}
+
+.resetFilterBtn:hover {
+  text-decoration: underline;
+}
+
+/* ==========================================================================
+   4. FAQS ACCORDION STAGE
+   ========================================================================== */
+.faqsStageContainer {
+  margin-bottom: 3.5rem;
+}
+
+.faqsAccordionList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.faqCard {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 1rem;
+  transition: all 200ms cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.02);
+  overflow: hidden;
+}
+
+.faqCard:hover {
+  border-color: #cbd5e1;
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.05);
+  transform: translateY(-1px);
+}
+
+.faqCardOpen {
+  border-color: #0066ff !important;
+  border-left: 4px solid #0066ff !important;
+  box-shadow: 0 8px 24px -4px rgba(0, 102, 255, 0.08) !important;
+}
+
+.faqTrigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 1.6rem;
+  background: none;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  gap: 1rem;
+}
+
+.faqQuestionLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  flex: 1;
+}
+
+.faqCategorySmallTag {
+  align-self: flex-start;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #0284c7;
+  background: #e0f2fe;
+  padding: 0.15rem 0.5rem;
+  border-radius: 4px;
+}
+
+.faqQuestionText {
+  font-size: 1.05rem;
+  font-weight: 750;
+  color: #061733;
+  margin: 0;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+  transition: color 150ms ease;
+}
+
+.faqCardOpen .faqQuestionText {
+  color: #0066ff;
+}
+
+.faqChevronWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  flex-shrink: 0;
+  transition: all 200ms ease;
+}
+
+.faqCardOpen .faqChevronWrapper {
+  background: #eff6ff;
+  border-color: #bfdbfe;
+  color: #0066ff;
+}
+
+.faqChevronIcon {
+  transition: transform 220ms ease;
+  color: #64748b;
+}
+
+.faqCardOpen .faqChevronIcon {
+  color: #0066ff;
+}
+
+.faqChevronRotated {
+  transform: rotate(180deg);
+}
+
+.faqAnswerBody {
+  padding: 0 1.6rem 1.35rem 1.6rem;
+  font-size: 0.95rem;
+  color: #475569;
+  line-height: 1.7;
+  border-top: 1px solid #f1f5f9;
+  margin-top: -0.25rem;
+  padding-top: 1rem;
+  animation: fadeInAnswer 200ms ease;
+}
+
+.faqAnswerBody p {
+  margin: 0;
+}
+
+@keyframes fadeInAnswer {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.faqInlineLink {
+  color: #0066ff;
+  font-weight: 750;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  margin: 0 0.25rem;
+}
+
+.faqInlineLink:hover {
+  color: #004cb3;
+}
+
+/* Empty Search State */
+.emptyStateBox {
+  text-align: center;
+  padding: 3.5rem 1.5rem;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 1rem;
+}
+
+.emptyIcon {
+  color: #94a3b8;
+  margin-bottom: 1rem;
+}
+
+.emptyStateBox h4 {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #061733;
+  margin: 0 0 0.5rem;
+}
+
+.emptyStateBox p {
+  font-size: 0.95rem;
+  color: #64748b;
+  margin: 0 0 1.5rem;
+}
+
+.clearSearchCta {
+  padding: 0.65rem 1.35rem;
+  border-radius: 9999px;
+  background: #061733;
+  color: #ffffff;
+  border: none;
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 180ms ease;
+}
+
+.clearSearchCta:hover {
+  background: #0b2545;
+  transform: translateY(-1px);
+}
+
+/* ==========================================================================
+   5. BOTTOM "STILL HAVE QUESTIONS?" SUPPORT STRIP
+   ========================================================================== */
+.supportStripCard {
+  background: linear-gradient(135deg, #061733 0%, #0a2550 100%);
+  border-radius: 1.25rem;
+  padding: 1.75rem 2.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.75rem;
+  box-shadow: 0 12px 30px -4px rgba(6, 23, 51, 0.25);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.supportLeftInfo {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.supportIconSquircle {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: rgba(56, 189, 248, 0.15);
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #38bdf8;
+  flex-shrink: 0;
+}
+
+.supportTextWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.supportHeading {
+  font-size: 1.15rem;
+  font-weight: 850;
+  color: #ffffff;
+  margin: 0;
+  letter-spacing: -0.015em;
+}
+
+.supportSubheading {
+  font-size: 0.875rem;
+  color: #cbd5e1;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.supportActions {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  flex-shrink: 0;
+}
+
+.callSupportBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.35rem;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  border: 1.5px solid rgba(255, 255, 255, 0.25);
+  font-size: 0.85rem;
+  font-weight: 750;
+  text-decoration: none;
+  transition: all 180ms ease;
+  backdrop-filter: blur(8px);
+}
+
+.callSupportBtn:hover {
+  background: rgba(255, 255, 255, 0.18);
+  border-color: rgba(255, 255, 255, 0.45);
+  transform: translateY(-2px);
+}
+
+.demoSupportBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.45rem;
+  border-radius: 9999px;
+  background: linear-gradient(135deg, #ff6b00 0%, #ea580c 100%);
+  color: #ffffff;
+  border: none;
+  font-size: 0.85rem;
+  font-weight: 750;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(234, 88, 12, 0.45);
+  transition: all 180ms ease;
+  white-space: nowrap;
+}
+
+.demoSupportBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 22px rgba(234, 88, 12, 0.6);
+  filter: brightness(1.06);
+}
+
+/* ==========================================================================
+   6. RESPONSIVE BREAKPOINTS (TABLET & MOBILE)
+   ========================================================================== */
+@media (max-width: 860px) {
+  .supportStripCard {
+    flex-direction: column;
+    text-align: center;
+    padding: 1.75rem 1.5rem;
+  }
+
+  .supportLeftInfo {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .supportActions {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .callSupportBtn,
+  .demoSupportBtn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 640px) {
+  .faqTrigger {
+    padding: 1.15rem 1.25rem;
+  }
+
+  .faqQuestionText {
+    font-size: 0.975rem;
+  }
+
+  .faqAnswerBody {
+    padding: 0 1.25rem 1.15rem 1.25rem;
+    font-size: 0.9rem;
+  }
+
+  .searchInput {
+    padding-left: 2.75rem;
+    font-size: 0.875rem;
+  }
+
+  .searchIcon {
+    left: 1rem;
+  }
+}
