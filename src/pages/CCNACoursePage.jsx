@@ -2430,6 +2430,10 @@ export function CCNACoursePage() {
       >
         <div className={styles.container}>
           <div className={styles.bottomCtaCard}>
+            <div className={styles.bottomEyebrow}>
+              <Sparkles size={13} aria-hidden="true" />
+              <span>START YOUR CISCO JOURNEY</span>
+            </div>
             <h2 className={styles.bottomTitle} id="bottom-cta-heading">
               Ready to Become a <br />
               <span className={styles.highlightText}>Cisco Certified Network Associate?</span>
