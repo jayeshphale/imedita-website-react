@@ -1,74 +1,24 @@
 import React, { useState, useMemo } from 'react';
 import {
-  HelpCircle,
-  BookOpen,
-  Clock,
-  ShieldCheck,
-  Briefcase,
-  CreditCard,
-  Award,
-  Headphones,
   Search,
   X,
   Plus,
   Minus,
   PhoneCall,
   Sparkles,
-  ArrowRight,
-  Layers,
-  ChevronRight
+  ArrowRight
 } from 'lucide-react';
 import styles from './CCNAFaqSection.module.css';
 
 export const faqCategories = [
-  {
-    id: 'all',
-    label: 'All Questions',
-    tagline: 'Complete 29-question handbook',
-    icon: Layers
-  },
-  {
-    id: 'training',
-    label: 'Training Specific',
-    tagline: 'Hardware racks, CLI & syllabus',
-    icon: BookOpen
-  },
-  {
-    id: 'time-mode',
-    label: 'Time & Mode',
-    tagline: 'Duration, online & Pune campus',
-    icon: Clock
-  },
-  {
-    id: 'prerequisites',
-    label: 'Prerequisites',
-    tagline: 'Eligibility, background & prep',
-    icon: ShieldCheck
-  },
-  {
-    id: 'placement',
-    label: 'Placement',
-    tagline: 'Hiring network, salaries & mocks',
-    icon: Briefcase
-  },
-  {
-    id: 'payment',
-    label: 'Payment & Fees',
-    tagline: 'Fee details, EMI & refunds',
-    icon: CreditCard
-  },
-  {
-    id: 'certificate',
-    label: 'Certification',
-    tagline: 'Pearson VUE, exam code & validity',
-    icon: Award
-  },
-  {
-    id: 'assistance',
-    label: 'Need Assistance',
-    tagline: 'Campus visit, counselor & contact',
-    icon: Headphones
-  }
+  { id: 'all', label: 'All Questions' },
+  { id: 'training', label: 'Training Specific' },
+  { id: 'time-mode', label: 'Time & Mode' },
+  { id: 'prerequisites', label: 'Prerequisites' },
+  { id: 'placement', label: 'Placement' },
+  { id: 'payment', label: 'Payment & Fees' },
+  { id: 'certificate', label: 'Certification' },
+  { id: 'assistance', label: 'Need Assistance' }
 ];
 
 export const faqsData = [
@@ -152,14 +102,14 @@ export const faqsData = [
     category: 'prerequisites',
     categoryLabel: 'Prerequisites',
     q: 'Do I need a technical background to enroll?',
-    a: 'No mandatory prerequisites. Basic computer literacy is enough. We’ve trained students from non-technical backgrounds (BPO, sales, BCom, BA) who are now working network engineers.'
+    a: "No mandatory prerequisites. Basic computer literacy is enough. We've trained students from non-technical backgrounds (BPO, sales, BCom, BA) who are now working network engineers."
   },
   {
     id: 'faq-prereq-2',
     category: 'prerequisites',
     categoryLabel: 'Prerequisites',
     q: 'Should I learn anything before joining?',
-    a: 'It’s helpful but optional to know basics of operating systems, internet usage and IP addressing. We cover everything from scratch.'
+    a: "It's helpful but optional to know basics of operating systems, internet usage and IP addressing. We cover everything from scratch."
   },
   {
     id: 'faq-prereq-3',
@@ -171,65 +121,65 @@ export const faqsData = [
 
   // --- 4. Placement ---
   {
-    id: 'faq-placement-1',
+    id: 'faq-place-1',
     category: 'placement',
     categoryLabel: 'Placement',
     q: 'Is placement assistance really included?',
     a: 'Yes. Resume building, technical mock interviews, HR mock interviews, weekly job alerts and direct introductions to our hiring partner network are all included.'
   },
   {
-    id: 'faq-placement-2',
+    id: 'faq-place-2',
     category: 'placement',
     categoryLabel: 'Placement',
     q: 'What companies hire from I-Medita?',
     a: 'Our students work at TCS, Infosys, Wipro, HCL, Tech Mahindra, Accenture, Capgemini, Reliance Jio, Tata Communications, Airtel and many more.'
   },
   {
-    id: 'faq-placement-3',
+    id: 'faq-place-3',
     category: 'placement',
     categoryLabel: 'Placement',
     q: 'What salary can I expect after CCNA?',
     a: 'Freshers with CCNA typically earn ₹2.5 – 4.5 LPA. With 1–3 years of experience and CCNP, this scales to ₹4.5 – 8 LPA. Senior roles touch ₹15 LPA+.'
   },
   {
-    id: 'faq-placement-4',
+    id: 'faq-place-4',
     category: 'placement',
     categoryLabel: 'Placement',
     q: 'Is placement guaranteed?',
     a: 'We offer placement assistance. Final placement depends on your performance, technical knowledge and interview skills but our process is built to maximize your chances.'
   },
 
-  // --- 5. Payment ---
+  // --- 5. Payment & Fees ---
   {
-    id: 'faq-payment-1',
+    id: 'faq-pay-1',
     category: 'payment',
     categoryLabel: 'Payment & Fees',
     q: 'What is the course fee?',
     a: 'Please reach out to our team at +91 87500 04411 for information about the course fee, current discounts, and ongoing promotional offers.'
   },
   {
-    id: 'faq-payment-2',
+    id: 'faq-pay-2',
     category: 'payment',
     categoryLabel: 'Payment & Fees',
     q: 'Are EMI options available?',
     a: 'Yes. Easy 3 / 6 / 9-month no-cost EMI options are available via partner finance providers. Talk to our counsellor for details.'
   },
   {
-    id: 'faq-payment-3',
+    id: 'faq-pay-3',
     category: 'payment',
     categoryLabel: 'Payment & Fees',
     q: 'Do you offer a free demo class?',
-    a: 'Yes. Book a free demo using the form on this page. You’ll get a free 1-hour live session with a CCIE-certified trainer before paying anything.'
+    a: "Yes. Book a free demo using the form on this page. You'll get a free 1-hour live session with a CCIE-certified trainer before paying anything."
   },
   {
-    id: 'faq-payment-4',
+    id: 'faq-pay-4',
     category: 'payment',
     categoryLabel: 'Payment & Fees',
     q: 'Is the fee refundable?',
     a: 'Please refer to our Refund Policy and Terms & Conditions available on the website for complete details. We strongly recommend attending a free demo session before enrollment to ensure the course meets your expectations. If you have any questions regarding refunds, our admissions team will be happy to assist you before enrollment.'
   },
   {
-    id: 'faq-payment-5',
+    id: 'faq-pay-5',
     category: 'payment',
     categoryLabel: 'Payment & Fees',
     q: 'What payment options do you accept?',
@@ -240,28 +190,28 @@ export const faqsData = [
   {
     id: 'faq-cert-1',
     category: 'certificate',
-    categoryLabel: 'Certificate',
+    categoryLabel: 'Certification',
     q: 'Will I get a certificate after the course?',
     a: 'Yes. You receive an I-Medita Training Completion Certificate plus full preparation for the official Cisco CCNA 200-301 certification (booked separately at Pearson VUE).'
   },
   {
     id: 'faq-cert-2',
     category: 'certificate',
-    categoryLabel: 'Certificate',
+    categoryLabel: 'Certification',
     q: 'Is the I-Medita certificate recognized in the industry?',
     a: 'Yes. I-Medita has been training network engineers since 2014 and our certificate is recognized across our 100+ hiring partner network.'
   },
   {
     id: 'faq-cert-3',
     category: 'certificate',
-    categoryLabel: 'Certificate',
+    categoryLabel: 'Certification',
     q: 'How do I take the official Cisco CCNA exam?',
     a: 'Schedule via Pearson VUE — at a test center or online via OnVUE proctored mode. We help you book the exam at a discounted voucher rate.'
   },
   {
     id: 'faq-cert-4',
     category: 'certificate',
-    categoryLabel: 'Certificate',
+    categoryLabel: 'Certification',
     q: 'How long is the Cisco CCNA certification valid?',
     a: '3 years. You can renew by passing another Cisco exam, an Expert-level exam, or by earning 30 Continuing Education credits.'
   },
@@ -295,13 +245,6 @@ export function CCNAFaqSection({ onOpenDemo }) {
   const [searchQuery, setSearchQuery] = useState('');
   const [openFaqIds, setOpenFaqIds] = useState(new Set(['faq-training-1']));
 
-  // Active category meta
-  const currentCategoryMeta = useMemo(() => {
-    return (
-      faqCategories.find((c) => c.id === selectedCategory) || faqCategories[1]
-    );
-  }, [selectedCategory]);
-
   // Filter FAQs based on search or category
   const filteredFaqs = useMemo(() => {
     let result = faqsData;
@@ -334,24 +277,10 @@ export function CCNAFaqSection({ onOpenDemo }) {
     });
   };
 
-  // Expand / Collapse all in current view
-  const areAllOpen = useMemo(() => {
-    if (filteredFaqs.length === 0) return false;
-    return filteredFaqs.every((f) => openFaqIds.has(f.id));
-  }, [filteredFaqs, openFaqIds]);
-
-  const toggleAll = () => {
-    if (areAllOpen) {
-      setOpenFaqIds(new Set());
-    } else {
-      setOpenFaqIds(new Set(filteredFaqs.map((f) => f.id)));
-    }
-  };
-
   const handleCategorySelect = (catId) => {
     setSelectedCategory(catId);
     setSearchQuery('');
-    // Open the first question in the selected category
+    // Open first question of chosen category
     const first = faqsData.find((f) => catId === 'all' || f.category === catId);
     if (first) {
       setOpenFaqIds(new Set([first.id]));
@@ -416,243 +345,165 @@ export function CCNAFaqSection({ onOpenDemo }) {
 
   return (
     <section
-      className={styles.faqSectionDeck}
+      className={styles.faqSection}
       id="faq"
       aria-labelledby="faq-heading"
       itemScope
       itemType="https://schema.org/FAQPage"
     >
-      <div className={styles.sectionContainer}>
-        {/* Modern Top Header */}
-        <div className={styles.headerBlock}>
-          <div className={styles.eyebrowBadge}>
-            <Sparkles size={13} className={styles.sparkleIcon} />
-            <span>KNOWLEDGE HUB & FAQS</span>
-          </div>
-          <h2 className={styles.sectionHeading} id="faq-heading">
-            Got Questions? We Have Answers.
+      <div className={styles.container}>
+        {/* Uncluttered Modern Header */}
+        <div className={styles.header}>
+          <span className={styles.eyebrow}>FAQ</span>
+          <h2 className={styles.heading} id="faq-heading">
+            Frequently Asked Questions
           </h2>
-          <p className={styles.sectionSubtext}>
-            Explore our curated 29-question encyclopedia covering real Cisco lab equipment, training duration, certification roadmap, and guaranteed placement workflows.
+          <p className={styles.subheading}>
+            Clear answers on real Cisco hardware labs, course duration, exam voucher support, and placements.
           </p>
 
-          {/* Instant Search Console */}
-          <div className={styles.searchConsoleWrapper}>
-            <div className={styles.searchInnerBox}>
-              <Search size={18} className={styles.searchConsoleIcon} />
-              <input
-                type="text"
-                className={styles.searchConsoleInput}
-                placeholder="Search 29 FAQs (e.g. fee, EMI, routers, placement, switch)..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                aria-label="Search questions"
-              />
-              {searchQuery && (
-                <button
-                  type="button"
-                  className={styles.clearSearchConsoleBtn}
-                  onClick={() => setSearchQuery('')}
-                  aria-label="Clear search"
-                >
-                  <X size={15} />
-                </button>
-              )}
-            </div>
+          {/* Minimal Search Bar */}
+          <div className={styles.searchWrap}>
+            <Search size={17} className={styles.searchIcon} />
+            <input
+              type="text"
+              className={styles.searchInput}
+              placeholder="Search across all 29 FAQs (e.g. fee, EMI, routers, placement)..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              aria-label="Search FAQs"
+            />
             {searchQuery && (
-              <div className={styles.searchResultTag}>
-                <span>
-                  Found <strong>{filteredFaqs.length}</strong> matching questions
-                </span>
-                <button
-                  type="button"
-                  className={styles.resetSearchLink}
-                  onClick={() => setSearchQuery('')}
-                >
-                  Show all categories
-                </button>
-              </div>
+              <button
+                type="button"
+                className={styles.clearBtn}
+                onClick={() => setSearchQuery('')}
+                aria-label="Clear search"
+              >
+                <X size={15} />
+              </button>
             )}
+          </div>
+
+          {/* Modern Horizontal Segmented Category Tabs */}
+          <div className={styles.pillsScrollContainer}>
+            <div className={styles.pillsRow} role="tablist" aria-label="FAQ Topics">
+              {faqCategories.map((cat) => {
+                const isSelected = selectedCategory === cat.id && !searchQuery;
+                const count =
+                  cat.id === 'all'
+                    ? faqsData.length
+                    : faqsData.filter((f) => f.category === cat.id).length;
+
+                return (
+                  <button
+                    key={cat.id}
+                    type="button"
+                    role="tab"
+                    aria-selected={isSelected}
+                    className={`${styles.pillBtn} ${
+                      isSelected ? styles.pillBtnActive : ''
+                    }`}
+                    onClick={() => handleCategorySelect(cat.id)}
+                  >
+                    <span>{cat.label}</span>
+                    <span className={styles.pillCount}>{count}</span>
+                  </button>
+                );
+              })}
+            </div>
           </div>
         </div>
 
-        {/* Master-Detail Interactive 2-Column Console Layout */}
-        <div className={styles.knowledgeConsoleGrid}>
-          {/* LEFT COLUMN: Modern Sticky Category Console */}
-          <aside className={styles.categoryConsoleSidebar}>
-            <div className={styles.sidebarStickyInner}>
-              <div className={styles.sidebarHeaderRow}>
-                <span className={styles.sidebarHeading}>TOPIC DIRECTORY</span>
-                <span className={styles.totalBadge}>29 Questions</span>
-              </div>
+        {/* Search Result Feedback */}
+        {searchQuery && (
+          <div className={styles.searchFeedback}>
+            <span>
+              Found <strong>{filteredFaqs.length}</strong> matching questions for "
+              {searchQuery}"
+            </span>
+            <button
+              type="button"
+              className={styles.resetBtn}
+              onClick={() => setSearchQuery('')}
+            >
+              Reset to all topics
+            </button>
+          </div>
+        )}
 
-              <nav className={styles.categoryTilesList} aria-label="FAQ Topics">
-                {faqCategories.map((cat) => {
-                  const Icon = cat.icon;
-                  const isSelected = selectedCategory === cat.id && !searchQuery;
-                  const count =
-                    cat.id === 'all'
-                      ? faqsData.length
-                      : faqsData.filter((f) => f.category === cat.id).length;
+        {/* Uncluttered 2-Column Bento Cards Grid */}
+        {filteredFaqs.length > 0 ? (
+          <div className={styles.bentoGrid}>
+            {filteredFaqs.map((faq) => {
+              const isOpen = openFaqIds.has(faq.id);
 
-                  return (
-                    <button
-                      key={cat.id}
-                      type="button"
-                      className={`${styles.categoryTile} ${
-                        isSelected ? styles.categoryTileActive : ''
-                      }`}
-                      onClick={() => handleCategorySelect(cat.id)}
-                    >
-                      <div className={styles.tileIconSquircle}>
-                        <Icon size={16} />
-                      </div>
-                      <div className={styles.tileContent}>
-                        <div className={styles.tileTitleRow}>
-                          <span className={styles.tileTitle}>{cat.label}</span>
-                          <span className={styles.tileCountPill}>{count}</span>
-                        </div>
-                        <span className={styles.tileTagline}>{cat.tagline}</span>
-                      </div>
-                      <ChevronRight size={14} className={styles.tileArrow} />
-                    </button>
-                  );
-                })}
-              </nav>
-            </div>
-          </aside>
-
-          {/* RIGHT COLUMN: Modern Numbered FAQ Dossier */}
-          <main className={styles.dossierMainStage}>
-            {/* Stage Header Banner */}
-            <div className={styles.stageHeaderBanner}>
-              <div className={styles.stageTitleWrap}>
-                <span className={styles.stageSuperTag}>
-                  {searchQuery ? 'SEARCH RESULTS' : currentCategoryMeta.label.toUpperCase()}
-                </span>
-                <h3 className={styles.stageTitle}>
-                  {searchQuery
-                    ? `Results for "${searchQuery}"`
-                    : currentCategoryMeta.label}
-                </h3>
-                <p className={styles.stageSubtitle}>
-                  {searchQuery
-                    ? `Displaying ${filteredFaqs.length} relevant questions from across our curriculum`
-                    : currentCategoryMeta.tagline}
-                </p>
-              </div>
-
-              {filteredFaqs.length > 0 && (
-                <button
-                  type="button"
-                  className={styles.expandAllToggleBtn}
-                  onClick={toggleAll}
-                  aria-label={areAllOpen ? 'Collapse all FAQs' : 'Expand all FAQs'}
+              return (
+                <article
+                  key={faq.id}
+                  className={`${styles.faqCard} ${
+                    isOpen ? styles.faqCardOpen : ''
+                  }`}
+                  itemScope
+                  itemProp="mainEntity"
+                  itemType="https://schema.org/Question"
                 >
-                  {areAllOpen ? (
-                    <>
-                      <Minus size={13} />
-                      <span>Collapse All</span>
-                    </>
-                  ) : (
-                    <>
-                      <Plus size={13} />
-                      <span>Expand All ({filteredFaqs.length})</span>
-                    </>
-                  )}
-                </button>
-              )}
-            </div>
-
-            {/* Questions Numbered Dossier Cards */}
-            {filteredFaqs.length > 0 ? (
-              <div className={styles.numberedCardsList}>
-                {filteredFaqs.map((faq, index) => {
-                  const isOpen = openFaqIds.has(faq.id);
-                  const paddedIndex = String(index + 1).padStart(2, '0');
-
-                  return (
-                    <article
-                      key={faq.id}
-                      className={`${styles.dossierCard} ${
-                        isOpen ? styles.dossierCardOpen : ''
-                      }`}
-                      itemScope
-                      itemProp="mainEntity"
-                      itemType="https://schema.org/Question"
-                    >
-                      <button
-                        type="button"
-                        className={styles.dossierCardHeader}
-                        onClick={() => toggleFaq(faq.id)}
-                        aria-expanded={isOpen}
-                        aria-controls={`faq-body-${faq.id}`}
-                      >
-                        <div className={styles.dossierLeftCluster}>
-                          <span className={styles.dossierNumberBadge}>
-                            {paddedIndex}
-                          </span>
-                          <div className={styles.dossierTextWrap}>
-                            {(selectedCategory === 'all' || searchQuery) && (
-                              <span className={styles.dossierCategoryPill}>
-                                {faq.categoryLabel}
-                              </span>
-                            )}
-                            <h4 className={styles.dossierQuestionText} itemProp="name">
-                              {faq.q}
-                            </h4>
-                          </div>
-                        </div>
-
-                        {/* Interactive Plus / Minus Toggle Switch */}
-                        <div className={styles.toggleMorphButton}>
-                          <span
-                            className={`${styles.morphIcon} ${
-                              isOpen ? styles.morphIconActive : ''
-                            }`}
-                          >
-                            {isOpen ? <Minus size={14} /> : <Plus size={14} />}
-                          </span>
-                        </div>
-                      </button>
-
-                      {/* Animated Drawer Body */}
-                      {isOpen && (
-                        <div
-                          className={styles.dossierAnswerContainer}
-                          id={`faq-body-${faq.id}`}
-                          role="region"
-                          itemScope
-                          itemProp="acceptedAnswer"
-                          itemType="https://schema.org/Answer"
-                        >
-                          <div className={styles.answerTextInterior}>
-                            {renderFormattedAnswer(faq.a)}
-                          </div>
-                        </div>
+                  <button
+                    type="button"
+                    className={styles.cardHeader}
+                    onClick={() => toggleFaq(faq.id)}
+                    aria-expanded={isOpen}
+                    aria-controls={`faq-body-${faq.id}`}
+                  >
+                    <div className={styles.questionWrap}>
+                      {(selectedCategory === 'all' || searchQuery) && (
+                        <span className={styles.categoryBadge}>
+                          {faq.categoryLabel}
+                        </span>
                       )}
-                    </article>
-                  );
-                })}
-              </div>
-            ) : (
-              <div className={styles.emptyDossierBox}>
-                <div className={styles.emptyCircle}>
-                  <Search size={28} />
-                </div>
-                <h4>No matching FAQs found</h4>
-                <p>We couldn’t find any answers matching "{searchQuery}". Try different keywords like "routers", "placement", or "fees".</p>
-                <button
-                  type="button"
-                  className={styles.emptyResetBtn}
-                  onClick={() => setSearchQuery('')}
-                >
-                  Clear Search & View Topics
-                </button>
-              </div>
-            )}
-          </main>
-        </div>
+                      <h3 className={styles.questionText} itemProp="name">
+                        {faq.q}
+                      </h3>
+                    </div>
+                    <div className={styles.toggleIconWrap}>
+                      {isOpen ? (
+                        <Minus size={16} className={styles.toggleIconActive} />
+                      ) : (
+                        <Plus size={16} className={styles.toggleIcon} />
+                      )}
+                    </div>
+                  </button>
+
+                  {isOpen && (
+                    <div
+                      className={styles.cardBody}
+                      id={`faq-body-${faq.id}`}
+                      role="region"
+                      itemScope
+                      itemProp="acceptedAnswer"
+                      itemType="https://schema.org/Answer"
+                    >
+                      <div className={styles.answerText}>
+                        {renderFormattedAnswer(faq.a)}
+                      </div>
+                    </div>
+                  )}
+                </article>
+              );
+            })}
+          </div>
+        ) : (
+          <div className={styles.emptyCard}>
+            <p>No questions found matching "{searchQuery}".</p>
+            <button
+              type="button"
+              className={styles.emptyResetBtn}
+              onClick={() => setSearchQuery('')}
+            >
+              View all 29 FAQs
+            </button>
+          </div>
+        )}
       </div>
     </section>
   );
