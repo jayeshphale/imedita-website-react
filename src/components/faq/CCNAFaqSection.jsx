@@ -2,31 +2,22 @@ import React, { useState, useMemo } from 'react';
 import {
   Search,
   X,
-  ChevronDown,
+  Plus,
   PhoneCall,
   Sparkles,
-  ArrowRight,
-  Layers,
-  BookOpen,
-  Clock,
-  ShieldCheck,
-  Briefcase,
-  CreditCard,
-  Award,
-  Headphones,
-  Compass
+  ArrowRight
 } from 'lucide-react';
 import styles from './CCNAFaqSection.module.css';
 
 export const faqCategories = [
-  { id: 'all', label: 'All Questions', icon: Layers },
-  { id: 'training', label: 'Training Specific', icon: BookOpen },
-  { id: 'time-mode', label: 'Time & Mode', icon: Clock },
-  { id: 'prerequisites', label: 'Prerequisites', icon: ShieldCheck },
-  { id: 'placement', label: 'Placement', icon: Briefcase },
-  { id: 'payment', label: 'Payment & Fees', icon: CreditCard },
-  { id: 'certificate', label: 'Certification', icon: Award },
-  { id: 'assistance', label: 'Need Assistance', icon: Headphones }
+  { id: 'all', label: 'All Questions' },
+  { id: 'training', label: 'Training Specific' },
+  { id: 'time-mode', label: 'Time & Mode' },
+  { id: 'prerequisites', label: 'Prerequisites' },
+  { id: 'placement', label: 'Placement' },
+  { id: 'payment', label: 'Payment & Fees' },
+  { id: 'certificate', label: 'Certification' },
+  { id: 'assistance', label: 'Need Assistance' }
 ];
 
 export const faqsData = [
@@ -288,7 +279,6 @@ export function CCNAFaqSection({ onOpenDemo }) {
   const handleCategorySelect = (catId) => {
     setSelectedCategory(catId);
     setSearchQuery('');
-    // Open first question of chosen category
     const first = faqsData.find((f) => catId === 'all' || f.category === catId);
     if (first) {
       setOpenFaqIds(new Set([first.id]));
@@ -297,30 +287,28 @@ export function CCNAFaqSection({ onOpenDemo }) {
 
   const handleDemoClick = (topic) => {
     if (onOpenDemo) {
-      onOpenDemo(topic || 'CCNA FAQ Section Assistance');
+      onOpenDemo(topic || 'CCNA FAQ Assistance');
     } else {
       const demoEl = document.getElementById('demo-request');
       if (demoEl) demoEl.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
-  // Format answers with high-tech badge highlights and interactive elements
+  // Format answers with elegant inline links
   const renderFormattedAnswer = (text) => {
-    // 1. Phone number parsing
     if (text.includes('+91 87500 04411') || text.includes('+91-8750004411')) {
       const parts = text.split(/(\+91[- ]?87500[- ]?04411)/g);
       return (
-        <p itemProp="text" className={styles.answerParagraph}>
+        <p itemProp="text" className={styles.answerText}>
           {parts.map((part, idx) => {
             if (part.includes('87500')) {
               return (
                 <a
                   key={idx}
                   href="tel:+918750004411"
-                  className={styles.magneticPhoneBadge}
+                  className={styles.inlineDialLink}
                 >
-                  <span className={styles.livePulseDot} />
-                  <PhoneCall size={12} className={styles.phoneSvg} />
+                  <PhoneCall size={13} className={styles.phoneIcon} />
                   <span>{part}</span>
                 </a>
               );
@@ -331,45 +319,26 @@ export function CCNAFaqSection({ onOpenDemo }) {
       );
     }
 
-    // 2. Free demo parsing
     if (text.includes('free demo') || text.includes('free 1-hour live session')) {
       return (
         <div itemProp="text">
-          <p className={styles.answerParagraph}>{text}</p>
-          <div className={styles.inAnswerCta}>
+          <p className={styles.answerText}>{text}</p>
+          <div className={styles.demoLinkWrap}>
             <button
               type="button"
-              className={styles.demoPillBtn}
+              className={styles.demoActionBtn}
               onClick={() => handleDemoClick('CCNA Free Demo Inquiry from FAQ')}
             >
-              <Sparkles size={13} className={styles.sparkleIcon} />
-              <span>Book 1-Hour Live Architecture Demo</span>
-              <ArrowRight size={13} />
+              <Sparkles size={14} />
+              <span>Book 1-Hour Free Live Demo</span>
+              <ArrowRight size={14} />
             </button>
           </div>
         </div>
       );
     }
 
-    // 3. Hardware models highlighting (2611XM, 1841, 2811, 1905, 2950, 2960, 3560, 3750)
-    if (text.includes('2611XM') || text.includes('2960')) {
-      return (
-        <p itemProp="text" className={styles.answerParagraph}>
-          Yes. You get 24×7 access to real Cisco routers (
-          <code className={styles.hwCode}>2611XM</code>,{' '}
-          <code className={styles.hwCode}>1841</code>,{' '}
-          <code className={styles.hwCode}>2811</code>,{' '}
-          <code className={styles.hwCode}>1905</code>) and switches (
-          <code className={styles.hwCode}>2950</code>,{' '}
-          <code className={styles.hwCode}>2960</code>,{' '}
-          <code className={styles.hwCode}>3560</code>,{' '}
-          <code className={styles.hwCode}>3750</code>), plus industry simulation
-          suites like GNS3, Cisco Packet Tracer and EVE-NG.
-        </p>
-      );
-    }
-
-    return <p itemProp="text" className={styles.answerParagraph}>{text}</p>;
+    return <p itemProp="text" className={styles.answerText}>{text}</p>;
   };
 
   return (
@@ -380,55 +349,44 @@ export function CCNAFaqSection({ onOpenDemo }) {
       itemScope
       itemType="https://schema.org/FAQPage"
     >
-      {/* Ambient Lighting Glow Orb */}
-      <div className={styles.ambientGlowOrb} aria-hidden="true" />
-
       <div className={styles.container}>
-        {/* Executive Header Block */}
+        {/* Apple/Stripe Clean Editorial Header */}
         <header className={styles.header}>
-          <div className={styles.eyebrowPill}>
-            <Sparkles size={12} className={styles.eyebrowIcon} />
-            <span>KNOWLEDGE BASE & ARCHITECTURE FAQS</span>
-          </div>
+          <span className={styles.eyebrow}>FAQ</span>
           <h2 className={styles.heading} id="faq-heading">
-            Got Questions? Everything You Need to Know.
+            Frequently Asked Questions
           </h2>
           <p className={styles.subheading}>
-            Transparent, in-depth architectural details covering physical Cisco rack equipment, training schedules, career transition, and guaranteed placement frameworks.
+            Clear, straightforward answers about real Cisco labs, batch timings, fees, and career placements.
           </p>
 
-          {/* High-End Command Palette Style Search Input */}
-          <div className={styles.searchConsoleWrap}>
-            <div className={styles.searchInnerBox}>
-              <Search size={16} className={styles.searchConsoleIcon} />
-              <input
-                type="text"
-                className={styles.searchInput}
-                placeholder="Search across all 29 FAQs (e.g. fee, EMI, routers, switch, placement)..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                aria-label="Search FAQs"
-              />
-              {searchQuery ? (
-                <button
-                  type="button"
-                  className={styles.clearSearchBtn}
-                  onClick={() => setSearchQuery('')}
-                  aria-label="Clear search query"
-                >
-                  <X size={14} />
-                </button>
-              ) : (
-                <span className={styles.quickSearchBadge}>Quick Find</span>
-              )}
-            </div>
+          {/* Minimal Search Bar */}
+          <div className={styles.searchContainer}>
+            <Search size={16} className={styles.searchIcon} />
+            <input
+              type="text"
+              className={styles.searchInput}
+              placeholder="Search across all 29 questions..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              aria-label="Search FAQs"
+            />
+            {searchQuery && (
+              <button
+                type="button"
+                className={styles.clearSearchBtn}
+                onClick={() => setSearchQuery('')}
+                aria-label="Clear search"
+              >
+                <X size={14} />
+              </button>
+            )}
           </div>
 
-          {/* Glassmorphic Segmented Navigation Ribbon */}
-          <nav className={styles.segmentedDockWrapper} aria-label="FAQ Topics">
-            <div className={styles.segmentedDock} role="tablist">
+          {/* Minimalist Underline / Pill Tabs (Apple Style) */}
+          <nav className={styles.categoriesNav} aria-label="FAQ Topics">
+            <div className={styles.categoriesTrack} role="tablist">
               {faqCategories.map((cat) => {
-                const Icon = cat.icon;
                 const isSelected = selectedCategory === cat.id && !searchQuery;
                 const count =
                   cat.id === 'all'
@@ -441,14 +399,13 @@ export function CCNAFaqSection({ onOpenDemo }) {
                     type="button"
                     role="tab"
                     aria-selected={isSelected}
-                    className={`${styles.dockTab} ${
-                      isSelected ? styles.dockTabActive : ''
+                    className={`${styles.categoryTab} ${
+                      isSelected ? styles.categoryTabActive : ''
                     }`}
                     onClick={() => handleCategorySelect(cat.id)}
                   >
-                    <Icon size={14} className={styles.dockIcon} />
-                    <span className={styles.dockLabel}>{cat.label}</span>
-                    <span className={styles.dockCountBadge}>{count}</span>
+                    <span>{cat.label}</span>
+                    <span className={styles.tabCount}>({count})</span>
                   </button>
                 );
               })}
@@ -456,35 +413,33 @@ export function CCNAFaqSection({ onOpenDemo }) {
           </nav>
         </header>
 
-        {/* Live Filter Result Feedback */}
+        {/* Live Search Result Bar */}
         {searchQuery && (
-          <div className={styles.searchFeedbackBar}>
+          <div className={styles.searchStatusBar}>
             <span>
-              Showing <strong>{filteredFaqs.length}</strong> matching questions for "
-              {searchQuery}"
+              Showing <strong>{filteredFaqs.length}</strong> questions matching "{searchQuery}"
             </span>
             <button
               type="button"
-              className={styles.resetFilterBtn}
+              className={styles.resetSearchLink}
               onClick={() => setSearchQuery('')}
             >
-              Clear search & view topics
+              Reset filter
             </button>
           </div>
         )}
 
-        {/* Executive 2-Column Bento Grid */}
+        {/* Apple/Stripe Clean Hairline Divider Accordion (No boxes, no card borders!) */}
         {filteredFaqs.length > 0 ? (
-          <div className={styles.bentoCardsGrid}>
-            {filteredFaqs.map((faq, index) => {
+          <div className={styles.hairlineAccordionList}>
+            {filteredFaqs.map((faq) => {
               const isOpen = openFaqIds.has(faq.id);
-              const formattedIndex = String(index + 1).padStart(2, '0');
 
               return (
                 <article
                   key={faq.id}
-                  className={`${styles.bentoCard} ${
-                    isOpen ? styles.bentoCardOpen : ''
+                  className={`${styles.accordionRow} ${
+                    isOpen ? styles.accordionRowOpen : ''
                   }`}
                   itemScope
                   itemProp="mainEntity"
@@ -492,49 +447,44 @@ export function CCNAFaqSection({ onOpenDemo }) {
                 >
                   <button
                     type="button"
-                    className={styles.cardInteractiveHeader}
+                    className={styles.questionButton}
                     onClick={() => toggleFaq(faq.id)}
                     aria-expanded={isOpen}
                     aria-controls={`faq-answer-${faq.id}`}
                   >
-                    {/* Top Micro-Meta Row */}
-                    <div className={styles.cardMetaRow}>
-                      <span className={styles.microCategoryTag}>
-                        {faq.categoryLabel}
-                      </span>
-                      <span className={styles.microIndex}>#{formattedIndex}</span>
-                    </div>
-
-                    {/* Question Row with Spring Action Orb */}
-                    <div className={styles.questionActionRow}>
+                    <div className={styles.questionTextWrap}>
+                      {(selectedCategory === 'all' || searchQuery) && (
+                        <span className={styles.categorySuperText}>
+                          {faq.categoryLabel}
+                        </span>
+                      )}
                       <h3 className={styles.questionHeading} itemProp="name">
                         {faq.q}
                       </h3>
-                      <div
-                        className={`${styles.actionOrb} ${
-                          isOpen ? styles.actionOrbOpen : ''
-                        }`}
-                        aria-hidden="true"
-                      >
-                        <ChevronDown size={15} className={styles.actionChevron} />
-                      </div>
+                    </div>
+
+                    {/* Apple Style Fine Plus / Minus */}
+                    <div
+                      className={`${styles.minimalToggle} ${
+                        isOpen ? styles.minimalToggleOpen : ''
+                      }`}
+                      aria-hidden="true"
+                    >
+                      <Plus size={20} className={styles.plusIcon} />
                     </div>
                   </button>
 
-                  {/* Smooth Fluid Drawer Body */}
+                  {/* Flowing Answer Drawer */}
                   {isOpen && (
                     <div
-                      className={styles.cardAnswerDrawer}
+                      className={styles.answerDrawer}
                       id={`faq-answer-${faq.id}`}
                       role="region"
                       itemScope
                       itemProp="acceptedAnswer"
                       itemType="https://schema.org/Answer"
                     >
-                      <div className={styles.drawerDivider} />
-                      <div className={styles.drawerInner}>
-                        {renderFormattedAnswer(faq.a)}
-                      </div>
+                      {renderFormattedAnswer(faq.a)}
                     </div>
                   )}
                 </article>
@@ -542,49 +492,35 @@ export function CCNAFaqSection({ onOpenDemo }) {
             })}
           </div>
         ) : (
-          <div className={styles.emptyStateCard}>
-            <div className={styles.emptyIconCircle}>
-              <Search size={22} />
-            </div>
-            <h4>No matching answers found</h4>
-            <p>
-              We couldn’t find any questions matching "{searchQuery}". Try searching for keywords like "fee", "EMI", "routers", or "switch".
-            </p>
+          <div className={styles.emptyState}>
+            <p>No questions matched "{searchQuery}".</p>
             <button
               type="button"
               className={styles.emptyResetBtn}
               onClick={() => setSearchQuery('')}
             >
-              Reset Search & Explore Topics
+              Show all questions
             </button>
           </div>
         )}
 
-        {/* Minimalist Floating Help Ribbon */}
-        <footer className={styles.floatingHelpRibbon}>
-          <div className={styles.helpLeftCluster}>
-            <div className={styles.helpAvatarOrb}>
-              <Headphones size={16} />
-            </div>
-            <div>
-              <p className={styles.helpTitle}>Still have an architecture or career query?</p>
-              <p className={styles.helpSubtitle}>Our CCIE Senior Faculty advisors are available Mon–Sat (9 AM – 8 PM)</p>
-            </div>
-          </div>
-          <div className={styles.helpActionsCluster}>
-            <a href="tel:+918750004411" className={styles.helpCallPill}>
-              <PhoneCall size={12} />
-              <span>+91 87500 04411</span>
-            </a>
+        {/* Minimal Footer Line */}
+        <footer className={styles.minimalFooter}>
+          <p>
+            Have a question not listed here? Call our CCIE mentors at{' '}
+            <a href="tel:+918750004411" className={styles.footerPhoneLink}>
+              +91 87500 04411
+            </a>{' '}
+            or{' '}
             <button
               type="button"
-              className={styles.helpDemoPill}
-              onClick={() => handleDemoClick('CCNA FAQ Bottom Help Ribbon')}
+              className={styles.footerDemoLink}
+              onClick={() => handleDemoClick('CCNA FAQ Footer')}
             >
-              <Sparkles size={12} />
-              <span>Request 1-on-1 Guidance</span>
+              request a free demo session
             </button>
-          </div>
+            .
+          </p>
         </footer>
       </div>
     </section>
