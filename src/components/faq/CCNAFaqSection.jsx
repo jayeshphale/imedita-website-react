@@ -405,6 +405,64 @@ export function CCNAFaqSection() {
     }
   };
 
+  // Ensure smooth mouse wheel scrolling inside the directory list (Lenis coordination)
+  useEffect(() => {
+    const listEl = directoryListRef.current;
+    if (!listEl) return;
+
+    const handleWheel = (e) => {
+      const { scrollTop, scrollHeight, clientHeight } = listEl;
+      const maxScroll = scrollHeight - clientHeight;
+      if (maxScroll <= 1) return;
+
+      const delta = e.deltaY;
+      const isDown = delta > 0;
+      const isUp = delta < 0;
+      const canDown = scrollTop < maxScroll - 1;
+      const canUp = scrollTop > 1;
+
+      if ((isDown && canDown) || (isUp && canUp)) {
+        e.preventDefault();
+        e.stopPropagation();
+        listEl.scrollTop += delta;
+      }
+    };
+
+    listEl.addEventListener('wheel', handleWheel, { passive: false });
+    return () => {
+      listEl.removeEventListener('wheel', handleWheel);
+    };
+  }, [filteredFaqs]);
+
+  // Ensure smooth mouse wheel scrolling inside the answer canvas if it overflows
+  useEffect(() => {
+    const stageEl = stageCanvasRef.current;
+    if (!stageEl) return;
+
+    const handleStageWheel = (e) => {
+      const { scrollTop, scrollHeight, clientHeight } = stageEl;
+      const maxScroll = scrollHeight - clientHeight;
+      if (maxScroll <= 1) return;
+
+      const delta = e.deltaY;
+      const isDown = delta > 0;
+      const isUp = delta < 0;
+      const canDown = scrollTop < maxScroll - 1;
+      const canUp = scrollTop > 1;
+
+      if ((isDown && canDown) || (isUp && canUp)) {
+        e.preventDefault();
+        e.stopPropagation();
+        stageEl.scrollTop += delta;
+      }
+    };
+
+    stageEl.addEventListener('wheel', handleStageWheel, { passive: false });
+    return () => {
+      stageEl.removeEventListener('wheel', handleStageWheel);
+    };
+  }, [activeFaq]);
+
   // Filter questions based on Category and Search
   const filteredFaqs = useMemo(() => {
     return faqsData.filter((item) => {
@@ -625,6 +683,7 @@ export function CCNAFaqSection() {
               <div
                 ref={directoryListRef}
                 className={styles.directoryScrollList}
+                data-lenis-prevent="true"
                 role="listbox"
                 aria-label="Select a question to read"
                 tabIndex={0}
@@ -692,6 +751,7 @@ export function CCNAFaqSection() {
               ref={stageCanvasRef}
               key={activeFaq?.id}
               className={styles.answerStageCanvas}
+              data-lenis-prevent="true"
               aria-live="polite"
               itemScope
               itemProp="mainEntity"
