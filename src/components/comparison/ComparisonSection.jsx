@@ -10,8 +10,6 @@ import {
   Code2,
   MessageSquare,
   PlayCircle,
-  CheckCircle2,
-  XCircle,
   Building2,
   Star,
   ArrowRight,
@@ -19,12 +17,7 @@ import {
   ShieldCheck,
   Check,
   X,
-  Zap,
-  PhoneCall,
-  Compass,
-  Layers,
-  Award,
-  Cpu
+  Award
 } from 'lucide-react';
 import styles from './ComparisonSection.module.css';
 
@@ -410,38 +403,6 @@ export function ComparisonSection({ onOpenDemo }) {
           })}
         </div>
 
-        {/* ================= 4. BOTTOM CATALYST CTA BANNER (matching Career Growth) ================= */}
-        <div className={styles.catalystBanner}>
-          <div className={styles.catalystLeft}>
-            <div className={styles.catalystOrb}>
-              <Compass size={24} />
-            </div>
-            <div>
-              <h3 className={styles.catalystHeading}>
-                Experience The I-Medita Difference In A Free Demo Class
-              </h3>
-              <p className={styles.catalystSubtext}>
-                Attend a 1-hour live session on real physical Cisco routers and switches with our CCIE faculty before paying any fees. Zero obligation.
-              </p>
-            </div>
-          </div>
-
-          <div className={styles.catalystRight}>
-            <button
-              type="button"
-              className={styles.catalystDemoBtn}
-              onClick={() => handleEnrollClick('Comparison Catalyst Banner')}
-            >
-              <Sparkles size={14} />
-              <span>Book 1-Hour Free Demo Session</span>
-              <ArrowRight size={14} />
-            </button>
-            <a href="tel:+918750004411" className={styles.catalystCallBtn}>
-              <PhoneCall size={13} />
-              <span>Call Admissions Helpline: +91 87500 04411</span>
-            </a>
-          </div>
-        </div>
       </div>
     </section>
   );
