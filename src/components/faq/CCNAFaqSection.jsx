@@ -398,6 +398,48 @@ export function CCNAFaqSection() {
   const directoryListRef = useRef(null);
   const stageCanvasRef = useRef(null);
 
+  // 1. Filter questions based on Category and Search
+  const filteredFaqs = useMemo(() => {
+    return faqsData.filter((item) => {
+      const matchesCategory =
+        selectedCategory === 'all' || item.category === selectedCategory;
+      const matchesSearch =
+        searchQuery.trim() === '' ||
+        item.q.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        item.a.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        (item.chips &&
+          item.chips.some((chip) =>
+            chip.label.toLowerCase().includes(searchQuery.toLowerCase())
+          ));
+      return matchesCategory && matchesSearch;
+    });
+  }, [selectedCategory, searchQuery]);
+
+  // 2. Ensure active question stays valid when filters change
+  useEffect(() => {
+    if (filteredFaqs.length > 0) {
+      const exists = filteredFaqs.some((f) => f.id === activeFaqId);
+      if (!exists) {
+        setActiveFaqId(filteredFaqs[0].id);
+      }
+    }
+  }, [filteredFaqs, activeFaqId]);
+
+  // 3. Active FAQ object
+  const activeFaq = useMemo(() => {
+    return (
+      filteredFaqs.find((f) => f.id === activeFaqId) ||
+      filteredFaqs[0] ||
+      faqsData[0]
+    );
+  }, [filteredFaqs, activeFaqId]);
+
+  // 4. Current Index in filtered list
+  const activeIndex = useMemo(() => {
+    return filteredFaqs.findIndex((f) => f.id === activeFaq?.id);
+  }, [filteredFaqs, activeFaq]);
+
+  // 5. Select & Navigation handlers
   const handleSelectFaq = (id) => {
     setActiveFaqId(id);
     if (typeof window !== 'undefined' && window.innerWidth <= 960 && stageCanvasRef.current) {
@@ -405,7 +447,44 @@ export function CCNAFaqSection() {
     }
   };
 
-  // Ensure smooth mouse wheel scrolling inside the directory list (Lenis coordination)
+  const scrollItemIntoView = (id) => {
+    if (directoryListRef.current) {
+      const itemEl = directoryListRef.current.querySelector(`[data-id="${id}"]`);
+      if (itemEl) {
+        itemEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+    }
+  };
+
+  const handlePrev = () => {
+    if (activeIndex > 0) {
+      const prevId = filteredFaqs[activeIndex - 1].id;
+      setActiveFaqId(prevId);
+      scrollItemIntoView(prevId);
+    }
+  };
+
+  const handleNext = () => {
+    if (activeIndex < filteredFaqs.length - 1) {
+      const nextId = filteredFaqs[activeIndex + 1].id;
+      setActiveFaqId(nextId);
+      scrollItemIntoView(nextId);
+    }
+  };
+
+  const handleCategorySelect = (categoryId) => {
+    setSelectedCategory(categoryId);
+  };
+
+  const handleDemoClick = (source) => {
+    window.dispatchEvent(
+      new CustomEvent('open-ccna-demo-modal', {
+        detail: { source: source || 'CCNA FAQ Split-Screen Reader' }
+      })
+    );
+  };
+
+  // 6. Ensure smooth mouse wheel scrolling inside the directory list (Lenis coordination)
   useEffect(() => {
     const listEl = directoryListRef.current;
     if (!listEl) return;
@@ -434,7 +513,7 @@ export function CCNAFaqSection() {
     };
   }, [filteredFaqs]);
 
-  // Ensure smooth mouse wheel scrolling inside the answer canvas if it overflows
+  // 7. Ensure smooth mouse wheel scrolling inside the answer canvas if it overflows
   useEffect(() => {
     const stageEl = stageCanvasRef.current;
     if (!stageEl) return;
@@ -462,85 +541,6 @@ export function CCNAFaqSection() {
       stageEl.removeEventListener('wheel', handleStageWheel);
     };
   }, [activeFaq]);
-
-  // Filter questions based on Category and Search
-  const filteredFaqs = useMemo(() => {
-    return faqsData.filter((item) => {
-      const matchesCategory =
-        selectedCategory === 'all' || item.category === selectedCategory;
-      const matchesSearch =
-        searchQuery.trim() === '' ||
-        item.q.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        item.a.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        (item.chips &&
-          item.chips.some((chip) =>
-            chip.label.toLowerCase().includes(searchQuery.toLowerCase())
-          ));
-      return matchesCategory && matchesSearch;
-    });
-  }, [selectedCategory, searchQuery]);
-
-  // Ensure active question stays valid when filters change
-  useEffect(() => {
-    if (filteredFaqs.length > 0) {
-      const exists = filteredFaqs.some((f) => f.id === activeFaqId);
-      if (!exists) {
-        setActiveFaqId(filteredFaqs[0].id);
-      }
-    }
-  }, [filteredFaqs, activeFaqId]);
-
-  // Active FAQ object
-  const activeFaq = useMemo(() => {
-    return (
-      filteredFaqs.find((f) => f.id === activeFaqId) ||
-      filteredFaqs[0] ||
-      faqsData[0]
-    );
-  }, [filteredFaqs, activeFaqId]);
-
-  // Current Index in filtered list
-  const activeIndex = useMemo(() => {
-    return filteredFaqs.findIndex((f) => f.id === activeFaq?.id);
-  }, [filteredFaqs, activeFaq]);
-
-  // Navigation handlers
-  const handlePrev = () => {
-    if (activeIndex > 0) {
-      const prevId = filteredFaqs[activeIndex - 1].id;
-      setActiveFaqId(prevId);
-      scrollItemIntoView(prevId);
-    }
-  };
-
-  const handleNext = () => {
-    if (activeIndex < filteredFaqs.length - 1) {
-      const nextId = filteredFaqs[activeIndex + 1].id;
-      setActiveFaqId(nextId);
-      scrollItemIntoView(nextId);
-    }
-  };
-
-  const scrollItemIntoView = (id) => {
-    if (directoryListRef.current) {
-      const itemEl = directoryListRef.current.querySelector(`[data-id="${id}"]`);
-      if (itemEl) {
-        itemEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-      }
-    }
-  };
-
-  const handleCategorySelect = (categoryId) => {
-    setSelectedCategory(categoryId);
-  };
-
-  const handleDemoClick = (source) => {
-    window.dispatchEvent(
-      new CustomEvent('open-ccna-demo-modal', {
-        detail: { source: source || 'CCNA FAQ Split-Screen Reader' }
-      })
-    );
-  };
 
   // Format text to make phone numbers clickable
   const renderFormattedAnswer = (text) => {
