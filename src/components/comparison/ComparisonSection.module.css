@@ -1,25 +1,57 @@
 /* ==========================================================================
-   WHAT SETS US APART: CCNA INSTITUTES COMPARISON TABLE
-   High-Clarity Light Theme • Razorpay / Stripe Fintech Minimalist Aesthetic
+   WHAT SETS US APART: CCNA INSTITUTES BENCHMARK STAGE
+   High-Impact Enterprise Clarity • Electric Blue & Navy Modern Tech Aesthetic
+   Matches the Modernized Career Growth Design Language
    100% Fluid & Fully Responsive Across All Devices
    ========================================================================== */
 
 .comparisonSection {
   position: relative;
   width: 100%;
+  scroll-margin-top: 100px;
   background-color: #f1f6fa;
   background-image: 
-    radial-gradient(ellipse 80% 50% at 50% 0%, rgba(224, 242, 254, 0.4) 0%, transparent 80%);
-  padding: clamp(3.5rem, 5.5vw, 6rem) 1.25rem clamp(4rem, 6vw, 6.5rem);
+    radial-gradient(circle at 15% 15%, rgba(2, 132, 199, 0.08) 0%, transparent 45%),
+    radial-gradient(circle at 85% 85%, rgba(0, 102, 255, 0.06) 0%, transparent 50%),
+    linear-gradient(180deg, #f1f6fa 0%, #f8fafc 100%);
+  padding: clamp(4.5rem, 6.5vw, 6.5rem) 1.5rem clamp(5rem, 7vw, 7rem);
   border-top: 1px solid #e2e8f0;
   border-bottom: 1px solid #e2e8f0;
   color: #0f172a;
   box-sizing: border-box;
+  overflow: hidden;
+}
+
+/* Atmospheric Lighting Accents */
+.ambientAuraTop {
+  position: absolute;
+  top: -120px;
+  right: 10%;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0, 102, 255, 0.08) 0%, transparent 70%);
+  pointer-events: none;
+  filter: blur(40px);
+  z-index: 1;
+}
+
+.ambientAuraBottom {
+  position: absolute;
+  bottom: -150px;
+  left: 5%;
+  width: 550px;
+  height: 550px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(2, 132, 199, 0.07) 0%, transparent 70%);
+  pointer-events: none;
+  filter: blur(50px);
+  z-index: 1;
 }
 
 .sectionContainer {
   position: relative;
-  max-width: 1080px;
+  max-width: 1160px;
   margin: 0 auto;
   z-index: 5;
 }
@@ -29,7 +61,7 @@
    ========================================================================== */
 .headerBlock {
   text-align: center;
-  max-width: 760px;
+  max-width: 820px;
   margin: 0 auto clamp(2.5rem, 4vw, 3.5rem);
 }
 
@@ -37,25 +69,37 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0.35rem 1.15rem;
+  gap: 0.5rem;
+  padding: 0.45rem 1.25rem;
   border-radius: 9999px;
   background-color: #e0f2fe;
-  border: 1px solid #bae6fd;
+  border: 1.5px solid #bae6fd;
   color: #0284c7;
   font-size: 0.75rem;
-  font-weight: 800;
-  letter-spacing: 0.1em;
+  font-weight: 850;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  margin-bottom: 1rem;
+  margin-bottom: 1.1rem;
+  box-shadow: 0 2px 8px rgba(2, 132, 199, 0.12);
+}
+
+.sparkleIcon {
+  color: #0284c7;
+  animation: pulseSparkle 2.5s infinite ease-in-out;
+}
+
+@keyframes pulseSparkle {
+  0%, 100% { transform: scale(1); opacity: 0.85; }
+  50% { transform: scale(1.15); opacity: 1; }
 }
 
 .sectionHeading {
-  font-size: clamp(1.85rem, 3.2vw, 2.65rem);
+  font-size: clamp(2rem, 3.4vw, 2.85rem);
   font-weight: 850;
   color: #0b2545;
-  letter-spacing: -0.025em;
-  line-height: 1.22;
-  margin: 0 0 1rem;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+  margin: 0 0 1.15rem;
 }
 
 .headingBreak {
@@ -69,59 +113,89 @@
 }
 
 .sectionSubtext {
-  font-size: clamp(0.95rem, 1.3vw, 1.05rem);
+  font-size: clamp(0.98rem, 1.3vw, 1.1rem);
+  color: #475569;
+  line-height: 1.65;
+  margin: 0 auto 2rem;
+  max-width: 680px;
+  font-weight: 500;
+}
+
+/* Quick Category Filter Navigation */
+.quickCategoryNav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-top: 1.5rem;
+}
+
+.categoryPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1.15rem;
+  border-radius: 9999px;
+  background: #ffffff;
+  border: 1.5px solid #e2e8f0;
+  font-size: 0.86rem;
+  font-weight: 650;
+  color: #475569;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+}
+
+.categoryCountBadge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.1rem 0.5rem;
+  border-radius: 9999px;
+  font-size: 0.72rem;
+  font-weight: 750;
+  background: #f1f5f9;
   color: #64748b;
-  line-height: 1.6;
-  margin: 0 auto;
-  max-width: 620px;
+  border: 1px solid #cbd5e1;
+  transition: all 0.2s ease;
+}
+
+.categoryPill:hover {
+  border-color: #93c5fd;
+  color: #0284c7;
+  background: #f8fafc;
+  transform: translateY(-1.5px);
+  box-shadow: 0 4px 12px rgba(2, 132, 199, 0.1);
+}
+
+.categoryPillActive {
+  background: linear-gradient(135deg, #0b2545 0%, #0066ff 100%);
+  border-color: transparent !important;
+  color: #ffffff !important;
+  box-shadow: 0 6px 18px rgba(0, 102, 255, 0.25);
+  transform: translateY(-1.5px);
+}
+
+.categoryPillActive .categoryCountBadge {
+  background: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.3);
 }
 
 /* ==========================================================================
-   2. COMPARISON CARD & TABLE
+   2. DESKTOP COMPARISON TABLE CARD
    ========================================================================== */
 .tableCard {
   background: #ffffff;
-  border: 1px solid #e2e8f0;
-  border-radius: 1.25rem;
+  border: 1.5px solid #bfdbfe;
+  border-radius: 24px;
   box-shadow: 
-    0 10px 30px -5px rgba(0, 0, 0, 0.05),
-    0 1px 3px rgba(0, 0, 0, 0.03);
+    0 20px 45px -8px rgba(11, 37, 69, 0.08),
+    0 1px 3px rgba(0, 0, 0, 0.04);
   overflow: hidden;
   position: relative;
-}
-
-.mobileSwipeIndicator {
-  display: none;
-}
-
-@media (max-width: 680px) {
-  .mobileSwipeIndicator {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0.65rem 1rem;
-    background-color: #f1f5f9;
-    border-bottom: 1px solid #e2e8f0;
-    color: #0284c7;
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-  }
-
-  .featureHeaderCol,
-  .featureCell {
-    position: sticky;
-    left: 0;
-    z-index: 5;
-    background-color: #ffffff;
-    box-shadow: 2px 0 6px rgba(0, 0, 0, 0.05);
-  }
-
-  .featureHeaderCol {
-    background-color: #ffffff;
-    z-index: 6;
-  }
+  margin-bottom: 2.5rem;
 }
 
 .scrollWrapper {
@@ -130,146 +204,138 @@
   -webkit-overflow-scrolling: touch;
 }
 
-/* Scrollbar polish */
 .scrollWrapper::-webkit-scrollbar {
   height: 6px;
 }
+
 .scrollWrapper::-webkit-scrollbar-track {
   background: #f1f5f9;
 }
+
 .scrollWrapper::-webkit-scrollbar-thumb {
   background: #cbd5e1;
-  border-radius: 9999px;
+  border-radius: 3px;
+}
+
+.scrollWrapper::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
 }
 
 .comparisonTable {
   width: 100%;
-  min-width: 680px;
   border-collapse: collapse;
   text-align: left;
+  min-width: 820px;
 }
 
-/* Column Widths */
-.featureHeaderCol,
-.featureCell {
-  width: 32%;
-  padding-left: clamp(1.25rem, 2vw, 2rem);
-  padding-right: 1.25rem;
-}
-
-.imeditaHeaderCol,
-.imeditaCell,
-.imeditaScoreCell {
-  width: 35%;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
-}
-
-.otherHeaderCol,
-.otherCell,
-.otherScoreCell {
-  width: 33%;
-  padding-left: 1.5rem;
-  padding-right: clamp(1.25rem, 2vw, 2rem);
-}
-
-/* ==========================================================================
-   3. TABLE HEADER ROW
-   ========================================================================== */
-.headerRow th {
-  padding-top: 1.35rem;
-  padding-bottom: 1.35rem;
-  vertical-align: middle;
+/* Header Columns */
+.headerRow {
+  background-color: #ffffff;
 }
 
 .featureHeaderCol {
-  background-color: #ffffff;
+  width: 32%;
+  padding: 1.4rem 1.5rem;
+  background-color: #f8fafc;
+  border-bottom: 1px solid #e2e8f0;
+  vertical-align: bottom;
 }
 
 .featureHeaderLabel {
   font-size: 0.75rem;
-  font-weight: 750;
+  font-weight: 800;
   letter-spacing: 0.08em;
-  color: #94a3b8;
+  color: #64748b;
   text-transform: uppercase;
 }
 
-/* I-Medita Column Header (Deep Navy) */
+/* I-Medita Spotlight Header */
 .imeditaHeaderCol {
-  background: linear-gradient(145deg, #07234a 0%, #061e3f 100%);
-  color: #ffffff;
-  border-top-left-radius: 0;
+  width: 40%;
+  padding: 0;
+  vertical-align: top;
+  background: linear-gradient(135deg, #061733 0%, #0b2545 100%);
+  border-left: 2px solid #bfdbfe;
+  border-right: 2px solid #bfdbfe;
 }
 
-/* Other Institutes Column Header (Dark Slate) */
-.otherHeaderCol {
-  background: #334155;
-  color: #ffffff;
-}
-
-.brandHeaderContent {
+.imeditaSpotlightHeader {
+  padding: 1.5rem 1.75rem;
   display: flex;
   align-items: center;
-  gap: 0.85rem;
+  gap: 1rem;
+  position: relative;
+  overflow: hidden;
+  border-top: 4px solid #0066ff;
+}
+
+.imeditaSpotlightHeader::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 140px;
+  height: 140px;
+  background: radial-gradient(circle, rgba(0, 102, 255, 0.25) 0%, transparent 70%);
+  pointer-events: none;
 }
 
 .brandIconBoxOrange {
-  width: 36px;
-  height: 36px;
-  border-radius: 8px;
-  background: #ff6b00;
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #ff6b00 0%, #ff8c33 100%);
   display: flex;
   align-items: center;
   justify-content: center;
   color: #ffffff;
-  flex-shrink: 0;
-  box-shadow: 0 2px 8px rgba(255, 107, 0, 0.35);
-}
-
-.brandIconBoxSlate {
-  width: 36px;
-  height: 36px;
-  border-radius: 8px;
-  background: rgba(255, 255, 255, 0.12);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #cbd5e1;
-  flex-shrink: 0;
+  box-shadow: 0 6px 14px rgba(255, 107, 0, 0.35);
 }
 
 .brandInfo {
   display: flex;
   flex-direction: column;
   gap: 0.3rem;
+  flex: 1;
+}
+
+.brandNameRow {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  flex-wrap: wrap;
 }
 
 .brandTitle {
-  font-size: 1.15rem;
+  font-size: 1.25rem;
   font-weight: 850;
   color: #ffffff;
-  letter-spacing: -0.015em;
-  line-height: 1.2;
+  letter-spacing: -0.01em;
 }
 
-.otherTitle {
-  font-size: 1.05rem;
-  font-weight: 750;
-  color: #f1f5f9;
-  letter-spacing: -0.015em;
-  line-height: 1.2;
+.authorizedBadge {
+  font-size: 0.68rem;
+  font-weight: 800;
+  padding: 0.22rem 0.6rem;
+  border-radius: 9999px;
+  background: rgba(0, 102, 255, 0.25);
+  border: 1px solid rgba(147, 197, 253, 0.4);
+  color: #93c5fd;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
 }
 
 .topRatedPill {
   display: inline-flex;
   align-items: center;
-  gap: 0.3rem;
-  background: rgba(255, 255, 255, 0.14);
-  border: 1px solid rgba(255, 255, 255, 0.22);
-  color: #e0f2fe;
-  font-size: 0.725rem;
-  font-weight: 600;
-  padding: 0.15rem 0.55rem;
+  gap: 0.35rem;
+  background: rgba(255, 215, 0, 0.12);
+  border: 1px solid rgba(255, 215, 0, 0.35);
+  color: #fde047;
+  font-size: 0.74rem;
+  font-weight: 750;
+  padding: 0.25rem 0.7rem;
   border-radius: 9999px;
   width: fit-content;
 }
@@ -278,37 +344,70 @@
   color: #facc15;
 }
 
+/* Other Institutes Header */
+.otherHeaderCol {
+  width: 28%;
+  padding: 0;
+  vertical-align: top;
+  background-color: #f8fafc;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.otherHeaderContent {
+  padding: 1.5rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.brandIconBoxSlate {
+  width: 42px;
+  height: 42px;
+  min-width: 42px;
+  border-radius: 12px;
+  background-color: #e2e8f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #64748b;
+}
+
+.otherTitle {
+  font-size: 1.05rem;
+  font-weight: 750;
+  color: #334155;
+  letter-spacing: -0.01em;
+}
+
 .genericPill {
   display: inline-flex;
   align-items: center;
-  background: rgba(0, 0, 0, 0.22);
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
   color: #94a3b8;
-  font-size: 0.725rem;
-  font-weight: 500;
-  padding: 0.15rem 0.55rem;
+  font-size: 0.7rem;
+  font-weight: 650;
+  padding: 0.2rem 0.55rem;
   border-radius: 9999px;
   width: fit-content;
 }
 
-/* ==========================================================================
-   4. DATA ROWS
-   ========================================================================== */
+/* Data Rows */
 .dataRow {
-  border-bottom: 1px solid #f1f5f9;
-  transition: background-color 150ms ease;
+  transition: background-color 0.2s ease;
 }
 
-.dataRow:hover {
-  background-color: #fafbfc;
+.dataRow:hover td {
+  background-color: #f8fbff;
 }
 
-.dataRow td {
-  padding-top: 1.05rem;
-  padding-bottom: 1.05rem;
+.featureCell {
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid #e2e8f0;
   vertical-align: middle;
+  background-color: #ffffff;
 }
 
-/* Feature cell */
 .featureInner {
   display: flex;
   align-items: center;
@@ -316,230 +415,297 @@
 }
 
 .featureIconBadge {
-  width: 32px;
-  height: 32px;
-  border-radius: 8px;
-  background-color: #f1f5f9;
-  border: 1px solid #e2e8f0;
+  width: 36px;
+  height: 36px;
+  min-width: 36px;
+  border-radius: 10px;
+  background: #eff6ff;
+  border: 1px solid #dbeafe;
+  color: #0284c7;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #475569;
-  flex-shrink: 0;
-  transition: all 180ms ease;
-}
-
-.dataRow:hover .featureIconBadge {
-  background-color: #e0f2fe;
-  border-color: #bae6fd;
-  color: #0284c7;
 }
 
 .featureName {
-  font-size: 0.875rem;
-  font-weight: 650;
-  color: #334155;
-  letter-spacing: -0.01em;
+  font-size: 0.94rem;
+  font-weight: 750;
+  color: #0f172a;
+  line-height: 1.35;
 }
 
-/* I-Medita Cell */
+/* I-Medita Cell (Elevated Spotlight) */
 .imeditaCell {
-  background-color: #f8fbff;
-  border-left: 1px solid #f0f4f8;
-  border-right: 1px solid #f0f4f8;
+  padding: 1.25rem 1.6rem;
+  border-bottom: 1px solid #e2e8f0;
+  border-left: 2px solid #bfdbfe;
+  border-right: 2px solid #bfdbfe;
+  vertical-align: middle;
+  background: linear-gradient(180deg, #f8faff 0%, #ffffff 100%);
+  position: relative;
 }
 
-.valueInner {
+.valueInnerImedita {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+}
+
+.checkIconOrb {
+  width: 24px;
+  height: 24px;
+  min-width: 24px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+  border: 1.5px solid #6ee7b7;
+  color: #059669;
   display: flex;
   align-items: center;
-  gap: 0.65rem;
+  justify-content: center;
+  margin-top: 0.1rem;
+  box-shadow: 0 2px 6px rgba(16, 185, 129, 0.15);
 }
 
-.checkIcon {
-  color: #10b981;
-  flex-shrink: 0;
+.valueTextCol {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
 }
 
 .imeditaText {
-  font-size: 0.875rem;
-  font-weight: 650;
-  color: #0f172a;
-  letter-spacing: -0.01em;
+  font-size: 0.94rem;
+  font-weight: 750;
+  color: #061733;
+  line-height: 1.35;
+}
+
+.imeditaDetailText {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #475569;
+  line-height: 1.45;
 }
 
 /* Other Cell */
 .otherCell {
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid #f1f5f9;
+  vertical-align: middle;
   background-color: #ffffff;
 }
 
-.crossIcon {
-  color: #f87171;
-  flex-shrink: 0;
+.valueInnerOther {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+}
+
+.crossIconOrb {
+  width: 22px;
+  height: 22px;
+  min-width: 22px;
+  border-radius: 50%;
+  background: #fef2f2;
+  border: 1.5px solid #fecaca;
+  color: #ef4444;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0.1rem;
 }
 
 .otherText {
-  font-size: 0.875rem;
-  font-weight: 500;
-  color: #64748b;
-  letter-spacing: -0.01em;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #475569;
+  line-height: 1.35;
 }
 
-/* ==========================================================================
-   5. OVERALL SCORE ROW
-   ========================================================================== */
-.scoreRow {
-  border-top: 1px solid #e2e8f0;
-  border-bottom: 1px solid #e2e8f0;
-  background-color: #ffffff;
+.otherDetailText {
+  font-size: 0.78rem;
+  font-weight: 450;
+  color: #94a3b8;
+  line-height: 1.45;
 }
 
+/* Score Row */
 .scoreRow td {
-  padding-top: 1.35rem;
-  padding-bottom: 1.35rem;
+  padding: 1.6rem 1.5rem;
+  background-color: #f8fafc;
+  border-top: 2px solid #e2e8f0;
   vertical-align: middle;
 }
 
+.overallScoreMeta {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.scoreAwardIcon {
+  color: #ff6b00;
+  min-width: 22px;
+}
+
 .overallScoreLabel {
-  font-size: 0.75rem;
-  font-weight: 750;
-  letter-spacing: 0.08em;
-  color: #94a3b8;
+  font-size: 0.82rem;
+  font-weight: 850;
+  letter-spacing: 0.05em;
+  color: #0b2545;
   text-transform: uppercase;
+  line-height: 1.4;
 }
 
 .imeditaScoreCell {
-  background-color: #f0f7ff;
-  border-left: 1px solid #e0f2fe;
-  border-right: 1px solid #e0f2fe;
+  border-left: 2px solid #bfdbfe;
+  border-right: 2px solid #bfdbfe;
+  background: linear-gradient(180deg, #f0fdf4 0%, #ffffff 100%) !important;
+}
+
+.otherScoreCell {
+  background-color: #f8fafc !important;
 }
 
 .scoreBlock {
   display: flex;
   flex-direction: column;
   gap: 0.55rem;
-  max-width: 260px;
 }
 
 .scoreTopLine {
   display: flex;
-  align-items: baseline;
+  align-items: center;
   justify-content: space-between;
 }
 
 .scoreBrandLabel {
-  font-size: 0.725rem;
-  font-weight: 800;
-  letter-spacing: 0.06em;
+  font-size: 0.76rem;
+  font-weight: 850;
+  letter-spacing: 0.05em;
   color: #0284c7;
-  text-transform: uppercase;
 }
 
 .otherScoreLabel {
-  font-size: 0.725rem;
+  font-size: 0.76rem;
   font-weight: 750;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.04em;
   color: #64748b;
-  text-transform: uppercase;
 }
 
 .scoreValueWrapper {
   display: flex;
   align-items: baseline;
-  gap: 0.2rem;
+  gap: 0.25rem;
 }
 
 .scoreNumber {
-  font-size: 1.35rem;
-  font-weight: 850;
-  color: #0f172a;
+  font-size: 1.6rem;
+  font-weight: 900;
+  color: #059669;
   line-height: 1;
 }
 
 .otherScoreNumber {
-  font-size: 1.35rem;
-  font-weight: 850;
-  color: #475569;
+  font-size: 1.6rem;
+  font-weight: 900;
+  color: #ef4444;
   line-height: 1;
 }
 
 .scoreOutOf {
-  font-size: 0.95rem;
-  font-weight: 600;
-  color: #64748b;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #94a3b8;
 }
 
 .progressBarTrack {
   width: 100%;
-  height: 6px;
-  background-color: #e2e8f0;
+  height: 8px;
+  background: #e2e8f0;
   border-radius: 9999px;
   overflow: hidden;
 }
 
 .progressBarFillImedita {
   height: 100%;
-  background: #07234a;
+  background: linear-gradient(90deg, #10b981 0%, #059669 100%);
   border-radius: 9999px;
-  transition: width 1s ease-out;
 }
 
 .progressBarFillOthers {
   height: 100%;
-  background: #94a3b8;
+  background: linear-gradient(90deg, #f87171 0%, #ef4444 100%);
   border-radius: 9999px;
-  transition: width 1s ease-out;
 }
 
-/* ==========================================================================
-   6. CARD FOOTER CTA BAR
-   ========================================================================== */
+.scoreVerdict {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #059669;
+}
+
+.scoreVerdictMuted {
+  font-size: 0.78rem;
+  font-weight: 550;
+  color: #94a3b8;
+}
+
+/* Card Footer Bar */
 .cardFooterBar {
-  padding: 1.5rem clamp(1.25rem, 2vw, 2rem);
-  background-color: #ffffff;
+  background: linear-gradient(135deg, #f0f7ff 0%, #e0f2fe 100%);
+  border-top: 1.5px solid #bfdbfe;
+  padding: 1.35rem 1.75rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 1.5rem;
 }
 
+.footerNoteWrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  flex: 1;
+}
+
+.shieldIcon {
+  color: #0284c7;
+  min-width: 22px;
+}
+
 .footerNoteText {
-  font-size: 0.875rem;
-  color: #64748b;
-  line-height: 1.55;
+  font-size: 0.86rem;
+  font-weight: 550;
+  color: #0369a1;
+  line-height: 1.5;
   margin: 0;
-  max-width: 650px;
 }
 
 .enrollCtaBtn {
   display: inline-flex;
   align-items: center;
-  gap: 0.55rem;
-  padding: 0.75rem 1.65rem;
-  border-radius: 0.65rem;
-  background-color: #ff6b00;
+  gap: 0.65rem;
+  padding: 0.8rem 1.5rem;
+  background: linear-gradient(135deg, #ff6b00 0%, #ff8c33 100%);
   color: #ffffff;
+  border: none;
+  border-radius: 12px;
   font-size: 0.9rem;
   font-weight: 750;
-  border: none;
   cursor: pointer;
+  box-shadow: 0 8px 20px -3px rgba(255, 107, 0, 0.4);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   white-space: nowrap;
-  flex-shrink: 0;
-  box-shadow: 0 4px 14px rgba(255, 107, 0, 0.35);
-  transition: all 180ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .enrollCtaBtn:hover {
-  background-color: #ea580c;
   transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(255, 107, 0, 0.45);
-}
-
-.enrollCtaBtn:active {
-  transform: translateY(0);
+  box-shadow: 0 12px 26px -3px rgba(255, 107, 0, 0.5);
+  background: linear-gradient(135deg, #f06100 0%, #ff7f24 100%);
 }
 
 .btnArrow {
-  transition: transform 180ms ease;
+  transition: transform 0.2s ease;
 }
 
 .enrollCtaBtn:hover .btnArrow {
@@ -547,28 +713,291 @@
 }
 
 /* ==========================================================================
-   7. RESPONSIVE BREAKPOINTS
+   3. MOBILE COMPARISON CARDS DECK (<= 768px)
    ========================================================================== */
+.mobileCardsDeck {
+  display: none;
+}
+
 @media (max-width: 768px) {
+  .tableCard {
+    display: none;
+  }
+
+  .mobileCardsDeck {
+    display: flex;
+    flex-direction: column;
+    gap: 1.15rem;
+    margin-bottom: 2rem;
+  }
+
+  .mobileCard {
+    background: #ffffff;
+    border: 1.5px solid #bfdbfe;
+    border-radius: 18px;
+    padding: 1.25rem;
+    box-shadow: 0 8px 24px -4px rgba(11, 37, 69, 0.06);
+  }
+
+  .mobileCardHeader {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding-bottom: 0.9rem;
+    border-bottom: 1px solid #f1f5f9;
+  }
+
+  .mobileFeatureTitle {
+    font-size: 0.96rem;
+    font-weight: 800;
+    color: #0b2545;
+    flex: 1;
+    margin: 0;
+    line-height: 1.3;
+  }
+
+  .mobileIndexBadge {
+    font-size: 0.74rem;
+    font-weight: 850;
+    color: #0284c7;
+    background: #e0f2fe;
+    padding: 0.15rem 0.55rem;
+    border-radius: 9999px;
+  }
+
+  /* I-Medita Row */
+  .mobileImeditaRow {
+    background: linear-gradient(180deg, #f0f7ff 0%, #ffffff 100%);
+    border: 1.5px solid #bfdbfe;
+    border-radius: 14px;
+    padding: 1.1rem;
+    margin-top: 0.9rem;
+  }
+
+  .mobileRowTop {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.45rem;
+  }
+
+  .mobileBrandPillImedita {
+    font-size: 0.7rem;
+    font-weight: 850;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #0284c7;
+    background: rgba(2, 132, 199, 0.12);
+    padding: 0.2rem 0.6rem;
+    border-radius: 9999px;
+  }
+
+  .mobileValueHeading {
+    display: block;
+    font-size: 0.95rem;
+    font-weight: 800;
+    color: #061733;
+    margin-bottom: 0.3rem;
+  }
+
+  .mobileValueDesc {
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: #475569;
+    line-height: 1.45;
+    margin: 0;
+  }
+
+  /* Other Row */
+  .mobileOtherRow {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 0.95rem 1.1rem;
+    margin-top: 0.75rem;
+  }
+
+  .mobileBrandPillOther {
+    font-size: 0.7rem;
+    font-weight: 750;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: #64748b;
+    background: #e2e8f0;
+    padding: 0.2rem 0.6rem;
+    border-radius: 9999px;
+  }
+
+  .mobileOtherHeading {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #475569;
+    margin-bottom: 0.25rem;
+  }
+
+  .mobileOtherDesc {
+    font-size: 0.8rem;
+    font-weight: 450;
+    color: #94a3b8;
+    line-height: 1.4;
+    margin: 0;
+  }
+}
+
+/* ==========================================================================
+   4. BOTTOM CATALYST CTA BANNER (matching Career Growth design system)
+   ========================================================================== */
+.catalystBanner {
+  background: linear-gradient(135deg, #ffffff 0%, #f0f7ff 100%);
+  border: 1.5px solid #bfdbfe;
+  border-radius: 22px;
+  box-shadow: 
+    0 16px 40px -8px rgba(0, 102, 255, 0.12),
+    0 2px 6px rgba(0, 0, 0, 0.03);
+  padding: clamp(1.75rem, 3.5vw, 2.5rem);
+  margin-top: clamp(2.5rem, 4.5vw, 3.5rem);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.catalystBanner::before {
+  content: '';
+  position: absolute;
+  top: -50px;
+  left: 30%;
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0, 102, 255, 0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.catalystLeft {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem;
+  max-width: 620px;
+  position: relative;
+  z-index: 2;
+}
+
+.catalystOrb {
+  width: 52px;
+  height: 52px;
+  min-width: 52px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #0284c7 0%, #0066ff 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  box-shadow: 0 8px 20px rgba(0, 102, 255, 0.3);
+}
+
+.catalystHeading {
+  font-size: clamp(1.2rem, 1.8vw, 1.45rem);
+  font-weight: 850;
+  color: #0b2545;
+  letter-spacing: -0.02em;
+  margin: 0 0 0.5rem;
+  line-height: 1.3;
+}
+
+.catalystSubtext {
+  font-size: clamp(0.88rem, 1.1vw, 0.95rem);
+  color: #475569;
+  line-height: 1.55;
+  margin: 0;
+  font-weight: 500;
+}
+
+.catalystRight {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  min-width: 280px;
+  position: relative;
+  z-index: 2;
+}
+
+.catalystDemoBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  padding: 0.85rem 1.6rem;
+  background: linear-gradient(135deg, #ff6b00 0%, #ff8c33 100%);
+  color: #ffffff;
+  border: none;
+  border-radius: 12px;
+  font-size: 0.92rem;
+  font-weight: 750;
+  cursor: pointer;
+  box-shadow: 0 8px 22px -4px rgba(255, 107, 0, 0.4);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  white-space: nowrap;
+}
+
+.catalystDemoBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px -4px rgba(255, 107, 0, 0.5);
+  background: linear-gradient(135deg, #f06100 0%, #ff7f24 100%);
+}
+
+.catalystCallBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  padding: 0.75rem 1.25rem;
+  background: #ffffff;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 12px;
+  color: #0f172a;
+  font-size: 0.84rem;
+  font-weight: 650;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.catalystCallBtn:hover {
+  border-color: #0284c7;
+  color: #0284c7;
+  background: #f8fafc;
+  transform: translateY(-1px);
+}
+
+/* Responsive adjustments */
+@media (max-width: 960px) {
+  .catalystBanner {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1.5rem;
+  }
+
+  .catalystRight {
+    min-width: 100%;
+  }
+
+  .catalystDemoBtn,
+  .catalystCallBtn {
+    width: 100%;
+  }
+
   .cardFooterBar {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: stretch;
     gap: 1.15rem;
-    padding: 1.25rem 1.25rem;
   }
 
   .enrollCtaBtn {
     width: 100%;
     justify-content: center;
-  }
-}
-
-@media (max-width: 480px) {
-  .comparisonSection {
-    padding: 3rem 0.75rem 4rem;
-  }
-
-  .tableCard {
-    border-radius: 1rem;
   }
 }

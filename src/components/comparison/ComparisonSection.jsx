@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useMemo } from 'react';
 import {
   GraduationCap,
   Users,
@@ -14,87 +14,142 @@ import {
   XCircle,
   Building2,
   Star,
-  ArrowRight
+  ArrowRight,
+  Sparkles,
+  ShieldCheck,
+  Check,
+  X,
+  Zap,
+  PhoneCall,
+  Compass,
+  Layers,
+  Award,
+  Cpu
 } from 'lucide-react';
 import styles from './ComparisonSection.module.css';
+
+const categories = [
+  { id: 'all', label: 'All 10 Points' },
+  { id: 'faculty', label: 'Faculty & Mentors' },
+  { id: 'labs', label: 'Labs & Hardware' },
+  { id: 'curriculum', label: 'Curriculum & Projects' },
+  { id: 'placement', label: 'Placement & Support' }
+];
 
 const comparisonData = [
   {
     id: 'trainer-level',
-    feature: 'Trainer level',
+    category: 'faculty',
+    feature: 'Trainer Level & Expertise',
     icon: GraduationCap,
-    imedita: 'CCIE certified trainers',
-    other: 'CCNA / CCNP trainers'
+    imedita: 'CCIE Certified Trainers',
+    imeditaDetail: 'Triple CCIE #39543 Saurabh Sir & veteran CCIE mentors (15+ yrs exp)',
+    other: 'CCNA / CCNP trainers',
+    otherDetail: 'Temporary instructors or freelance junior engineers'
   },
   {
     id: 'dedicated-lab-trainers',
-    feature: 'Dedicated lab trainers',
+    category: 'faculty',
+    feature: 'Dedicated Lab Support Trainers',
     icon: Users,
-    imedita: 'Separate lab support trainers',
-    other: 'Usually not available'
+    imedita: 'Separate Lab Support Team',
+    imeditaDetail: 'Full-time CCNA/CCNP certified lab mentors for 1-on-1 practical troubleshooting',
+    other: 'Usually Not Available',
+    otherDetail: 'Theory trainer rushed to answer questions with no dedicated lab staff'
   },
   {
     id: 'lab-access',
-    feature: 'Lab access',
+    category: 'labs',
+    feature: 'Physical Cisco Hardware Lab Access',
     icon: Server,
-    imedita: 'Real Cisco labs · 24×7',
-    other: 'Limited lab hours'
+    imedita: 'Real Cisco Labs · 24×7 Access',
+    imeditaDetail: 'Physical 2611XM, 1841, 2811 routers & 2960, 3560 switches in Baner, Pune racks',
+    other: 'Limited Lab Hours',
+    otherDetail: '1–2 hours per day only or virtual software simulators (Packet Tracer only)'
   },
   {
     id: 'curriculum',
-    feature: 'Curriculum',
+    category: 'curriculum',
+    feature: 'Official Syllabus Alignment',
     icon: BookOpen,
-    imedita: 'Latest CCNA 200-301',
-    other: 'Often outdated'
+    imedita: 'Latest Cisco CCNA 200-301 v1.1',
+    imeditaDetail: '100% official blueprint coverage + Cisco DNA Center, Automation & Python',
+    other: 'Often Outdated Curriculum',
+    otherDetail: 'Legacy routing topics taught without modern automation or SDN modules'
   },
   {
     id: 'hands-on-practice',
-    feature: 'Hands-on practice',
+    category: 'labs',
+    feature: 'Hands-on Lab Practice Ratio',
     icon: Terminal,
-    imedita: 'Daily practical labs',
-    other: 'Mostly theory'
+    imedita: 'Daily Practical Hardware Labs',
+    imeditaDetail: '60% hands-on lab practice + 40% architecture theory on real Cisco CLI',
+    other: 'Mostly Slide-Based Theory',
+    otherDetail: '80% theoretical lectures with minimal or rushed hands-on CLI practice'
   },
   {
     id: 'study-material',
-    feature: 'Study material',
+    category: 'curriculum',
+    feature: 'Study Materials & Resources',
     icon: FileText,
-    imedita: 'Physical books + digital',
-    other: 'Notes / PDFs only'
+    imedita: 'Physical Books + Cloud Portal',
+    imeditaDetail: 'Hardcopy lab workbooks, HD recorded video portal for revision, study kits',
+    other: 'Notes / Loose PDFs Only',
+    otherDetail: 'Generic downloaded PDFs or photocopied notes without structured workbooks'
   },
   {
     id: 'placement-support',
-    feature: 'Placement support',
+    category: 'placement',
+    feature: 'Placement Assistance & Drives',
     icon: Briefcase,
-    imedita: 'Dedicated placement help',
-    other: 'Basic guidance'
+    imedita: 'Dedicated Placement Cell',
+    imeditaDetail: '100+ hiring partners (TCS, Wipro, Airtel, Jio), technical & HR mock rounds',
+    other: 'Basic Job Alerts Only',
+    otherDetail: 'Forwarding public job openings without interview prep or direct employer ties'
   },
   {
     id: 'projects',
-    feature: 'Projects',
+    category: 'curriculum',
+    feature: 'Enterprise Network Topologies',
     icon: Code2,
-    imedita: 'Real-time projects',
-    other: 'Few or none'
+    imedita: 'Real-Time Industry Projects',
+    imeditaDetail: 'Multi-site enterprise network design, enterprise VLAN routing & WAN failover',
+    other: 'Few or No Real Projects',
+    otherDetail: 'Small standard textbook examples with zero enterprise complexity'
   },
   {
     id: 'doubt-support',
-    feature: 'Doubt support',
+    category: 'placement',
+    feature: '1-to-1 Doubt Support & Retake',
     icon: MessageSquare,
-    imedita: '1-to-1 support',
-    other: 'Limited support'
+    imedita: '1-to-1 Support & Repeat Batches',
+    imeditaDetail: 'Unlimited doubt clearing sessions, parallel batch access, zero session loss',
+    other: 'Limited or No Doubt Support',
+    otherDetail: 'Doubts piled up in crowded batches; missed lectures are permanently lost'
   },
   {
     id: 'demo-session',
-    feature: 'Demo session',
+    category: 'faculty',
+    feature: 'Free Live Interactive Demo',
     icon: PlayCircle,
-    imedita: 'Free demo available',
-    other: 'Limited demo'
+    imedita: 'Free 1-Hour Live Demo',
+    imeditaDetail: 'Attend live session with CCIE trainer on real hardware before paying anything',
+    other: 'Limited / Pre-Recorded Video',
+    otherDetail: 'Sales recorded videos or immediate non-refundable payment demanded'
   }
 ];
 
 export function ComparisonSection({ onOpenDemo }) {
-  const handleEnrollClick = () => {
+  const [selectedCategory, setSelectedCategory] = useState('all');
+
+  const filteredData = useMemo(() => {
+    if (selectedCategory === 'all') return comparisonData;
+    return comparisonData.filter((item) => item.category === selectedCategory);
+  }, [selectedCategory]);
+
+  const handleEnrollClick = (source = 'Comparison Table') => {
     if (onOpenDemo) {
-      onOpenDemo('Cisco CCNA (200-301)');
+      onOpenDemo(source);
     } else {
       const demoSection = document.getElementById('demo-request');
       if (demoSection) {
@@ -104,58 +159,94 @@ export function ComparisonSection({ onOpenDemo }) {
   };
 
   return (
-    <section className={styles.comparisonSection} id="comparison">
-      <div className={styles.sectionContainer}>
-        {/* Header Block */}
-        <div className={styles.headerBlock}>
-          <div className={styles.eyebrowBadge}>
-            <span>CERTIFICATIONS</span>
-          </div>
-          <h2 className={styles.sectionHeading}>
-            What sets us apart from other <br className={styles.headingBreak} />
-            CCNA institutes
-          </h2>
-          <p className={styles.sectionSubtext}>
-            A transparent head-to-head comparison so you can make an informed decision.
-          </p>
-        </div>
+    <section className={styles.comparisonSection} id="comparison" aria-label="CCNA Institutes Comparison">
+      {/* Atmospheric Lighting Accents */}
+      <div className={styles.ambientAuraTop} aria-hidden="true" />
+      <div className={styles.ambientAuraBottom} aria-hidden="true" />
 
-        {/* Comparison Card / Table Container */}
-        <div className={styles.tableCard}>
-          <div className={styles.mobileSwipeIndicator}>
-            <span>← Swipe horizontally to compare →</span>
+      <div className={styles.sectionContainer}>
+        {/* ================= 1. SECTION HEADER ================= */}
+        <header className={styles.headerBlock}>
+          <div className={styles.eyebrowBadge}>
+            <Sparkles size={13} className={styles.sparkleIcon} />
+            <span>HEAD-TO-HEAD INSTITUTES BENCHMARK</span>
           </div>
+
+          <h2 className={styles.sectionHeading}>
+            What Sets Us Apart From Other <br className={styles.headingBreak} />
+            CCNA Institutes
+          </h2>
+
+          <p className={styles.sectionSubtext}>
+            A transparent head-to-head comparison so you can make an informed decision before investing your time and career.
+          </p>
+
+          {/* Category Filter Pills (matching Career Growth pill navigation) */}
+          <div className={styles.quickCategoryNav} role="tablist" aria-label="Comparison categories">
+            {categories.map((cat) => {
+              const isActive = selectedCategory === cat.id;
+              const count =
+                cat.id === 'all'
+                  ? comparisonData.length
+                  : comparisonData.filter((i) => i.category === cat.id).length;
+
+              return (
+                <button
+                  key={cat.id}
+                  type="button"
+                  role="tab"
+                  aria-selected={isActive}
+                  className={`${styles.categoryPill} ${isActive ? styles.categoryPillActive : ''}`}
+                  onClick={() => setSelectedCategory(cat.id)}
+                >
+                  <span>{cat.label}</span>
+                  <span className={styles.categoryCountBadge}>{count}</span>
+                </button>
+              );
+            })}
+          </div>
+        </header>
+
+        {/* ================= 2. DESKTOP COMPARISON TABLE ================= */}
+        <div className={styles.tableCard}>
           <div className={styles.scrollWrapper}>
             <table className={styles.comparisonTable}>
               {/* Table Column Header */}
               <thead>
                 <tr className={styles.headerRow}>
                   <th className={styles.featureHeaderCol}>
-                    <span className={styles.featureHeaderLabel}>FEATURE</span>
+                    <span className={styles.featureHeaderLabel}>CORE PARAMETERS</span>
                   </th>
+
+                  {/* I-MEDITA COLUMN (SPOTLIGHT) */}
                   <th className={styles.imeditaHeaderCol}>
-                    <div className={styles.brandHeaderContent}>
+                    <div className={styles.imeditaSpotlightHeader}>
                       <div className={styles.brandIconBoxOrange}>
-                        <GraduationCap size={18} className={styles.brandIcon} />
+                        <GraduationCap size={20} className={styles.brandIcon} />
                       </div>
                       <div className={styles.brandInfo}>
-                        <span className={styles.brandTitle}>I-Medita</span>
+                        <div className={styles.brandNameRow}>
+                          <span className={styles.brandTitle}>I-Medita</span>
+                          <span className={styles.authorizedBadge}>Cisco Authorized Labs</span>
+                        </div>
                         <div className={styles.topRatedPill}>
                           <Star size={11} className={styles.starIcon} fill="currentColor" />
-                          <span>Top rated in India</span>
+                          <span>#1 Rated Cisco Institute in India (4.9/5)</span>
                         </div>
                       </div>
                     </div>
                   </th>
+
+                  {/* OTHER INSTITUTES COLUMN */}
                   <th className={styles.otherHeaderCol}>
-                    <div className={styles.brandHeaderContent}>
+                    <div className={styles.otherHeaderContent}>
                       <div className={styles.brandIconBoxSlate}>
                         <Building2 size={18} className={styles.brandIcon} />
                       </div>
                       <div className={styles.brandInfo}>
-                        <span className={styles.otherTitle}>Other Institutes</span>
+                        <span className={styles.otherTitle}>Other Local Institutes</span>
                         <div className={styles.genericPill}>
-                          <span>Generic training</span>
+                          <span>Generic Uncertified Training</span>
                         </div>
                       </div>
                     </div>
@@ -163,9 +254,9 @@ export function ComparisonSection({ onOpenDemo }) {
                 </tr>
               </thead>
 
-              {/* Table Body (10 Rows) */}
+              {/* Table Body */}
               <tbody>
-                {comparisonData.map((item) => {
+                {filteredData.map((item, index) => {
                   const Icon = item.icon;
                   return (
                     <tr key={item.id} className={styles.dataRow}>
@@ -175,23 +266,35 @@ export function ComparisonSection({ onOpenDemo }) {
                           <div className={styles.featureIconBadge}>
                             <Icon size={16} />
                           </div>
-                          <span className={styles.featureName}>{item.feature}</span>
+                          <div>
+                            <span className={styles.featureName}>{item.feature}</span>
+                          </div>
                         </div>
                       </td>
 
-                      {/* I-Medita Value */}
+                      {/* I-Medita Cell (Elevated Spotlight) */}
                       <td className={styles.imeditaCell}>
-                        <div className={styles.valueInner}>
-                          <CheckCircle2 size={17} className={styles.checkIcon} />
-                          <span className={styles.imeditaText}>{item.imedita}</span>
+                        <div className={styles.valueInnerImedita}>
+                          <div className={styles.checkIconOrb}>
+                            <Check size={14} strokeWidth={3} />
+                          </div>
+                          <div className={styles.valueTextCol}>
+                            <span className={styles.imeditaText}>{item.imedita}</span>
+                            <span className={styles.imeditaDetailText}>{item.imeditaDetail}</span>
+                          </div>
                         </div>
                       </td>
 
-                      {/* Other Institutes Value */}
+                      {/* Other Institutes Cell */}
                       <td className={styles.otherCell}>
-                        <div className={styles.valueInner}>
-                          <XCircle size={17} className={styles.crossIcon} />
-                          <span className={styles.otherText}>{item.other}</span>
+                        <div className={styles.valueInnerOther}>
+                          <div className={styles.crossIconOrb}>
+                            <X size={14} strokeWidth={2.8} />
+                          </div>
+                          <div className={styles.valueTextCol}>
+                            <span className={styles.otherText}>{item.other}</span>
+                            <span className={styles.otherDetailText}>{item.otherDetail}</span>
+                          </div>
                         </div>
                       </td>
                     </tr>
@@ -201,14 +304,17 @@ export function ComparisonSection({ onOpenDemo }) {
                 {/* Overall Score Row */}
                 <tr className={styles.scoreRow}>
                   <td className={styles.featureCell}>
-                    <span className={styles.overallScoreLabel}>OVERALL SCORE</span>
+                    <div className={styles.overallScoreMeta}>
+                      <Award size={18} className={styles.scoreAwardIcon} />
+                      <span className={styles.overallScoreLabel}>OVERALL INFRASTRUCTURE & FACULTY SCORE</span>
+                    </div>
                   </td>
 
                   {/* I-Medita Score */}
                   <td className={styles.imeditaScoreCell}>
                     <div className={styles.scoreBlock}>
                       <div className={styles.scoreTopLine}>
-                        <span className={styles.scoreBrandLabel}>I-MEDITA</span>
+                        <span className={styles.scoreBrandLabel}>I-MEDITA BENCHMARK</span>
                         <div className={styles.scoreValueWrapper}>
                           <span className={styles.scoreNumber}>10</span>
                           <span className={styles.scoreOutOf}>/ 10</span>
@@ -217,6 +323,7 @@ export function ComparisonSection({ onOpenDemo }) {
                       <div className={styles.progressBarTrack}>
                         <div className={styles.progressBarFillImedita} style={{ width: '100%' }} />
                       </div>
+                      <span className={styles.scoreVerdict}>100% Verified Hardware & CCIE Standards</span>
                     </div>
                   </td>
 
@@ -224,7 +331,7 @@ export function ComparisonSection({ onOpenDemo }) {
                   <td className={styles.otherScoreCell}>
                     <div className={styles.scoreBlock}>
                       <div className={styles.scoreTopLine}>
-                        <span className={styles.otherScoreLabel}>OTHERS</span>
+                        <span className={styles.otherScoreLabel}>INDUSTRY AVERAGE</span>
                         <div className={styles.scoreValueWrapper}>
                           <span className={styles.otherScoreNumber}>3</span>
                           <span className={styles.scoreOutOf}>/ 10</span>
@@ -233,6 +340,7 @@ export function ComparisonSection({ onOpenDemo }) {
                       <div className={styles.progressBarTrack}>
                         <div className={styles.progressBarFillOthers} style={{ width: '30%' }} />
                       </div>
+                      <span className={styles.scoreVerdictMuted}>Limited Infrastructure & Simulation Only</span>
                     </div>
                   </td>
                 </tr>
@@ -242,20 +350,101 @@ export function ComparisonSection({ onOpenDemo }) {
 
           {/* Bottom Card Footer Bar */}
           <div className={styles.cardFooterBar}>
-            <p className={styles.footerNoteText}>
-              Train with CCIE-certified experts, gain hands-on experience in real Cisco labs, and prepare confidently for certification and networking careers.
-            </p>
+            <div className={styles.footerNoteWrapper}>
+              <ShieldCheck size={18} className={styles.shieldIcon} />
+              <p className={styles.footerNoteText}>
+                Train with Triple CCIE-certified experts, gain hands-on experience on real Cisco rack hardware, and walk into certification exams & interviews 100% prepared.
+              </p>
+            </div>
             <button
               type="button"
               className={styles.enrollCtaBtn}
-              onClick={handleEnrollClick}
+              onClick={() => handleEnrollClick('Comparison Table Bottom')}
             >
-              <span>Enroll Now</span>
+              <Sparkles size={15} />
+              <span>Book Free Demo Session</span>
               <ArrowRight size={16} className={styles.btnArrow} />
             </button>
+          </div>
+        </div>
+
+        {/* ================= 3. MOBILE COMPARISON CARDS DECK (<= 768px) ================= */}
+        <div className={styles.mobileCardsDeck}>
+          {filteredData.map((item, index) => {
+            const Icon = item.icon;
+            return (
+              <div key={`mob-${item.id}`} className={styles.mobileCard}>
+                <div className={styles.mobileCardHeader}>
+                  <div className={styles.featureIconBadge}>
+                    <Icon size={16} />
+                  </div>
+                  <h4 className={styles.mobileFeatureTitle}>{item.feature}</h4>
+                  <span className={styles.mobileIndexBadge}>#{String(index + 1).padStart(2, '0')}</span>
+                </div>
+
+                {/* I-Medita Row (Highlighted) */}
+                <div className={styles.mobileImeditaRow}>
+                  <div className={styles.mobileRowTop}>
+                    <span className={styles.mobileBrandPillImedita}>I-Medita Advantage</span>
+                    <div className={styles.checkIconOrb}>
+                      <Check size={13} strokeWidth={3} />
+                    </div>
+                  </div>
+                  <span className={styles.mobileValueHeading}>{item.imedita}</span>
+                  <p className={styles.mobileValueDesc}>{item.imeditaDetail}</p>
+                </div>
+
+                {/* Other Institutes Row (Muted) */}
+                <div className={styles.mobileOtherRow}>
+                  <div className={styles.mobileRowTop}>
+                    <span className={styles.mobileBrandPillOther}>Other Institutes</span>
+                    <div className={styles.crossIconOrb}>
+                      <X size={13} strokeWidth={2.8} />
+                    </div>
+                  </div>
+                  <span className={styles.mobileOtherHeading}>{item.other}</span>
+                  <p className={styles.mobileOtherDesc}>{item.otherDetail}</p>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+
+        {/* ================= 4. BOTTOM CATALYST CTA BANNER (matching Career Growth) ================= */}
+        <div className={styles.catalystBanner}>
+          <div className={styles.catalystLeft}>
+            <div className={styles.catalystOrb}>
+              <Compass size={24} />
+            </div>
+            <div>
+              <h3 className={styles.catalystHeading}>
+                Experience The I-Medita Difference In A Free Demo Class
+              </h3>
+              <p className={styles.catalystSubtext}>
+                Attend a 1-hour live session on real physical Cisco routers and switches with our CCIE faculty before paying any fees. Zero obligation.
+              </p>
+            </div>
+          </div>
+
+          <div className={styles.catalystRight}>
+            <button
+              type="button"
+              className={styles.catalystDemoBtn}
+              onClick={() => handleEnrollClick('Comparison Catalyst Banner')}
+            >
+              <Sparkles size={14} />
+              <span>Book 1-Hour Free Demo Session</span>
+              <ArrowRight size={14} />
+            </button>
+            <a href="tel:+918750004411" className={styles.catalystCallBtn}>
+              <PhoneCall size={13} />
+              <span>Call Admissions Helpline: +91 87500 04411</span>
+            </a>
           </div>
         </div>
       </div>
     </section>
   );
 }
+
+export default ComparisonSection;
