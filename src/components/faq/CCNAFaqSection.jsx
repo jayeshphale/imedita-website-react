@@ -10,22 +10,65 @@ import {
   Headphones,
   Search,
   X,
-  ChevronDown,
+  Plus,
+  Minus,
   PhoneCall,
   Sparkles,
-  ArrowRight
+  ArrowRight,
+  Layers,
+  ChevronRight
 } from 'lucide-react';
 import styles from './CCNAFaqSection.module.css';
 
 export const faqCategories = [
-  { id: 'all', label: 'All FAQs', icon: HelpCircle },
-  { id: 'training', label: 'Training Specific', icon: BookOpen },
-  { id: 'time-mode', label: 'Time & Mode', icon: Clock },
-  { id: 'prerequisites', label: 'Prerequisites', icon: ShieldCheck },
-  { id: 'placement', label: 'Placement', icon: Briefcase },
-  { id: 'payment', label: 'Payment & Fees', icon: CreditCard },
-  { id: 'certificate', label: 'Certificate', icon: Award },
-  { id: 'assistance', label: 'Need Assistance', icon: Headphones }
+  {
+    id: 'all',
+    label: 'All Questions',
+    tagline: 'Complete 29-question handbook',
+    icon: Layers
+  },
+  {
+    id: 'training',
+    label: 'Training Specific',
+    tagline: 'Hardware racks, CLI & syllabus',
+    icon: BookOpen
+  },
+  {
+    id: 'time-mode',
+    label: 'Time & Mode',
+    tagline: 'Duration, online & Pune campus',
+    icon: Clock
+  },
+  {
+    id: 'prerequisites',
+    label: 'Prerequisites',
+    tagline: 'Eligibility, background & prep',
+    icon: ShieldCheck
+  },
+  {
+    id: 'placement',
+    label: 'Placement',
+    tagline: 'Hiring network, salaries & mocks',
+    icon: Briefcase
+  },
+  {
+    id: 'payment',
+    label: 'Payment & Fees',
+    tagline: 'Fee details, EMI & refunds',
+    icon: CreditCard
+  },
+  {
+    id: 'certificate',
+    label: 'Certification',
+    tagline: 'Pearson VUE, exam code & validity',
+    icon: Award
+  },
+  {
+    id: 'assistance',
+    label: 'Need Assistance',
+    tagline: 'Campus visit, counselor & contact',
+    icon: Headphones
+  }
 ];
 
 export const faqsData = [
@@ -248,11 +291,18 @@ export const faqsData = [
 ];
 
 export function CCNAFaqSection({ onOpenDemo }) {
-  const [selectedCategory, setSelectedCategory] = useState('all');
+  const [selectedCategory, setSelectedCategory] = useState('training');
   const [searchQuery, setSearchQuery] = useState('');
-  const [openFaqId, setOpenFaqId] = useState('faq-training-1');
+  const [openFaqIds, setOpenFaqIds] = useState(new Set(['faq-training-1']));
 
-  // Filter FAQs based on search or selected tab
+  // Active category meta
+  const currentCategoryMeta = useMemo(() => {
+    return (
+      faqCategories.find((c) => c.id === selectedCategory) || faqCategories[1]
+    );
+  }, [selectedCategory]);
+
+  // Filter FAQs based on search or category
   const filteredFaqs = useMemo(() => {
     let result = faqsData;
 
@@ -271,34 +321,56 @@ export function CCNAFaqSection({ onOpenDemo }) {
     return result;
   }, [searchQuery, selectedCategory]);
 
+  // Toggle individual question
   const toggleFaq = (id) => {
-    setOpenFaqId((prev) => (prev === id ? null : id));
+    setOpenFaqIds((prev) => {
+      const next = new Set(prev);
+      if (next.has(id)) {
+        next.delete(id);
+      } else {
+        next.add(id);
+      }
+      return next;
+    });
   };
 
-  const handleCategoryClick = (catId) => {
+  // Expand / Collapse all in current view
+  const areAllOpen = useMemo(() => {
+    if (filteredFaqs.length === 0) return false;
+    return filteredFaqs.every((f) => openFaqIds.has(f.id));
+  }, [filteredFaqs, openFaqIds]);
+
+  const toggleAll = () => {
+    if (areAllOpen) {
+      setOpenFaqIds(new Set());
+    } else {
+      setOpenFaqIds(new Set(filteredFaqs.map((f) => f.id)));
+    }
+  };
+
+  const handleCategorySelect = (catId) => {
     setSelectedCategory(catId);
     setSearchQuery('');
-    // Open the first question in the category
-    const firstInCat = faqsData.find((f) => catId === 'all' || f.category === catId);
-    if (firstInCat) {
-      setOpenFaqId(firstInCat.id);
+    // Open the first question in the selected category
+    const first = faqsData.find((f) => catId === 'all' || f.category === catId);
+    if (first) {
+      setOpenFaqIds(new Set([first.id]));
     }
   };
 
   const handleDemoClick = (topic) => {
     if (onOpenDemo) {
-      onOpenDemo(topic || 'CCNA FAQ Assistance');
+      onOpenDemo(topic || 'CCNA FAQ Section Assistance');
     } else {
       const demoEl = document.getElementById('demo-request');
       if (demoEl) demoEl.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
-  // Helper to format answers with interactive links if relevant
-  const renderAnswer = (answerText) => {
-    // If text contains phone number +91 87500 04411 or +91-8750004411
-    if (answerText.includes('+91 87500 04411') || answerText.includes('+91-8750004411')) {
-      const parts = answerText.split(/(\+91[- ]?87500[- ]?04411)/g);
+  // Format answers with interactive clickables
+  const renderFormattedAnswer = (text) => {
+    if (text.includes('+91 87500 04411') || text.includes('+91-8750004411')) {
+      const parts = text.split(/(\+91[- ]?87500[- ]?04411)/g);
       return (
         <p itemProp="text">
           {parts.map((part, idx) => {
@@ -307,9 +379,10 @@ export function CCNAFaqSection({ onOpenDemo }) {
                 <a
                   key={idx}
                   href="tel:+918750004411"
-                  className={styles.faqInlineLink}
+                  className={styles.answerDialLink}
                 >
-                  {part}
+                  <PhoneCall size={12} className={styles.inlinePhoneIcon} />
+                  <span>{part}</span>
                 </a>
               );
             }
@@ -319,206 +392,322 @@ export function CCNAFaqSection({ onOpenDemo }) {
       );
     }
 
-    return <p itemProp="text">{answerText}</p>;
+    if (text.includes('free demo') || text.includes('free 1-hour live session')) {
+      return (
+        <div itemProp="text">
+          <p>{text}</p>
+          <div className={styles.answerCtaRow}>
+            <button
+              type="button"
+              className={styles.answerDemoTriggerBtn}
+              onClick={() => handleDemoClick('CCNA Free Demo Inquiry from FAQ')}
+            >
+              <Sparkles size={13} />
+              <span>Book Free Orientation Demo</span>
+              <ArrowRight size={13} />
+            </button>
+          </div>
+        </div>
+      );
+    }
+
+    return <p itemProp="text">{text}</p>;
   };
 
   return (
     <section
-      className={styles.faqSectionWrapper}
+      className={styles.faqSectionDeck}
       id="faq"
       aria-labelledby="faq-heading"
       itemScope
       itemType="https://schema.org/FAQPage"
     >
       <div className={styles.sectionContainer}>
-        {/* Header Block */}
+        {/* Modern Top Header */}
         <div className={styles.headerBlock}>
           <div className={styles.eyebrowBadge}>
-            <HelpCircle size={13} className={styles.eyebrowIcon} />
-            <span>CLEAR YOUR DOUBTS</span>
+            <Sparkles size={13} className={styles.sparkleIcon} />
+            <span>KNOWLEDGE HUB & FAQS</span>
           </div>
           <h2 className={styles.sectionHeading} id="faq-heading">
-            Frequently Asked Questions
+            Got Questions? We Have Answers.
           </h2>
           <p className={styles.sectionSubtext}>
-            Everything you need to know about CCNA training, real hardware lab access, batch timings, fees, and enterprise placement assistance.
+            Explore our curated 29-question encyclopedia covering real Cisco lab equipment, training duration, certification roadmap, and guaranteed placement workflows.
           </p>
 
-          {/* Interactive Search Bar */}
-          <div className={styles.searchBarWrapper}>
-            <Search size={18} className={styles.searchIcon} />
-            <input
-              type="text"
-              className={styles.searchInput}
-              placeholder="Search any question (e.g., fee, EMI, real hardware, batch, placement)..."
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              aria-label="Search frequently asked questions"
-            />
+          {/* Instant Search Console */}
+          <div className={styles.searchConsoleWrapper}>
+            <div className={styles.searchInnerBox}>
+              <Search size={18} className={styles.searchConsoleIcon} />
+              <input
+                type="text"
+                className={styles.searchConsoleInput}
+                placeholder="Search 29 FAQs (e.g. fee, EMI, routers, placement, switch)..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                aria-label="Search questions"
+              />
+              {searchQuery && (
+                <button
+                  type="button"
+                  className={styles.clearSearchConsoleBtn}
+                  onClick={() => setSearchQuery('')}
+                  aria-label="Clear search"
+                >
+                  <X size={15} />
+                </button>
+              )}
+            </div>
             {searchQuery && (
-              <button
-                type="button"
-                className={styles.clearSearchBtn}
-                onClick={() => setSearchQuery('')}
-                aria-label="Clear search query"
-              >
-                <X size={16} />
-              </button>
+              <div className={styles.searchResultTag}>
+                <span>
+                  Found <strong>{filteredFaqs.length}</strong> matching questions
+                </span>
+                <button
+                  type="button"
+                  className={styles.resetSearchLink}
+                  onClick={() => setSearchQuery('')}
+                >
+                  Show all categories
+                </button>
+              </div>
             )}
           </div>
         </div>
 
-        {/* Category Pill Tabs Row */}
-        {!searchQuery && (
-          <div className={styles.categoryTabsContainer}>
-            <div className={styles.categoryTabsRow} role="tablist">
-              {faqCategories.map((cat) => {
-                const IconComponent = cat.icon;
-                const isActive = selectedCategory === cat.id;
-                const count =
-                  cat.id === 'all'
-                    ? faqsData.length
-                    : faqsData.filter((f) => f.category === cat.id).length;
+        {/* Master-Detail Interactive 2-Column Console Layout */}
+        <div className={styles.knowledgeConsoleGrid}>
+          {/* LEFT COLUMN: Modern Sticky Category Console */}
+          <aside className={styles.categoryConsoleSidebar}>
+            <div className={styles.sidebarStickyInner}>
+              <div className={styles.sidebarHeaderRow}>
+                <span className={styles.sidebarHeading}>TOPIC DIRECTORY</span>
+                <span className={styles.totalBadge}>29 Questions</span>
+              </div>
 
-                return (
-                  <button
-                    key={cat.id}
-                    type="button"
-                    role="tab"
-                    aria-selected={isActive}
-                    className={`${styles.categoryTabBtn} ${
-                      isActive ? styles.categoryTabBtnActive : ''
-                    }`}
-                    onClick={() => handleCategoryClick(cat.id)}
-                  >
-                    <IconComponent size={14} className={styles.categoryTabIcon} />
-                    <span>{cat.label}</span>
-                    <span className={styles.categoryCountBadge}>{count}</span>
-                  </button>
-                );
-              })}
-            </div>
-          </div>
-        )}
+              <nav className={styles.categoryTilesList} aria-label="FAQ Topics">
+                {faqCategories.map((cat) => {
+                  const Icon = cat.icon;
+                  const isSelected = selectedCategory === cat.id && !searchQuery;
+                  const count =
+                    cat.id === 'all'
+                      ? faqsData.length
+                      : faqsData.filter((f) => f.category === cat.id).length;
 
-        {/* Results Counter if searching */}
-        {searchQuery && (
-          <div className={styles.searchFeedbackRow}>
-            <span>
-              Showing {filteredFaqs.length} {filteredFaqs.length === 1 ? 'result' : 'results'} for "<strong>{searchQuery}</strong>"
-            </span>
-            <button
-              type="button"
-              className={styles.resetFilterBtn}
-              onClick={() => setSearchQuery('')}
-            >
-              Reset Search
-            </button>
-          </div>
-        )}
-
-        {/* FAQs Accordion Stage */}
-        <div className={styles.faqsStageContainer}>
-          {filteredFaqs.length > 0 ? (
-            <div className={styles.faqsAccordionList}>
-              {filteredFaqs.map((faq) => {
-                const isOpen = openFaqId === faq.id;
-
-                return (
-                  <article
-                    key={faq.id}
-                    className={`${styles.faqCard} ${isOpen ? styles.faqCardOpen : ''}`}
-                    itemScope
-                    itemProp="mainEntity"
-                    itemType="https://schema.org/Question"
-                  >
+                  return (
                     <button
+                      key={cat.id}
                       type="button"
-                      className={styles.faqTrigger}
-                      onClick={() => toggleFaq(faq.id)}
-                      aria-expanded={isOpen}
-                      aria-controls={`faq-answer-${faq.id}`}
+                      className={`${styles.categoryTile} ${
+                        isSelected ? styles.categoryTileActive : ''
+                      }`}
+                      onClick={() => handleCategorySelect(cat.id)}
                     >
-                      <div className={styles.faqQuestionLeft}>
-                        {selectedCategory === 'all' && (
-                          <span className={styles.faqCategorySmallTag}>
-                            {faq.categoryLabel}
-                          </span>
-                        )}
-                        <h3 className={styles.faqQuestionText} itemProp="name">
-                          {faq.q}
-                        </h3>
+                      <div className={styles.tileIconSquircle}>
+                        <Icon size={16} />
                       </div>
-                      <div className={styles.faqChevronWrapper}>
-                        <ChevronDown
-                          size={18}
-                          className={`${styles.faqChevronIcon} ${
-                            isOpen ? styles.faqChevronRotated : ''
-                          }`}
-                          aria-hidden="true"
-                        />
+                      <div className={styles.tileContent}>
+                        <div className={styles.tileTitleRow}>
+                          <span className={styles.tileTitle}>{cat.label}</span>
+                          <span className={styles.tileCountPill}>{count}</span>
+                        </div>
+                        <span className={styles.tileTagline}>{cat.tagline}</span>
                       </div>
+                      <ChevronRight size={14} className={styles.tileArrow} />
                     </button>
+                  );
+                })}
+              </nav>
 
-                    {isOpen && (
-                      <div
-                        className={styles.faqAnswerBody}
-                        id={`faq-answer-${faq.id}`}
-                        role="region"
-                        itemScope
-                        itemProp="acceptedAnswer"
-                        itemType="https://schema.org/Answer"
+              {/* Integrated Sidebar CCIE Support Card */}
+              <div className={styles.sidebarAdvisorCard}>
+                <div className={styles.advisorTopRow}>
+                  <div className={styles.advisorAvatarSquircle}>
+                    <Headphones size={18} />
+                  </div>
+                  <div>
+                    <h4 className={styles.advisorTitle}>Have a Specific Question?</h4>
+                    <p className={styles.advisorSubtitle}>Talk directly with our CCIE Faculty</p>
+                  </div>
+                </div>
+                <div className={styles.advisorActionBtns}>
+                  <a href="tel:+918750004411" className={styles.advisorCallBtn}>
+                    <PhoneCall size={13} />
+                    <span>+91 87500 04411</span>
+                  </a>
+                  <button
+                    type="button"
+                    className={styles.advisorDemoBtn}
+                    onClick={() => handleDemoClick('CCNA FAQ Sidebar Help')}
+                  >
+                    <Sparkles size={13} />
+                    <span>Free 1-on-1 Guidance</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </aside>
+
+          {/* RIGHT COLUMN: Modern Numbered FAQ Dossier */}
+          <main className={styles.dossierMainStage}>
+            {/* Stage Header Banner */}
+            <div className={styles.stageHeaderBanner}>
+              <div className={styles.stageTitleWrap}>
+                <span className={styles.stageSuperTag}>
+                  {searchQuery ? 'SEARCH RESULTS' : currentCategoryMeta.label.toUpperCase()}
+                </span>
+                <h3 className={styles.stageTitle}>
+                  {searchQuery
+                    ? `Results for "${searchQuery}"`
+                    : currentCategoryMeta.label}
+                </h3>
+                <p className={styles.stageSubtitle}>
+                  {searchQuery
+                    ? `Displaying ${filteredFaqs.length} relevant questions from across our curriculum`
+                    : currentCategoryMeta.tagline}
+                </p>
+              </div>
+
+              {filteredFaqs.length > 0 && (
+                <button
+                  type="button"
+                  className={styles.expandAllToggleBtn}
+                  onClick={toggleAll}
+                  aria-label={areAllOpen ? 'Collapse all FAQs' : 'Expand all FAQs'}
+                >
+                  {areAllOpen ? (
+                    <>
+                      <Minus size={13} />
+                      <span>Collapse All</span>
+                    </>
+                  ) : (
+                    <>
+                      <Plus size={13} />
+                      <span>Expand All ({filteredFaqs.length})</span>
+                    </>
+                  )}
+                </button>
+              )}
+            </div>
+
+            {/* Questions Numbered Dossier Cards */}
+            {filteredFaqs.length > 0 ? (
+              <div className={styles.numberedCardsList}>
+                {filteredFaqs.map((faq, index) => {
+                  const isOpen = openFaqIds.has(faq.id);
+                  const paddedIndex = String(index + 1).padStart(2, '0');
+
+                  return (
+                    <article
+                      key={faq.id}
+                      className={`${styles.dossierCard} ${
+                        isOpen ? styles.dossierCardOpen : ''
+                      }`}
+                      itemScope
+                      itemProp="mainEntity"
+                      itemType="https://schema.org/Question"
+                    >
+                      <button
+                        type="button"
+                        className={styles.dossierCardHeader}
+                        onClick={() => toggleFaq(faq.id)}
+                        aria-expanded={isOpen}
+                        aria-controls={`faq-body-${faq.id}`}
                       >
-                        {renderAnswer(faq.a)}
-                      </div>
-                    )}
-                  </article>
-                );
-              })}
-            </div>
-          ) : (
-            <div className={styles.emptyStateBox}>
-              <HelpCircle size={40} className={styles.emptyIcon} />
-              <h4>No matching questions found</h4>
-              <p>We couldn't find any FAQs matching your query "{searchQuery}".</p>
-              <button
-                type="button"
-                className={styles.clearSearchCta}
-                onClick={() => setSearchQuery('')}
-              >
-                Clear Search & View All FAQs
-              </button>
-            </div>
-          )}
-        </div>
+                        <div className={styles.dossierLeftCluster}>
+                          <span className={styles.dossierNumberBadge}>
+                            {paddedIndex}
+                          </span>
+                          <div className={styles.dossierTextWrap}>
+                            {(selectedCategory === 'all' || searchQuery) && (
+                              <span className={styles.dossierCategoryPill}>
+                                {faq.categoryLabel}
+                              </span>
+                            )}
+                            <h4 className={styles.dossierQuestionText} itemProp="name">
+                              {faq.q}
+                            </h4>
+                          </div>
+                        </div>
 
-        {/* Modern "Still Have Questions?" Support Strip */}
-        <div className={styles.supportStripCard}>
-          <div className={styles.supportLeftInfo}>
-            <div className={styles.supportIconSquircle}>
-              <Headphones size={22} />
+                        {/* Interactive Plus / Minus Toggle Switch */}
+                        <div className={styles.toggleMorphButton}>
+                          <span
+                            className={`${styles.morphIcon} ${
+                              isOpen ? styles.morphIconActive : ''
+                            }`}
+                          >
+                            {isOpen ? <Minus size={14} /> : <Plus size={14} />}
+                          </span>
+                        </div>
+                      </button>
+
+                      {/* Animated Drawer Body */}
+                      {isOpen && (
+                        <div
+                          className={styles.dossierAnswerContainer}
+                          id={`faq-body-${faq.id}`}
+                          role="region"
+                          itemScope
+                          itemProp="acceptedAnswer"
+                          itemType="https://schema.org/Answer"
+                        >
+                          <div className={styles.answerTextInterior}>
+                            {renderFormattedAnswer(faq.a)}
+                          </div>
+                        </div>
+                      )}
+                    </article>
+                  );
+                })}
+              </div>
+            ) : (
+              <div className={styles.emptyDossierBox}>
+                <div className={styles.emptyCircle}>
+                  <Search size={28} />
+                </div>
+                <h4>No matching FAQs found</h4>
+                <p>We couldn’t find any answers matching "{searchQuery}". Try different keywords like "routers", "placement", or "fees".</p>
+                <button
+                  type="button"
+                  className={styles.emptyResetBtn}
+                  onClick={() => setSearchQuery('')}
+                >
+                  Clear Search & View Topics
+                </button>
+              </div>
+            )}
+
+            {/* Mobile CCIE Advisor Card (shown below questions on mobile screens) */}
+            <div className={styles.mobileAdvisorCardWrap}>
+              <div className={styles.sidebarAdvisorCard}>
+                <div className={styles.advisorTopRow}>
+                  <div className={styles.advisorAvatarSquircle}>
+                    <Headphones size={18} />
+                  </div>
+                  <div>
+                    <h4 className={styles.advisorTitle}>Have a Specific Question?</h4>
+                    <p className={styles.advisorSubtitle}>Talk directly with our CCIE Faculty</p>
+                  </div>
+                </div>
+                <div className={styles.advisorActionBtns}>
+                  <a href="tel:+918750004411" className={styles.advisorCallBtn}>
+                    <PhoneCall size={13} />
+                    <span>+91 87500 04411</span>
+                  </a>
+                  <button
+                    type="button"
+                    className={styles.advisorDemoBtn}
+                    onClick={() => handleDemoClick('CCNA FAQ Mobile Help')}
+                  >
+                    <Sparkles size={13} />
+                    <span>Free 1-on-1 Guidance</span>
+                  </button>
+                </div>
+              </div>
             </div>
-            <div className={styles.supportTextWrap}>
-              <h4 className={styles.supportHeading}>Still have questions regarding CCNA?</h4>
-              <p className={styles.supportSubheading}>
-                Speak directly with working Triple CCIE mentors and career counsellors. We’re available Mon–Sat (9 AM – 8 PM IST).
-              </p>
-            </div>
-          </div>
-          <div className={styles.supportActions}>
-            <a href="tel:+918750004411" className={styles.callSupportBtn}>
-              <PhoneCall size={15} />
-              <span>+91 87500 04411</span>
-            </a>
-            <button
-              type="button"
-              className={styles.demoSupportBtn}
-              onClick={() => handleDemoClick('CCNA FAQ Section Assistance')}
-            >
-              <Sparkles size={15} />
-              <span>Book 1-on-1 Guidance</span>
-            </button>
-          </div>
+          </main>
         </div>
       </div>
     </section>
