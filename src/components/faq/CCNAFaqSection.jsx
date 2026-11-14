@@ -519,33 +519,6 @@ export function CCNAFaqSection({ onOpenDemo }) {
                   );
                 })}
               </nav>
-
-              {/* Integrated Sidebar CCIE Support Card */}
-              <div className={styles.sidebarAdvisorCard}>
-                <div className={styles.advisorTopRow}>
-                  <div className={styles.advisorAvatarSquircle}>
-                    <Headphones size={18} />
-                  </div>
-                  <div>
-                    <h4 className={styles.advisorTitle}>Have a Specific Question?</h4>
-                    <p className={styles.advisorSubtitle}>Talk directly with our CCIE Faculty</p>
-                  </div>
-                </div>
-                <div className={styles.advisorActionBtns}>
-                  <a href="tel:+918750004411" className={styles.advisorCallBtn}>
-                    <PhoneCall size={13} />
-                    <span>+91 87500 04411</span>
-                  </a>
-                  <button
-                    type="button"
-                    className={styles.advisorDemoBtn}
-                    onClick={() => handleDemoClick('CCNA FAQ Sidebar Help')}
-                  >
-                    <Sparkles size={13} />
-                    <span>Free 1-on-1 Guidance</span>
-                  </button>
-                </div>
-              </div>
             </div>
           </aside>
 
@@ -678,35 +651,6 @@ export function CCNAFaqSection({ onOpenDemo }) {
                 </button>
               </div>
             )}
-
-            {/* Mobile CCIE Advisor Card (shown below questions on mobile screens) */}
-            <div className={styles.mobileAdvisorCardWrap}>
-              <div className={styles.sidebarAdvisorCard}>
-                <div className={styles.advisorTopRow}>
-                  <div className={styles.advisorAvatarSquircle}>
-                    <Headphones size={18} />
-                  </div>
-                  <div>
-                    <h4 className={styles.advisorTitle}>Have a Specific Question?</h4>
-                    <p className={styles.advisorSubtitle}>Talk directly with our CCIE Faculty</p>
-                  </div>
-                </div>
-                <div className={styles.advisorActionBtns}>
-                  <a href="tel:+918750004411" className={styles.advisorCallBtn}>
-                    <PhoneCall size={13} />
-                    <span>+91 87500 04411</span>
-                  </a>
-                  <button
-                    type="button"
-                    className={styles.advisorDemoBtn}
-                    onClick={() => handleDemoClick('CCNA FAQ Mobile Help')}
-                  >
-                    <Sparkles size={13} />
-                    <span>Free 1-on-1 Guidance</span>
-                  </button>
-                </div>
-              </div>
-            </div>
           </main>
         </div>
       </div>
