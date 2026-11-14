@@ -2,7 +2,8 @@ import React, { useState, useMemo } from 'react';
 import {
   Search,
   X,
-  ChevronDown,
+  RotateCw,
+  RotateCcw,
   PhoneCall,
   Sparkles,
   ArrowRight,
@@ -19,7 +20,8 @@ import {
   Cpu,
   Building2,
   TrendingUp,
-  Calendar
+  Calendar,
+  Sparkle
 } from 'lucide-react';
 import styles from './CCNAFaqSection.module.css';
 
@@ -58,7 +60,7 @@ export const faqsData = [
       { label: 'Routers: 2611XM, 1841, 2811, 1905', icon: Cpu },
       { label: 'Switches: 2950, 2960, 3560, 3750', icon: Server },
       { label: 'EVE-NG & GNS3 Virtual Labs', icon: Terminal },
-      { label: '24×7 Rack Access', icon: Clock }
+      { label: '24×7 Physical Rack Access', icon: Clock }
     ]
   },
   {
@@ -68,7 +70,7 @@ export const faqsData = [
     q: 'Is the course suitable for absolute beginners?',
     a: 'Yes — beginners with basic computer literacy can complete the course successfully. The curriculum starts from networking fundamentals and progresses to advanced topics with full mentor support.',
     chips: [
-      { label: 'Zero Coding Required', icon: CheckCircle2 },
+      { label: 'Zero Prior Coding Needed', icon: CheckCircle2 },
       { label: 'From Scratch to Advanced', icon: TrendingUp },
       { label: '1-on-1 Mentor Guidance', icon: Headphones }
     ]
@@ -92,8 +94,8 @@ export const faqsData = [
     q: 'Will I be ready for the CCNA 200-301 exam after this course?',
     a: 'Yes. The training is fully aligned with the latest CCNA 200-301 syllabus and includes simulation-based practice tests so you walk into Pearson VUE confident.',
     chips: [
-      { label: 'Official Pearson VUE Pattern', icon: Award },
-      { label: 'Score Target: 825+/1000', icon: CheckCircle2 }
+      { label: 'Pearson VUE Pattern Ready', icon: Award },
+      { label: 'Target: 825+/1000 Score', icon: CheckCircle2 }
     ]
   },
 
@@ -105,8 +107,8 @@ export const faqsData = [
     q: 'How long is the CCNA training?',
     a: 'Total duration is 80 hours, typically completed in 2–3 months depending on your batch (weekday, weekend or fast-track).',
     chips: [
-      { label: '80 Hours Comprehensive', icon: Clock },
-      { label: '2–3 Months Track', icon: Calendar },
+      { label: '80 Hours Live Labs', icon: Clock },
+      { label: '2–3 Months Completion', icon: Calendar },
       { label: 'Weekday & Weekend Options', icon: CheckCircle2 }
     ]
   },
@@ -117,8 +119,8 @@ export const faqsData = [
     q: 'What batch options are available?',
     a: 'Multiple weekday, weekend and fast-track options — both online and offline available.',
     chips: [
-      { label: 'Weekday (Mon–Fri)', icon: Calendar },
-      { label: 'Weekend (Sat–Sun)', icon: Calendar },
+      { label: 'Weekday Batches (Mon–Fri)', icon: Calendar },
+      { label: 'Weekend Batches (Sat–Sun)', icon: Calendar },
       { label: 'Fast-Track Bootcamps', icon: TrendingUp }
     ]
   },
@@ -262,7 +264,7 @@ export const faqsData = [
     chips: [
       { label: '0% Interest No-Cost EMI', icon: CreditCard },
       { label: '3, 6, 9 Month Tenures', icon: Calendar },
-      { label: 'Instant Approval Process', icon: CheckCircle2 }
+      { label: 'Instant Partner Approval', icon: CheckCircle2 }
     ]
   },
   {
@@ -273,7 +275,7 @@ export const faqsData = [
     a: "Yes. Book a free demo using the form on this page. You'll get a free 1-hour live session with a CCIE-certified trainer before paying anything.",
     chips: [
       { label: '100% Free 1-Hour Live Class', icon: Sparkles },
-      { label: 'With Triple CCIE Instructor', icon: Award }
+      { label: 'Triple CCIE Lead Architect', icon: Award }
     ]
   },
   {
@@ -295,8 +297,8 @@ export const faqsData = [
     a: 'We accept multiple payment options, including cash, UPI, debit cards, credit cards, EMI, net banking, digital wallets, cheques, demand drafts (DD), and PayPal. For assistance with payments or EMI options, please contact our admissions team.',
     chips: [
       { label: 'UPI / GPay / PhonePe', icon: CreditCard },
-      { label: 'Credit & Debit Cards / NetBanking', icon: CreditCard },
-      { label: 'Cheque, DD & Cash Accepted', icon: CheckCircle2 }
+      { label: 'Cards & NetBanking', icon: CreditCard },
+      { label: 'Cheque & Cash Accepted', icon: CheckCircle2 }
     ]
   },
 
@@ -386,7 +388,9 @@ export const faqsData = [
 export function CCNAFaqSection({ onOpenDemo }) {
   const [selectedCategory, setSelectedCategory] = useState('training');
   const [searchQuery, setSearchQuery] = useState('');
-  const [openFaqIds, setOpenFaqIds] = useState(new Set(['faq-training-1']));
+  
+  // Set of card IDs that are currently flipped to reveal the answer
+  const [flippedCardIds, setFlippedCardIds] = useState(new Set(['faq-training-1']));
 
   // Filter FAQs based on search or category
   const filteredFaqs = useMemo(() => {
@@ -407,9 +411,9 @@ export function CCNAFaqSection({ onOpenDemo }) {
     return result;
   }, [searchQuery, selectedCategory]);
 
-  // Toggle individual question
-  const toggleFaq = (id) => {
-    setOpenFaqIds((prev) => {
+  // Toggle single card flip
+  const toggleCardFlip = (id) => {
+    setFlippedCardIds((prev) => {
       const next = new Set(prev);
       if (next.has(id)) {
         next.delete(id);
@@ -420,43 +424,55 @@ export function CCNAFaqSection({ onOpenDemo }) {
     });
   };
 
+  // Flip All / Reset All
+  const areAllFlipped = useMemo(() => {
+    if (filteredFaqs.length === 0) return false;
+    return filteredFaqs.every((f) => flippedCardIds.has(f.id));
+  }, [filteredFaqs, flippedCardIds]);
+
+  const toggleFlipAll = () => {
+    if (areAllFlipped) {
+      setFlippedCardIds(new Set());
+    } else {
+      setFlippedCardIds(new Set(filteredFaqs.map((f) => f.id)));
+    }
+  };
+
   const handleCategorySelect = (catId) => {
     setSelectedCategory(catId);
     setSearchQuery('');
+    // Flip first card of chosen category
     const first = faqsData.find((f) => catId === 'all' || f.category === catId);
     if (first) {
-      setOpenFaqIds(new Set([first.id]));
+      setFlippedCardIds(new Set([first.id]));
     }
   };
 
   const handleDemoClick = (topic) => {
     if (onOpenDemo) {
-      onOpenDemo(topic || 'CCNA FAQ Section Assistance');
+      onOpenDemo(topic || 'CCNA FAQ 3D Card Demo');
     } else {
       const demoEl = document.getElementById('demo-request');
       if (demoEl) demoEl.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
-  // Format answers with interactive badges
-  const renderFormattedAnswer = (faq) => {
-    const text = faq.a;
-    let answerElement = <p className={styles.answerText}>{text}</p>;
-
+  // Format answers with clickables
+  const renderFormattedAnswerText = (text) => {
     if (text.includes('+91 87500 04411') || text.includes('+91-8750004411')) {
       const parts = text.split(/(\+91[- ]?87500[- ]?04411)/g);
-      answerElement = (
-        <p className={styles.answerText}>
+      return (
+        <p className={styles.backAnswerParagraph}>
           {parts.map((part, idx) => {
             if (part.includes('87500')) {
               return (
                 <a
                   key={idx}
                   href="tel:+918750004411"
-                  className={styles.magneticPhoneBadge}
+                  className={styles.cardPhoneLink}
+                  onClick={(e) => e.stopPropagation()}
                 >
-                  <span className={styles.livePulseDot} />
-                  <PhoneCall size={12} className={styles.phoneSvg} />
+                  <PhoneCall size={12} />
                   <span>{part}</span>
                 </a>
               );
@@ -467,41 +483,7 @@ export function CCNAFaqSection({ onOpenDemo }) {
       );
     }
 
-    return (
-      <div className={styles.answerWrap} itemProp="text">
-        {answerElement}
-
-        {/* Visual Intelligence Fact Chips */}
-        {faq.chips && faq.chips.length > 0 && (
-          <div className={styles.chipsContainer}>
-            {faq.chips.map((chip, cIdx) => {
-              const ChipIcon = chip.icon || CheckCircle2;
-              return (
-                <span key={cIdx} className={styles.intelChip}>
-                  <ChipIcon size={12} className={styles.chipIcon} />
-                  <span>{chip.label}</span>
-                </span>
-              );
-            })}
-          </div>
-        )}
-
-        {/* In-Answer Free Demo Trigger Button */}
-        {(text.includes('free demo') || text.includes('free 1-hour live session') || faq.id === 'faq-assist-3') && (
-          <div className={styles.answerCtaRow}>
-            <button
-              type="button"
-              className={styles.demoActionBtn}
-              onClick={() => handleDemoClick(`CCNA Demo from ${faq.q}`)}
-            >
-              <Sparkles size={13} className={styles.sparkleSvg} />
-              <span>Book 1-Hour Live Architecture Demo</span>
-              <ArrowRight size={13} />
-            </button>
-          </div>
-        )}
-      </div>
-    );
+    return <p className={styles.backAnswerParagraph}>{text}</p>;
   };
 
   return (
@@ -516,17 +498,17 @@ export function CCNAFaqSection({ onOpenDemo }) {
       <div className={styles.ambientAura} aria-hidden="true" />
 
       <div className={styles.container}>
-        {/* Executive Knowledge Base Header */}
+        {/* Executive Header Block */}
         <header className={styles.headerBlock}>
           <div className={styles.eyebrowPill}>
             <Sparkles size={13} className={styles.sparkleIcon} />
-            <span>EXPERT KNOWLEDGE BASE • 29 TOPICS</span>
+            <span>INTERACTIVE 3D KNOWLEDGE GRID • 29 TOPICS</span>
           </div>
           <h2 className={styles.sectionHeading} id="faq-heading">
-            Got Questions? Everything You Need to Know.
+            Got Questions? Flip to Reveal Answers.
           </h2>
           <p className={styles.sectionSubtext}>
-            Transparent, in-depth architectural details covering physical Cisco rack equipment, training schedules, career transition, and guaranteed placement frameworks.
+            Click any card to flip it in 3D space and inspect physical Cisco lab gear, batch schedules, fees, and guaranteed placement frameworks.
           </p>
 
           {/* Quick-Find Search Bar */}
@@ -541,22 +523,21 @@ export function CCNAFaqSection({ onOpenDemo }) {
                 onChange={(e) => setSearchQuery(e.target.value)}
                 aria-label="Search FAQs"
               />
-              {searchQuery ? (
+              {searchQuery && (
                 <button
                   type="button"
                   className={styles.clearSearchBtn}
                   onClick={() => setSearchQuery('')}
-                  aria-label="Clear search"
+                  aria-label="Clear search query"
                 >
                   <X size={15} />
                 </button>
-              ) : (
-                <span className={styles.quickSearchBadge}>Quick Find</span>
               )}
             </div>
           </div>
 
-          {/* Category Ribbon Filter */}
+          {/* Category Ribbon Filter + Flip All Control */}
+          {/* Category Ribbon Nav */}
           <nav className={styles.categoryRibbonNav} aria-label="FAQ Topics">
             <div className={styles.categoryRibbonTrack} role="tablist">
               {faqCategories.map((cat) => {
@@ -586,13 +567,47 @@ export function CCNAFaqSection({ onOpenDemo }) {
               })}
             </div>
           </nav>
+
+          {/* Sub-Toolbar: Live Count & Flip All Answers Toggle */}
+          <div className={styles.deckToolbar}>
+            <div className={styles.deckToolbarStatus}>
+              <span className={styles.toolbarPulseDot} />
+              <span>
+                Showing <strong>{filteredFaqs.length}</strong> questions
+                {selectedCategory !== 'all' && !searchQuery && (
+                  <> in <strong>{faqCategories.find((c) => c.id === selectedCategory)?.label}</strong></>
+                )}
+              </span>
+            </div>
+
+            {filteredFaqs.length > 0 && (
+              <button
+                type="button"
+                className={styles.flipAllButton}
+                onClick={toggleFlipAll}
+                aria-label={areAllFlipped ? 'Flip all cards to questions' : 'Flip all cards to answers'}
+              >
+                {areAllFlipped ? (
+                  <>
+                    <RotateCcw size={14} />
+                    <span>Show Questions</span>
+                  </>
+                ) : (
+                  <>
+                    <RotateCw size={14} />
+                    <span>Flip All Answers ({filteredFaqs.length})</span>
+                  </>
+                )}
+              </button>
+            )}
+          </div>
         </header>
 
         {/* Live Filter Result Feedback */}
         {searchQuery && (
           <div className={styles.searchFeedbackBar}>
             <span>
-              Showing <strong>{filteredFaqs.length}</strong> matching questions for "
+              Showing <strong>{filteredFaqs.length}</strong> matching cards for "
               {searchQuery}"
             </span>
             <button
@@ -605,69 +620,125 @@ export function CCNAFaqSection({ onOpenDemo }) {
           </div>
         )}
 
-        {/* 2-Column Staggered Bento Cards */}
+        {/* 3D Knowledge Cards Grid (Notion / Webflow Style) */}
         {filteredFaqs.length > 0 ? (
-          <div className={styles.bentoDeckGrid}>
+          <div className={styles.cards3DGrid}>
             {filteredFaqs.map((faq, index) => {
-              const isOpen = openFaqIds.has(faq.id);
+              const isFlipped = flippedCardIds.has(faq.id);
               const formattedIndex = String(index + 1).padStart(2, '0');
 
               return (
-                <article
+                <div
                   key={faq.id}
-                  className={`${styles.dossierCard} ${
-                    isOpen ? styles.dossierCardOpen : ''
-                  }`}
+                  className={styles.cardScene}
                   itemScope
                   itemProp="mainEntity"
                   itemType="https://schema.org/Question"
                 >
-                  <button
-                    type="button"
-                    className={styles.cardHeaderBtn}
-                    onClick={() => toggleFaq(faq.id)}
-                    aria-expanded={isOpen}
-                    aria-controls={`faq-answer-${faq.id}`}
+                  <div
+                    className={`${styles.card3DObject} ${
+                      isFlipped ? styles.card3DObjectFlipped : ''
+                    }`}
                   >
-                    {/* Top Micro-Meta Strip */}
-                    <div className={styles.cardMetaStrip}>
-                      <span className={styles.categoryMicroTag}>
-                        {faq.categoryLabel}
-                      </span>
-                      <span className={styles.indexMicroBadge}>#{formattedIndex}</span>
-                    </div>
+                    {/* ================= CARD FRONT FACE (QUESTION) ================= */}
+                    <div
+                      className={styles.cardFaceFront}
+                      onClick={() => toggleCardFlip(faq.id)}
+                      role="button"
+                      tabIndex={0}
+                      onKeyDown={(e) => {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                          e.preventDefault();
+                          toggleCardFlip(faq.id);
+                        }
+                      }}
+                      aria-label={`FAQ ${formattedIndex}: ${faq.q}. Click to flip and read answer.`}
+                    >
+                      <div className={styles.frontTopMeta}>
+                        <span className={styles.frontCategoryTag}>
+                          {faq.categoryLabel}
+                        </span>
+                        <span className={styles.frontIndex}>#{formattedIndex}</span>
+                      </div>
 
-                    {/* Question Row with Spring Action Orb */}
-                    <div className={styles.questionMainRow}>
-                      <h3 className={styles.questionTitle} itemProp="name">
-                        {faq.q}
-                      </h3>
-                      <div
-                        className={`${styles.morphPillToggle} ${
-                          isOpen ? styles.morphPillToggleOpen : ''
-                        }`}
-                        aria-hidden="true"
-                      >
-                        <ChevronDown size={15} className={styles.chevronSvg} />
+                      <div className={styles.frontQuestionWrap}>
+                        <h3 className={styles.frontQuestionHeading} itemProp="name">
+                          {faq.q}
+                        </h3>
+                      </div>
+
+                      <div className={styles.frontBottomPrompt}>
+                        <span className={styles.flipPromptText}>
+                          <span>Flip to reveal answer</span>
+                          <RotateCw size={13} className={styles.promptRotateIcon} />
+                        </span>
+                        <span className={styles.frontStatusPill}>Cisco Aligned</span>
                       </div>
                     </div>
-                  </button>
 
-                  {/* Flowing Answer Drawer */}
-                  {isOpen && (
+                    {/* ================= CARD BACK FACE (ANSWER) ================= */}
                     <div
-                      className={styles.answerDrawerBody}
-                      id={`faq-answer-${faq.id}`}
-                      role="region"
+                      className={styles.cardFaceBack}
                       itemScope
                       itemProp="acceptedAnswer"
                       itemType="https://schema.org/Answer"
+                      onClick={(e) => e.stopPropagation()}
                     >
-                      <div className={styles.answerSeparator} />
-                      {renderFormattedAnswer(faq)}
+                      <div className={styles.backTopMeta}>
+                        <span className={styles.backAnswerTag}>ANSWER REVEALED</span>
+                        <button
+                          type="button"
+                          className={styles.backFlipBtn}
+                          onClick={() => toggleCardFlip(faq.id)}
+                          aria-label="Flip back to question"
+                        >
+                          <RotateCcw size={12} />
+                          <span>Flip back</span>
+                        </button>
+                      </div>
+
+                      <div className={styles.backScrollArea} itemProp="text">
+                        <h4 className={styles.backQuestionMini}>{faq.q}</h4>
+                        {renderFormattedAnswerText(faq.a)}
+
+                        {/* Visual Fact Chips */}
+                        {faq.chips && faq.chips.length > 0 && (
+                          <div className={styles.backChipsGrid}>
+                            {faq.chips.map((chip, cIdx) => {
+                              const ChipIcon = chip.icon || CheckCircle2;
+                              return (
+                                <span key={cIdx} className={styles.backIntelChip}>
+                                  <ChipIcon size={11} className={styles.chipIconSvg} />
+                                  <span>{chip.label}</span>
+                                </span>
+                              );
+                            })}
+                          </div>
+                        )}
+
+                        {/* Interactive in-card actions */}
+                        {(faq.a.includes('free demo') ||
+                          faq.a.includes('free 1-hour live session') ||
+                          faq.id === 'faq-assist-3') && (
+                          <div className={styles.backActionRow}>
+                            <button
+                              type="button"
+                              className={styles.backDemoTriggerBtn}
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                handleDemoClick(`CCNA Demo from ${faq.q}`);
+                              }}
+                            >
+                              <Sparkles size={12} />
+                              <span>Book Free Demo</span>
+                              <ArrowRight size={12} />
+                            </button>
+                          </div>
+                        )}
+                      </div>
                     </div>
-                  )}
-                </article>
+                  </div>
+                </div>
               );
             })}
           </div>
