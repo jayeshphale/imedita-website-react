@@ -1,11 +1,11 @@
 /* ==========================================================================
-   DECLUTTERED ENTERPRISE EDITORIAL & ARCHITECTURE BLUEPRINT HUB
+   MINIMALIST & SPACIOUS CCIE ARCHITECTURE BLUEPRINTS HUB (3-STORY FOCUS)
    ========================================================================== */
 
 .editorialSection {
   position: relative;
   background-color: #fafcfe;
-  padding: 5rem 1.5rem 5.5rem;
+  padding: 4.5rem 1.5rem 5rem;
   overflow: hidden;
   font-family: inherit;
 }
@@ -16,9 +16,9 @@
   top: -120px;
   left: 50%;
   transform: translateX(-50%);
-  width: 900px;
-  height: 380px;
-  background: radial-gradient(ellipse at center, rgba(0, 102, 255, 0.05) 0%, rgba(2, 132, 199, 0.02) 60%, transparent 80%);
+  width: 850px;
+  height: 350px;
+  background: radial-gradient(ellipse at center, rgba(0, 102, 255, 0.05) 0%, transparent 70%);
   pointer-events: none;
   z-index: 0;
 }
@@ -26,33 +26,33 @@
 .container {
   position: relative;
   z-index: 1;
-  max-width: 1220px;
+  max-width: 1200px;
   margin: 0 auto;
 }
 
 /* ==========================================================================
-   1. SECTION HEADER (Spacious & Clean)
+   1. SECTION HEADER (Minimal & Clean)
    ========================================================================== */
 .headerBlock {
   text-align: center;
-  max-width: 760px;
-  margin: 0 auto 3rem;
+  max-width: 720px;
+  margin: 0 auto 2.75rem;
 }
 
 .kickerPill {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  padding: 0.35rem 0.95rem;
+  gap: 0.45rem;
+  padding: 0.35rem 0.9rem;
   background: rgba(0, 102, 255, 0.06);
   border: 1px solid rgba(0, 102, 255, 0.16);
   border-radius: 9999px;
-  font-size: 0.74rem;
+  font-size: 0.72rem;
   font-weight: 750;
   letter-spacing: 0.06em;
   color: #0066ff;
   text-transform: uppercase;
-  margin-bottom: 1rem;
+  margin-bottom: 0.85rem;
 }
 
 .pulseDot {
@@ -70,12 +70,12 @@
 }
 
 .mainTitle {
-  font-size: clamp(2rem, 3.2vw, 2.75rem);
+  font-size: clamp(1.95rem, 3vw, 2.6rem);
   font-weight: 850;
   color: #0b2545;
   letter-spacing: -0.03em;
   line-height: 1.2;
-  margin: 0 0 0.9rem;
+  margin: 0 0 0.75rem;
 }
 
 .titleGradient {
@@ -85,74 +85,25 @@
 }
 
 .subtitle {
-  font-size: clamp(0.95rem, 1.2vw, 1.05rem);
+  font-size: clamp(0.92rem, 1.2vw, 1.02rem);
   color: #475569;
   line-height: 1.6;
-  margin: 0 auto 1.85rem;
-  max-width: 660px;
-}
-
-/* Category Filter Track */
-.filterPillsTrack {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 0.55rem;
-}
-
-.filterPill {
-  display: inline-flex;
-  align-items: center;
-  padding: 0.45rem 1.05rem;
-  border-radius: 9999px;
-  background: #ffffff;
-  border: 1.5px solid #e2e8f0;
-  color: #475569;
-  font-size: 0.84rem;
-  font-weight: 650;
-  cursor: pointer;
-  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
-}
-
-.filterPill:hover {
-  border-color: #93c5fd;
-  color: #0066ff;
-  background: #f8fafc;
-  transform: translateY(-1px);
-}
-
-.filterPillActive {
-  background: #0066ff;
-  border-color: #0066ff;
-  color: #ffffff !important;
-  box-shadow: 0 4px 14px -2px rgba(0, 102, 255, 0.35);
+  margin: 0 auto;
+  max-width: 620px;
 }
 
 /* ==========================================================================
-   2. BENTO MAGAZINE SHOWCASE
+   2. BENTO SHOWCASE (Single 2-Column Row: Left 60% / Right 40%)
    ========================================================================== */
-.bentoContainer {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  margin-bottom: 3rem;
-}
-
-/* TOP ROW */
-.topBentoRow {
+.bentoGrid {
   display: grid;
-  grid-template-columns: 1.4fr 1fr;
+  grid-template-columns: 1.38fr 1fr;
   gap: 1.5rem;
   align-items: stretch;
+  margin-bottom: 2.25rem;
 }
 
-/* HERO CARD */
-.heroColumn {
-  display: flex;
-}
-
+/* HERO CARD (Left) */
 .heroCard {
   position: relative;
   display: flex;
@@ -162,7 +113,7 @@
   background: #ffffff;
   border: 1.5px solid #e2e8f0;
   border-radius: 20px;
-  padding: 1.85rem 2rem;
+  padding: 1.75rem 2rem;
   text-decoration: none;
   color: inherit;
   box-shadow: 
@@ -189,7 +140,7 @@
   align-items: center;
   justify-content: space-between;
   gap: 0.75rem;
-  margin-bottom: 1.1rem;
+  margin-bottom: 1rem;
 }
 
 .heroBadgeGroup {
@@ -218,7 +169,7 @@
 }
 
 .categoryTag {
-  font-size: 0.75rem;
+  font-size: 0.74rem;
   font-weight: 650;
   color: #475569;
   background: #f1f5f9;
@@ -230,22 +181,22 @@
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
-  font-size: 0.74rem;
+  font-size: 0.72rem;
   font-weight: 550;
   color: #64748b;
 }
 
 .heroTextContent {
-  margin-bottom: 1.35rem;
+  margin-bottom: 1.25rem;
 }
 
 .heroHeading {
-  font-size: clamp(1.35rem, 1.9vw, 1.7rem);
+  font-size: clamp(1.3rem, 1.8vw, 1.65rem);
   font-weight: 850;
   color: #0b2545;
   line-height: 1.28;
   letter-spacing: -0.025em;
-  margin: 0 0 0.75rem;
+  margin: 0 0 0.65rem;
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
@@ -260,7 +211,7 @@
 }
 
 .heroSummary {
-  font-size: 0.92rem;
+  font-size: 0.9rem;
   line-height: 1.6;
   color: #475569;
   margin: 0;
@@ -269,25 +220,25 @@
 /* STREAMLINED TOPOLOGY SCHEMATIC */
 .topologySchematic {
   background: #081225;
-  border-radius: 14px;
+  border-radius: 12px;
   border: 1px solid rgba(255, 255, 255, 0.08);
-  padding: 1rem 1.25rem;
-  margin-bottom: 1.25rem;
+  padding: 0.9rem 1.15rem;
+  margin-bottom: 1.15rem;
 }
 
 .topologyHeader {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 1rem;
-  padding-bottom: 0.5rem;
+  margin-bottom: 0.85rem;
+  padding-bottom: 0.45rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .liveIndicator {
   display: flex;
   align-items: center;
-  gap: 0.45rem;
+  gap: 0.4rem;
 }
 
 .topologyStatusDot {
@@ -300,7 +251,7 @@
 
 .topologyLabel {
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-  font-size: 0.68rem;
+  font-size: 0.66rem;
   letter-spacing: 0.06em;
   font-weight: 700;
   color: #94a3b8;
@@ -308,7 +259,7 @@
 
 .topologyLiveTag {
   font-family: ui-monospace, monospace;
-  font-size: 0.64rem;
+  font-size: 0.62rem;
   font-weight: 700;
   color: #10b981;
 }
@@ -328,7 +279,7 @@
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 8px;
-  padding: 0.65rem 0.75rem;
+  padding: 0.6rem 0.7rem;
   flex: 1;
 }
 
@@ -336,15 +287,15 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 32px;
-  height: 32px;
+  width: 30px;
+  height: 30px;
   border-radius: 6px;
   background: rgba(255, 255, 255, 0.06);
-  margin-bottom: 0.35rem;
+  margin-bottom: 0.3rem;
 }
 
 .nodeTitle {
-  font-size: 0.74rem;
+  font-size: 0.72rem;
   font-weight: 750;
   color: #f8fafc;
   margin-bottom: 0.1rem;
@@ -352,7 +303,7 @@
 
 .nodeSub {
   font-family: ui-monospace, monospace;
-  font-size: 0.62rem;
+  font-size: 0.6rem;
   color: #64748b;
 }
 
@@ -391,9 +342,9 @@
 
 .connectorProtocol {
   font-family: ui-monospace, monospace;
-  font-size: 0.58rem;
+  font-size: 0.56rem;
   color: #38bdf8;
-  margin-top: 0.3rem;
+  margin-top: 0.25rem;
   font-weight: 600;
 }
 
@@ -403,16 +354,16 @@
   align-items: center;
   flex-wrap: wrap;
   gap: 0.4rem;
-  margin-bottom: 1.25rem;
+  margin-bottom: 1.15rem;
 }
 
 .tagChip {
-  font-size: 0.72rem;
+  font-size: 0.7rem;
   font-weight: 600;
   color: #475569;
   background: #f1f5f9;
   border: 1px solid #e2e8f0;
-  padding: 0.18rem 0.55rem;
+  padding: 0.15rem 0.5rem;
   border-radius: 6px;
 }
 
@@ -422,19 +373,19 @@
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  padding-top: 1.1rem;
+  padding-top: 1rem;
   border-top: 1px solid #f1f5f9;
 }
 
 .authorBadge {
   display: flex;
   align-items: center;
-  gap: 0.65rem;
+  gap: 0.6rem;
 }
 
 .authorPic {
-  width: 38px;
-  height: 38px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
   object-fit: cover;
   border: 1.5px solid #0066ff;
@@ -443,14 +394,14 @@
 
 .authorName {
   display: block;
-  font-size: 0.84rem;
+  font-size: 0.82rem;
   font-weight: 750;
   color: #0b2545;
 }
 
 .authorCred {
   display: block;
-  font-size: 0.72rem;
+  font-size: 0.7rem;
   color: #0066ff;
   font-weight: 650;
 }
@@ -459,7 +410,7 @@
   display: inline-flex;
   align-items: center;
   gap: 0.45rem;
-  padding: 0.55rem 1.15rem;
+  padding: 0.55rem 1.1rem;
   background: #0066ff;
   color: #ffffff;
   border-radius: 9px;
@@ -472,17 +423,11 @@
   background: #0052cc;
 }
 
-/* SIDE COLUMN (Clean 2 cards) */
+/* SIDE COLUMN (Right: 2 Clean Cards) */
 .sideColumn {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-}
-
-.sideColumnFull {
-  grid-column: 1 / -1;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
 }
 
 .sideCard {
@@ -515,16 +460,16 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.65rem;
 }
 
 .sideCategoryBadge {
-  font-size: 0.72rem;
+  font-size: 0.7rem;
   font-weight: 750;
   color: #0284c7;
   background: #f0f9ff;
   border: 1px solid #bae6fd;
-  padding: 0.2rem 0.55rem;
+  padding: 0.18rem 0.55rem;
   border-radius: 9999px;
   text-transform: uppercase;
 }
@@ -539,12 +484,12 @@
 }
 
 .sideCardTitle {
-  font-size: 1.12rem;
+  font-size: 1.1rem;
   font-weight: 800;
   color: #0b2545;
   line-height: 1.35;
   letter-spacing: -0.02em;
-  margin: 0 0 0.55rem;
+  margin: 0 0 0.5rem;
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
@@ -558,10 +503,10 @@
 }
 
 .sideCardSummary {
-  font-size: 0.86rem;
+  font-size: 0.85rem;
   line-height: 1.58;
   color: #475569;
-  margin: 0 0 1rem;
+  margin: 0 0 0.95rem;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
@@ -572,7 +517,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-top: 0.85rem;
+  padding-top: 0.8rem;
   border-top: 1px solid #f1f5f9;
 }
 
@@ -604,205 +549,71 @@
 }
 
 /* ==========================================================================
-   BOTTOM BENTO ROW (3 Clean, Balanced Cards)
+   3. MINIMAL CALL-TO-ACTION FOOTER BAR
    ========================================================================== */
-.bottomBentoRow {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+.bottomBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   gap: 1.5rem;
-}
-
-.bottomCard {
   background: #ffffff;
   border: 1.5px solid #e2e8f0;
-  border-radius: 18px;
-  padding: 1.5rem 1.65rem;
-  text-decoration: none;
-  color: inherit;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.03);
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  border-radius: 16px;
+  padding: 1.25rem 1.85rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
 }
 
-.bottomCard:hover {
-  transform: translateY(-2.5px);
-  border-color: #93c5fd;
-  box-shadow: 0 14px 28px -6px rgba(0, 102, 255, 0.12);
-}
-
-.bottomCard:hover .bottomArrow {
-  transform: translate(2px, -2px);
-  color: #0066ff;
-}
-
-.bottomCardTop {
+.bottomBarLeft {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  margin-bottom: 0.75rem;
+  gap: 1rem;
 }
 
-.bottomCardCat {
-  font-size: 0.7rem;
-  font-weight: 750;
-  color: #059669;
-  background: #ecfdf5;
-  border: 1px solid #a7f3d0;
-  padding: 0.18rem 0.55rem;
-  border-radius: 9999px;
-  text-transform: uppercase;
-}
-
-.bottomCardTitle {
-  font-size: 1.08rem;
+.bottomBarBadge {
+  font-size: 0.68rem;
   font-weight: 800;
-  color: #0b2545;
-  line-height: 1.35;
-  letter-spacing: -0.02em;
-  margin: 0 0 0.55rem;
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 0.5rem;
-}
-
-.bottomArrow {
-  flex-shrink: 0;
-  color: #94a3b8;
-  transition: all 0.2s ease;
-}
-
-.bottomCardSummary {
-  font-size: 0.85rem;
-  line-height: 1.58;
-  color: #475569;
-  margin: 0 0 1rem;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
-.bottomCardFooter {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding-top: 0.85rem;
-  border-top: 1px solid #f1f5f9;
-}
-
-.readMoreText {
-  font-size: 0.78rem;
-  font-weight: 700;
   color: #0066ff;
-}
-
-/* ==========================================================================
-   3. CLEAN DISPATCH BAR
-   ========================================================================== */
-.knowledgeHubDispatchBar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 2rem;
-  background: #ffffff;
-  border: 1.5px solid #e2e8f0;
-  border-radius: 18px;
-  padding: 1.5rem 2rem;
-  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.03);
-}
-
-.dispatchLeft {
-  display: flex;
-  align-items: center;
-  gap: 1.15rem;
-  max-width: 680px;
-}
-
-.dispatchIconBox {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 46px;
-  height: 46px;
-  border-radius: 12px;
-  background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
-  color: #0066ff;
+  background: #eff6ff;
   border: 1px solid #bfdbfe;
-  flex-shrink: 0;
+  padding: 0.2rem 0.6rem;
+  border-radius: 6px;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
 }
 
-.dispatchHeading {
-  font-size: 1.1rem;
-  font-weight: 800;
-  color: #0b2545;
-  margin: 0 0 0.25rem;
-}
-
-.dispatchSubtext {
+.bottomBarText {
   font-size: 0.86rem;
   color: #475569;
-  line-height: 1.5;
   margin: 0;
+  line-height: 1.45;
 }
 
-.dispatchRight {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  flex-shrink: 0;
-}
-
-.dispatchPrimaryBtn {
+.viewAllBtn {
   display: inline-flex;
   align-items: center;
   gap: 0.45rem;
-  padding: 0.75rem 1.35rem;
+  padding: 0.65rem 1.25rem;
   background: linear-gradient(135deg, #ff6b00 0%, #ff8c33 100%);
   color: #ffffff;
   border-radius: 10px;
-  font-size: 0.88rem;
+  font-size: 0.84rem;
   font-weight: 750;
   text-decoration: none;
-  box-shadow: 0 6px 16px -4px rgba(255, 107, 0, 0.35);
+  box-shadow: 0 4px 14px -3px rgba(255, 107, 0, 0.35);
   transition: all 0.2s ease;
   white-space: nowrap;
 }
 
-.dispatchPrimaryBtn:hover {
+.viewAllBtn:hover {
   transform: translateY(-1.5px);
-  box-shadow: 0 10px 20px -4px rgba(255, 107, 0, 0.45);
-}
-
-.dispatchSecondaryBtn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
-  padding: 0.72rem 1.15rem;
-  background: #ffffff;
-  border: 1.5px solid #cbd5e1;
-  border-radius: 10px;
-  color: #0f172a;
-  font-size: 0.84rem;
-  font-weight: 650;
-  text-decoration: none;
-  transition: all 0.2s ease;
-  white-space: nowrap;
-}
-
-.dispatchSecondaryBtn:hover {
-  border-color: #0066ff;
-  color: #0066ff;
-  background: #f8fafc;
+  box-shadow: 0 8px 18px -3px rgba(255, 107, 0, 0.45);
 }
 
 /* ==========================================================================
    RESPONSIVENESS
    ========================================================================== */
 @media (max-width: 1024px) {
-  .topBentoRow {
+  .bentoGrid {
     grid-template-columns: 1fr;
   }
 
@@ -810,55 +621,19 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
   }
-
-  .bottomBentoRow {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .bottomBentoRow > :last-child {
-    grid-column: 1 / -1;
-  }
-}
-
-@media (max-width: 860px) {
-  .knowledgeHubDispatchBar {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 1.25rem;
-    padding: 1.35rem;
-  }
-
-  .dispatchRight {
-    flex-direction: column;
-    width: 100%;
-  }
-
-  .dispatchPrimaryBtn,
-  .dispatchSecondaryBtn {
-    width: 100%;
-    justify-content: center;
-  }
 }
 
 @media (max-width: 768px) {
   .editorialSection {
-    padding: 3.5rem 1rem 4.5rem;
+    padding: 3.5rem 1rem 4rem;
   }
 
   .sideColumn {
     grid-template-columns: 1fr;
   }
 
-  .bottomBentoRow {
-    grid-template-columns: 1fr;
-  }
-
-  .bottomBentoRow > :last-child {
-    grid-column: auto;
-  }
-
   .heroCard {
-    padding: 1.4rem 1.15rem;
+    padding: 1.35rem 1.15rem;
   }
 
   .topologyNodesTrack {
@@ -883,22 +658,21 @@
     justify-content: center;
   }
 
-  .filterPillsTrack {
-    justify-content: flex-start;
-    overflow-x: auto;
-    padding-bottom: 0.4rem;
-    flex-wrap: nowrap;
-    scrollbar-width: none;
-    -webkit-overflow-scrolling: touch;
+  .bottomBar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+    padding: 1.25rem;
   }
 
-  .filterPillsTrack::-webkit-scrollbar {
-    display: none;
+  .bottomBarLeft {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.4rem;
   }
 
-  .filterPill {
-    white-space: nowrap;
-    font-size: 0.78rem;
-    padding: 0.4rem 0.9rem;
+  .viewAllBtn {
+    width: 100%;
+    justify-content: center;
   }
 }
