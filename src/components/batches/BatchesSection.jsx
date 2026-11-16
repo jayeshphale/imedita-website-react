@@ -116,7 +116,7 @@ export function BatchesSection({ onOpenDemo }) {
       <div className={styles.sectionContainer}>
         
         {/* Header Block */}
-        <div className={`${styles.headerBlock} scroll-header`}>
+        <div className={styles.headerBlock}>
           <div className={styles.eyebrowBadge}>
             <Calendar size={14} />
             <span>Upcoming Live Batches</span>
@@ -130,7 +130,7 @@ export function BatchesSection({ onOpenDemo }) {
         </div>
 
         {/* Filter Tabs */}
-        <div className={`${styles.tabsWrapper} scroll-reveal`}>
+        <div className={styles.tabsWrapper}>
           {filterCategories.map((tab) => (
             <button
               key={tab.id}
@@ -143,7 +143,7 @@ export function BatchesSection({ onOpenDemo }) {
         </div>
 
         {/* Desktop View: Interactive Table */}
-        <div className={`${styles.desktopTableView} scroll-reveal`}>
+        <div className={styles.desktopTableView}>
           <table className={styles.tableElement}>
             <thead>
               <tr className={styles.tableHeadRow}>
@@ -221,7 +221,7 @@ export function BatchesSection({ onOpenDemo }) {
         </div>
 
         {/* Mobile View: High-Density Card List */}
-        <div className={`${styles.mobileCardsView} scroll-stagger-cards`}>
+        <div className={styles.mobileCardsView}>
           {filteredBatches.map((item) => (
             <div key={item.id} className={styles.mobileCard}>
               <div className={styles.mobileCardTop}>

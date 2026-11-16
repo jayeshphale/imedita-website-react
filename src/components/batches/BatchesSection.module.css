@@ -1,72 +1,82 @@
+/* ==========================================================================
+   UPCOMING LIVE BATCHES SCHEDULE
+   Enterprise-Grade Responsive Design Across All Devices (Mobile to 4K)
+   ========================================================================== */
+
 .batchesSection {
   position: relative;
   width: 100%;
   background-color: #fafcfe;
-  padding: 5rem 1.5rem 6.5rem;
+  padding: clamp(3.5rem, 5vw, 6.5rem) 1.25rem clamp(4.5rem, 6vw, 7.5rem);
   border-bottom: 1px solid #e2e8f0;
-}
-
-@media (min-width: 768px) {
-  .batchesSection {
-    padding: 6.5rem 2rem 8rem;
-  }
+  box-sizing: border-box;
+  overflow-x: clip;
 }
 
 .sectionContainer {
-  max-width: 1400px; /* Expand from 1280px to accommodate all columns */
+  max-width: 1280px;
   width: 100%;
   margin: 0 auto;
-  padding: 0 1.5rem;
+  padding: 0 clamp(0.5rem, 1.5vw, 1.25rem);
+  box-sizing: border-box;
 }
 
-/* Header */
+/* ==========================================================================
+   1. SECTION HEADER
+   ========================================================================== */
 .headerBlock {
   text-align: center;
-  max-width: 680px;
-  margin: 0 auto 2.5rem;
+  max-width: 720px;
+  margin: 0 auto clamp(2rem, 3.5vw, 3rem);
 }
 
 .eyebrowBadge {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.35rem 0.85rem;
+  padding: 0.4rem 1rem;
   border-radius: 9999px;
   background-color: #eff6ff;
   border: 1px solid #dbeafe;
   color: #0066ff;
-  font-size: 0.7rem;
-  font-weight: 700;
-  letter-spacing: 0.15em;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   margin-bottom: 1rem;
+  box-shadow: 0 2px 6px rgba(0, 102, 255, 0.08);
 }
 
 .sectionHeading {
-  font-size: clamp(1.65rem, 3.2vw, 2.35rem);
-  font-weight: 800;
-  color: #0f172a;
+  font-size: clamp(1.75rem, 3.2vw, 2.5rem);
+  font-weight: 850;
+  color: #0b2545;
   letter-spacing: -0.025em;
-  line-height: 1.2;
+  line-height: 1.22;
   margin: 0 0 0.85rem;
 }
 
 .sectionSubtext {
-  font-size: 0.95rem;
+  font-size: clamp(0.92rem, 1.2vw, 1.05rem);
   color: #64748b;
   line-height: 1.6;
   margin: 0 auto;
+  max-width: 640px;
 }
 
-/* Filter Tabs */
+/* ==========================================================================
+   2. FILTER TABS
+   ========================================================================== */
 .tabsWrapper {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 0.65rem;
   overflow-x: auto;
-  padding: 0.5rem 0.25rem 2.5rem;
+  padding: 0.5rem 0.25rem 2rem;
   scrollbar-width: none;
+  -ms-overflow-style: none;
+  -webkit-overflow-scrolling: touch;
 }
 
 .tabsWrapper::-webkit-scrollbar {
@@ -77,90 +87,158 @@
   display: inline-flex;
   align-items: center;
   white-space: nowrap;
-  padding: 0.6rem 1.25rem;
+  padding: 0.55rem 1.25rem;
   border-radius: 9999px;
-  font-size: 0.825rem;
-  font-weight: 600;
+  font-size: 0.84rem;
+  font-weight: 650;
   cursor: pointer;
-  transition: all 200ms ease;
-  border: 1px solid #e2e8f0;
+  transition: all 200ms cubic-bezier(0.16, 1, 0.3, 1);
+  border: 1.5px solid #e2e8f0;
   background-color: #ffffff;
   color: #475569;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.03);
 }
 
 .tabBtn:hover {
-  border-color: #cbd5e1;
-  color: #0f172a;
+  border-color: #93c5fd;
+  color: #0066ff;
   background-color: #f8fafc;
+  transform: translateY(-1px);
 }
 
 .tabBtnActive {
-  background-color: #0066ff !important;
-  border-color: #0066ff !important;
+  background: linear-gradient(135deg, #0b2545 0%, #0066ff 100%) !important;
+  border-color: transparent !important;
   color: #ffffff !important;
-  font-weight: 700;
-  box-shadow: 0 4px 14px rgba(0, 102, 255, 0.22);
+  font-weight: 750;
+  box-shadow: 0 4px 14px rgba(0, 102, 255, 0.25);
+  transform: translateY(-1px);
 }
 
-/* Desktop Table View */
+/* ==========================================================================
+   3. DESKTOP INTERACTIVE TABLE (>= 1100px)
+   ========================================================================== */
 .desktopTableView {
   display: none;
   width: 100%;
-  overflow-x: visible; /* No scrollbar */
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
   background-color: #ffffff;
-  border: 1px solid #e2e8f0;
-  border-radius: 1.25rem;
-  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
+  border: 1.5px solid #e2e8f0;
+  border-radius: 20px;
+  box-shadow: 
+    0 10px 30px -5px rgba(15, 23, 42, 0.05),
+    0 1px 3px rgba(15, 23, 42, 0.03);
+  position: relative;
+  box-sizing: border-box;
 }
 
-@media (min-width: 900px) {
+@media (min-width: 1100px) {
   .desktopTableView {
     display: block;
   }
 }
 
+/* Custom Sleek Scrollbar for Desktop Table */
+.desktopTableView::-webkit-scrollbar {
+  height: 6px;
+}
+
+.desktopTableView::-webkit-scrollbar-track {
+  background: #f1f5f9;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+.desktopTableView::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 3px;
+}
+
+.desktopTableView::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
 .tableElement {
   width: 100%;
-  min-width: 100%; /* Fill container cleanly without overflowing */
   border-collapse: collapse;
   table-layout: auto;
   text-align: left;
 }
 
+.tableHeadRow,
 .tableHeaderRow {
   background-color: #f8fafc;
-  border-bottom: 1px solid #e2e8f0;
+  border-bottom: 1.5px solid #e2e8f0;
 }
 
 .thCell {
-  padding: 1rem 0.85rem;
-  font-size: 0.725rem;
-  font-weight: 700;
+  padding: 1rem 0.75rem;
+  font-size: 0.72rem;
+  font-weight: 800;
   color: #64748b;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
   white-space: nowrap;
   vertical-align: middle;
 }
 
+.tableBodyRow,
 .tableRow {
   border-bottom: 1px solid #f1f5f9;
   transition: background-color 150ms ease;
 }
 
+.tableBodyRow:last-child,
 .tableRow:last-child {
   border-bottom: none;
 }
 
+.tableBodyRow:hover,
 .tableRow:hover {
-  background-color: #f8fafc;
+  background-color: #f8fbff;
 }
 
 .tdCell {
-  padding: 1rem 0.85rem;
-  font-size: 0.8rem;
+  padding: 1rem 0.75rem;
+  font-size: 0.82rem;
   color: #334155;
   vertical-align: middle;
+}
+
+.courseName {
+  font-size: 0.88rem;
+  font-weight: 800;
+  color: #0b2545;
+  display: block;
+  max-width: 220px;
+  line-height: 1.35;
+  margin-bottom: 0.3rem;
+  white-space: normal;
+}
+
+.trackTag {
+  display: inline-block;
+  font-size: 0.65rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 0.18rem 0.5rem;
+  border-radius: 6px;
+  background-color: #eff6ff;
+  color: #0066ff;
+  border: 1px solid #bfdbfe;
+}
+
+.schedulePill {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 650;
+  padding: 0.25rem 0.55rem;
+  border-radius: 6px;
+  background-color: #f1f5f9;
+  color: #334155;
+  border: 1px solid #e2e8f0;
   white-space: nowrap;
 }
 
@@ -168,49 +246,19 @@
 .modeWrapper {
   display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
+  gap: 0.35rem;
   white-space: nowrap;
+  font-size: 0.8rem;
 }
 
 .timingWrapper {
-  color: #64748b;
+  color: #475569;
+  font-weight: 600;
 }
 
 .modeWrapper {
   color: #475569;
-}
-
-.courseName {
-  font-size: 0.875rem;
-  font-weight: 800;
-  color: #0f172a;
-  display: block;
-  white-space: nowrap;
-  margin-bottom: 0.25rem;
-}
-
-.trackTag {
-  display: inline-block;
-  font-size: 0.675rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  padding: 0.15rem 0.5rem;
-  border-radius: 4px;
-  background-color: #eff6ff;
-  color: #0066ff;
-  border: 1px solid #dbeafe;
-}
-
-.schedulePill {
-  display: inline-block;
-  font-size: 0.7rem;
-  font-weight: 600;
-  padding: 0.25rem 0.5rem;
-  border-radius: 6px;
-  background-color: #f1f5f9;
-  color: #475569;
-  border: 1px solid #e2e8f0;
-  white-space: nowrap;
+  font-weight: 550;
 }
 
 .statusPill {
@@ -218,8 +266,8 @@
   align-items: center;
   gap: 0.35rem;
   font-size: 0.7rem;
-  font-weight: 700;
-  padding: 0.25rem 0.5rem;
+  font-weight: 750;
+  padding: 0.25rem 0.55rem;
   border-radius: 9999px;
   white-space: nowrap;
 }
@@ -239,6 +287,7 @@
 .pulseDot {
   width: 6px;
   height: 6px;
+  min-width: 6px;
   border-radius: 50%;
   animation: pulseDotAnim 2s infinite ease-in-out;
 }
@@ -262,118 +311,175 @@
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
-  padding: 0.45rem 0.85rem;
-  border-radius: 0.6rem;
-  background-color: #0066ff;
+  padding: 0.5rem 0.95rem;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #0066ff 0%, #0052cc 100%);
   color: #ffffff;
-  font-size: 0.75rem;
-  font-weight: 700;
+  font-size: 0.78rem;
+  font-weight: 750;
   text-decoration: none;
   border: none;
   cursor: pointer;
-  transition: background-color 180ms ease, box-shadow 180ms ease;
+  transition: all 200ms cubic-bezier(0.16, 1, 0.3, 1);
   white-space: nowrap;
+  box-shadow: 0 3px 8px rgba(0, 102, 255, 0.22);
 }
 
 .enrollTableBtn:hover {
-  background-color: #0052cc;
-  box-shadow: 0 2px 8px rgba(0, 102, 255, 0.25);
+  transform: translateY(-1.5px);
+  box-shadow: 0 5px 14px rgba(0, 102, 255, 0.32);
+  background: linear-gradient(135deg, #0052cc 0%, #003db3 100%);
 }
 
-/* Mobile Card View */
+/* ==========================================================================
+   4. RESPONSIVE CARDS VIEW (< 1100px)
+   Tablets (700px - 1099px): 2-Column Clean Grid
+   Mobile (< 700px): 1-Column Stack
+   ========================================================================== */
 .mobileCardsView {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   gap: 1.25rem;
+  width: 100%;
+  box-sizing: border-box;
 }
 
-@media (min-width: 900px) {
+@media (min-width: 1100px) {
   .mobileCardsView {
     display: none;
   }
 }
 
+@media (max-width: 768px) {
+  .mobileCardsView {
+    grid-template-columns: 1fr;
+    gap: 1.15rem;
+  }
+}
+
 .mobileCard {
   background-color: #ffffff;
-  border: 1px solid #e2e8f0;
-  border-radius: 1.25rem;
-  padding: 1.5rem;
-  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.03);
+  border: 1.5px solid #e2e8f0;
+  border-radius: 18px;
+  padding: clamp(1.25rem, 2.5vw, 1.5rem);
+  box-shadow: 
+    0 6px 18px -4px rgba(15, 23, 42, 0.04),
+    0 1px 3px rgba(15, 23, 42, 0.02);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all 200ms ease;
+  box-sizing: border-box;
+}
+
+.mobileCard:hover {
+  transform: translateY(-2px);
+  border-color: #bfdbfe;
+  box-shadow: 0 10px 24px -4px rgba(0, 102, 255, 0.09);
 }
 
 .mobileCardTop {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 0.85rem;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+  flex-wrap: wrap;
 }
 
 .mobileCardTitle {
-  font-size: 1.1rem;
-  font-weight: 800;
-  color: #0f172a;
+  font-size: clamp(1.05rem, 1.8vw, 1.2rem);
+  font-weight: 850;
+  color: #0b2545;
   margin: 0 0 1rem;
-  line-height: 1.3;
+  line-height: 1.32;
+  letter-spacing: -0.015em;
 }
 
 .mobileMetaGrid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 0.75rem;
-  padding: 0.85rem 0;
+  gap: 0.85rem;
+  padding: 0.95rem 0;
   border-top: 1px solid #f1f5f9;
   border-bottom: 1px solid #f1f5f9;
   margin-bottom: 1.25rem;
 }
 
+@media (max-width: 380px) {
+  .mobileMetaGrid {
+    grid-template-columns: 1fr;
+    gap: 0.65rem;
+  }
+}
+
 .mobileMetaItem {
   display: flex;
   flex-direction: column;
-  gap: 0.2rem;
+  gap: 0.25rem;
+  min-width: 0;
 }
 
 .metaLabel {
-  font-size: 0.675rem;
+  font-size: 0.68rem;
   color: #94a3b8;
   text-transform: uppercase;
-  font-weight: 600;
+  font-weight: 750;
+  letter-spacing: 0.05em;
 }
 
 .metaValue {
-  font-size: 0.8rem;
-  font-weight: 700;
+  font-size: 0.84rem;
+  font-weight: 750;
   color: #1e293b;
   display: flex;
   align-items: center;
-  gap: 0.35rem;
+  gap: 0.4rem;
+  line-height: 1.35;
+  white-space: normal;
+  word-break: break-word;
 }
 
 .mobileEnrollBtn {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.45rem;
+  gap: 0.5rem;
   width: 100%;
-  padding: 0.75rem 1rem;
-  border-radius: 0.75rem;
-  background-color: #0066ff;
+  padding: 0.8rem 1rem;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #0066ff 0%, #0052cc 100%);
   color: #ffffff;
-  font-size: 0.825rem;
-  font-weight: 700;
+  font-size: 0.88rem;
+  font-weight: 750;
   text-decoration: none;
-  transition: background-color 180ms ease;
+  transition: all 200ms ease;
+  box-shadow: 0 4px 12px rgba(0, 102, 255, 0.25);
+  box-sizing: border-box;
 }
 
 .mobileEnrollBtn:hover {
-  background-color: #0052cc;
+  background: linear-gradient(135deg, #0052cc 0%, #003db3 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(0, 102, 255, 0.35);
 }
 
-
-
+/* ==========================================================================
+   5. MOBILE TABS & SECTION PADDING FINE-TUNING
+   ========================================================================== */
 @media (max-width: 768px) {
+  .batchesSection {
+    padding: 3.5rem 1rem 5rem;
+  }
+
   .tabsWrapper {
     justify-content: flex-start;
-    -webkit-overflow-scrolling: touch;
-    padding: 0.5rem 1rem 2rem;
+    padding: 0.25rem 0.5rem 1.5rem;
+    gap: 0.5rem;
+  }
+
+  .tabBtn {
+    padding: 0.45rem 1rem;
+    font-size: 0.8rem;
   }
 }
