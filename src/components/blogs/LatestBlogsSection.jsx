@@ -3,43 +3,39 @@ import {
   Clock,
   ArrowRight,
   ArrowUpRight,
-  Server,
-  Cloud,
-  Zap,
-  Sparkles
+  Sparkles,
+  BookOpen
 } from 'lucide-react';
 import styles from './LatestBlogsSection.module.css';
 
-// Featured Lead Story
-const featuredBlueprint = {
-  id: 'cisco-sdwan-enterprise',
-  categoryLabel: 'Cisco SD-WAN',
-  badge: 'FEATURED BLUEPRINT',
-  title: 'Architecting Zero-Downtime Cisco SD-WAN Across Dual-ISP & MPLS Overlays',
-  summary: 'Production walkthrough of BFD template probes and application-aware routing (AAR) policies for zero-packet-drop enterprise failover.',
-  readTime: '11 min read',
-  author: {
-    name: 'Saurabh Yadav',
-    credential: 'Triple CCIE #46962',
-    image: 'https://imeditaoffload.s3.ap-south-1.amazonaws.com/wp-content/uploads/2023/12/10071401/Saurabh-Yadav-imedita.svg'
+// 3 Curated High-Impact Articles with Authentic Photography
+const articles = [
+  {
+    id: 'cisco-sdwan-enterprise',
+    category: 'Cisco SD-WAN',
+    categoryColor: 'blue',
+    title: 'Architecting Zero-Downtime Cisco SD-WAN Across Dual-ISP & MPLS Overlays',
+    summary: 'A production blueprint of BFD template probes, color-binding fallbacks, and application-aware routing (AAR) policies for zero-packet-drop enterprise failover.',
+    image: 'https://imeditaoffload.s3.ap-south-1.amazonaws.com/wp-content/uploads/2024/06/10071301/imedita_71.jpg',
+    readTime: '11 min read',
+    date: '12 Nov 2026',
+    author: {
+      name: 'Saurabh Yadav',
+      credential: 'Triple CCIE #46962',
+      image: 'https://imeditaoffload.s3.ap-south-1.amazonaws.com/wp-content/uploads/2023/12/10071401/Saurabh-Yadav-imedita.svg'
+    },
+    tags: ['SD-WAN vManage', 'BGP Overlay'],
+    slug: 'https://www.imedita.com/blog/cisco-sd-wan-architecture-design/'
   },
-  topology: [
-    { label: 'Branch Edge', sub: 'ISR 4451 Router', color: '#0066ff' },
-    { label: 'vSmart Core', sub: 'IPSec Mesh AS 65001', color: '#0284c7' },
-    { label: 'Cloud Fabric', sub: 'AWS Transit Gateway', color: '#7c3aed' }
-  ],
-  tags: ['SD-WAN vManage', 'BGP Overlay'],
-  slug: 'https://www.imedita.com/blog/cisco-sd-wan-architecture-design/'
-};
-
-// Side Curated Reads (Only 2 high-impact guides)
-const curatedStories = [
   {
     id: 'palo-alto-pcnse',
-    categoryLabel: 'Next-Gen Firewall',
+    category: 'Next-Gen Firewall',
+    categoryColor: 'orange',
     title: 'Palo Alto PCNSE Blueprint: Mastering App-ID & SSL Decryption',
-    summary: 'Outbound SSL inspection and zero-trust perimeter policies configured directly on physical PA-400 lab appliances.',
+    summary: 'Step-by-step enterprise certificate chain deployment, outbound SSL inspection, and zero-trust security perimeter policies configured on physical PA-400 appliances.',
+    image: '/server-datacenter-engineer.jpg',
     readTime: '8 min read',
+    date: '08 Nov 2026',
     author: {
       name: 'Baldev Singh',
       credential: 'CCIE Security #37094',
@@ -50,230 +46,146 @@ const curatedStories = [
   },
   {
     id: 'aws-transit-gateway',
-    categoryLabel: 'Cloud Architecture',
+    category: 'Cloud Architecture',
+    categoryColor: 'purple',
     title: 'AWS Transit Gateway & Direct Connect: Multi-Account BGP Peering',
-    summary: 'Designing enterprise BGP peering between on-premise Cisco ASR routers and AWS Transit Gateways across multiple AZs.',
+    summary: 'Designing enterprise BGP peering between on-premise Cisco ASR routers and AWS Transit Gateways across multiple active Availability Zones.',
+    image: 'https://imeditaoffload.s3.ap-south-1.amazonaws.com/wp-content/uploads/2024/06/10071302/imedita_66.jpg',
     readTime: '10 min read',
+    date: '20 Oct 2026',
     author: {
       name: 'Sudhanshu Bhat',
       credential: 'CCIE #41212 & AWS Arch',
       image: 'https://imeditaoffload.s3.ap-south-1.amazonaws.com/wp-content/uploads/2023/12/10071359/Sudhanshu-Bhat-imedita.svg'
     },
-    tags: ['AWS DirectConnect', 'BGP Peering'],
+    tags: ['AWS DirectConnect', 'TGW Routing'],
     slug: 'https://www.imedita.com/blog/aws-transit-gateway-vpc-peering/'
   }
 ];
 
 export function LatestBlogsSection() {
   return (
-    <section id="blog" className={styles.editorialSection}>
-      <div className={styles.ambientAuraTop} />
+    <section id="blog" className={styles.blogSection}>
+      <div className={styles.ambientGlow} />
 
       <div className={styles.container}>
-        {/* ================= 1. MINIMAL, CLEAN HEADER ================= */}
+        {/* ================= 1. CLEAN HEADER ================= */}
         <div className={styles.headerBlock}>
           <div className={styles.kickerPill}>
             <span className={styles.pulseDot} />
+            <BookOpen size={13} className={styles.kickerIcon} />
             <span>I-MEDITA ENGINEERING JOURNAL</span>
           </div>
 
           <h2 className={styles.mainTitle}>
-            Engineering Guides & <span className={styles.titleGradient}>Architecture Blueprints</span>
+            Latest Architecture Guides & <span className={styles.titleGradient}>Blueprints</span>
           </h2>
 
           <p className={styles.subtitle}>
-            Battle-tested enterprise datacenter topologies, next-gen firewall configs, and Cisco certification playbooks.
+            Battle-tested enterprise datacenter topologies, next-gen firewall configs, and Cisco certification playbooks authored by our CCIE faculty.
           </p>
         </div>
 
-        {/* ================= 2. CLEAN 3-STORY BENTO SHOWCASE ================= */}
-        <div className={styles.bentoGrid}>
-          {/* LEFT: HERO FEATURED BLUEPRINT */}
-          <a
-            href={featuredBlueprint.slug}
-            target="_blank"
-            rel="noreferrer"
-            className={styles.heroCard}
-          >
-            {/* Top Bar */}
-            <div className={styles.heroTopBar}>
-              <div className={styles.heroBadgeGroup}>
-                <span className={styles.leadBadge}>
-                  <Zap size={11} className={styles.zapIcon} />
-                  {featuredBlueprint.badge}
-                </span>
-                <span className={styles.categoryTag}>{featuredBlueprint.categoryLabel}</span>
-              </div>
-
-              <div className={styles.readTimeBadge}>
-                <Clock size={11} />
-                <span>{featuredBlueprint.readTime}</span>
-              </div>
-            </div>
-
-            {/* Title & Summary */}
-            <div className={styles.heroTextContent}>
-              <h3 className={styles.heroHeading}>
-                <span>{featuredBlueprint.title}</span>
-                <ArrowUpRight size={19} className={styles.heroArrow} />
-              </h3>
-              <p className={styles.heroSummary}>{featuredBlueprint.summary}</p>
-            </div>
-
-            {/* Streamlined Live Topology Visualizer */}
-            <div className={styles.topologySchematic}>
-              <div className={styles.topologyHeader}>
-                <div className={styles.liveIndicator}>
-                  <div className={styles.topologyStatusDot} />
-                  <span className={styles.topologyLabel}>LIVE LAB TOPOLOGY • DUAL OVERLAY</span>
-                </div>
-                <span className={styles.topologyLiveTag}>99.999% SLA</span>
-              </div>
-
-              <div className={styles.topologyNodesTrack}>
-                {featuredBlueprint.topology.map((node, nIdx) => (
-                  <React.Fragment key={nIdx}>
-                    <div className={styles.topologyNodeBox}>
-                      <div className={styles.nodeIconOrb} style={{ color: node.color }}>
-                        {nIdx === 0 && <RouterIcon />}
-                        {nIdx === 1 && <Server size={16} />}
-                        {nIdx === 2 && <Cloud size={16} />}
-                      </div>
-                      <span className={styles.nodeTitle}>{node.label}</span>
-                      <span className={styles.nodeSub}>{node.sub}</span>
-                    </div>
-
-                    {nIdx < featuredBlueprint.topology.length - 1 && (
-                      <div className={styles.topologyConnector}>
-                        <div className={styles.connectorLine} />
-                        <div className={styles.packetPulse} />
-                        <span className={styles.connectorProtocol}>IPSec BGP</span>
-                      </div>
-                    )}
-                  </React.Fragment>
-                ))}
-              </div>
-            </div>
-
-            {/* Tags */}
-            <div className={styles.tagsTrack}>
-              {featuredBlueprint.tags.map((tag, tIdx) => (
-                <span key={tIdx} className={styles.tagChip}>
-                  {tag}
-                </span>
-              ))}
-            </div>
-
-            {/* Footer */}
-            <div className={styles.heroFooter}>
-              <div className={styles.authorBadge}>
-                <img
-                  src={featuredBlueprint.author.image}
-                  alt={featuredBlueprint.author.name}
-                  className={styles.authorPic}
-                />
-                <div>
-                  <span className={styles.authorName}>{featuredBlueprint.author.name}</span>
-                  <span className={styles.authorCred}>{featuredBlueprint.author.credential}</span>
-                </div>
-              </div>
-
-              <div className={styles.readFullBtn}>
-                <span>Read Blueprint</span>
-                <ArrowRight size={14} />
-              </div>
-            </div>
-          </a>
-
-          {/* RIGHT: 2 CURATED READS */}
-          <div className={styles.sideColumn}>
-            {curatedStories.map((story) => (
+        {/* ================= 2. CLASSIC 3-CARD GRID ================= */}
+        <div className={styles.cardsGrid}>
+          {articles.map((article) => (
+            <article key={article.id} className={styles.cardItem}>
               <a
-                key={story.id}
-                href={story.slug}
+                href={article.slug}
                 target="_blank"
                 rel="noreferrer"
-                className={styles.sideCard}
+                className={styles.cardLink}
               >
-                <div>
-                  <div className={styles.sideCardTop}>
-                    <span className={styles.sideCategoryBadge}>{story.categoryLabel}</span>
-                    <div className={styles.sideReadTime}>
-                      <Clock size={11} />
-                      <span>{story.readTime}</span>
-                    </div>
+                {/* Image Thumbnail with Overlay Badges */}
+                <div className={styles.thumbnailContainer}>
+                  <img
+                    src={article.image}
+                    alt={article.title}
+                    className={styles.thumbnailImg}
+                    loading="lazy"
+                  />
+                  <div className={styles.thumbnailOverlay} />
+
+                  {/* Category Pill */}
+                  <span className={`${styles.categoryBadge} ${styles[`badge_${article.categoryColor}`]}`}>
+                    {article.category}
+                  </span>
+
+                  {/* Read Time */}
+                  <div className={styles.readTimeBadge}>
+                    <Clock size={11} />
+                    <span>{article.readTime}</span>
+                  </div>
+                </div>
+
+                {/* Card Body */}
+                <div className={styles.cardBody}>
+                  <div className={styles.dateMeta}>
+                    <span className={styles.publishDate}>{article.date}</span>
+                    <span className={styles.dotSeparator}>•</span>
+                    <span className={styles.verifiedTag}>Verified CCIE Blueprint</span>
                   </div>
 
-                  <h4 className={styles.sideCardTitle}>
-                    <span>{story.title}</span>
-                    <ArrowUpRight size={16} className={styles.sideArrow} />
-                  </h4>
+                  <h3 className={styles.cardTitle}>
+                    <span>{article.title}</span>
+                    <ArrowUpRight size={17} className={styles.titleArrow} />
+                  </h3>
 
-                  <p className={styles.sideCardSummary}>{story.summary}</p>
+                  <p className={styles.cardSummary}>{article.summary}</p>
 
-                  <div className={styles.tagsTrack}>
-                    {story.tags.map((t, tIdx) => (
+                  {/* Tags */}
+                  <div className={styles.tagsRow}>
+                    {article.tags.map((tag, tIdx) => (
                       <span key={tIdx} className={styles.tagChip}>
-                        {t}
+                        {tag}
                       </span>
                     ))}
                   </div>
-                </div>
 
-                <div className={styles.sideCardFooter}>
-                  <div className={styles.authorBadgeSmall}>
-                    <img
-                      src={story.author.image}
-                      alt={story.author.name}
-                      className={styles.authorPicSmall}
-                    />
-                    <span className={styles.authorNameSmall}>
-                      {story.author.name} • {story.author.credential}
-                    </span>
+                  {/* Author Footer */}
+                  <div className={styles.authorFooter}>
+                    <div className={styles.authorMeta}>
+                      <img
+                        src={article.author.image}
+                        alt={article.author.name}
+                        className={styles.authorAvatar}
+                        loading="lazy"
+                        onError={(e) => {
+                          e.target.style.display = 'none';
+                        }}
+                      />
+                      <div>
+                        <span className={styles.authorName}>{article.author.name}</span>
+                        <span className={styles.authorCredential}>{article.author.credential}</span>
+                      </div>
+                    </div>
+
+                    <div className={styles.readLink}>
+                      <span>Read</span>
+                      <ArrowRight size={13} className={styles.readArrow} />
+                    </div>
                   </div>
-                  <span className={styles.sideReadLink}>Read Guide →</span>
                 </div>
               </a>
-            ))}
-          </div>
+            </article>
+          ))}
         </div>
 
-        {/* ================= 3. MINIMAL CALL-TO-ACTION FOOTER ================= */}
-        <div className={styles.bottomBar}>
-          <div className={styles.bottomBarLeft}>
-            <span className={styles.bottomBarBadge}>KNOWLEDGE HUB</span>
-            <p className={styles.bottomBarText}>
-              Explore 150+ in-depth architecture teardowns, firewall configs, and CCNA/CCNP interview playbooks.
-            </p>
-          </div>
-
+        {/* ================= 3. ELEGANT FOOTER ACTION ================= */}
+        <div className={styles.footerActionRow}>
           <a
             href="https://www.imedita.com/blog/"
             target="_blank"
             rel="noreferrer"
-            className={styles.viewAllBtn}
+            className={styles.exploreAllBtn}
           >
-            <Sparkles size={14} />
-            <span>Explore All 150+ Blueprints</span>
-            <ArrowUpRight size={15} />
+            <Sparkles size={15} />
+            <span>Explore All 150+ Blueprints on I-Medita Blog</span>
+            <ArrowUpRight size={16} />
           </a>
         </div>
       </div>
     </section>
-  );
-}
-
-// Router icon helper
-function RouterIcon() {
-  return (
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <rect x="2" y="7" width="20" height="14" rx="2" ry="2" />
-      <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
-      <circle cx="6" cy="14" r="1" fill="currentColor" />
-      <circle cx="10" cy="14" r="1" fill="currentColor" />
-      <circle cx="14" cy="14" r="1" fill="currentColor" />
-      <circle cx="18" cy="14" r="1" fill="currentColor" />
-    </svg>
   );
 }
 
