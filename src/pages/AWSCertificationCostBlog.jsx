@@ -65,13 +65,13 @@ import styles from './AWSCertificationCostBlog.module.css';
 
 // Sticky Sub-Navbar Items (Zero Emojis, Enterprise Lucide Icons)
 const AWS_STICKY_NAV_ITEMS = [
-  { id: 'quick-answer', label: 'Quick Fees', icon: Zap },
-  { id: 'fees-table', label: '2026 Catalog', icon: BarChart3 },
+  { id: 'quick-answer', label: 'Fees', icon: Zap },
+  { id: 'fees-table', label: 'Catalog', icon: BarChart3 },
   { id: 'cost-in-india', label: 'India & GST', icon: Percent },
   { id: 'cost-calculator', label: 'Calculator', icon: Calculator },
-  { id: 'certification-roadmap', label: 'Career Roadmap', icon: Compass },
-  { id: 'preparation-guide', label: 'Study Blueprint', icon: BookOpen },
-  { id: 'faqs', label: '12 FAQs', icon: HelpCircle }
+  { id: 'certification-roadmap', label: 'Roadmap', icon: Compass },
+  { id: 'preparation-guide', label: 'Study Plan', icon: BookOpen },
+  { id: 'faqs', label: 'FAQs', icon: HelpCircle }
 ];
 
 // Table of Contents Navigation Data

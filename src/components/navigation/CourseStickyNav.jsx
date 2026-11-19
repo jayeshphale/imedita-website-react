@@ -34,12 +34,21 @@ export function CourseStickyNav({
   const isClickScrolling = useRef(false);
   const scrollTimeoutRef = useRef(null);
 
-  // Auto-scroll nav track horizontally on mobile/overflow viewports so active tab is always centered
+  // Auto-scroll nav track horizontally when active tab changes on overflow viewports
   useEffect(() => {
-    if (navTrackRef.current) {
-      const activeEl = navTrackRef.current.querySelector(`.${styles.navLinkActive}`);
+    const track = navTrackRef.current;
+    if (track && track.scrollWidth > track.clientWidth) {
+      const activeEl = track.querySelector(`.${styles.navLinkActive}`);
       if (activeEl) {
-        activeEl.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+        const elLeft = activeEl.offsetLeft;
+        const elWidth = activeEl.offsetWidth;
+        const trackWidth = track.clientWidth;
+        const targetScrollLeft = elLeft - (trackWidth / 2) + (elWidth / 2);
+
+        track.scrollTo({
+          left: Math.max(0, targetScrollLeft),
+          behavior: 'smooth'
+        });
       }
     }
   }, [activeSection]);
