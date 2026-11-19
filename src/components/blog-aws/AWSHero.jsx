@@ -18,7 +18,6 @@ import BlogBreadcrumbs from '../blog-common/BlogBreadcrumbs';
 import styles from './AWSHero.module.css';
 
 const BREADCRUMBS = [
-  { label: 'Home', href: '/' },
   { label: 'Blog', href: '/blog' },
   { label: 'AWS Certification Cost', href: '/blog/aws-certification-cost' }
 ];
@@ -50,7 +49,7 @@ export function AWSHero() {
       <div className={styles.heroContainer}>
         {/* Breadcrumb row */}
         <div className={styles.breadcrumbWrap}>
-          <BlogBreadcrumbs breadcrumbs={BREADCRUMBS} />
+          <BlogBreadcrumbs items={BREADCRUMBS} />
         </div>
 
         {/* 2-Column Split Hero Layout */}
