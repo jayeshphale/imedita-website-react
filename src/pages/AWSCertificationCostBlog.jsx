@@ -39,6 +39,9 @@ import AWSCareerRoles from '../components/blog-aws/AWSCareerRoles';
 import AWSTrainingIMedita from '../components/blog-aws/AWSTrainingIMedita';
 import AWSFinalCTA from '../components/blog-aws/AWSFinalCTA';
 
+// Animation Utilities (Essayist Motion Reference)
+import RevealOnScroll from '../components/blog-common/RevealOnScroll';
+
 import styles from './AWSCertificationCostBlog.module.css';
 
 // Table of Contents Navigation Data
@@ -311,117 +314,155 @@ export function AWSCertificationCostBlog() {
           </div>
 
           {/* SECTION 4: AWS CERTIFICATION OVERVIEW */}
-          <section id="overview" className={styles.contentSection} aria-labelledby="overview-heading">
-            <h2 id="overview-heading" className={styles.sectionH2}>
-              AWS Certification Overview: What You Need to Know
-            </h2>
+          <RevealOnScroll animation="fade-up">
+            <section id="overview" className={styles.contentSection} aria-labelledby="overview-heading">
+              <h2 id="overview-heading" className={styles.sectionH2}>
+                AWS Certification Overview: What You Need to Know
+              </h2>
 
-            <p className={styles.paragraph}>
-              Amazon Web Services (AWS) certifications are industry-recognized credentials that validate an individual's 
-              cloud expertise and technical skills to design, deploy, and operate applications and infrastructure on the world's 
-              most widely adopted cloud platform. As organizations across banking, healthcare, telecom, and enterprise SaaS 
-              continue accelerating their multi-cloud migrations, certified cloud engineers remain in the highest tier of tech demand.
-            </p>
+              <p className={styles.paragraph}>
+                Amazon Web Services (AWS) certifications are industry-recognized credentials that validate an individual's 
+                cloud expertise and technical skills to design, deploy, and operate applications and infrastructure on the world's 
+                most widely adopted cloud platform. As organizations across banking, healthcare, telecom, and enterprise SaaS 
+                continue accelerating their multi-cloud migrations, certified cloud engineers remain in the highest tier of tech demand.
+              </p>
 
-            <h3 className={styles.sectionH3}>Why AWS Certifications Matter in 2026</h3>
-            <p className={styles.paragraph}>
-              According to global cloud employment studies, certified cloud practitioners command 15% to 28% higher base salaries 
-              compared to non-certified peers. More importantly, obtaining an AWS certification demonstrates that your architectural 
-              decisions adhere to AWS best practices—specifically security compliance, fault tolerance, high availability, and 
-              cost efficiency.
-            </p>
-
-            <div className={styles.tiersGrid}>
-              <div className={styles.tierBox}>
-                <h4 className={styles.tierName}>Foundational Tier</h4>
-                <p className={styles.tierDesc}>
-                  Validates overall understanding of AWS Cloud concepts, security, compliance, and billing. Best for beginners, 
-                  product managers, business analysts, and sales leads.
+              {/* Essayist Inspired Editorial Pullquote */}
+              <blockquote className={styles.editorialQuote}>
+                <p className={styles.quoteText}>
+                  “Cloud certifications are not merely credentials for your resume. In real-world enterprise infrastructure, they validate that your architectural decisions prevent outages, withstand security breaches, and eliminate runaway infrastructure costs.”
                 </p>
-                <div className={styles.tierTag}>CLF-C02 • $100 USD</div>
-              </div>
+                <footer className={styles.quoteAuthor}>
+                  — Saurabh Yadav, Triple CCIE #46962 &amp; Enterprise Cloud Advisor
+                </footer>
+              </blockquote>
 
-              <div className={styles.tierBox}>
-                <h4 className={styles.tierName}>Associate Tier</h4>
-                <p className={styles.tierDesc}>
-                  Validates hands-on knowledge of designing and deploying resilient distributed systems, serverless code, 
-                  data pipelines, and generative AI models on AWS.
-                </p>
-                <div className={styles.tierTag}>SAA, DVA, SOA, DEA, MLA • $150 USD</div>
-              </div>
+              <h3 className={styles.sectionH3}>Why AWS Certifications Matter in 2026</h3>
+              <p className={styles.paragraph}>
+                According to global cloud employment studies, certified cloud practitioners command 15% to 28% higher base salaries 
+                compared to non-certified peers. More importantly, obtaining an AWS certification demonstrates that your architectural 
+                decisions adhere to AWS best practices—specifically security compliance, fault tolerance, high availability, and 
+                cost efficiency.
+              </p>
 
-              <div className={styles.tierBox}>
-                <h4 className={styles.tierName}>Professional Tier</h4>
-                <p className={styles.tierDesc}>
-                  Evaluates 2+ years of comprehensive enterprise cloud design, multi-account governance (AWS Organizations), 
-                  hybrid connectivity (Direct Connect), and complex DR strategies.
-                </p>
-                <div className={styles.tierTag}>SAP-C02, DOP-C02 • $300 USD</div>
-              </div>
+              <div className={styles.tiersGrid}>
+                <div className={styles.tierBox}>
+                  <h4 className={styles.tierName}>Foundational Tier</h4>
+                  <p className={styles.tierDesc}>
+                    Validates overall understanding of AWS Cloud concepts, security, compliance, and billing. Best for beginners, 
+                    product managers, business analysts, and sales leads.
+                  </p>
+                  <div className={styles.tierTag}>CLF-C02 • $100 USD</div>
+                </div>
 
-              <div className={styles.tierBox}>
-                <h4 className={styles.tierName}>Specialty Tier</h4>
-                <p className={styles.tierDesc}>
-                  Deep-dive technical validation in specialized security and advanced enterprise networking domains.
-                </p>
-                <div className={styles.tierTag}>ANS-C01, SCS-C02 • $300 USD</div>
+                <div className={styles.tierBox}>
+                  <h4 className={styles.tierName}>Associate Tier</h4>
+                  <p className={styles.tierDesc}>
+                    Validates hands-on knowledge of designing and deploying resilient distributed systems, serverless code, 
+                    data pipelines, and generative AI models on AWS.
+                  </p>
+                  <div className={styles.tierTag}>SAA, DVA, SOA, DEA, MLA • $150 USD</div>
+                </div>
+
+                <div className={styles.tierBox}>
+                  <h4 className={styles.tierName}>Professional Tier</h4>
+                  <p className={styles.tierDesc}>
+                    Evaluates 2+ years of comprehensive enterprise cloud design, multi-account governance (AWS Organizations), 
+                    hybrid connectivity (Direct Connect), and complex DR strategies.
+                  </p>
+                  <div className={styles.tierTag}>SAP-C02, DOP-C02 • $300 USD</div>
+                </div>
+
+                <div className={styles.tierBox}>
+                  <h4 className={styles.tierName}>Specialty Tier</h4>
+                  <p className={styles.tierDesc}>
+                    Deep-dive technical validation in specialized security and advanced enterprise networking domains.
+                  </p>
+                  <div className={styles.tierTag}>ANS-C01, SCS-C02 • $300 USD</div>
+                </div>
               </div>
-            </div>
-          </section>
+            </section>
+          </RevealOnScroll>
 
           {/* SECTION 5: AWS CERTIFICATION EXAM FEES COMPARISON */}
-          <AWSFeesTable />
+          <RevealOnScroll animation="fade-up">
+            <AWSFeesTable />
+          </RevealOnScroll>
 
           {/* SECTION 6: AWS CERTIFICATION COST IN INDIA */}
-          <AWSIndiaPricing />
+          <RevealOnScroll animation="fade-up">
+            <AWSIndiaPricing />
+          </RevealOnScroll>
 
           {/* SECTION 7: ADDITIONAL CERTIFICATION EXPENSES */}
-          <AWSCostBreakdown />
+          <RevealOnScroll animation="fade-up">
+            <AWSCostBreakdown />
+          </RevealOnScroll>
 
           {/* SECTION 8: AWS CERTIFICATION COST CALCULATOR */}
-          <AWSCostCalculator />
+          <RevealOnScroll animation="fade-up">
+            <AWSCostCalculator />
+          </RevealOnScroll>
 
           {/* SECTION 9: AWS CERTIFICATION ROADMAP */}
-          <AWSCertificationRoadmap />
+          <RevealOnScroll animation="fade-up">
+            <AWSCertificationRoadmap />
+          </RevealOnScroll>
 
           {/* SECTION 10: HOW TO PREPARE FOR AWS CERTIFICATION */}
-          <AWSPreparationGuide />
+          <RevealOnScroll animation="fade-up">
+            <AWSPreparationGuide />
+          </RevealOnScroll>
 
           {/* SECTION 11: SELF-STUDY VS INSTRUCTOR-LED TRAINING */}
-          <AWSSelfStudyVsTraining />
+          <RevealOnScroll animation="fade-up">
+            <AWSSelfStudyVsTraining />
+          </RevealOnScroll>
 
           {/* SECTION 12: AWS CERTIFICATION CAREER OPPORTUNITIES */}
-          <AWSCareerRoles />
+          <RevealOnScroll animation="fade-up">
+            <AWSCareerRoles />
+          </RevealOnScroll>
 
           {/* SECTION 13: AWS TRAINING AT I-MEDITA */}
-          <AWSTrainingIMedita onOpenDemo={handleOpenDemo} />
+          <RevealOnScroll animation="scale">
+            <AWSTrainingIMedita onOpenDemo={handleOpenDemo} />
+          </RevealOnScroll>
 
           {/* Author and Technical Reviewer Bios */}
-          <div className={styles.authorsWrapper}>
-            <AuthorBio />
-          </div>
+          <RevealOnScroll animation="fade-up">
+            <div className={styles.authorsWrapper}>
+              <AuthorBio />
+            </div>
+          </RevealOnScroll>
 
           {/* SECTION 14: FREQUENTLY ASKED QUESTIONS */}
-          <section id="faqs" className={styles.contentSection} aria-labelledby="faq-section-heading">
-            <div className={styles.faqHeader}>
-              <span className={styles.faqEyebrow}>Clear Direct Answers</span>
-              <h2 id="faq-section-heading" className={styles.sectionH2}>
-                Frequently Asked Questions About AWS Certification Costs
-              </h2>
-              <p className={styles.paragraph}>
-                Have more questions regarding Pearson VUE booking, retake policies, and exam preparation? 
-                Here are clear, direct answers to the most common queries.
-              </p>
-            </div>
+          <RevealOnScroll animation="fade-up">
+            <section id="faqs" className={styles.contentSection} aria-labelledby="faq-section-heading">
+              <div className={styles.faqHeader}>
+                <span className={styles.faqEyebrow}>Clear Direct Answers</span>
+                <h2 id="faq-section-heading" className={styles.sectionH2}>
+                  Frequently Asked Questions About AWS Certification Costs
+                </h2>
+                <p className={styles.paragraph}>
+                  Have more questions regarding Pearson VUE booking, retake policies, and exam preparation? 
+                  Here are clear, direct answers to the most common queries.
+                </p>
+              </div>
 
-            <FAQAccordion items={AWS_FAQS} />
-          </section>
+              <FAQAccordion items={AWS_FAQS} />
+            </section>
+          </RevealOnScroll>
 
           {/* SECTION 15: RELATED ARTICLES */}
-          <RelatedArticles />
+          <RevealOnScroll animation="fade-up">
+            <RelatedArticles />
+          </RevealOnScroll>
 
           {/* SECTION 16: FINAL CTA */}
-          <AWSFinalCTA onOpenDemo={handleOpenDemo} />
+          <RevealOnScroll animation="scale">
+            <AWSFinalCTA onOpenDemo={handleOpenDemo} />
+          </RevealOnScroll>
         </div>
       </div>
     </main>

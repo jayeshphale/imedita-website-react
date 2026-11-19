@@ -1,0 +1,66 @@
+.revealWrapper {
+  will-change: opacity, transform;
+  transition-property: opacity, transform;
+  transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Fade Up (Default Essayist Motion) */
+.fade-up {
+  opacity: 0;
+  transform: translateY(28px);
+}
+
+.fade-up.isRevealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Fade In */
+.fade-in {
+  opacity: 0;
+}
+
+.fade-in.isRevealed {
+  opacity: 1;
+}
+
+/* Slide Left */
+.slide-left {
+  opacity: 0;
+  transform: translateX(-36px);
+}
+
+.slide-left.isRevealed {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Slide Right */
+.slide-right {
+  opacity: 0;
+  transform: translateX(36px);
+}
+
+.slide-right.isRevealed {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Scale & Pop */
+.scale {
+  opacity: 0;
+  transform: scale(0.95);
+}
+
+.scale.isRevealed {
+  opacity: 1;
+  transform: scale(1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .revealWrapper {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
