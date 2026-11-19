@@ -6,7 +6,7 @@
 .reviewsSection {
   position: relative;
   width: 100%;
-  background-color: #f1f6fa;
+  background-color: #f8fafc;
   padding: 5.5rem 1.5rem 6.5rem;
   border-top: 1px solid #e2e8f0;
   border-bottom: 1px solid #e2e8f0;
@@ -102,12 +102,12 @@
 
 .tickerStage::before {
   top: 0;
-  background: linear-gradient(to bottom, #fafcfe 0%, rgba(250, 252, 254, 0) 100%);
+  background: linear-gradient(to bottom, #f8fafc 0%, rgba(248, 250, 252, 0) 100%);
 }
 
 .tickerStage::after {
   bottom: 0;
-  background: linear-gradient(to top, #fafcfe 0%, rgba(250, 252, 254, 0) 100%);
+  background: linear-gradient(to top, #f8fafc 0%, rgba(248, 250, 252, 0) 100%);
 }
 
 .tickerGrid {
