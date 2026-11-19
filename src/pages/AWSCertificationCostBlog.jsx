@@ -18,14 +18,13 @@ import {
 } from 'lucide-react';
 
 // Common Blog Components
-import BlogBreadcrumbs from '../components/blog-common/BlogBreadcrumbs';
-import BlogMeta from '../components/blog-common/BlogMeta';
 import TableOfContents from '../components/blog-common/TableOfContents';
 import AuthorBio from '../components/blog-common/AuthorBio';
 import FAQAccordion from '../components/blog-common/FAQAccordion';
 import RelatedArticles from '../components/blog-common/RelatedArticles';
 
 // Page-Specific AWS Blog Components
+import AWSHero from '../components/blog-aws/AWSHero';
 import AWSPricingCards from '../components/blog-aws/AWSPricingCards';
 import AWSFeesTable from '../components/blog-aws/AWSFeesTable';
 import AWSIndiaPricing from '../components/blog-aws/AWSIndiaPricing';
@@ -251,12 +250,6 @@ export function AWSCertificationCostBlog() {
     };
   }, []);
 
-  const breadcrumbsList = [
-    { label: 'Home', href: '/' },
-    { label: 'Blog', href: '/blog' },
-    { label: 'AWS Certification Cost', href: '/blog/aws-certification-cost' }
-  ];
-
   return (
     <main className={styles.pageWrapper}>
       {/* Dynamic Slim Reading Progress Bar */}
@@ -269,82 +262,8 @@ export function AWSCertificationCostBlog() {
         aria-valuemax="100"
       />
 
-      {/* SECTION 1: HERO SECTION - Clean, Editorial Magazine Masthead */}
-      <header className={styles.heroSection}>
-        <div className={styles.heroContainer}>
-          <div className={styles.heroBreadcrumbWrap}>
-            <BlogBreadcrumbs breadcrumbs={breadcrumbsList} />
-          </div>
-
-          <div className={styles.heroCenterContent}>
-            <div className={styles.editionBadge}>
-              <span className={styles.editionTag}>2026 EDITION</span>
-              <span className={styles.editionDot}>•</span>
-              <span className={styles.editionSeries}>AWS CLOUD ARCHITECTURE &amp; CAREER BLUEPRINT</span>
-              <span className={styles.editionDot}>•</span>
-              <span className={styles.editionReadTime}>12 MIN READ</span>
-            </div>
-
-            <h1 className={styles.heroH1}>
-              AWS Certification Cost in 2026: Complete Exam Fee Guide
-            </h1>
-
-            <p className={styles.heroLead}>
-              Planning your cloud career roadmap? Here is the definitive, verified breakdown of all 
-              Amazon Web Services (AWS) exam fees, Indian taxation (18% GST), hidden preparation expenses, 
-              and actionable study schedules from CCIE &amp; AWS certified enterprise architects.
-            </p>
-
-            <div className={styles.heroMetaWrap}>
-              <BlogMeta 
-                authorName="Saurabh Yadav"
-                authorRole="Triple CCIE #46962 & Enterprise Networking Lead"
-                reviewerName="Sudhanshu Bhat"
-                reviewerRole="CCIE & Cloud Solutions Architect"
-                publishedDate="November 19, 2026"
-                readTime="12 min read"
-              />
-            </div>
-
-            {/* Quick Metrics Strip */}
-            <div className={styles.heroMetricsStrip}>
-              <div className={styles.metricItem}>
-                <span className={styles.metricVal}>$100 – $300</span>
-                <span className={styles.metricLabel}>Official Global Fees</span>
-              </div>
-              <div className={styles.metricDivider} />
-              <div className={styles.metricItem}>
-                <span className={styles.metricVal}>₹10,150 – ₹30,440</span>
-                <span className={styles.metricLabel}>India (incl. 18% GST)</span>
-              </div>
-              <div className={styles.metricDivider} />
-              <div className={styles.metricItem}>
-                <span className={styles.metricVal}>3 Years</span>
-                <span className={styles.metricLabel}>Active Validity</span>
-              </div>
-              <div className={styles.metricDivider} />
-              <div className={styles.metricItem}>
-                <span className={styles.metricVal}>50% Off</span>
-                <span className={styles.metricLabel}>Loyalty Voucher Benefit</span>
-              </div>
-            </div>
-
-            {/* Quick-Jump Navigation Dock */}
-            <nav className={styles.quickNavDock} aria-label="Quick Jump Menu">
-              <span className={styles.quickNavTitle}>Jump to section:</span>
-              <div className={styles.quickNavChips}>
-                <a href="#quick-answer" className={styles.quickNavChip}>⚡ Quick Fees</a>
-                <a href="#fees-table" className={styles.quickNavChip}>📊 Exam Catalog</a>
-                <a href="#cost-in-india" className={styles.quickNavChip}>🇮🇳 India &amp; GST</a>
-                <a href="#cost-calculator" className={styles.quickNavChip}>🧮 Calculator</a>
-                <a href="#certification-roadmap" className={styles.quickNavChip}>🗺️ Roadmap</a>
-                <a href="#preparation-guide" className={styles.quickNavChip}>📚 Study Blueprint</a>
-                <a href="#faqs" className={styles.quickNavChip}>❓ 12 FAQs</a>
-              </div>
-            </nav>
-          </div>
-        </div>
-      </header>
+      {/* SECTION 1: HERO SECTION - Modern, Professional & Attractive 2-Column Masthead */}
+      <AWSHero />
 
       {/* Main Content Layout with Sticky Sidebar */}
       <div className={styles.layoutContainer}>
