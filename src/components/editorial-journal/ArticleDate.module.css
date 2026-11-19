@@ -1,0 +1,107 @@
+.dateCol {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+  position: relative;
+  flex-shrink: 0;
+  width: 140px;
+}
+
+.dateBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  text-align: right;
+  min-width: 65px;
+}
+
+.monthText {
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-brand-blue, #0c6bf5);
+  line-height: 1.2;
+}
+
+.dayNumber {
+  font-size: 2.75rem;
+  font-weight: 850;
+  color: var(--color-text-heading, #0f172a);
+  line-height: 1;
+  letter-spacing: -0.04em;
+  margin: 0.15rem 0;
+  font-variant-numeric: tabular-nums;
+}
+
+.yearText {
+  font-size: 0.72rem;
+  font-weight: 650;
+  color: #94a3b8;
+  font-family: ui-monospace, monospace;
+}
+
+/* Timeline Node & Spine */
+.timelineTrack {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  align-self: stretch;
+  padding-top: 0.65rem;
+}
+
+.timelineNode {
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  border: 2.5px solid var(--color-brand-blue, #0c6bf5);
+  background: #ffffff;
+  box-shadow: 0 0 0 4px rgba(12, 107, 245, 0.12);
+  z-index: 2;
+  transition: transform 0.25s ease, background-color 0.25s ease;
+}
+
+.dateCol:hover .timelineNode {
+  background: var(--color-brand-blue, #0c6bf5);
+  transform: scale(1.2);
+}
+
+.timelineSpine {
+  position: absolute;
+  top: 1.5rem;
+  bottom: -2.5rem;
+  left: 50%;
+  width: 2px;
+  background: linear-gradient(180deg, #cbd5e1 0%, #e2e8f0 100%);
+  transform: translateX(-50%);
+  z-index: 1;
+}
+
+/* Tablet & Mobile Responsiveness */
+@media (max-width: 860px) {
+  .dateCol {
+    width: auto;
+    gap: 1rem;
+    margin-bottom: 0.85rem;
+  }
+  .dateBlock {
+    flex-direction: row;
+    align-items: baseline;
+    gap: 0.5rem;
+    text-align: left;
+  }
+  .dayNumber {
+    font-size: 1.75rem;
+    margin: 0;
+  }
+  .monthText {
+    font-size: 0.8125rem;
+  }
+  .yearText {
+    font-size: 0.75rem;
+  }
+  .timelineTrack {
+    display: none;
+  }
+}

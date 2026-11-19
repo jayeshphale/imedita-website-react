@@ -12,7 +12,7 @@ import { BatchesSection } from '../components/batches/BatchesSection';
 import { DemoRequestSection } from '../components/demo/DemoRequestSection';
 import { CampusLife } from '../components/campus/CampusLife';
 import { GoogleReviewsSection } from '../components/reviews/GoogleReviewsSection';
-import { LatestBlogsSection } from '../components/blogs/LatestBlogsSection';
+import { EditorialJournalSection } from '../components/editorial-journal/EditorialJournalSection';
 import { AuthorizedPartnersSection } from '../components/partners/AuthorizedPartnersSection';
 
 export function HomePage() {
@@ -52,8 +52,8 @@ export function HomePage() {
       {/* 10. GOOGLE REVIEWS & SOCIAL PROOF */}
       <GoogleReviewsSection />
 
-      {/* 11. KNOWLEDGE BASE & LATEST BLOGS */}
-      <LatestBlogsSection />
+      {/* 11. KNOWLEDGE BASE & LATEST BLOGS (EDITORIAL JOURNAL) */}
+      <EditorialJournalSection />
 
       {/* 12. AUTHORIZED PARTNERS & ACCREDITATIONS */}
       <AuthorizedPartnersSection />
