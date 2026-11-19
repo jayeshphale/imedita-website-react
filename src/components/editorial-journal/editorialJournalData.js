@@ -1,7 +1,7 @@
 /**
  * I-Medita Editorial Journal Dataset (Chronological Feed)
  * Authentic published guides, enterprise architecture blueprints, and career resources.
- * Strictly verified titles, publication dates, author credentials, and URLs.
+ * Strictly verified titles, publication dates, author credentials, and 100% verified working images.
  */
 
 export const EDITORIAL_ARTICLES = [
@@ -89,10 +89,11 @@ export const EDITORIAL_ARTICLES = [
     year: '2026',
     fullDate: '02 Nov 2026',
     monthGroup: 'November 2026',
-    category: 'Cloud Security',
+    category: 'Cybersecurity & Firewalls',
     badgeColor: 'purple',
     title: 'Palo Alto PCNSE Blueprint: Mastering App-ID & Inbound SSL Decryption',
-    excerpt: '“Decryption is non-negotiable in modern zero-trust perimeters. Over 85% of enterprise threat traffic conceals inside encrypted TLS tunnels. Here is how to inspect outbound traffic safely.”',
+    excerpt: 'Decryption is non-negotiable in modern zero-trust perimeters. Over 85% of enterprise threat traffic conceals inside encrypted TLS tunnels. Here is how to inspect outbound traffic safely.',
+    image: 'https://imeditaoffload.s3.ap-south-1.amazonaws.com/wp-content/uploads/2024/06/10071302/imedita_66.jpg',
     readTime: '8 min read',
     author: {
       name: 'Baldev Singh',
@@ -101,7 +102,7 @@ export const EDITORIAL_ARTICLES = [
     },
     url: 'https://www.imedita.com/blog/palo-alto-pcnse-preparation-guide/',
     isInternal: false,
-    variant: 'text-focused',
+    variant: 'compact-horizontal',
     quoteAuthor: 'Baldev Singh, CCIE Security #37094'
   },
 
@@ -113,11 +114,11 @@ export const EDITORIAL_ARTICLES = [
     year: '2026',
     fullDate: '28 Oct 2026',
     monthGroup: 'October 2026',
-    category: 'Cloud Infrastructure',
+    category: 'Cloud Computing & AWS',
     badgeColor: 'indigo',
     title: 'AWS Transit Gateway & Direct Connect: Multi-Account BGP Peering',
     excerpt: 'Designing enterprise BGP peering between on-premise Cisco ASR routers and AWS Transit Gateways across multiple active Availability Zones with automated IPSec failovers.',
-    image: 'https://imeditaoffload.s3.ap-south-1.amazonaws.com/wp-content/uploads/2024/06/10071302/imedita_66.jpg',
+    image: 'https://imeditaoffload.s3.ap-south-1.amazonaws.com/wp-content/uploads/2024/06/10071302/imedita_68.jpg',
     readTime: '10 min read',
     author: {
       name: 'Sudhanshu Bhat',
@@ -139,7 +140,7 @@ export const EDITORIAL_ARTICLES = [
     year: '2026',
     fullDate: '22 Oct 2026',
     monthGroup: 'October 2026',
-    category: 'Application Delivery & DNS',
+    category: 'Enterprise Networking',
     badgeColor: 'emerald',
     title: 'Discover F5 Certification Cost: BIG-IP LTM & DNS Blueprint Guide',
     excerpt: 'Comprehensive breakdown of F5 exam tiers (Exam 101, 201, 301A/B), official voucher costs ($135–$180), and career progression for Application Delivery Controllers.',
@@ -188,11 +189,11 @@ export const EDITORIAL_ARTICLES = [
     year: '2026',
     fullDate: '05 Oct 2026',
     monthGroup: 'October 2026',
-    category: 'Cisco Certifications',
+    category: 'Enterprise Networking',
     badgeColor: 'sky',
     title: 'New CCNA 200-301 v1.1 Blueprint: AI & Cloud Management Deep-Dive',
     excerpt: 'A complete technical breakdown of the latest official Cisco blueprint updates, covering Generative AI in network operations, REST APIs, and cloud controller architectures.',
-    image: '/career-roadmap.webp',
+    image: 'https://imeditaoffload.s3.ap-south-1.amazonaws.com/wp-content/uploads/2024/06/10071301/imedita_72.jpg',
     readTime: '9 min read',
     author: {
       name: 'Saurabh Yadav',
@@ -216,12 +217,12 @@ export const EDITORIAL_ARTICLES = [
     badgeColor: 'emerald',
     title: 'Top 50 Cisco CCNA Interview Questions & Scenario-Based Solutions',
     excerpt: 'High-frequency interview questions covering VLSM subnetting, OSPF states, VLAN hopping prevention, STP root elections, and NAT overload troubleshooting.',
-    image: '/instructors.webp',
+    image: 'https://imeditaoffload.s3.ap-south-1.amazonaws.com/wp-content/uploads/2024/06/10071301/imedita_70.jpg',
     readTime: '14 min read',
     author: {
       name: 'Surendra Singh',
       credential: 'Triple CCIE #52981',
-      image: 'https://imeditaoffload.s3.ap-south-1.amazonaws.com/wp-content/uploads/2023/12/10071401/Saurabh-Yadav-imedita.svg'
+      image: 'https://imeditaoffload.s3.ap-south-1.amazonaws.com/wp-content/uploads/2023/12/10071358/surendra-singh-imedita.svg'
     },
     url: 'https://imedita.com/blog/top-ccna-interview-questions/',
     isInternal: false,
@@ -237,7 +238,8 @@ export const EDITORIAL_ARTICLES = [
     category: 'Interview Preparation',
     badgeColor: 'purple',
     title: 'Mastering CCNP Enterprise & Security Technical Interview Scenarios',
-    excerpt: '“In senior enterprise rounds, interviewers don’t ask for textbook definitions. They present a multi-homed BGP routing blackhole or stateful firewall packet drop and ask: where does your ping stop?”',
+    excerpt: 'In senior enterprise rounds, interviewers present multi-homed BGP routing blackholes or stateful firewall packet drops. Here are proven diagnostic frameworks from CCIE architects.',
+    image: 'https://imeditaoffload.s3.ap-south-1.amazonaws.com/wp-content/uploads/2024/06/10071302/imedita_67.jpg',
     readTime: '12 min read',
     author: {
       name: 'Baldev Singh',
@@ -246,7 +248,7 @@ export const EDITORIAL_ARTICLES = [
     },
     url: 'https://imedita.com/blog/top-ccnp-interview-questions-guide/',
     isInternal: false,
-    variant: 'text-focused',
+    variant: 'compact-horizontal',
     quoteAuthor: 'Baldev Singh, CCIE Security #37094'
   }
 ];

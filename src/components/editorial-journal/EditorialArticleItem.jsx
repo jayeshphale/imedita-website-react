@@ -46,7 +46,8 @@ export function EditorialArticleItem({ article }) {
               loading="lazy" 
               className={styles.featuredImage}
               onError={(e) => {
-                e.target.src = '/server-datacenter-engineer.webp';
+                e.target.onerror = null;
+                e.target.src = '/server-datacenter-engineer.jpg';
               }}
             />
             <div className={styles.imageOverlay} />
@@ -289,7 +290,8 @@ export function EditorialArticleItem({ article }) {
               loading="lazy" 
               className={styles.compactThumbnail}
               onError={(e) => {
-                e.target.src = '/server-datacenter-engineer.webp';
+                e.target.onerror = null;
+                e.target.src = '/server-datacenter-engineer.jpg';
               }}
             />
           </LinkComponent>

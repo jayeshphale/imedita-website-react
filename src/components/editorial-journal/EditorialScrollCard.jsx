@@ -36,12 +36,13 @@ export function EditorialScrollCard({ article, index, total }) {
       <div className={styles.mediaWrap}>
         <LinkComponent {...linkProps} className={styles.imageLink} aria-label={`Read article: ${title}`} tabIndex={-1}>
           <img 
-            src={image} 
+            src={image || '/server-datacenter-engineer.jpg'} 
             alt={title} 
             loading="lazy" 
             className={styles.cardImg}
             onError={(e) => {
-              e.currentTarget.src = '/server-datacenter-engineer.webp';
+              e.currentTarget.onerror = null;
+              e.currentTarget.src = '/server-datacenter-engineer.jpg';
             }}
           />
         </LinkComponent>
