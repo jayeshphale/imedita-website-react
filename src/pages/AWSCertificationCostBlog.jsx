@@ -323,7 +323,7 @@ export function AWSCertificationCostBlog() {
                     <span className={styles.statTag}>Market Dominance</span>
                   </div>
                   <div className={styles.statValue}>31%+</div>
-                  <p className={styles.statLabel}>Global cloud infrastructure market share held by AWS (Synergy Research 2026).</p>
+                  <p className={styles.statLabel}>Global cloud infrastructure market share held by AWS (Synergy 2026).</p>
                 </div>
 
                 <div className={styles.statCard}>
@@ -334,7 +334,7 @@ export function AWSCertificationCostBlog() {
                     <span className={styles.statTag}>ROI &amp; Compensation</span>
                   </div>
                   <div className={styles.statValue}>$155K+</div>
-                  <p className={styles.statLabel}>Average base salary for certified Solutions Architects in enterprise technology.</p>
+                  <p className={styles.statLabel}>Average base salary for certified Solutions Architects in enterprise tech.</p>
                 </div>
 
                 <div className={styles.statCard}>
@@ -346,30 +346,6 @@ export function AWSCertificationCostBlog() {
                   </div>
                   <div className={styles.statValue}>50% OFF</div>
                   <p className={styles.statLabel}>Official discount voucher deposited in your account after passing any AWS exam.</p>
-                </div>
-              </div>
-
-              {/* Visual Certification Roadmap Media Banner */}
-              <div className={styles.certRoadmapBanner}>
-                <div className={styles.bannerHeader}>
-                  <span className={styles.bannerTitle}>Official AWS 2026 Certification Framework</span>
-                  <span className={styles.bannerBadge}>All 4 Tiers Verified</span>
-                </div>
-                <div className={styles.bannerImageWrap}>
-                  <img 
-                    src="https://imeditaoffload.s3.ap-south-1.amazonaws.com/wp-content/uploads/2024/03/10071323/AWS-Certification-Cost-AWS-Certification-Price_-300x139.webp" 
-                    alt="AWS Certification Cost and Price Structure by Tier" 
-                    className={styles.bannerImage}
-                    loading="lazy"
-                    onError={(e) => {
-                      e.target.onerror = null;
-                      e.target.src = '/server-datacenter-engineer.jpg';
-                    }}
-                  />
-                </div>
-                <div className={styles.bannerFooter}>
-                  <span>Standardized Pearson VUE Global Exam Pricing</span>
-                  <span>Pearson VUE Testing Centers + OnVUE Proctored</span>
                 </div>
               </div>
 
@@ -415,85 +391,6 @@ export function AWSCertificationCostBlog() {
                   <p className={styles.whyCertDesc}>
                     ATS filters and enterprise cloud partners mandate active AWS certification numbers for client-facing cloud consulting proposals.
                   </p>
-                </div>
-              </div>
-
-              {/* 4 Tiers Grid with Professional Icons */}
-              <div className={styles.tiersGrid}>
-                {/* 1. Foundational */}
-                <div className={styles.tierBox}>
-                  <div className={styles.tierBoxHeader}>
-                    <div className={styles.tierIconWrap}>
-                      <Compass size={20} aria-hidden="true" />
-                    </div>
-                    <span className={styles.tierTag}>$100 USD • 90 Mins</span>
-                  </div>
-                  <h4 className={styles.tierName}>Foundational Tier</h4>
-                  <p className={styles.tierDesc}>
-                    Validates overall understanding of AWS Cloud concepts, security, compliance, and billing. Best for beginners, 
-                    product managers, business analysts, and sales leads.
-                  </p>
-                  <div className={styles.tierExamPillList}>
-                    <span className={styles.tierExamPill}>CLF-C02 (Cloud Practitioner)</span>
-                  </div>
-                </div>
-
-                {/* 2. Associate */}
-                <div className={styles.tierBox}>
-                  <div className={styles.tierBoxHeader}>
-                    <div className={styles.tierIconWrap}>
-                      <Layers size={20} aria-hidden="true" />
-                    </div>
-                    <span className={styles.tierTag}>$150 USD • 130 Mins</span>
-                  </div>
-                  <h4 className={styles.tierName}>Associate Tier</h4>
-                  <p className={styles.tierDesc}>
-                    Validates hands-on knowledge of designing resilient distributed architectures, serverless microservices, 
-                    data pipelines, and machine learning workflows on AWS.
-                  </p>
-                  <div className={styles.tierExamPillList}>
-                    <span className={styles.tierExamPill}>SAA-C03 (Solutions Architect)</span>
-                    <span className={styles.tierExamPill}>DVA-C02 (Developer)</span>
-                    <span className={styles.tierExamPill}>SOA-C02 (SysOps Admin)</span>
-                    <span className={styles.tierExamPill}>DEA-C01 (Data Engineer)</span>
-                  </div>
-                </div>
-
-                {/* 3. Professional */}
-                <div className={styles.tierBox}>
-                  <div className={styles.tierBoxHeader}>
-                    <div className={styles.tierIconWrap}>
-                      <Award size={20} aria-hidden="true" />
-                    </div>
-                    <span className={styles.tierTag}>$300 USD • 180 Mins</span>
-                  </div>
-                  <h4 className={styles.tierName}>Professional Tier</h4>
-                  <p className={styles.tierDesc}>
-                    Evaluates 2+ years of comprehensive enterprise cloud design, multi-account governance (AWS Organizations), 
-                    hybrid connectivity (Direct Connect), and complex DR strategies.
-                  </p>
-                  <div className={styles.tierExamPillList}>
-                    <span className={styles.tierExamPill}>SAP-C02 (Solutions Architect Pro)</span>
-                    <span className={styles.tierExamPill}>DOP-C02 (DevOps Engineer Pro)</span>
-                  </div>
-                </div>
-
-                {/* 4. Specialty */}
-                <div className={styles.tierBox}>
-                  <div className={styles.tierBoxHeader}>
-                    <div className={styles.tierIconWrap}>
-                      <ShieldCheck size={20} aria-hidden="true" />
-                    </div>
-                    <span className={styles.tierTag}>$300 USD • 170 Mins</span>
-                  </div>
-                  <h4 className={styles.tierName}>Specialty Tier</h4>
-                  <p className={styles.tierDesc}>
-                    Deep-dive technical validation in specialized security perimeters, zero-trust architectures, and advanced enterprise networking domains.
-                  </p>
-                  <div className={styles.tierExamPillList}>
-                    <span className={styles.tierExamPill}>SCS-C02 (Security Specialty)</span>
-                    <span className={styles.tierExamPill}>ANS-C01 (Advanced Networking)</span>
-                  </div>
                 </div>
               </div>
             </section>

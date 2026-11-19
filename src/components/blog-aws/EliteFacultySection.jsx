@@ -1,17 +1,14 @@
 import React from 'react';
-import { Award, Clock, ArrowUpRight, CheckCircle2, ShieldCheck, Sparkles, ExternalLink } from 'lucide-react';
+import { Award, Clock, ArrowUpRight, CheckCircle2 } from 'lucide-react';
 import { trainersData } from '../../data/trainersData';
 import styles from './EliteFacultySection.module.css';
 
-// Show top 6 verified instructors for a cohesive, fast-loading editorial showcase
-const FEATURED_FACULTY = trainersData.slice(0, 6);
+// Show top 4 certified architects for a clean, spacious 4-column layout
+const FEATURED_FACULTY = trainersData.slice(0, 4);
 
 const getTrainerBadge = (trainer) => {
   if (trainer.isTripleCCIE) return 'Triple CCIE';
   if (trainer.credentials.toLowerCase().includes('ccie')) return 'CCIE Certified';
-  if (trainer.id === 'shweta-goswami') return 'Master Trainer';
-  if (trainer.id === 'deep-lepcha') return 'DevOps & Automation';
-  if (trainer.id === 'rahul-kamble') return 'Cloud Architect';
   return 'Senior Specialist';
 };
 
@@ -23,19 +20,18 @@ export default function EliteFacultySection() {
         {/* Header Block */}
         <div className={styles.header}>
           <div className={styles.badgeWrap}>
-            <Award className={styles.badgeIcon} size={15} aria-hidden="true" />
+            <Award size={13} className={styles.badgeIcon} aria-hidden="true" />
             <span>INDUSTRY BENCHMARK MENTORS</span>
           </div>
           <h2 id="faculty-heading" className={styles.title}>
             Elite Faculty
           </h2>
           <p className={styles.subtitle}>
-            Learn directly from dual and triple CCIE certified network architects and enterprise cloud specialists. 
-            Our instructors bring over 10+ years of production datacenter design, perimeter defense, and cloud migration experience.
+            Learn directly from dual and triple CCIE certified architects with 10+ years of production datacenter design, perimeter defense, and cloud migration experience.
           </p>
         </div>
 
-        {/* Faculty Grid */}
+        {/* 4 Clean Faculty Cards */}
         <div className={styles.grid}>
           {FEATURED_FACULTY.map((trainer) => {
             const isTriple = trainer.isTripleCCIE;
@@ -43,7 +39,7 @@ export default function EliteFacultySection() {
 
             return (
               <article key={trainer.id} className={styles.card}>
-                <div className={styles.cardHeader}>
+                <div className={styles.cardTop}>
                   <div className={styles.avatarWrap}>
                     <img
                       src={trainer.imageUrl}
@@ -57,34 +53,29 @@ export default function EliteFacultySection() {
                     />
                     {isTriple && (
                       <span className={styles.verifiedFloatingBadge} title="Triple CCIE Certified">
-                        <Award size={14} className={styles.goldAward} />
+                        <Award size={13} className={styles.goldAward} />
                       </span>
                     )}
                   </div>
 
-                  <div className={styles.infoCol}>
-                    <div className={styles.pillRow}>
-                      <span className={isTriple ? styles.pillTriple : styles.pillExpert}>
-                        <Award size={12} aria-hidden="true" />
-                        <span>{badgeLabel}</span>
-                      </span>
-                      <span className={styles.pillExp}>
-                        <Clock size={12} aria-hidden="true" />
-                        <span>{trainer.experience}</span>
-                      </span>
-                    </div>
-
-                    <h3 className={styles.facultyName}>{trainer.name}</h3>
-                    <p className={styles.credentials}>{trainer.credentials}</p>
+                  <div className={styles.badgePills}>
+                    <span className={isTriple ? styles.pillTriple : styles.pillExpert}>
+                      {badgeLabel}
+                    </span>
+                    <span className={styles.pillExp}>
+                      <Clock size={11} aria-hidden="true" />
+                      {trainer.experience}
+                    </span>
                   </div>
                 </div>
 
+                <h3 className={styles.facultyName}>{trainer.name}</h3>
+                <p className={styles.credentials}>{trainer.credentials}</p>
+
                 <div className={styles.specializationBox}>
-                  <span className={styles.specLabel}>Areas of Expertise:</span>
+                  <span className={styles.specLabel}>Expertise</span>
                   <p className={styles.specText}>{trainer.specialization}</p>
                 </div>
-
-                <p className={styles.bioText}>{trainer.bio}</p>
 
                 <div className={styles.cardFooter}>
                   <a
@@ -93,44 +84,13 @@ export default function EliteFacultySection() {
                     rel="noreferrer"
                     className={styles.profileLink}
                   >
-                    <span>View Verified Profile</span>
-                    <ArrowUpRight size={14} aria-hidden="true" />
+                    <span>View Profile</span>
+                    <ArrowUpRight size={13} aria-hidden="true" />
                   </a>
                 </div>
               </article>
             );
           })}
-        </div>
-
-        {/* Institutional Trust Banner */}
-        <div className={styles.trustBanner}>
-          <div className={styles.trustItem}>
-            <ShieldCheck size={20} className={styles.trustIcon} aria-hidden="true" />
-            <div>
-              <h4 className={styles.trustTitle}>Zero Outsourced Trainers</h4>
-              <p className={styles.trustDesc}>Every batch is mentored directly by in-house full-time CCIE certified architects.</p>
-            </div>
-          </div>
-
-          <div className={styles.trustDivider} aria-hidden="true" />
-
-          <div className={styles.trustItem}>
-            <Award size={20} className={styles.trustIcon} aria-hidden="true" />
-            <div>
-              <h4 className={styles.trustTitle}>1-on-1 Architecture Reviews</h4>
-              <p className={styles.trustDesc}>Direct personal mentorship during weekend lab drills and scenario deconstructions.</p>
-            </div>
-          </div>
-
-          <div className={styles.trustDivider} aria-hidden="true" />
-
-          <div className={styles.trustItem}>
-            <CheckCircle2 size={20} className={styles.trustIcon} aria-hidden="true" />
-            <div>
-              <h4 className={styles.trustTitle}>Verified Cisco Credentials</h4>
-              <p className={styles.trustDesc}>All CCIE numbers publicly verifiable on Cisco's Official Certification Tracking System.</p>
-            </div>
-          </div>
         </div>
 
       </div>

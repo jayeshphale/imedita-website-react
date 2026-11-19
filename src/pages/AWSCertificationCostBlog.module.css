@@ -47,7 +47,8 @@
   min-width: 0;
   display: flex;
   flex-direction: column;
-  gap: 3.5rem; /* Generous breathing room between sections */
+  gap: 3.5rem;
+  /* Generous breathing room between sections */
 }
 
 /* GENERAL SECTION STYLING */
@@ -415,9 +416,11 @@
     gap: 2.5rem;
     padding: 2rem 1rem 4rem;
   }
+
   .sidebarCol {
     display: none;
   }
+
   .mobileTocSection {
     display: block;
     margin: 1rem 0;
@@ -428,6 +431,7 @@
   .sectionH2 {
     font-size: 1.5rem;
   }
+
   .tiersGrid {
     grid-template-columns: 1fr;
   }
