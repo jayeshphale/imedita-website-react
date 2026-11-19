@@ -14,7 +14,13 @@ import {
   ChevronRight,
   TrendingUp,
   Server,
-  Zap
+  Zap,
+  Compass,
+  Award,
+  BarChart3,
+  Percent,
+  DollarSign,
+  Sparkles
 } from 'lucide-react';
 
 // Common Blog Components
@@ -36,6 +42,12 @@ import AWSSelfStudyVsTraining from '../components/blog-aws/AWSSelfStudyVsTrainin
 import AWSCareerRoles from '../components/blog-aws/AWSCareerRoles';
 import AWSTrainingIMedita from '../components/blog-aws/AWSTrainingIMedita';
 import AWSFinalCTA from '../components/blog-aws/AWSFinalCTA';
+
+// Bottom Full-Width Sections
+import BlogRelatedCourses from '../components/blog-aws/BlogRelatedCourses';
+import AuthorizedPartnersSection from '../components/partners/AuthorizedPartnersSection';
+import BlogMediaShowcase from '../components/blog-aws/BlogMediaShowcase';
+import DemoRequestSection from '../components/demo/DemoRequestSection';
 
 // Animation Utilities (Essayist Motion Reference)
 import RevealOnScroll from '../components/blog-common/RevealOnScroll';
@@ -292,11 +304,66 @@ export function AWSCertificationCostBlog() {
               <p className={styles.paragraph}>
                 Amazon Web Services (AWS) certifications are industry-recognized credentials that validate an individual's 
                 cloud expertise and technical skills to design, deploy, and operate applications and infrastructure on the world's 
-                most widely adopted cloud platform. As organizations across banking, healthcare, telecom, and enterprise SaaS 
-                continue accelerating their multi-cloud migrations, certified cloud engineers remain in the highest tier of tech demand.
+                most widely adopted cloud platform.
               </p>
 
-              {/* Essayist Inspired Editorial Pullquote */}
+              {/* Visual Metric Highlights Bar (Breaks up text with scannable data) */}
+              <div className={styles.statsPillGrid}>
+                <div className={styles.statCard}>
+                  <div className={styles.statCardHeader}>
+                    <div className={styles.statIconWrap}>
+                      <BarChart3 size={18} />
+                    </div>
+                    <span className={styles.statTag}>Market Dominance</span>
+                  </div>
+                  <div className={styles.statValue}>31%+</div>
+                  <p className={styles.statLabel}>Global cloud infrastructure market share held by AWS (Synergy 2026).</p>
+                </div>
+
+                <div className={styles.statCard}>
+                  <div className={styles.statCardHeader}>
+                    <div className={styles.statIconWrap}>
+                      <DollarSign size={18} />
+                    </div>
+                    <span className={styles.statTag}>ROI &amp; Compensation</span>
+                  </div>
+                  <div className={styles.statValue}>$155K+</div>
+                  <p className={styles.statLabel}>Average base salary for certified Solutions Architects in enterprise tech.</p>
+                </div>
+
+                <div className={styles.statCard}>
+                  <div className={styles.statCardHeader}>
+                    <div className={styles.statIconWrap}>
+                      <Percent size={18} />
+                    </div>
+                    <span className={styles.statTag}>Exam Benefit</span>
+                  </div>
+                  <div className={styles.statValue}>50% OFF</div>
+                  <p className={styles.statLabel}>Official discount voucher deposited in your account after passing any AWS exam.</p>
+                </div>
+              </div>
+
+              {/* Visual Certification Roadmap Media Banner */}
+              <div className={styles.certRoadmapBanner}>
+                <div className={styles.bannerHeader}>
+                  <span className={styles.bannerTitle}>Official AWS 2026 Certification Framework</span>
+                  <span className={styles.bannerBadge}>All 4 Tiers Verified</span>
+                </div>
+                <div className={styles.bannerImageWrap}>
+                  <img 
+                    src="https://imeditaoffload.s3.ap-south-1.amazonaws.com/wp-content/uploads/2024/03/10071323/AWS-Certification-Cost-AWS-Certification-Price_-300x139.webp" 
+                    alt="AWS Certification Cost and Price Structure by Tier" 
+                    className={styles.bannerImage}
+                    loading="lazy"
+                  />
+                </div>
+                <div className={styles.bannerFooter}>
+                  <span>Standardized USD Pricing: $100 (Foundational) • $150 (Associate) • $300 (Pro &amp; Specialty)</span>
+                  <span>18% GST applicable in India</span>
+                </div>
+              </div>
+
+              {/* Editorial Pullquote */}
               <blockquote className={styles.editorialQuote}>
                 <p className={styles.quoteText}>
                   “Cloud certifications are not merely credentials for your resume. In real-world enterprise infrastructure, they validate that your architectural decisions prevent outages, withstand security breaches, and eliminate runaway infrastructure costs.”
@@ -306,60 +373,87 @@ export function AWSCertificationCostBlog() {
                 </footer>
               </blockquote>
 
-              <h3 className={styles.sectionH3}>Why AWS Certifications Matter in 2026</h3>
+              <h3 className={styles.sectionH3}>Understanding the 4 AWS Certification Tiers</h3>
               <p className={styles.paragraph}>
-                According to global cloud employment studies, certified cloud practitioners command 15% to 28% higher base salaries 
-                compared to non-certified peers. More importantly, obtaining an AWS certification demonstrates that your architectural 
-                decisions adhere to AWS best practices—specifically security compliance, fault tolerance, high availability, and 
-                cost efficiency.
+                AWS organizes its credentials into four structured progression levels based on technical depth, 
+                architectural complexity, and hands-on operational responsibility:
               </p>
 
               <div className={styles.tiersGrid}>
+                {/* 1. Foundational */}
                 <div className={styles.tierBox}>
                   <div className={styles.tierBoxHeader}>
-                    <span className={styles.tierStepBadge}>01</span>
-                    <span className={styles.tierTag}>CLF-C02 • $100 USD</span>
+                    <div className={styles.tierIconWrap}>
+                      <Compass size={20} />
+                    </div>
+                    <span className={styles.tierTag}>$100 USD • 90 Mins</span>
                   </div>
                   <h4 className={styles.tierName}>Foundational Tier</h4>
                   <p className={styles.tierDesc}>
                     Validates overall understanding of AWS Cloud concepts, security, compliance, and billing. Best for beginners, 
                     product managers, business analysts, and sales leads.
                   </p>
+                  <div className={styles.tierExamPillList}>
+                    <span className={styles.tierExamPill}>CLF-C02 (Cloud Practitioner)</span>
+                  </div>
                 </div>
 
+                {/* 2. Associate */}
                 <div className={styles.tierBox}>
                   <div className={styles.tierBoxHeader}>
-                    <span className={styles.tierStepBadge}>02</span>
-                    <span className={styles.tierTag}>Associate • $150 USD</span>
+                    <div className={styles.tierIconWrap}>
+                      <Layers size={20} />
+                    </div>
+                    <span className={styles.tierTag}>$150 USD • 130 Mins</span>
                   </div>
                   <h4 className={styles.tierName}>Associate Tier</h4>
                   <p className={styles.tierDesc}>
-                    Validates hands-on knowledge of designing and deploying resilient distributed systems, serverless code, 
-                    data pipelines, and generative AI models on AWS.
+                    Validates hands-on knowledge of designing resilient distributed architectures, serverless microservices, 
+                    data pipelines, and machine learning workflows on AWS.
                   </p>
+                  <div className={styles.tierExamPillList}>
+                    <span className={styles.tierExamPill}>SAA-C03 (Solutions Architect)</span>
+                    <span className={styles.tierExamPill}>DVA-C02 (Developer)</span>
+                    <span className={styles.tierExamPill}>SOA-C02 (SysOps Admin)</span>
+                    <span className={styles.tierExamPill}>DEA-C01 (Data Engineer)</span>
+                  </div>
                 </div>
 
+                {/* 3. Professional */}
                 <div className={styles.tierBox}>
                   <div className={styles.tierBoxHeader}>
-                    <span className={styles.tierStepBadge}>03</span>
-                    <span className={styles.tierTag}>Professional • $300 USD</span>
+                    <div className={styles.tierIconWrap}>
+                      <Award size={20} />
+                    </div>
+                    <span className={styles.tierTag}>$300 USD • 180 Mins</span>
                   </div>
                   <h4 className={styles.tierName}>Professional Tier</h4>
                   <p className={styles.tierDesc}>
                     Evaluates 2+ years of comprehensive enterprise cloud design, multi-account governance (AWS Organizations), 
                     hybrid connectivity (Direct Connect), and complex DR strategies.
                   </p>
+                  <div className={styles.tierExamPillList}>
+                    <span className={styles.tierExamPill}>SAP-C02 (Solutions Architect Pro)</span>
+                    <span className={styles.tierExamPill}>DOP-C02 (DevOps Engineer Pro)</span>
+                  </div>
                 </div>
 
+                {/* 4. Specialty */}
                 <div className={styles.tierBox}>
                   <div className={styles.tierBoxHeader}>
-                    <span className={styles.tierStepBadge}>04</span>
-                    <span className={styles.tierTag}>Specialty • $300 USD</span>
+                    <div className={styles.tierIconWrap}>
+                      <ShieldCheck size={20} />
+                    </div>
+                    <span className={styles.tierTag}>$300 USD • 170 Mins</span>
                   </div>
                   <h4 className={styles.tierName}>Specialty Tier</h4>
                   <p className={styles.tierDesc}>
-                    Deep-dive technical validation in specialized security and advanced enterprise networking domains.
+                    Deep-dive technical validation in specialized security perimeters, zero-trust architectures, and advanced enterprise networking domains.
                   </p>
+                  <div className={styles.tierExamPillList}>
+                    <span className={styles.tierExamPill}>SCS-C02 (Security Specialty)</span>
+                    <span className={styles.tierExamPill}>ANS-C01 (Advanced Networking)</span>
+                  </div>
                 </div>
               </div>
             </section>
@@ -446,6 +540,27 @@ export function AWSCertificationCostBlog() {
           </RevealOnScroll>
         </div>
       </div>
+
+      {/* ================= POST-BLOG FULL-WIDTH ECOSYSTEM SECTIONS ================= */}
+      {/* 1. Related Certification Courses Cards */}
+      <RevealOnScroll animation="fade-up">
+        <BlogRelatedCourses onOpenDemo={handleOpenDemo} />
+      </RevealOnScroll>
+
+      {/* 2. Official Placement & Enterprise Partners */}
+      <RevealOnScroll animation="fade-up">
+        <AuthorizedPartnersSection />
+      </RevealOnScroll>
+
+      {/* 3. Our Datacenter & Lab Infrastructure Media Gallery */}
+      <RevealOnScroll animation="fade-up">
+        <BlogMediaShowcase />
+      </RevealOnScroll>
+
+      {/* 4. Request for Free Demo & Career Counseling Section */}
+      <RevealOnScroll animation="fade-up">
+        <DemoRequestSection selectedCourse="AWS Certified Solutions Architect Associate" />
+      </RevealOnScroll>
     </main>
   );
 }

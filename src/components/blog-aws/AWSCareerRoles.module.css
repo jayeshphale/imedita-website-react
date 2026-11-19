@@ -182,6 +182,101 @@
   margin-top: 2px;
 }
 
+/* Career Media Banner */
+.careerMediaBanner {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 1.25rem;
+  overflow: hidden;
+  margin: 2.5rem 0;
+  box-shadow: 0 8px 24px -8px rgba(15, 23, 42, 0.06);
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+  .careerMediaBanner {
+    grid-template-columns: 1fr 1.15fr;
+  }
+}
+
+.careerMediaImgWrap {
+  width: 100%;
+  height: 240px;
+  overflow: hidden;
+  background-color: #0b1528;
+}
+
+@media (min-width: 768px) {
+  .careerMediaImgWrap {
+    height: 100%;
+    min-height: 290px;
+  }
+}
+
+.careerMediaImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.careerMediaContent {
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.careerEyebrow {
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: #0c6bf5;
+  text-transform: uppercase;
+  margin-bottom: 0.35rem;
+}
+
+.careerMediaTitle {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #0f172a;
+  line-height: 1.35;
+  margin: 0 0 0.85rem;
+}
+
+.salaryTrackList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.salaryTrackItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.5rem;
+  background-color: #f8fafc;
+  border: 1px solid #f1f5f9;
+}
+
+.salaryRoleName {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #334155;
+}
+
+.salaryPackage {
+  font-size: 0.76rem;
+  font-weight: 800;
+  color: #059669;
+  background-color: #ecfdf5;
+  padding: 0.15rem 0.5rem;
+  border-radius: 9999px;
+  border: 1px solid #a7f3d0;
+}
+
 .realityBox {
   background: #f8fafc;
   border: 1px solid #e2e8f0;
@@ -235,7 +330,102 @@
   .grid {
     grid-template-columns: 1fr;
   }
-  .realityBox {
+  /* Career Media Banner */
+.careerMediaBanner {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 1.25rem;
+  overflow: hidden;
+  margin: 2.5rem 0;
+  box-shadow: 0 8px 24px -8px rgba(15, 23, 42, 0.06);
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+  .careerMediaBanner {
+    grid-template-columns: 1fr 1.15fr;
+  }
+}
+
+.careerMediaImgWrap {
+  width: 100%;
+  height: 240px;
+  overflow: hidden;
+  background-color: #0b1528;
+}
+
+@media (min-width: 768px) {
+  .careerMediaImgWrap {
+    height: 100%;
+    min-height: 290px;
+  }
+}
+
+.careerMediaImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.careerMediaContent {
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.careerEyebrow {
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: #0c6bf5;
+  text-transform: uppercase;
+  margin-bottom: 0.35rem;
+}
+
+.careerMediaTitle {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #0f172a;
+  line-height: 1.35;
+  margin: 0 0 0.85rem;
+}
+
+.salaryTrackList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.salaryTrackItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.5rem;
+  background-color: #f8fafc;
+  border: 1px solid #f1f5f9;
+}
+
+.salaryRoleName {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #334155;
+}
+
+.salaryPackage {
+  font-size: 0.76rem;
+  font-weight: 800;
+  color: #059669;
+  background-color: #ecfdf5;
+  padding: 0.15rem 0.5rem;
+  border-radius: 9999px;
+  border: 1px solid #a7f3d0;
+}
+
+.realityBox {
     flex-direction: column;
     gap: 0.75rem;
   }

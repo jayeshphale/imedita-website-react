@@ -59,6 +59,43 @@ export function AWSIndiaPricing() {
         </p>
       </div>
 
+      {/* Visual Step-by-Step Currency & Tax Flow */}
+      <div className={styles.gstFlowGrid}>
+        <div className={styles.flowStepCard}>
+          <div className={styles.flowStepNum}>STEP 01</div>
+          <div className={styles.flowStepTitle}>Base USD Exam Fee</div>
+          <div className={styles.flowStepValue}>$150 USD</div>
+          <p className={styles.flowStepDesc}>Standard Associate exam fee set globally by AWS.</p>
+        </div>
+
+        <div className={styles.flowStepArrow} aria-hidden="true">→</div>
+
+        <div className={styles.flowStepCard}>
+          <div className={styles.flowStepNum}>STEP 02</div>
+          <div className={styles.flowStepTitle}>INR Conversion</div>
+          <div className={styles.flowStepValue}>₹12,450 – ₹12,900</div>
+          <p className={styles.flowStepDesc}>Based on prevailing daily bank forex rates (~₹83–86/USD).</p>
+        </div>
+
+        <div className={styles.flowStepArrow} aria-hidden="true">→</div>
+
+        <div className={styles.flowStepCard}>
+          <div className={styles.flowStepNum}>STEP 03</div>
+          <div className={styles.flowStepTitle}>+ 18% Indian GST</div>
+          <div className={styles.flowStepValue}>+ ₹2,241 – ₹2,320</div>
+          <p className={styles.flowStepDesc}>Mandatory Indian tax on online exam bookings.</p>
+        </div>
+
+        <div className={styles.flowStepArrow} aria-hidden="true">=</div>
+
+        <div className={`${styles.flowStepCard} ${styles.flowStepTotal}`}>
+          <div className={styles.flowStepNum}>TOTAL PAYABLE</div>
+          <div className={styles.flowStepTitle}>Pearson VUE Checkout</div>
+          <div className={styles.flowStepValueTotal}>₹14,690 – ₹15,220</div>
+          <p className={styles.flowStepDesc}>Final amount charged to your international card.</p>
+        </div>
+      </div>
+
       {/* Tax & Conversion Breakdown Table */}
       <div className={styles.tableCard}>
         <div className={styles.tableCardHeader}>
