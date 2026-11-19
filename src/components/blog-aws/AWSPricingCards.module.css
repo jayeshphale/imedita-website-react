@@ -83,7 +83,7 @@
   padding: 0.35rem;
   border-radius: 12px;
   gap: 0.35rem;
-  overflow-x: auto;
+  flex-wrap: wrap;
   max-width: 100%;
 }
 

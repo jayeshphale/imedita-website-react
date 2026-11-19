@@ -43,58 +43,58 @@
   line-height: 1.6;
 }
 
-/* Tabs - Sleek, Clean, No Scrollbar */
+/* Tabs - Modern Responsive Wrapped Pill Bar (Zero Cut-Off) */
 .tabsList {
   display: flex;
-  gap: 0.5rem;
-  overflow-x: auto;
-  padding-bottom: 0.5rem;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  padding: 0;
   margin-bottom: 2rem;
-  border-bottom: 1.5px solid #e2e8f0;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-}
-
-.tabsList::-webkit-scrollbar {
-  display: none;
+  border-bottom: none;
 }
 
 .tabBtn {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.75rem 1.25rem;
-  font-size: 0.9375rem;
-  font-weight: 600;
-  color: #64748b;
-  background: transparent;
-  border: none;
-  border-bottom: 3px solid transparent;
-  margin-bottom: -2px;
+  padding: 0.65rem 1.15rem;
+  font-size: 0.875rem;
+  font-weight: 650;
+  color: #475569;
+  background: #f8fafc;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 12px;
   cursor: pointer;
   white-space: nowrap;
-  transition: all 0.2s ease;
-  border-radius: 8px 8px 0 0;
+  transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .tabBtn:hover {
-  color: var(--color-brand-blue, #0c6bf5);
-  background: #f8fafc;
+  color: #0f172a;
+  background: #f1f5f9;
+  border-color: #cbd5e1;
+  transform: translateY(-1px);
 }
 
 .tabBtnActive {
-  color: var(--color-brand-blue, #0c6bf5);
-  border-bottom-color: var(--color-brand-blue, #0c6bf5);
-  background: rgba(12, 107, 245, 0.04);
+  color: #ffffff !important;
+  background: #0c6bf5 !important;
+  border-color: #0c6bf5 !important;
+  box-shadow: 0 4px 14px rgba(12, 107, 245, 0.25);
+  font-weight: 750;
+  transform: translateY(-1px);
 }
 
 .tabIcon {
-  width: 18px;
-  height: 18px;
+  width: 16px;
+  height: 16px;
+  color: inherit;
+  flex-shrink: 0;
 }
 
 .tabLabel {
-  font-size: 0.9375rem;
+  font-size: 0.875rem;
+  line-height: 1;
 }
 
 /* Roadmap Panel */
