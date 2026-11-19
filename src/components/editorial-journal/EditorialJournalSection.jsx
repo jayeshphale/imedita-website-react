@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState, useMemo } from 'react';
+import React, { useRef, useEffect, useState, useMemo, useCallback } from 'react';
 import { 
   BookOpen, 
   ChevronLeft, 
@@ -15,8 +15,18 @@ import styles from './EditorialJournalSection.module.css';
 export function EditorialJournalSection() {
   const outerWrapperRef = useRef(null);
   const trackRef = useRef(null);
-  const [translateX, setTranslateX] = useState(0);
-  const [scrollProgress, setScrollProgress] = useState(0);
+  const progressFillRef = useRef(null);
+  const progressValueRef = useRef(null);
+  const prevBtnRef = useRef(null);
+  const nextBtnRef = useRef(null);
+
+  // Cached metrics to eliminate layout thrashing during scroll
+  const metricsRef = useRef({
+    scrollableDistance: 0,
+    maxTranslation: 0,
+    wrapperTop: 0
+  });
+
   const [selectedCategory, setSelectedCategory] = useState('All Insights');
   const [isDesktop, setIsDesktop] = useState(false);
 
@@ -30,11 +40,35 @@ export function EditorialJournalSection() {
     );
   }, [selectedCategory]);
 
+  // Measure and cache dimensions only on resize / filter change (ZERO layout thrashing on scroll)
+  const updateMetrics = useCallback(() => {
+    const desktop = window.innerWidth >= 768;
+    setIsDesktop(desktop);
+
+    if (desktop && outerWrapperRef.current && trackRef.current) {
+      const scrollableDistance = Math.max(
+        1,
+        outerWrapperRef.current.offsetHeight - window.innerHeight
+      );
+
+      // Total track scroll width minus visible track container viewport
+      const trackWidth = trackRef.current.scrollWidth;
+      const visibleWidth = window.innerWidth;
+      const maxTranslation = Math.max(0, trackWidth - visibleWidth + 60);
+
+      metricsRef.current = {
+        scrollableDistance,
+        maxTranslation
+      };
+    }
+  }, []);
+
+  // Set up scroll listener with direct DOM mutation (ZERO React re-renders during scroll)
   useEffect(() => {
-    const checkIsDesktop = () => {
-      setIsDesktop(window.innerWidth >= 768);
-    };
-    checkIsDesktop();
+    updateMetrics();
+
+    // Re-measure after initial layout and image settling
+    const timer = setTimeout(updateMetrics, 200);
 
     let ticking = false;
 
@@ -43,20 +77,32 @@ export function EditorialJournalSection() {
         window.requestAnimationFrame(() => {
           if (window.innerWidth >= 768 && outerWrapperRef.current && trackRef.current) {
             const rect = outerWrapperRef.current.getBoundingClientRect();
-            const scrollableDistance = outerWrapperRef.current.offsetHeight - window.innerHeight;
+            const { scrollableDistance, maxTranslation } = metricsRef.current;
 
             if (scrollableDistance > 0) {
               const currentScroll = -rect.top;
               const progress = Math.min(Math.max(currentScroll / scrollableDistance, 0), 1);
+              const translation = progress * maxTranslation;
 
-              // Calculate max horizontal travel with generous right margin
-              const maxTrackTranslation = Math.max(
-                0,
-                trackRef.current.scrollWidth - window.innerWidth + 40
-              );
+              // 1. Direct hardware-accelerated transform (No React state jank)
+              trackRef.current.style.transform = `translate3d(-${translation.toFixed(1)}px, 0, 0)`;
 
-              setTranslateX(progress * maxTrackTranslation);
-              setScrollProgress(progress * 100);
+              // 2. Direct progress bar update
+              const pct = Math.round(progress * 100);
+              if (progressFillRef.current) {
+                progressFillRef.current.style.width = `${progress * 100}%`;
+              }
+              if (progressValueRef.current) {
+                progressValueRef.current.textContent = `${pct}%`;
+              }
+
+              // 3. Update step button states
+              if (prevBtnRef.current) {
+                prevBtnRef.current.disabled = pct <= 2;
+              }
+              if (nextBtnRef.current) {
+                nextBtnRef.current.disabled = pct >= 98;
+              }
             }
           }
           ticking = false;
@@ -67,22 +113,24 @@ export function EditorialJournalSection() {
 
     window.addEventListener('scroll', handleScroll, { passive: true });
     window.addEventListener('resize', () => {
-      checkIsDesktop();
+      updateMetrics();
       handleScroll();
     });
 
+    // Run initial positioning
     handleScroll();
 
     return () => {
+      clearTimeout(timer);
       window.removeEventListener('scroll', handleScroll);
-      window.removeEventListener('resize', handleScroll);
+      window.removeEventListener('resize', updateMetrics);
     };
-  }, [filteredArticles]);
+  }, [filteredArticles, updateMetrics]);
 
   // Desktop manual step navigation (Prev / Next)
   const handleStepScroll = (direction) => {
     if (outerWrapperRef.current) {
-      const scrollStep = window.innerHeight * 0.45;
+      const scrollStep = window.innerHeight * 0.4;
       window.scrollBy({
         top: direction === 'next' ? scrollStep : -scrollStep,
         behavior: 'smooth'
@@ -107,7 +155,7 @@ export function EditorialJournalSection() {
           <div className={styles.headerBlock}>
             {/* Eyebrow Pill */}
             <div className={styles.eyebrowBadge}>
-              <BookOpen size={14} className={styles.eyebrowIcon} aria-hidden="true" />
+              <BookOpen size={13} className={styles.eyebrowIcon} aria-hidden="true" />
               <span>I-Medita Knowledge Base & Insights</span>
             </div>
 
@@ -153,12 +201,13 @@ export function EditorialJournalSection() {
               <div className={styles.progressContainer}>
                 <div className={styles.progressLabelRow}>
                   <span className={styles.progressLabel}>Reel Progress</span>
-                  <span className={styles.progressValue}>{Math.round(scrollProgress)}%</span>
+                  <span ref={progressValueRef} className={styles.progressValue}>0%</span>
                 </div>
                 <div className={styles.progressBarWrapper}>
                   <div 
+                    ref={progressFillRef}
                     className={styles.progressBarFill}
-                    style={{ width: `${scrollProgress}%` }}
+                    style={{ width: '0%' }}
                   />
                 </div>
               </div>
@@ -166,22 +215,23 @@ export function EditorialJournalSection() {
               {/* Desktop Prev / Next Step Buttons */}
               <div className={styles.navControls}>
                 <button
+                  ref={prevBtnRef}
                   type="button"
                   onClick={() => handleStepScroll('prev')}
                   className={styles.navButton}
                   aria-label="Previous article"
-                  disabled={scrollProgress <= 2}
+                  disabled={true}
                 >
-                  <ChevronLeft size={18} />
+                  <ChevronLeft size={16} />
                 </button>
                 <button
+                  ref={nextBtnRef}
                   type="button"
                   onClick={() => handleStepScroll('next')}
                   className={styles.navButton}
                   aria-label="Next article"
-                  disabled={scrollProgress >= 98}
                 >
-                  <ChevronRight size={18} />
+                  <ChevronRight size={16} />
                 </button>
               </div>
             </div>
@@ -193,9 +243,6 @@ export function EditorialJournalSection() {
           <div
             ref={trackRef}
             className={styles.horizontalTrack}
-            style={{
-              transform: isDesktop ? `translate3d(-${translateX}px, 0, 0)` : 'none'
-            }}
           >
             {filteredArticles.map((article, index) => (
               <EditorialScrollCard

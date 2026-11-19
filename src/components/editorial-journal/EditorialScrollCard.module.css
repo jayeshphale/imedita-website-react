@@ -1,55 +1,49 @@
 /* =========================================================================
    Editorial Scroll Card - Horizontal Reel Article Presentation
-   Design Tokens & System Aligned with I-Medita Tech Education Identity
+   Ultra-Smooth Hardware Accelerated Card (Zero Height Mismatch, Crisp Alignment)
    ========================================================================= */
 
 .card {
-  flex: 0 0 380px;
+  flex: 0 0 360px;
   scroll-snap-align: start;
-  border-radius: 1.25rem;
+  border-radius: 1.15rem;
   background-color: #ffffff;
   border: 1px solid #e2e8f0;
-  box-shadow: 0 10px 30px -10px rgba(15, 23, 42, 0.07);
+  box-shadow: 0 8px 24px -8px rgba(15, 23, 42, 0.06);
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), 
-              box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1),
-              border-color 0.25s ease;
   position: relative;
+  transform: translateZ(0); /* Hardware accelerated composite layer */
+  height: 380px; /* Fixed uniform height so all cards align with zero jitter */
 }
 
 @media (min-width: 1024px) {
   .card {
-    flex: 0 0 400px;
+    flex: 0 0 380px;
+    height: 390px;
   }
 }
 
 .card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 20px 40px -12px rgba(12, 107, 245, 0.14);
-  border-color: #cbd5e1;
+  border-color: #93c5fd;
+  box-shadow: 0 16px 36px -10px rgba(12, 107, 245, 0.12);
 }
 
-/* Special treatment for Featured Article (e.g. AWS Certification Cost) */
+/* Featured Article Accent */
 .cardFeatured {
   border-color: #bfdbfe;
-  box-shadow: 0 12px 36px -10px rgba(12, 107, 245, 0.12);
-}
-
-@media (min-width: 1024px) {
-  .cardFeatured {
-    flex: 0 0 430px;
-  }
+  box-shadow: 0 10px 28px -8px rgba(12, 107, 245, 0.1);
 }
 
 /* Media Wrap & Badges */
 .mediaWrap {
   position: relative;
   width: 100%;
-  height: 195px;
+  height: 165px;
   overflow: hidden;
   background-color: #f1f5f9;
+  flex-shrink: 0;
 }
 
 .imageLink {
@@ -64,31 +58,30 @@
   height: 100%;
   object-fit: cover;
   display: block;
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .card:hover .cardImg {
-  transform: scale(1.05);
+  transform: scale(1.04);
 }
 
 .dateBadge {
   position: absolute;
-  top: 0.85rem;
-  left: 0.85rem;
+  top: 0.75rem;
+  left: 0.75rem;
   display: inline-flex;
   align-items: center;
-  gap: 0.35rem;
-  padding: 0.3rem 0.65rem;
+  gap: 0.3rem;
+  padding: 0.25rem 0.55rem;
   border-radius: 9999px;
-  background-color: rgba(15, 23, 42, 0.82);
-  backdrop-filter: blur(8px);
+  background-color: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(6px);
   color: #ffffff;
-  font-size: 0.68rem;
+  font-size: 0.65rem;
   font-weight: 700;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
   z-index: 2;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
 }
 
 .dateIcon {
@@ -97,41 +90,40 @@
 
 .categoryBadge {
   position: absolute;
-  top: 0.85rem;
-  right: 0.85rem;
+  top: 0.75rem;
+  right: 0.75rem;
   display: inline-flex;
   align-items: center;
-  padding: 0.3rem 0.65rem;
+  padding: 0.25rem 0.55rem;
   border-radius: 9999px;
-  background-color: rgba(255, 255, 255, 0.92);
-  backdrop-filter: blur(8px);
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(6px);
   color: #0c6bf5;
-  font-size: 0.65rem;
+  font-size: 0.62rem;
   font-weight: 700;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
-  border: 1px solid rgba(191, 219, 254, 0.8);
+  border: 1px solid rgba(191, 219, 254, 0.9);
   z-index: 2;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
 .featuredBadge {
   position: absolute;
-  bottom: 0.85rem;
-  left: 0.85rem;
+  bottom: 0.75rem;
+  left: 0.75rem;
   display: inline-flex;
   align-items: center;
-  gap: 0.35rem;
-  padding: 0.28rem 0.65rem;
+  gap: 0.3rem;
+  padding: 0.24rem 0.55rem;
   border-radius: 9999px;
   background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
   color: #ffffff;
-  font-size: 0.65rem;
+  font-size: 0.62rem;
   font-weight: 700;
   letter-spacing: 0.04em;
   text-transform: uppercase;
   z-index: 2;
-  box-shadow: 0 4px 12px rgba(217, 119, 6, 0.35);
+  box-shadow: 0 2px 8px rgba(217, 119, 6, 0.35);
 }
 
 .featuredIcon {
@@ -140,24 +132,25 @@
 
 /* Card Body */
 .cardBody {
-  padding: 1.35rem 1.4rem;
+  padding: 1.1rem 1.25rem 1rem;
   display: flex;
   flex-direction: column;
   flex: 1;
+  min-height: 0;
 }
 
 .metaRow {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 0.6rem;
+  margin-bottom: 0.45rem;
 }
 
 .readTime {
   display: inline-flex;
   align-items: center;
-  gap: 0.35rem;
-  font-size: 0.72rem;
+  gap: 0.3rem;
+  font-size: 0.7rem;
   font-weight: 600;
   color: #64748b;
 }
@@ -167,19 +160,19 @@
 }
 
 .indexCounter {
-  font-size: 0.7rem;
+  font-size: 0.68rem;
   font-weight: 700;
   color: #94a3b8;
   font-variant-numeric: tabular-nums;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
 }
 
 .cardTitle {
-  font-size: 1.08rem;
+  font-size: 1.02rem;
   font-weight: 700;
-  line-height: 1.35;
+  line-height: 1.32;
   color: #0f172a;
-  margin: 0 0 0.55rem;
+  margin: 0 0 0.4rem;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
@@ -197,61 +190,42 @@
 }
 
 .cardExcerpt {
-  font-size: 0.84rem;
+  font-size: 0.81rem;
   color: #64748b;
-  line-height: 1.52;
-  margin: 0 0 0.85rem;
+  line-height: 1.48;
+  margin: 0 0 0.5rem;
   display: -webkit-box;
-  -webkit-line-clamp: 3;
+  -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
 
 /* Highlights */
 .highlightList {
-  list-style: none;
-  padding: 0;
-  margin: 0 0 1rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.35rem;
-}
-
-.highlightItem {
-  display: flex;
-  align-items: flex-start;
-  gap: 0.4rem;
-  font-size: 0.76rem;
-  color: #334155;
-  line-height: 1.4;
-}
-
-.bulletDot {
-  color: #0c6bf5;
-  font-weight: 900;
+  display: none; /* Hidden on horizontal reel for uniform card height */
 }
 
 /* Card Footer */
 .cardFooter {
   margin-top: auto;
-  padding-top: 0.95rem;
+  padding-top: 0.75rem;
   border-top: 1px solid #f1f5f9;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 0.75rem;
+  gap: 0.65rem;
 }
 
 .authorCapsule {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.45rem;
   min-width: 0;
 }
 
 .authorAvatar {
-  width: 28px;
-  height: 28px;
+  width: 26px;
+  height: 26px;
   border-radius: 9999px;
   object-fit: cover;
   background-color: #e2e8f0;
@@ -260,8 +234,8 @@
 }
 
 .authorFallback {
-  width: 28px;
-  height: 28px;
+  width: 26px;
+  height: 26px;
   border-radius: 9999px;
   background-color: #eff6ff;
   color: #0c6bf5;
@@ -278,7 +252,7 @@
 }
 
 .authorName {
-  font-size: 0.76rem;
+  font-size: 0.74rem;
   font-weight: 700;
   color: #0f172a;
   white-space: nowrap;
@@ -287,23 +261,23 @@
 }
 
 .authorCredential {
-  font-size: 0.65rem;
+  font-size: 0.62rem;
   color: #64748b;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  max-width: 140px;
+  max-width: 130px;
 }
 
 .ctaButton {
   display: inline-flex;
   align-items: center;
-  gap: 0.35rem;
-  padding: 0.45rem 0.85rem;
+  gap: 0.3rem;
+  padding: 0.4rem 0.75rem;
   border-radius: 9999px;
   background-color: #eff6ff;
   color: #0c6bf5;
-  font-size: 0.74rem;
+  font-size: 0.72rem;
   font-weight: 700;
   text-decoration: none;
   transition: all 0.2s ease;
@@ -326,74 +300,82 @@
 }
 
 /* =========================================================================
-   Archive Card (Dedicated Final Card in Horizontal Stream)
+   Archive Card (Uniform Height in Horizontal Stream)
    ========================================================================= */
 
 .archiveCard {
   background: linear-gradient(145deg, #0b1528 0%, #1e293b 100%);
-  border: 1px solid rgba(56, 189, 248, 0.22);
+  border: 1px solid rgba(56, 189, 248, 0.25);
   color: #ffffff;
-  box-shadow: 0 16px 40px -10px rgba(11, 21, 40, 0.35);
+  box-shadow: 0 12px 32px -8px rgba(11, 21, 40, 0.4);
 }
 
 .archiveInner {
-  padding: 2rem 1.75rem;
+  padding: 1.5rem 1.4rem;
   display: flex;
   flex-direction: column;
   height: 100%;
 }
 
 .archiveIconWrap {
-  width: 52px;
-  height: 52px;
-  border-radius: 1rem;
-  background: rgba(12, 107, 245, 0.16);
-  border: 1px solid rgba(56, 189, 248, 0.3);
+  width: 44px;
+  height: 44px;
+  border-radius: 0.85rem;
+  background: rgba(12, 107, 245, 0.2);
+  border: 1px solid rgba(56, 189, 248, 0.35);
   display: flex;
   align-items: center;
   justify-content: center;
   color: #38bdf8;
-  margin-bottom: 1.25rem;
+  margin-bottom: 0.85rem;
 }
 
 .archiveEyebrow {
-  font-size: 0.68rem;
+  font-size: 0.65rem;
   font-weight: 800;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.12em;
   color: #38bdf8;
   text-transform: uppercase;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.35rem;
 }
 
 .archiveTitle {
-  font-size: 1.25rem;
+  font-size: 1.12rem;
   font-weight: 800;
-  line-height: 1.3;
+  line-height: 1.28;
   color: #ffffff;
-  margin: 0 0 0.75rem;
+  margin: 0 0 0.5rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .archiveExcerpt {
-  font-size: 0.84rem;
+  font-size: 0.78rem;
   color: #94a3b8;
-  line-height: 1.55;
-  margin: 0 0 1.25rem;
+  line-height: 1.45;
+  margin: 0 0 0.85rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .archiveTags {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.4rem;
-  margin-bottom: 1.5rem;
+  gap: 0.35rem;
+  margin-bottom: 1rem;
 }
 
 .archiveTag {
-  padding: 0.25rem 0.55rem;
-  border-radius: 0.5rem;
+  padding: 0.2rem 0.45rem;
+  border-radius: 0.4rem;
   background-color: rgba(255, 255, 255, 0.08);
   border: 1px solid rgba(255, 255, 255, 0.12);
   color: #cbd5e1;
-  font-size: 0.68rem;
+  font-size: 0.64rem;
   font-weight: 600;
 }
 
@@ -401,30 +383,30 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
-  padding: 0.75rem 1.25rem;
+  gap: 0.45rem;
+  padding: 0.65rem 1.15rem;
   border-radius: 9999px;
   background: linear-gradient(135deg, #0c6bf5 0%, #0284c7 100%);
   color: #ffffff;
-  font-size: 0.84rem;
+  font-size: 0.8rem;
   font-weight: 700;
   text-decoration: none;
-  box-shadow: 0 8px 24px -6px rgba(12, 107, 245, 0.5);
+  box-shadow: 0 6px 20px -4px rgba(12, 107, 245, 0.45);
   transition: all 0.2s ease;
   margin-top: auto;
 }
 
 .archiveCtaButton:hover {
   transform: translateY(-2px);
-  box-shadow: 0 12px 28px -6px rgba(12, 107, 245, 0.65);
+  box-shadow: 0 10px 24px -4px rgba(12, 107, 245, 0.6);
 }
 
 .archiveStats {
   display: flex;
   align-items: center;
-  gap: 1rem;
-  margin-top: 1rem;
-  font-size: 0.68rem;
+  gap: 0.85rem;
+  margin-top: 0.75rem;
+  font-size: 0.65rem;
   color: #64748b;
   font-weight: 600;
 }
@@ -432,47 +414,42 @@
 /* Mobile Responsiveness */
 @media (max-width: 767px) {
   .card {
-    flex: 0 0 295px;
+    flex: 0 0 290px;
+    height: 350px;
     border-radius: 1rem;
   }
 
   .mediaWrap {
-    height: 160px;
+    height: 150px;
   }
 
   .cardBody {
-    padding: 1rem;
+    padding: 0.95rem;
   }
 
   .cardTitle {
-    font-size: 0.98rem;
-    margin-bottom: 0.4rem;
-    line-height: 1.3;
+    font-size: 0.95rem;
+    margin-bottom: 0.35rem;
   }
 
   .cardExcerpt {
-    font-size: 0.78rem;
-    line-height: 1.45;
-    -webkit-line-clamp: 2;
-    margin-bottom: 0.6rem;
-  }
-
-  .highlightList {
-    display: none;
+    font-size: 0.76rem;
+    line-height: 1.4;
   }
 
   .cardFooter {
-    padding-top: 0.65rem;
+    padding-top: 0.6rem;
   }
 
   .ctaButton {
-    padding: 0.35rem 0.75rem;
-    font-size: 0.7rem;
+    padding: 0.32rem 0.65rem;
+    font-size: 0.68rem;
   }
 }
 
 @media (max-width: 360px) {
   .card {
-    flex: 0 0 265px;
+    flex: 0 0 260px;
+    height: 340px;
   }
 }
