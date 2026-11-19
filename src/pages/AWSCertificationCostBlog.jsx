@@ -21,7 +21,6 @@ import {
 import BlogBreadcrumbs from '../components/blog-common/BlogBreadcrumbs';
 import BlogMeta from '../components/blog-common/BlogMeta';
 import TableOfContents from '../components/blog-common/TableOfContents';
-import ShareButtons from '../components/blog-common/ShareButtons';
 import AuthorBio from '../components/blog-common/AuthorBio';
 import FAQAccordion from '../components/blog-common/FAQAccordion';
 import RelatedArticles from '../components/blog-common/RelatedArticles';
@@ -352,9 +351,6 @@ export function AWSCertificationCostBlog() {
         {/* Left Sticky Table of Contents (Desktop) */}
         <aside className={styles.sidebarCol}>
           <TableOfContents items={TOC_ITEMS} />
-          <div className={styles.sidebarShare}>
-            <ShareButtons url={pageUrl} title={pageTitle} />
-          </div>
         </aside>
 
         {/* Center Main Article Body */}
