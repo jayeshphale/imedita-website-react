@@ -50,6 +50,7 @@ import AWSFinalCTA from '../components/blog-aws/AWSFinalCTA';
 import { PopularCourses } from '../components/courses/PopularCourses';
 import { TrainersSection } from '../components/trainers/TrainersSection';
 import { BatchesSection } from '../components/batches/BatchesSection';
+import { WhyChooseUs } from '../components/whychoose/WhyChooseUs';
 import { CampusLife } from '../components/campus/CampusLife';
 import { GoogleReviewsSection } from '../components/reviews/GoogleReviewsSection';
 import { AuthorizedPartnersSection } from '../components/partners/AuthorizedPartnersSection';
@@ -486,19 +487,22 @@ export function AWSCertificationCostBlog() {
       {/* 2. INDUSTRY BENCHMARK MENTORS / Elite CCIE Faculty */}
       <TrainersSection />
 
-      {/* 3. Upcoming Live Batches */}
+      {/* 3. CLASSROOM & LIVE ONLINE SCHEDULES / Upcoming Live Batches */}
       <BatchesSection onOpenDemo={(course) => handleOpenDemo(course)} />
 
-      {/* 4. Campus & Lab Facilities (Interactive Datacenter & Lab Life) */}
+      {/* 4. EXPERIENCE I-MEDITA EXCELLENCE / Why Choose Us */}
+      <WhyChooseUs />
+
+      {/* 5. Campus & Lab Facilities (Interactive Datacenter & Lab Life) */}
       <CampusLife />
 
-      {/* 5. 4.8 / 5.0 Google Reviews & Testimonials */}
+      {/* 6. 4.8 / 5.0 Google Reviews & Testimonials */}
       <GoogleReviewsSection />
 
-      {/* 6. Authorized Partners & Placement Alliances */}
+      {/* 7. Authorized Partners & Placement Alliances */}
       <AuthorizedPartnersSection />
 
-      {/* 7. Book Free Demo Class CTA Form */}
+      {/* 8. Book Free Demo Class CTA Form */}
       <DemoRequestSection selectedCourse={selectedCourse} />
     </main>
   );
