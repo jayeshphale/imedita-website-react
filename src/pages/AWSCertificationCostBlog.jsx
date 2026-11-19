@@ -20,7 +20,10 @@ import {
   BarChart3,
   Percent,
   DollarSign,
-  Sparkles
+  Sparkles,
+  ShieldAlert,
+  Building2,
+  FileText
 } from 'lucide-react';
 
 // Common Blog Components
@@ -43,11 +46,14 @@ import AWSCareerRoles from '../components/blog-aws/AWSCareerRoles';
 import AWSTrainingIMedita from '../components/blog-aws/AWSTrainingIMedita';
 import AWSFinalCTA from '../components/blog-aws/AWSFinalCTA';
 
-// Bottom Full-Width Sections
-import BlogRelatedCourses from '../components/blog-aws/BlogRelatedCourses';
-import AuthorizedPartnersSection from '../components/partners/AuthorizedPartnersSection';
-import BlogMediaShowcase from '../components/blog-aws/BlogMediaShowcase';
-import DemoRequestSection from '../components/demo/DemoRequestSection';
+// 7 Post-Blog Institutional Showcase Sections (Strict Order Specified by Prompt)
+import OfficialTrainingCatalog from '../components/blog-aws/OfficialTrainingCatalog';
+import EliteFacultySection from '../components/blog-aws/EliteFacultySection';
+import UpcomingLiveBatches from '../components/blog-aws/UpcomingLiveBatches';
+import ExperienceExcellenceSection from '../components/blog-aws/ExperienceExcellenceSection';
+import CampusLabFacilitiesSection from '../components/blog-aws/CampusLabFacilitiesSection';
+import RatingsVerifiedReviews from '../components/blog-aws/RatingsVerifiedReviews';
+import PlacementAlliancesSection from '../components/blog-aws/PlacementAlliancesSection';
 
 // Animation Utilities (Essayist Motion Reference)
 import RevealOnScroll from '../components/blog-common/RevealOnScroll';
@@ -307,34 +313,34 @@ export function AWSCertificationCostBlog() {
                 most widely adopted cloud platform.
               </p>
 
-              {/* Visual Metric Highlights Bar (Breaks up text with scannable data) */}
+              {/* Visual Metric Highlights Bar */}
               <div className={styles.statsPillGrid}>
                 <div className={styles.statCard}>
                   <div className={styles.statCardHeader}>
                     <div className={styles.statIconWrap}>
-                      <BarChart3 size={18} />
+                      <BarChart3 size={18} aria-hidden="true" />
                     </div>
                     <span className={styles.statTag}>Market Dominance</span>
                   </div>
                   <div className={styles.statValue}>31%+</div>
-                  <p className={styles.statLabel}>Global cloud infrastructure market share held by AWS (Synergy 2026).</p>
+                  <p className={styles.statLabel}>Global cloud infrastructure market share held by AWS (Synergy Research 2026).</p>
                 </div>
 
                 <div className={styles.statCard}>
                   <div className={styles.statCardHeader}>
                     <div className={styles.statIconWrap}>
-                      <DollarSign size={18} />
+                      <DollarSign size={18} aria-hidden="true" />
                     </div>
                     <span className={styles.statTag}>ROI &amp; Compensation</span>
                   </div>
                   <div className={styles.statValue}>$155K+</div>
-                  <p className={styles.statLabel}>Average base salary for certified Solutions Architects in enterprise tech.</p>
+                  <p className={styles.statLabel}>Average base salary for certified Solutions Architects in enterprise technology.</p>
                 </div>
 
                 <div className={styles.statCard}>
                   <div className={styles.statCardHeader}>
                     <div className={styles.statIconWrap}>
-                      <Percent size={18} />
+                      <Percent size={18} aria-hidden="true" />
                     </div>
                     <span className={styles.statTag}>Exam Benefit</span>
                   </div>
@@ -355,15 +361,19 @@ export function AWSCertificationCostBlog() {
                     alt="AWS Certification Cost and Price Structure by Tier" 
                     className={styles.bannerImage}
                     loading="lazy"
+                    onError={(e) => {
+                      e.target.onerror = null;
+                      e.target.src = '/server-datacenter-engineer.jpg';
+                    }}
                   />
                 </div>
                 <div className={styles.bannerFooter}>
-                  <span>Standardized USD Pricing: $100 (Foundational) • $150 (Associate) • $300 (Pro &amp; Specialty)</span>
-                  <span>18% GST applicable in India</span>
+                  <span>Standardized Pearson VUE Global Exam Pricing</span>
+                  <span>Pearson VUE Testing Centers + OnVUE Proctored</span>
                 </div>
               </div>
 
-              {/* Editorial Pullquote */}
+              {/* Essayist Inspired Editorial Pullquote */}
               <blockquote className={styles.editorialQuote}>
                 <p className={styles.quoteText}>
                   “Cloud certifications are not merely credentials for your resume. In real-world enterprise infrastructure, they validate that your architectural decisions prevent outages, withstand security breaches, and eliminate runaway infrastructure costs.”
@@ -373,18 +383,48 @@ export function AWSCertificationCostBlog() {
                 </footer>
               </blockquote>
 
-              <h3 className={styles.sectionH3}>Understanding the 4 AWS Certification Tiers</h3>
-              <p className={styles.paragraph}>
-                AWS organizes its credentials into four structured progression levels based on technical depth, 
-                architectural complexity, and hands-on operational responsibility:
-              </p>
+              <h3 className={styles.sectionH3}>Why AWS Certifications Matter in 2026</h3>
+              
+              {/* 3 Scannable Visual Cards replacing dense paragraphs */}
+              <div className={styles.whyCertGrid}>
+                <div className={styles.whyCertCard}>
+                  <div className={styles.whyCertIconWrap}>
+                    <ShieldCheck size={20} aria-hidden="true" />
+                  </div>
+                  <h4 className={styles.whyCertTitle}>Architectural Authority</h4>
+                  <p className={styles.whyCertDesc}>
+                    Validates adherence to the 6 pillars of the AWS Well-Architected Framework: Reliability, Security, Cost, Performance, Operations, and Sustainability.
+                  </p>
+                </div>
 
+                <div className={styles.whyCertCard}>
+                  <div className={styles.whyCertIconWrap}>
+                    <TrendingUp size={20} aria-hidden="true" />
+                  </div>
+                  <h4 className={styles.whyCertTitle}>15% to 28% Salary Premium</h4>
+                  <p className={styles.whyCertDesc}>
+                    Certified engineers command significant salary leverage during hiring and promotions across major MNCs and cloud consulting firms.
+                  </p>
+                </div>
+
+                <div className={styles.whyCertCard}>
+                  <div className={styles.whyCertIconWrap}>
+                    <Zap size={20} aria-hidden="true" />
+                  </div>
+                  <h4 className={styles.whyCertTitle}>Recruiter Priority Screening</h4>
+                  <p className={styles.whyCertDesc}>
+                    ATS filters and enterprise cloud partners mandate active AWS certification numbers for client-facing cloud consulting proposals.
+                  </p>
+                </div>
+              </div>
+
+              {/* 4 Tiers Grid with Professional Icons */}
               <div className={styles.tiersGrid}>
                 {/* 1. Foundational */}
                 <div className={styles.tierBox}>
                   <div className={styles.tierBoxHeader}>
                     <div className={styles.tierIconWrap}>
-                      <Compass size={20} />
+                      <Compass size={20} aria-hidden="true" />
                     </div>
                     <span className={styles.tierTag}>$100 USD • 90 Mins</span>
                   </div>
@@ -402,7 +442,7 @@ export function AWSCertificationCostBlog() {
                 <div className={styles.tierBox}>
                   <div className={styles.tierBoxHeader}>
                     <div className={styles.tierIconWrap}>
-                      <Layers size={20} />
+                      <Layers size={20} aria-hidden="true" />
                     </div>
                     <span className={styles.tierTag}>$150 USD • 130 Mins</span>
                   </div>
@@ -423,7 +463,7 @@ export function AWSCertificationCostBlog() {
                 <div className={styles.tierBox}>
                   <div className={styles.tierBoxHeader}>
                     <div className={styles.tierIconWrap}>
-                      <Award size={20} />
+                      <Award size={20} aria-hidden="true" />
                     </div>
                     <span className={styles.tierTag}>$300 USD • 180 Mins</span>
                   </div>
@@ -442,7 +482,7 @@ export function AWSCertificationCostBlog() {
                 <div className={styles.tierBox}>
                   <div className={styles.tierBoxHeader}>
                     <div className={styles.tierIconWrap}>
-                      <ShieldCheck size={20} />
+                      <ShieldCheck size={20} aria-hidden="true" />
                     </div>
                     <span className={styles.tierTag}>$300 USD • 170 Mins</span>
                   </div>
@@ -534,32 +574,47 @@ export function AWSCertificationCostBlog() {
             <RelatedArticles />
           </RevealOnScroll>
 
-          {/* SECTION 16: FINAL CTA */}
+          {/* SECTION 16: FINAL BLOG CTA */}
           <RevealOnScroll animation="scale">
             <AWSFinalCTA onOpenDemo={handleOpenDemo} />
           </RevealOnScroll>
         </div>
       </div>
 
-      {/* ================= POST-BLOG FULL-WIDTH ECOSYSTEM SECTIONS ================= */}
-      {/* 1. Related Certification Courses Cards */}
+      {/* ================= 7 POST-BLOG INSTITUTIONAL SHOWCASE SECTIONS (EXACT ORDER) ================= */}
+      {/* 1. Official Training Catalog */}
       <RevealOnScroll animation="fade-up">
-        <BlogRelatedCourses onOpenDemo={handleOpenDemo} />
+        <OfficialTrainingCatalog onOpenDemo={handleOpenDemo} />
       </RevealOnScroll>
 
-      {/* 2. Official Placement & Enterprise Partners */}
+      {/* 2. Elite Faculty */}
       <RevealOnScroll animation="fade-up">
-        <AuthorizedPartnersSection />
+        <EliteFacultySection />
       </RevealOnScroll>
 
-      {/* 3. Our Datacenter & Lab Infrastructure Media Gallery */}
+      {/* 3. Upcoming Live Batches */}
       <RevealOnScroll animation="fade-up">
-        <BlogMediaShowcase />
+        <UpcomingLiveBatches onOpenDemo={handleOpenDemo} />
       </RevealOnScroll>
 
-      {/* 4. Request for Free Demo & Career Counseling Section */}
+      {/* 4. EXPERIENCE I-MEDITA EXCELLENCE */}
       <RevealOnScroll animation="fade-up">
-        <DemoRequestSection selectedCourse="AWS Certified Solutions Architect Associate" />
+        <ExperienceExcellenceSection />
+      </RevealOnScroll>
+
+      {/* 5. Campus & Lab Facilities */}
+      <RevealOnScroll animation="fade-up">
+        <CampusLabFacilitiesSection />
+      </RevealOnScroll>
+
+      {/* 6. Ratings and Verified Reviews (4.8 / 5.0 – 1,200+ Verified Reviews) */}
+      <RevealOnScroll animation="fade-up">
+        <RatingsVerifiedReviews />
+      </RevealOnScroll>
+
+      {/* 7. Placement Alliances */}
+      <RevealOnScroll animation="fade-up">
+        <PlacementAlliancesSection onOpenDemo={handleOpenDemo} />
       </RevealOnScroll>
     </main>
   );

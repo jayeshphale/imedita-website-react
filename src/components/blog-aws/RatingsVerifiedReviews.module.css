@@ -1,0 +1,257 @@
+.section {
+  padding: 6rem 1.5rem;
+  background-color: #ffffff;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+@media (min-width: 768px) {
+  .section {
+    padding: 7.5rem 2rem;
+  }
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.header {
+  text-align: center;
+  max-width: 820px;
+  margin: 0 auto 3.5rem;
+}
+
+.googlePill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.625rem;
+  padding: 0.5rem 1.125rem;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 9999px;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.05);
+  margin-bottom: 1.25rem;
+}
+
+.ratingValue {
+  font-size: 0.9375rem;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.starsRow {
+  display: flex;
+  align-items: center;
+  gap: 0.125rem;
+}
+
+.ratingCount {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: #64748b;
+  border-left: 1px solid #e2e8f0;
+  padding-left: 0.625rem;
+}
+
+.title {
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 768px) {
+  .title {
+    font-size: 2.75rem;
+  }
+}
+
+.subtitle {
+  font-size: 1.0625rem;
+  color: #475569;
+  line-height: 1.65;
+  margin-bottom: 0;
+}
+
+/* Reviews Grid */
+.reviewsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.75rem;
+  margin-bottom: 3rem;
+}
+
+@media (min-width: 768px) {
+  .reviewsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1120px) {
+  .reviewsGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.reviewCard {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 1.25rem;
+  padding: 1.875rem;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.reviewCard:hover {
+  transform: translateY(-4px);
+  background: #ffffff;
+  border-color: #cbd5e1;
+  box-shadow: 0 16px 32px -4px rgba(15, 23, 42, 0.08);
+}
+
+.cardTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.authorGroup {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+}
+
+.avatarInitials {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #0c6bf5;
+  color: #ffffff;
+  font-size: 0.875rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.authorName {
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 0.125rem;
+}
+
+.authorPlaced {
+  font-size: 0.75rem;
+  color: #64748b;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.companyName {
+  color: #0c6bf5;
+  font-weight: 700;
+}
+
+.cardStars {
+  display: flex;
+  align-items: center;
+  gap: 0.125rem;
+  flex-shrink: 0;
+}
+
+.quoteWrap {
+  position: relative;
+  margin-bottom: 1.25rem;
+  flex-grow: 1;
+}
+
+.quoteIcon {
+  color: #cbd5e1;
+  margin-bottom: 0.5rem;
+  opacity: 0.7;
+}
+
+.reviewText {
+  font-size: 0.875rem;
+  color: #334155;
+  line-height: 1.6;
+  margin: 0;
+  font-style: italic;
+}
+
+.cardBottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 1rem;
+  border-top: 1px solid #e2e8f0;
+  font-size: 0.75rem;
+}
+
+.courseTag {
+  font-weight: 600;
+  color: #0369a1;
+  background: #e0f2fe;
+  padding: 0.2rem 0.5rem;
+  border-radius: 9999px;
+}
+
+.timeTag {
+  color: #94a3b8;
+  font-weight: 500;
+}
+
+/* Verification Bar */
+.verificationBar {
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  border-radius: 1rem;
+  padding: 1.25rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@media (min-width: 768px) {
+  .verificationBar {
+    flex-direction: row;
+  }
+}
+
+.verifiedBadge {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  font-size: 0.84375rem;
+  font-weight: 600;
+  color: #334155;
+}
+
+.verifiedIcon {
+  color: #10b981;
+  flex-shrink: 0;
+}
+
+.googleSearchLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  font-size: 0.84375rem;
+  font-weight: 600;
+  color: #0c6bf5;
+  text-decoration: none;
+}
+
+.googleSearchLink:hover {
+  color: #0952be;
+  text-decoration: underline;
+}

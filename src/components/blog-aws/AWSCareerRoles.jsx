@@ -156,45 +156,6 @@ export default function AWSCareerRoles() {
           })}
         </div>
 
-        {/* Real Classroom Lecture Media Feature & Salary Milestones */}
-        <div className={styles.careerMediaBanner}>
-          <div className={styles.careerMediaImgWrap}>
-            <img 
-              src="https://imeditaoffload.s3.ap-south-1.amazonaws.com/wp-content/uploads/2024/06/10071301/imedita_72.jpg" 
-              alt="Interactive CCIE & AWS Architecture Lectures at I-Medita Pune"
-              className={styles.careerMediaImg}
-              loading="lazy"
-              onError={(e) => {
-                e.currentTarget.onerror = null;
-                e.currentTarget.src = '/server-datacenter-engineer.jpg';
-              }}
-            />
-          </div>
-
-          <div className={styles.careerMediaContent}>
-            <span className={styles.careerEyebrow}>2026 Industry Compensation Trends</span>
-            <h3 className={styles.careerMediaTitle}>Indian Cloud &amp; Infrastructure Salary Milestones</h3>
-            <div className={styles.salaryTrackList}>
-              <div className={styles.salaryTrackItem}>
-                <span className={styles.salaryRoleName}>Associate Cloud Support / SysOps (0–2 yrs)</span>
-                <span className={styles.salaryPackage}>₹4.5 – ₹7.5 LPA</span>
-              </div>
-              <div className={styles.salaryTrackItem}>
-                <span className={styles.salaryRoleName}>Certified Solutions Architect (2–5 yrs)</span>
-                <span className={styles.salaryPackage}>₹9.0 – ₹16.0 LPA</span>
-              </div>
-              <div className={styles.salaryTrackItem}>
-                <span className={styles.salaryRoleName}>Senior Cloud DevOps / SRE Lead (5–8 yrs)</span>
-                <span className={styles.salaryPackage}>₹18.0 – ₹28.0 LPA</span>
-              </div>
-              <div className={styles.salaryTrackItem}>
-                <span className={styles.salaryRoleName}>Principal Enterprise Multi-Cloud Architect (8+ yrs)</span>
-                <span className={styles.salaryPackage}>₹32.0 – ₹50.0+ LPA</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
         {/* Realistic Industry Reality Check */}
         <div className={styles.realityBox}>
           <AlertCircle className={styles.alertIcon} aria-hidden="true" />

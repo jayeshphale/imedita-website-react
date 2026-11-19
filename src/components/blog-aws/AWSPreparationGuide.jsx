@@ -124,37 +124,6 @@ export default function AWSPreparationGuide() {
           })}
         </div>
 
-        {/* Real Datacenter Lab Media Feature */}
-        <div className={styles.labMediaBanner}>
-          <div className={styles.labMediaImgWrap}>
-            <img 
-              src="https://imeditaoffload.s3.ap-south-1.amazonaws.com/wp-content/uploads/2024/06/10071301/imedita_71.jpg" 
-              alt="Hands-On Datacenter Lab Practice at I-Medita Pune"
-              className={styles.labMediaImg}
-              loading="lazy"
-              onError={(e) => {
-                e.currentTarget.onerror = null;
-                e.currentTarget.src = '/server-datacenter-engineer.jpg';
-              }}
-            />
-          </div>
-
-          <div className={styles.labMediaContent}>
-            <span className={styles.labEyebrow}>Hands-On Architecture Drills</span>
-            <h3 className={styles.labTitle}>Why Textbook Reading Fails Without Real Lab Troubleshooting</h3>
-            <p className={styles.labDesc}>
-              Scenario questions on AWS Associate &amp; Professional exams don't ask for definitions. 
-              They ask why a private EC2 instance cannot pull Docker images through a NAT Gateway or why an ALB target group fails health checks. 
-              Real hands-on practice builds the architectural intuition required to clear on attempt one.
-            </p>
-            <div className={styles.labChips}>
-              <span className={styles.labChip}>✓ Multi-AZ VPC Peering</span>
-              <span className={styles.labChip}>✓ Hybrid Direct Connect</span>
-              <span className={styles.labChip}>✓ S3 Cross-Region Replication</span>
-            </div>
-          </div>
-        </div>
-
         {/* Study Plans Timelines */}
         <div className={styles.timelinesSection}>
           <div className={styles.subHeader}>
