@@ -1,0 +1,339 @@
+.section {
+  padding: 4.5rem 0;
+  background-color: #f8fafc;
+  border-top: 1px solid var(--color-border-subtle, #e2e8f0);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.header {
+  text-align: center;
+  max-width: 820px;
+  margin: 0 auto 3rem;
+}
+
+.eyebrow {
+  display: inline-block;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-brand-blue, #0c6bf5);
+  background: rgba(12, 107, 245, 0.08);
+  padding: 0.35rem 0.85rem;
+  border-radius: 9999px;
+  margin-bottom: 0.75rem;
+}
+
+.title {
+  font-size: 2.125rem;
+  font-weight: 800;
+  color: var(--color-text-heading, #0f172a);
+  line-height: 1.25;
+  margin-bottom: 1rem;
+}
+
+.subtitle {
+  font-size: 1.0625rem;
+  color: var(--color-text-body, #475569);
+  line-height: 1.6;
+}
+
+/* 3 Pillars */
+.pillarsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 3.5rem;
+}
+
+.pillarCard {
+  background: #ffffff;
+  border: 1px solid var(--color-border-subtle, #e2e8f0);
+  border-radius: 16px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.pillarCard:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px -8px rgba(15, 23, 42, 0.08);
+}
+
+.pillarIconWrap {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: rgba(12, 107, 245, 0.08);
+  color: var(--color-brand-blue, #0c6bf5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+}
+
+.pillarIcon {
+  width: 24px;
+  height: 24px;
+}
+
+.pillarTitle {
+  font-size: 1.1875rem;
+  font-weight: 700;
+  color: var(--color-text-heading, #0f172a);
+  margin-bottom: 0.85rem;
+  line-height: 1.35;
+}
+
+.pillarDesc {
+  font-size: 0.9375rem;
+  color: var(--color-text-body, #475569);
+  line-height: 1.6;
+  margin-bottom: 1.25rem;
+}
+
+.checklist {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  margin-top: auto;
+  border-top: 1px solid #f1f5f9;
+  padding-top: 1rem;
+}
+
+.checkItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  font-size: 0.875rem;
+  color: #334155;
+  line-height: 1.5;
+}
+
+.checkDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-brand-blue, #0c6bf5);
+  margin-top: 7px;
+  flex-shrink: 0;
+}
+
+/* Timelines */
+.timelinesSection {
+  margin-bottom: 3.5rem;
+}
+
+.subHeader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  margin-bottom: 2rem;
+}
+
+.subHeaderIcon {
+  width: 24px;
+  height: 24px;
+  color: var(--color-brand-blue, #0c6bf5);
+}
+
+.subTitle {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.timelinesGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.planCard {
+  background: #ffffff;
+  border: 1px solid var(--color-border-subtle, #e2e8f0);
+  border-radius: 16px;
+  padding: 2rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.planPopular {
+  border-color: var(--color-brand-blue, #0c6bf5);
+  box-shadow: 0 10px 30px -8px rgba(12, 107, 245, 0.15);
+}
+
+.popularBadge {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #0c6bf5;
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  box-shadow: 0 4px 10px rgba(12, 107, 245, 0.3);
+}
+
+.badgeFire {
+  width: 13px;
+  height: 13px;
+}
+
+.planHeader {
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid #f1f5f9;
+  padding-bottom: 1.25rem;
+}
+
+.planTitle {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 0.35rem;
+}
+
+.planTarget {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #64748b;
+  margin-bottom: 0.65rem;
+}
+
+.planHours {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: #0c6bf5;
+}
+
+.clockIcon {
+  width: 14px;
+  height: 14px;
+}
+
+.weekSteps {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.weekStep {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+}
+
+.weekNum {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #0c6bf5;
+  margin-bottom: 0.25rem;
+}
+
+.weekFocus {
+  font-size: 0.8125rem;
+  color: #334155;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Exam Day Tips */
+.examDayTips {
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  border-radius: 18px;
+  padding: 2.25rem;
+  color: #ffffff;
+  display: flex;
+  gap: 1.75rem;
+  align-items: flex-start;
+}
+
+.tipsIconWrap {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: rgba(56, 189, 248, 0.15);
+  color: #38bdf8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.tipsIcon {
+  width: 24px;
+  height: 24px;
+}
+
+.tipsContent {
+  flex: 1;
+}
+
+.tipsTitle {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #f8fafc;
+  margin-bottom: 1.25rem;
+}
+
+.tipsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+}
+
+.tipItem {
+  font-size: 0.875rem;
+  color: #cbd5e1;
+  line-height: 1.6;
+}
+
+.tipItem strong {
+  color: #ffffff;
+}
+
+@media (max-width: 1024px) {
+  .pillarsGrid {
+    grid-template-columns: 1fr;
+  }
+  .timelinesGrid {
+    grid-template-columns: 1fr;
+  }
+  .tipsGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .section {
+    padding: 3rem 0;
+  }
+  .title {
+    font-size: 1.625rem;
+  }
+  .examDayTips {
+    flex-direction: column;
+    padding: 1.5rem;
+  }
+}

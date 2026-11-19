@@ -1,0 +1,373 @@
+.quickAnswerSection {
+  margin: 2.5rem 0 4rem;
+}
+
+/* Direct Answer Callout (AEO Optimized) */
+.directAnswerCallout {
+  background: linear-gradient(180deg, #f0fdf4 0%, #ffffff 100%);
+  border: 2px solid #86efac;
+  border-radius: 18px;
+  padding: 1.85rem 2rem;
+  box-shadow: 0 4px 20px rgba(5, 150, 105, 0.06);
+  margin-bottom: 2.5rem;
+}
+
+.calloutHeader {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.calloutIconBox {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: #dcfce7;
+  color: #15803d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border: 1px solid #bbf7d0;
+}
+
+.calloutEyebrow {
+  display: block;
+  font-family: ui-monospace, SFMono-Regular, monospace;
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: #15803d;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 0.2rem;
+}
+
+.calloutTitle {
+  font-size: clamp(1.3rem, 2.2vw, 1.75rem);
+  font-weight: 850;
+  color: #064e3b;
+  margin: 0;
+  letter-spacing: -0.025em;
+}
+
+.calloutBody {
+  font-size: 1.02rem;
+  line-height: 1.68;
+  color: #1e293b;
+  margin: 0 0 1.25rem;
+}
+
+.calloutTaxNote {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  padding: 0.85rem 1.15rem;
+  font-size: 0.86rem;
+  line-height: 1.55;
+  color: #334155;
+}
+
+.infoIcon {
+  color: #0c6bf5;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* 4-Column Cards Grid */
+.cardsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.35rem;
+  margin-bottom: 2.5rem;
+}
+
+.priceCard {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: #ffffff;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 18px;
+  padding: 1.65rem 1.4rem;
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.03);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.priceCard:hover {
+  transform: translateY(-4px);
+  border-color: #93c5fd;
+  box-shadow: 0 16px 36px -8px rgba(12, 107, 245, 0.14);
+}
+
+.popularCard {
+  border-color: #0c6bf5 !important;
+  box-shadow: 0 8px 30px -4px rgba(12, 107, 245, 0.16) !important;
+  background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+}
+
+.popularBadge {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: linear-gradient(135deg, #0c6bf5 0%, #0284c7 100%);
+  color: #ffffff;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  padding: 0.22rem 0.75rem;
+  border-radius: 9999px;
+  box-shadow: 0 4px 12px rgba(12, 107, 245, 0.35);
+  white-space: nowrap;
+}
+
+.tierTopRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.85rem;
+}
+
+.badge {
+  font-size: 0.7rem;
+  font-weight: 750;
+  padding: 0.18rem 0.55rem;
+  border-radius: 9999px;
+  text-transform: uppercase;
+}
+
+.badgeCyan {
+  background: #ecfeff;
+  color: #0891b2;
+  border: 1px solid #a5f3fc;
+}
+
+.badgeBlue {
+  background: #eff6ff;
+  color: #0c6bf5;
+  border: 1px solid #bfdbfe;
+}
+
+.badgePurple {
+  background: #faf5ff;
+  color: #7c3aed;
+  border: 1px solid #e9d5ff;
+}
+
+.badgeOrange {
+  background: #fff7ed;
+  color: #ea580c;
+  border: 1px solid #fed7aa;
+}
+
+.examCodes {
+  font-family: ui-monospace, monospace;
+  font-size: 0.68rem;
+  color: #94a3b8;
+  font-weight: 600;
+}
+
+.tierLevel {
+  font-size: 1.15rem;
+  font-weight: 850;
+  color: #0f172a;
+  letter-spacing: -0.02em;
+  margin: 0 0 0.35rem;
+}
+
+.examTitle {
+  font-size: 0.82rem;
+  color: #64748b;
+  margin: 0;
+  line-height: 1.4;
+  font-weight: 550;
+  min-height: 38px;
+}
+
+/* Price Box */
+.priceContainer {
+  margin: 1.25rem 0 1.1rem;
+  padding: 1rem 1.15rem;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+}
+
+.priceRow {
+  display: flex;
+  align-items: baseline;
+  gap: 0.35rem;
+  margin-bottom: 0.2rem;
+}
+
+.priceUSD {
+  font-size: 2rem;
+  font-weight: 850;
+  color: #0f172a;
+  line-height: 1;
+}
+
+.pricePeriod {
+  font-size: 0.74rem;
+  color: #64748b;
+  font-weight: 550;
+}
+
+.priceINRContext {
+  display: block;
+  font-family: ui-monospace, monospace;
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: #059669;
+}
+
+/* Specs */
+.specsList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  padding: 0.75rem 0;
+  border-top: 1px dashed #e2e8f0;
+  border-bottom: 1px dashed #e2e8f0;
+  margin-bottom: 1rem;
+}
+
+.specItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.76rem;
+}
+
+.specLabel {
+  color: #64748b;
+  font-weight: 550;
+}
+
+.specVal {
+  color: #0f172a;
+  font-weight: 750;
+}
+
+.tierDesc {
+  font-size: 0.82rem;
+  line-height: 1.55;
+  color: #475569;
+  margin: 0 0 1.25rem;
+}
+
+.cardFooter {
+  padding-top: 0.85rem;
+  border-top: 1px solid #f1f5f9;
+}
+
+.audienceLabel {
+  display: block;
+  font-size: 0.68rem;
+  font-weight: 750;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.25rem;
+}
+
+.audienceText {
+  font-size: 0.76rem;
+  line-height: 1.45;
+  color: #334155;
+  margin: 0;
+  font-weight: 600;
+}
+
+/* 50% Discount Tip Banner */
+.discountTipBanner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  background: #ffffff;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 1.4rem 1.75rem;
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.03);
+}
+
+.tipLeft {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  max-width: 820px;
+}
+
+.tipIcon {
+  color: #ea580c;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.tipTitle {
+  font-size: 1.02rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0 0 0.35rem;
+}
+
+.tipText {
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: #475569;
+  margin: 0;
+}
+
+.jumpTableBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.65rem 1.25rem;
+  background: #0c6bf5;
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  font-family: inherit;
+  font-size: 0.84rem;
+  font-weight: 750;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+.jumpTableBtn:hover {
+  background: #0957c7;
+  box-shadow: 0 4px 12px rgba(12, 107, 245, 0.3);
+}
+
+@media (max-width: 1100px) {
+  .cardsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .cardsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .discountTipBanner {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .jumpTableBtn {
+    width: 100%;
+    justify-content: center;
+  }
+}

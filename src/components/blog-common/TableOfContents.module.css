@@ -1,0 +1,202 @@
+.tocWrapper {
+  position: relative;
+  width: 100%;
+}
+
+/* Mobile Accordion Button */
+.mobileToggleBtn {
+  display: none;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.85rem 1.15rem;
+  background: #ffffff;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 12px;
+  color: #0f172a;
+  font-family: inherit;
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+  transition: all 0.2s ease;
+}
+
+.mobileToggleLeft {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.tocIcon {
+  color: #0c6bf5;
+}
+
+.itemsCountBadge {
+  font-size: 0.72rem;
+  font-weight: 650;
+  color: #64748b;
+  background: #f1f5f9;
+  padding: 0.15rem 0.5rem;
+  border-radius: 9999px;
+}
+
+.chevron {
+  color: #64748b;
+  transition: transform 0.25s ease;
+}
+
+.chevronOpen {
+  transform: rotate(180deg);
+}
+
+/* Desktop TOC Card */
+.tocCard {
+  background: #ffffff;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 1.35rem 1.25rem;
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.03);
+  max-height: calc(100vh - 120px);
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #cbd5e1 transparent;
+}
+
+.tocCard::-webkit-scrollbar {
+  width: 5px;
+}
+
+.tocCard::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+
+.desktopTocHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 0.85rem;
+  margin-bottom: 0.85rem;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.headerLeft {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.tocTitle {
+  font-size: 0.88rem;
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+}
+
+.sectionsCount {
+  font-size: 0.72rem;
+  color: #64748b;
+  font-weight: 600;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  padding: 0.15rem 0.5rem;
+  border-radius: 9999px;
+}
+
+.tocList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.tocItem {
+  margin: 0;
+}
+
+.tocSubItem {
+  padding-left: 0.85rem;
+}
+
+.tocLink {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.45rem;
+  padding: 0.45rem 0.65rem;
+  border-radius: 8px;
+  color: #475569;
+  font-size: 0.82rem;
+  font-weight: 550;
+  line-height: 1.4;
+  text-decoration: none;
+  transition: all 0.18s ease;
+  border-left: 2px solid transparent;
+}
+
+.itemNumber {
+  color: #94a3b8;
+  font-size: 0.75rem;
+  font-family: ui-monospace, monospace;
+  font-weight: 600;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.itemText {
+  flex: 1;
+}
+
+.tocLink:hover {
+  color: #0c6bf5;
+  background: #f8fafc;
+}
+
+.tocLinkActive {
+  color: #0c6bf5 !important;
+  font-weight: 750 !important;
+  background: #eff6ff !important;
+  border-left-color: #0c6bf5 !important;
+}
+
+.tocLinkActive .itemNumber {
+  color: #0c6bf5;
+}
+
+/* Mobile Breakpoint */
+@media (max-width: 1024px) {
+  .mobileToggleBtn {
+    display: flex;
+    margin-bottom: 0.5rem;
+  }
+
+  .desktopTocHeader {
+    display: none;
+  }
+
+  .tocCard {
+    display: none;
+    max-height: 380px;
+    padding: 0.85rem;
+    border-radius: 12px;
+  }
+
+  .tocCardMobileOpen {
+    display: block;
+    animation: slideDown 0.22s ease-out;
+  }
+
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}

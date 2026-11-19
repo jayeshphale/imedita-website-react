@@ -1,0 +1,141 @@
+.metaContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  padding: 1.15rem 1.35rem;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.03);
+  margin-bottom: 2rem;
+}
+
+.creatorsGroup {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+}
+
+.personCard {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.personAvatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1.5px solid #0c6bf5;
+  background: #e2e8f0;
+  flex-shrink: 0;
+}
+
+.personDetails {
+  display: flex;
+  flex-direction: column;
+}
+
+.personLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.verifiedIcon {
+  color: #059669;
+}
+
+.personName {
+  font-size: 0.88rem;
+  font-weight: 750;
+  color: #0f172a;
+  line-height: 1.2;
+}
+
+.personCredential {
+  font-size: 0.72rem;
+  color: #0c6bf5;
+  font-weight: 650;
+}
+
+.metaDivider {
+  width: 1px;
+  height: 34px;
+  background-color: #e2e8f0;
+}
+
+.timeMetaGroup {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  font-size: 0.78rem;
+  color: #64748b;
+}
+
+.timeMetaItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.timeIcon {
+  color: #94a3b8;
+}
+
+.bulletSeparator {
+  color: #cbd5e1;
+}
+
+.verifiedBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.2rem 0.55rem;
+  border-radius: 9999px;
+  background: #ecfdf5;
+  border: 1px solid #a7f3d0;
+  color: #059669;
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.checkIcon {
+  color: #059669;
+}
+
+@media (max-width: 768px) {
+  .metaContainer {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  .metaDivider {
+    display: none;
+  }
+
+  .creatorsGroup {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.85rem;
+    width: 100%;
+  }
+
+  .timeMetaGroup {
+    padding-top: 0.85rem;
+    border-top: 1px solid #f1f5f9;
+    width: 100%;
+  }
+}

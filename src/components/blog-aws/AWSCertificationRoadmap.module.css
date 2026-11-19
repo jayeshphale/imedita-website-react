@@ -1,0 +1,272 @@
+.section {
+  padding: 4.5rem 0;
+  background-color: #ffffff;
+  border-top: 1px solid var(--color-border-subtle, #e2e8f0);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.header {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 3rem;
+}
+
+.eyebrow {
+  display: inline-block;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-brand-blue, #0c6bf5);
+  background: rgba(12, 107, 245, 0.08);
+  padding: 0.35rem 0.85rem;
+  border-radius: 9999px;
+  margin-bottom: 0.75rem;
+}
+
+.title {
+  font-size: 2.125rem;
+  font-weight: 800;
+  color: var(--color-text-heading, #0f172a);
+  line-height: 1.25;
+  margin-bottom: 1rem;
+}
+
+.subtitle {
+  font-size: 1.0625rem;
+  color: var(--color-text-body, #475569);
+  line-height: 1.6;
+}
+
+/* Tabs */
+.tabsList {
+  display: flex;
+  gap: 0.5rem;
+  overflow-x: auto;
+  padding-bottom: 0.75rem;
+  margin-bottom: 2rem;
+  border-bottom: 2px solid #e2e8f0;
+  scrollbar-width: thin;
+}
+
+.tabBtn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.25rem;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: #64748b;
+  background: transparent;
+  border: none;
+  border-bottom: 3px solid transparent;
+  margin-bottom: -2px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+  border-radius: 8px 8px 0 0;
+}
+
+.tabBtn:hover {
+  color: var(--color-brand-blue, #0c6bf5);
+  background: #f8fafc;
+}
+
+.tabBtnActive {
+  color: var(--color-brand-blue, #0c6bf5);
+  border-bottom-color: var(--color-brand-blue, #0c6bf5);
+  background: rgba(12, 107, 245, 0.04);
+}
+
+.tabIcon {
+  width: 18px;
+  height: 18px;
+}
+
+.tabLabel {
+  font-size: 0.9375rem;
+}
+
+/* Roadmap Panel */
+.roadmapPanel {
+  background: #f8fafc;
+  border: 1px solid var(--color-border-subtle, #e2e8f0);
+  border-radius: 18px;
+  padding: 2.5rem;
+}
+
+.panelHeader {
+  margin-bottom: 2rem;
+}
+
+.roleTitleGroup {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.roleHeading {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.roleBadge {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #0284c7;
+  background: #e0f2fe;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  letter-spacing: 0.04em;
+}
+
+.roleSummary {
+  font-size: 1rem;
+  color: #475569;
+  line-height: 1.6;
+}
+
+/* Steps Grid */
+.stepsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.stepCard {
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 14px;
+  padding: 1.75rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.stepCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px -6px rgba(15, 23, 42, 0.08);
+}
+
+.stepTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.85rem;
+}
+
+.stepNum {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--color-brand-blue, #0c6bf5);
+  background: rgba(12, 107, 245, 0.08);
+  padding: 0.25rem 0.6rem;
+  border-radius: 6px;
+}
+
+.stepTier {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: #059669;
+  background: #ecfdf5;
+  padding: 0.2rem 0.6rem;
+  border-radius: 6px;
+}
+
+.stepCertName {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #0f172a;
+  line-height: 1.35;
+  margin-bottom: 0.4rem;
+}
+
+.stepCode {
+  font-size: 0.8125rem;
+  color: #64748b;
+  margin-bottom: 1rem;
+}
+
+.stepCode strong {
+  color: #0f172a;
+}
+
+.stepFocus {
+  font-size: 0.9375rem;
+  color: #334155;
+  line-height: 1.6;
+  margin-bottom: 1.25rem;
+  flex: 1;
+}
+
+.stepFooter {
+  border-top: 1px solid #f1f5f9;
+  padding-top: 0.85rem;
+}
+
+.timeline {
+  font-size: 0.8125rem;
+  color: #64748b;
+}
+
+.timeline strong {
+  color: #0f172a;
+}
+
+.stepConnector {
+  display: none;
+}
+
+/* Prereq Notice */
+.prereqNotice {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  border-radius: 12px;
+  padding: 1.25rem;
+}
+
+.infoIcon {
+  width: 20px;
+  height: 20px;
+  color: var(--color-brand-blue, #0c6bf5);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.prereqText {
+  font-size: 0.875rem;
+  color: #1e3a8a;
+  line-height: 1.6;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 3rem 0;
+  }
+  .title {
+    font-size: 1.625rem;
+  }
+  .roadmapPanel {
+    padding: 1.5rem;
+  }
+  .stepsGrid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+}

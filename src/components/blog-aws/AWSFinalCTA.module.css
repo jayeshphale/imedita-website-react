@@ -1,0 +1,157 @@
+.section {
+  padding: 4.5rem 0 5.5rem;
+  background: #ffffff;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.ctaBox {
+  background: linear-gradient(135deg, #eff6ff 0%, #f8fafc 100%);
+  border: 1px solid #bfdbfe;
+  border-radius: 24px;
+  padding: 3.5rem 2.5rem;
+  text-align: center;
+  box-shadow: 0 16px 36px -12px rgba(12, 107, 245, 0.08);
+}
+
+.badgeWrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #dbeafe;
+  color: var(--color-brand-blue, #0c6bf5);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0.35rem 0.85rem;
+  border-radius: 9999px;
+  margin-bottom: 1.25rem;
+}
+
+.badgeIcon {
+  width: 15px;
+  height: 15px;
+}
+
+.title {
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: var(--color-text-heading, #0f172a);
+  line-height: 1.25;
+  margin-bottom: 1rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.subtitle {
+  font-size: 1.0625rem;
+  color: var(--color-text-body, #475569);
+  line-height: 1.6;
+  max-width: 650px;
+  margin: 0 auto 2.25rem;
+}
+
+.btnRow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.primaryBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: var(--color-brand-blue, #0c6bf5);
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 0.875rem 1.75rem;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 4px 14px rgba(12, 107, 245, 0.35);
+}
+
+.primaryBtn:hover {
+  background: #0952be;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(12, 107, 245, 0.45);
+}
+
+.btnIcon {
+  width: 18px;
+  height: 18px;
+}
+
+.btnArrow {
+  width: 18px;
+  height: 18px;
+  transition: transform 0.2s;
+}
+
+.primaryBtn:hover .btnArrow {
+  transform: translateX(4px);
+}
+
+.secondaryBtn {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.875rem 1.5rem;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: #1e293b;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+.secondaryBtn:hover {
+  border-color: #94a3b8;
+  background: #f8fafc;
+}
+
+.guarantee {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8125rem;
+  color: #64748b;
+}
+
+.shieldIcon {
+  width: 16px;
+  height: 16px;
+  color: #16a34a;
+}
+
+@media (max-width: 640px) {
+  .section {
+    padding: 3rem 0 4rem;
+  }
+  .ctaBox {
+    padding: 2rem 1.25rem;
+  }
+  .title {
+    font-size: 1.625rem;
+  }
+  .btnRow {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .primaryBtn,
+  .secondaryBtn {
+    justify-content: center;
+  }
+}

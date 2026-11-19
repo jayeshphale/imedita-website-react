@@ -14,6 +14,9 @@ const CCNACoursePage = lazy(() =>
 const CCNAAutomationCoursePage = lazy(() =>
   import('./pages/CCNAAutomationCoursePage').then((m) => ({ default: m.CCNAAutomationCoursePage || m.default }))
 );
+const AWSCertificationCostBlog = lazy(() =>
+  import('./pages/AWSCertificationCostBlog').then((m) => ({ default: m.AWSCertificationCostBlog || m.default }))
+);
 
 const PageFallback = () => (
   <div style={{ minHeight: '60vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
@@ -53,6 +56,22 @@ export default function App() {
               </Suspense>
             }
           />
+          <Route
+            path="blog/aws-certification-cost"
+            element={
+              <Suspense fallback={<PageFallback />}>
+                <AWSCertificationCostBlog />
+              </Suspense>
+            }
+          />
+          <Route
+            path="blog/aws-certification-cost/"
+            element={
+              <Suspense fallback={<PageFallback />}>
+                <AWSCertificationCostBlog />
+              </Suspense>
+            }
+          />
           
           {/* SEO & Alternative URL Alias Redirects for CCNA */}
           <Route path="courses/ccna-course" element={<Navigate to="/courses/ccna-training" replace />} />
@@ -63,6 +82,10 @@ export default function App() {
           <Route path="courses/cisco-ccna-automation-training" element={<Navigate to="/courses/ccna-automation-training" replace />} />
           <Route path="courses/ccna-automation" element={<Navigate to="/courses/ccna-automation-training" replace />} />
           <Route path="ccna-automation-training" element={<Navigate to="/courses/ccna-automation-training" replace />} />
+
+          {/* SEO & Alternative URL Alias Redirects for AWS Blog */}
+          <Route path="aws-certification-cost" element={<Navigate to="/blog/aws-certification-cost" replace />} />
+          <Route path="aws-certification-cost/" element={<Navigate to="/blog/aws-certification-cost" replace />} />
 
           <Route path="*" element={<Navigate to="/" replace />} />
         </Route>

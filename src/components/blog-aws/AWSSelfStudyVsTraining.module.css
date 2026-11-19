@@ -1,0 +1,179 @@
+.section {
+  padding: 4.5rem 0;
+  background-color: #ffffff;
+  border-top: 1px solid var(--color-border-subtle, #e2e8f0);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.header {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 3rem;
+}
+
+.eyebrow {
+  display: inline-block;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-brand-blue, #0c6bf5);
+  background: rgba(12, 107, 245, 0.08);
+  padding: 0.35rem 0.85rem;
+  border-radius: 9999px;
+  margin-bottom: 0.75rem;
+}
+
+.title {
+  font-size: 2.125rem;
+  font-weight: 800;
+  color: var(--color-text-heading, #0f172a);
+  line-height: 1.25;
+  margin-bottom: 1rem;
+}
+
+.subtitle {
+  font-size: 1.0625rem;
+  color: var(--color-text-body, #475569);
+  line-height: 1.6;
+}
+
+.tableWrap {
+  overflow-x: auto;
+  background: #ffffff;
+  border: 1px solid var(--color-border-subtle, #e2e8f0);
+  border-radius: 16px;
+  box-shadow: 0 8px 24px -6px rgba(15, 23, 42, 0.06);
+  margin-bottom: 2.5rem;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.9375rem;
+}
+
+.table thead th {
+  padding: 1.25rem 1.5rem;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  border-bottom: 2px solid #e2e8f0;
+}
+
+.thFeature {
+  width: 26%;
+  background: #f8fafc;
+  color: #0f172a;
+}
+
+.thSelf {
+  width: 37%;
+  background: #f1f5f9;
+  color: #334155;
+}
+
+.thTraining {
+  width: 37%;
+  background: #eff6ff;
+  color: #1e3a8a;
+  border-left: 1px solid #dbeafe;
+}
+
+.thContent {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.thIcon {
+  width: 18px;
+  height: 18px;
+}
+
+.tr {
+  border-bottom: 1px solid #f1f5f9;
+  transition: background-color 0.15s;
+}
+
+.tr:hover {
+  background-color: #fafbfc;
+}
+
+.tr:last-child {
+  border-bottom: none;
+}
+
+.tdFeature {
+  padding: 1.25rem 1.5rem;
+  font-weight: 600;
+  color: #1e293b;
+  background: #fcfdfe;
+}
+
+.tdVal {
+  padding: 1.25rem 1.5rem;
+  color: var(--color-text-body, #475569);
+  line-height: 1.6;
+}
+
+.advantageHighlight {
+  background: rgba(12, 107, 245, 0.02);
+}
+
+.verdictBox {
+  background: #f8fafc;
+  border: 1px solid #cbd5e1;
+  border-left: 4px solid var(--color-brand-blue, #0c6bf5);
+  border-radius: 12px;
+  padding: 1.5rem 1.75rem;
+  display: flex;
+  gap: 1.25rem;
+  align-items: flex-start;
+}
+
+.verdictIcon {
+  width: 24px;
+  height: 24px;
+  color: var(--color-brand-blue, #0c6bf5);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.verdictContent {
+  flex: 1;
+}
+
+.verdictTitle {
+  font-size: 1.0625rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 0.4rem;
+}
+
+.verdictText {
+  font-size: 0.9375rem;
+  color: #334155;
+  line-height: 1.6;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 3rem 0;
+  }
+  .title {
+    font-size: 1.625rem;
+  }
+  .table thead th,
+  .tdFeature,
+  .tdVal {
+    padding: 0.875rem 1rem;
+    font-size: 0.875rem;
+  }
+}
