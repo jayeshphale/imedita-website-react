@@ -1,189 +1,158 @@
 import React from 'react';
-import {
-  Sparkles,
-  Layers,
-  Award,
-  Zap,
-  Info,
-  ArrowRight,
-  ShieldCheck,
-  CheckCircle2
+import { 
+  Zap, 
+  Sparkles, 
+  Award, 
+  ArrowRight, 
+  Clock, 
+  CheckCircle2,
+  Info
 } from 'lucide-react';
 import styles from './AWSPricingCards.module.css';
 
-const pricingTiers = [
+const TIERS = [
   {
     id: 'foundational',
-    level: 'Foundational Level',
-    badge: 'Beginner Entry',
-    badgeClass: 'badgeCyan',
+    level: 'Foundational',
+    badge: 'Entry Level',
     priceUSD: '$100',
-    priceINRContext: '~₹8,300 + 18% GST',
-    examTitle: 'AWS Certified Cloud Practitioner',
+    priceINR: '₹10,150 (incl. 18% GST)',
+    popular: false,
     examCode: 'CLF-C02',
-    duration: '90 Minutes',
+    name: 'AWS Cloud Practitioner',
+    duration: '90 Mins',
     questions: '65 Questions',
-    description: 'Validates overall fundamental understanding of the AWS Cloud platform, global infrastructure, security compliance, and core billing models.',
-    targetAudience: 'Non-technical professionals, sales, tech managers, and absolute cloud beginners.',
-    popular: false
+    summary: 'Cloud fundamentals, billing models, and AWS shared security.',
+    idealFor: 'Beginners & Non-Tech Leads'
   },
   {
     id: 'associate',
-    level: 'Associate Level',
+    level: 'Associate',
     badge: 'Most Popular',
-    badgeClass: 'badgeBlue',
     priceUSD: '$150',
-    priceINRContext: '~₹12,500 + 18% GST',
-    examTitle: 'Solutions Architect / Developer / SysOps / Data Eng',
-    examCode: 'SAA-C03, DVA-C02, SOA-C02, DEA-C01',
-    duration: '130 Minutes',
+    priceINR: '₹15,220 (incl. 18% GST)',
+    popular: true,
+    examCode: 'SAA, DVA, SOA, DEA, MLA',
+    name: 'Solutions Architect / Developer / SysOps',
+    duration: '130 Mins',
     questions: '65 Questions',
-    description: 'Validates hands-on ability to design, build, and deploy secure, robust, and resilient enterprise applications across AWS core services.',
-    targetAudience: 'Software developers, systems admins, network engineers, and data engineers with 1+ yr cloud experience.',
-    popular: true
+    summary: 'Hands-on architectural design, VPC networking, and serverless compute.',
+    idealFor: 'Engineers & Tech Switchers'
   },
   {
     id: 'professional',
-    level: 'Professional Level',
-    badge: 'Expert Tier',
-    badgeClass: 'badgePurple',
+    level: 'Professional',
+    badge: 'Advanced',
     priceUSD: '$300',
-    priceINRContext: '~₹25,000 + 18% GST',
-    examTitle: 'Solutions Architect / DevOps Engineer Professional',
+    priceINR: '₹30,440 (incl. 18% GST)',
+    popular: false,
     examCode: 'SAP-C02, DOP-C02',
-    duration: '180 Minutes',
+    name: 'Solutions Architect / DevOps Pro',
+    duration: '180 Mins',
     questions: '75 Questions',
-    description: 'Validates advanced technical skills and experience in designing distributed applications, hybrid multi-account topologies, and automated CI/CD pipelines.',
-    targetAudience: 'Senior cloud architects, enterprise leads, and principal DevOps engineers with 2+ yrs deep AWS experience.',
-    popular: false
+    summary: 'Multi-account AWS Organizations, Direct Connect, and enterprise migrations.',
+    idealFor: 'Senior Cloud Architects (2+ yrs)'
   },
   {
     id: 'specialty',
-    level: 'Specialty Level',
+    level: 'Specialty',
     badge: 'Deep Domain',
-    badgeClass: 'badgeOrange',
     priceUSD: '$300',
-    priceINRContext: '~₹25,000 + 18% GST',
-    examTitle: 'Advanced Networking & Security Specialty',
+    priceINR: '₹30,440 (incl. 18% GST)',
+    popular: false,
     examCode: 'ANS-C01, SCS-C02',
-    duration: '170 Minutes',
+    name: 'Networking & Security Specialty',
+    duration: '170 Mins',
     questions: '65 Questions',
-    description: 'Validates deep-domain technical expertise in complex hybrid networking (Direct Connect, Transit Gateway, BGP) or zero-trust cloud cybersecurity controls.',
-    targetAudience: 'Network architects, cybersecurity engineers, and compliance specialists tackling enterprise workloads.',
-    popular: false
+    summary: 'Advanced hybrid networking, BGP, IAM policies, and cloud threat defense.',
+    idealFor: 'Network & Security Specialists'
   }
 ];
 
-export function AWSPricingCards({ onJumpToTable = () => {} }) {
+export function AWSPricingCards() {
   return (
-    <section className={styles.quickAnswerSection} id="quick-answer">
-      {/* Direct AEO Answer Box */}
-      <div className={styles.directAnswerCallout}>
-        <div className={styles.calloutHeader}>
-          <div className={styles.calloutIconBox}>
-            <Zap size={20} className={styles.zapIcon} />
+    <section className={styles.section} id="quick-answer" aria-labelledby="quick-answer-title">
+      {/* Sleek Direct Answer Banner */}
+      <div className={styles.banner}>
+        <div className={styles.bannerHeader}>
+          <div className={styles.iconBox}>
+            <Zap className={styles.zapIcon} aria-hidden="true" />
           </div>
           <div>
-            <span className={styles.calloutEyebrow}>DIRECT ANSWER • 2026 OFFICIAL PUBLISHED PRICING</span>
-            <h3 className={styles.calloutTitle}>
+            <span className={styles.eyebrow}>QUICK ANSWER • 2026 PUBLISHED FEES</span>
+            <h2 id="quick-answer-title" className={styles.title}>
               How Much Does AWS Certification Cost in 2026?
-            </h3>
+            </h2>
           </div>
         </div>
 
-        <p className={styles.calloutBody}>
-          In 2026, standard official AWS certification exam registration fees range from{' '}
-          <strong>$100 to $300 USD</strong> per attempt depending strictly on the exam tier:{' '}
-          <strong>$100 USD</strong> for Foundational (Cloud Practitioner),{' '}
-          <strong>$150 USD</strong> for Associate-level exams (Solutions Architect, Developer, SysOps, Data Engineer),{' '}
-          and <strong>$300 USD</strong> for Professional and Specialty-level exams.
+        <p className={styles.leadText}>
+          Standard official AWS exam fees are globally fixed in USD: 
+          <strong> $100 USD</strong> for Foundational, 
+          <strong> $150 USD</strong> for Associate, and 
+          <strong> $300 USD</strong> for Professional and Specialty levels. 
+          In India, a mandatory <strong>18% GST</strong> is added during Pearson VUE checkout, 
+          bringing the payable total to approximately <strong>₹10,150</strong> (Foundational), 
+          <strong>₹15,220</strong> (Associate), and <strong>₹30,440</strong> (Professional/Specialty).
         </p>
-
-        <div className={styles.calloutTaxNote}>
-          <Info size={16} className={styles.infoIcon} />
-          <span>
-            <strong>Crucial Pricing Note:</strong> All fees are officially quoted in US Dollars (USD). In India and other jurisdictions, local taxes (such as <strong>18% GST in India</strong>) and foreign transaction fees are added during Pearson VUE checkout. Candidates who already hold any active AWS certification receive a <strong>50% discount voucher</strong> for their next exam.
-          </span>
-        </div>
       </div>
 
-      {/* 4 Pricing Cards Grid */}
-      <div className={styles.cardsGrid}>
-        {pricingTiers.map((tier) => (
+      {/* 4 Clean, Airy, Uncluttered Cards */}
+      <div className={styles.grid}>
+        {TIERS.map((tier) => (
           <div
             key={tier.id}
-            className={`${styles.priceCard} ${tier.popular ? styles.popularCard : ''}`}
+            className={`${styles.card} ${tier.popular ? styles.cardPopular : ''}`}
           >
             {tier.popular && (
-              <div className={styles.popularBadge}>
-                <Sparkles size={12} />
-                <span>Most Selected Cloud Cert</span>
+              <div className={styles.popularTag}>
+                <Sparkles className={styles.sparkleIcon} aria-hidden="true" />
+                <span>Most Popular</span>
               </div>
             )}
 
-            <div className={styles.cardHeader}>
-              <div className={styles.tierTopRow}>
-                <span className={`${styles.badge} ${styles[tier.badgeClass]}`}>{tier.badge}</span>
-                <span className={styles.examCodes}>{tier.examCode}</span>
-              </div>
-
-              <h4 className={styles.tierLevel}>{tier.level}</h4>
-              <p className={styles.examTitle}>{tier.examTitle}</p>
+            <div className={styles.cardTop}>
+              <span className={styles.tierName}>{tier.level}</span>
+              <span className={styles.examPill}>{tier.examCode}</span>
             </div>
 
-            <div className={styles.priceContainer}>
+            <div className={styles.priceBlock}>
               <div className={styles.priceRow}>
-                <span className={styles.priceUSD}>{tier.priceUSD}</span>
-                <span className={styles.pricePeriod}>/ exam attempt</span>
+                <span className={styles.usd}>{tier.priceUSD}</span>
+                <span className={styles.perAttempt}>USD</span>
               </div>
-              <span className={styles.priceINRContext}>
-                Approx {tier.priceINRContext}
-              </span>
+              <div className={styles.inr}>{tier.priceINR}</div>
             </div>
 
-            <div className={styles.specsList}>
-              <div className={styles.specItem}>
-                <span className={styles.specLabel}>Exam Duration:</span>
-                <span className={styles.specVal}>{tier.duration}</span>
-              </div>
-              <div className={styles.specItem}>
-                <span className={styles.specLabel}>Question Format:</span>
-                <span className={styles.specVal}>{tier.questions}</span>
-              </div>
+            <div className={styles.specsRow}>
+              <span>{tier.duration}</span>
+              <span className={styles.dot}>•</span>
+              <span>{tier.questions}</span>
             </div>
 
-            <p className={styles.tierDesc}>{tier.description}</p>
+            <p className={styles.summary}>{tier.summary}</p>
 
             <div className={styles.cardFooter}>
-              <span className={styles.audienceLabel}>Best Suited For:</span>
-              <p className={styles.audienceText}>{tier.targetAudience}</p>
+              <span className={styles.idealLabel}>Ideal For:</span>
+              <span className={styles.idealVal}>{tier.idealFor}</span>
             </div>
           </div>
         ))}
       </div>
 
-      {/* 50% Recertification Discount Tip */}
-      <div className={styles.discountTipBanner}>
-        <div className={styles.tipLeft}>
-          <Award size={22} className={styles.tipIcon} />
-          <div>
-            <h4 className={styles.tipTitle}>
-              Official AWS 50% Exam Discount Voucher Benefit
-            </h4>
-            <p className={styles.tipText}>
-              Every time you pass any official AWS Certification exam, AWS automatically awards a <strong>50% discount benefit voucher</strong> directly in your AWS Certification Account (CertMetrics). You can apply this code toward any future Associate, Professional, or Specialty recertification exam!
-            </p>
-          </div>
+      {/* Sleek Minimalist 50% Loyalty Voucher Tip */}
+      <div className={styles.loyaltyTip}>
+        <div className={styles.loyaltyLeft}>
+          <Award className={styles.loyaltyIcon} aria-hidden="true" />
+          <p className={styles.loyaltyText}>
+            <strong>AWS 50% Discount Benefit:</strong> Every time you pass any official AWS Certification, 
+            AWS automatically deposits a <strong>50% off voucher</strong> in your AWS Certified Account to apply toward your next Associate, Professional, or Specialty exam.
+          </p>
         </div>
-
-        <button
-          type="button"
-          onClick={onJumpToTable}
-          className={styles.jumpTableBtn}
-        >
-          <span>View All 11 Active Exams</span>
-          <ArrowRight size={14} />
-        </button>
+        <a href="#fees-table" className={styles.jumpBtn}>
+          <span>View Detailed Exam Catalog</span>
+          <ArrowRight className={styles.arrowIcon} aria-hidden="true" />
+        </a>
       </div>
     </section>
   );

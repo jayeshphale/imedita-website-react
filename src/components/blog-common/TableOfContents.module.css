@@ -53,10 +53,10 @@
 /* Desktop TOC Card */
 .tocCard {
   background: #ffffff;
-  border: 1.5px solid #e2e8f0;
-  border-radius: 16px;
-  padding: 1.35rem 1.25rem;
-  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.03);
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 1.15rem 1rem;
+  box-shadow: 0 2px 10px rgba(15, 23, 42, 0.02);
   max-height: calc(100vh - 120px);
   overflow-y: auto;
   scrollbar-width: thin;

@@ -258,23 +258,25 @@
   margin: 0;
 }
 
-/* Exam Day Tips */
+/* Exam Day Tips - Clean, Airy, Editorial */
 .examDayTips {
-  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
-  border-radius: 18px;
-  padding: 2.25rem;
-  color: #ffffff;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-left: 4px solid var(--color-brand-blue, #0c6bf5);
+  border-radius: 16px;
+  padding: 2rem 2.25rem;
+  color: #0f172a;
   display: flex;
   gap: 1.75rem;
   align-items: flex-start;
 }
 
 .tipsIconWrap {
-  width: 48px;
-  height: 48px;
+  width: 44px;
+  height: 44px;
   border-radius: 12px;
-  background: rgba(56, 189, 248, 0.15);
-  color: #38bdf8;
+  background: rgba(12, 107, 245, 0.08);
+  color: var(--color-brand-blue, #0c6bf5);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -282,8 +284,8 @@
 }
 
 .tipsIcon {
-  width: 24px;
-  height: 24px;
+  width: 22px;
+  height: 22px;
 }
 
 .tipsContent {
@@ -293,7 +295,7 @@
 .tipsTitle {
   font-size: 1.25rem;
   font-weight: 800;
-  color: #f8fafc;
+  color: #0f172a;
   margin-bottom: 1.25rem;
 }
 
@@ -305,12 +307,12 @@
 
 .tipItem {
   font-size: 0.875rem;
-  color: #cbd5e1;
+  color: #475569;
   line-height: 1.6;
 }
 
 .tipItem strong {
-  color: #ffffff;
+  color: #0f172a;
 }
 
 @media (max-width: 1024px) {

@@ -15,6 +15,7 @@ import styles from './AWSCertificationRoadmap.module.css';
 const ROADS = [
   {
     id: 'beginners',
+    shortName: 'Beginners',
     role: 'Cloud Beginners & Non-Tech',
     icon: Compass,
     badge: 'Zero Cloud Experience',
@@ -41,6 +42,7 @@ const ROADS = [
   },
   {
     id: 'architects',
+    shortName: 'Solutions Architects',
     role: 'Cloud Solutions Architects',
     icon: Layers,
     badge: 'Enterprise Architecture',
@@ -67,6 +69,7 @@ const ROADS = [
   },
   {
     id: 'developers',
+    shortName: 'Developers',
     role: 'Cloud Application Developers',
     icon: Terminal,
     badge: 'Serverless & CI/CD',
@@ -93,6 +96,7 @@ const ROADS = [
   },
   {
     id: 'devops',
+    shortName: 'DevOps & SysOps',
     role: 'DevOps & SysOps Engineers',
     icon: Cpu,
     badge: 'Automation & Operations',
@@ -119,6 +123,7 @@ const ROADS = [
   },
   {
     id: 'ml_ai',
+    shortName: 'Data & ML AI',
     role: 'Machine Learning & Data Engineers',
     icon: Sparkles,
     badge: 'Generative AI & Data',
@@ -145,6 +150,7 @@ const ROADS = [
   },
   {
     id: 'security',
+    shortName: 'Security',
     role: 'Cloud Security Specialists',
     icon: ShieldCheck,
     badge: 'Zero Trust & Compliance',
@@ -206,7 +212,7 @@ export default function AWSCertificationRoadmap() {
                 onClick={() => setActiveTab(road.id)}
               >
                 <Icon className={styles.tabIcon} aria-hidden="true" />
-                <span className={styles.tabLabel}>{road.role.split(' ')[0]} {road.role.split(' ')[1]}</span>
+                <span className={styles.tabLabel}>{road.shortName}</span>
               </button>
             );
           })}

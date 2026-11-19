@@ -241,82 +241,50 @@ export function AWSCertificationCostBlog() {
 
   return (
     <main className={styles.pageWrapper}>
-      {/* SECTION 1: HERO SECTION */}
+      {/* SECTION 1: HERO SECTION - Clean, Editorial, Spacious */}
       <header className={styles.heroSection}>
         <div className={styles.heroContainer}>
           <div className={styles.heroBreadcrumbWrap}>
             <BlogBreadcrumbs breadcrumbs={breadcrumbsList} />
           </div>
 
-          <div className={styles.heroGrid}>
-            <div className={styles.heroContent}>
-              <div className={styles.cloudBadge}>
-                <Cloud className={styles.cloudIcon} aria-hidden="true" />
-                <span>2026 AWS Examination Blueprint &amp; Fee Schedule</span>
-              </div>
-
-              <h1 className={styles.heroH1}>
-                AWS Certification Cost in 2026: Complete Exam Fee Guide
-              </h1>
-
-              <p className={styles.heroLead}>
-                Planning your cloud career roadmap? Here is the definitive, verified breakdown of all 
-                Amazon Web Services (AWS) exam fees, Indian taxation (18% GST), hidden preparation expenses, 
-                and actionable study schedules from CCIE &amp; AWS certified enterprise architects.
-              </p>
-
-              <div className={styles.heroMetaWrap}>
-                <BlogMeta 
-                  authorName="Saurabh Yadav"
-                  authorRole="Triple CCIE #46962 & Enterprise Networking Lead"
-                  reviewerName="Sudhanshu Bhat"
-                  reviewerRole="CCIE & Cloud Solutions Architect"
-                  publishedDate="November 19, 2026"
-                  readTime="12 min read"
-                />
-              </div>
-
-              <div className={styles.heroActions}>
-                <a href="#quick-answer" className={styles.jumpBtnPrimary}>
-                  <span>Quick Fee Summary</span>
-                  <ArrowDown className={styles.btnArrow} aria-hidden="true" />
-                </a>
-
-                <a href="#cost-calculator" className={styles.jumpBtnSecondary}>
-                  <Calculator className={styles.calcIcon} aria-hidden="true" />
-                  <span>Cost Calculator</span>
-                </a>
-              </div>
+          <div className={styles.heroCenterContent}>
+            <div className={styles.cloudBadge}>
+              <Cloud className={styles.cloudIcon} aria-hidden="true" />
+              <span>2026 AWS Examination Blueprint &amp; Fee Guide</span>
             </div>
 
-            {/* Visual Card / Highlights */}
-            <div className={styles.heroVisualCol}>
-              <div className={styles.heroQuickBox}>
-                <div className={styles.quickBoxHeader}>
-                  <Zap className={styles.zapIcon} aria-hidden="true" />
-                  <span>At A Glance: 2026 AWS Exam Fees</span>
-                </div>
+            <h1 className={styles.heroH1}>
+              AWS Certification Cost in 2026: Complete Exam Fee Guide
+            </h1>
 
-                <div className={styles.quickBoxList}>
-                  <div className={styles.quickItem}>
-                    <div className={styles.quickLevel}>Foundational (CLF-C02)</div>
-                    <div className={styles.quickPrice}>$100 USD <span>(~₹10,150 with GST)</span></div>
-                  </div>
-                  <div className={styles.quickItem}>
-                    <div className={styles.quickLevel}>Associate (SAA, DVA, SOA, DEA, MLA)</div>
-                    <div className={styles.quickPrice}>$150 USD <span>(~₹15,220 with GST)</span></div>
-                  </div>
-                  <div className={styles.quickItem}>
-                    <div className={styles.quickLevel}>Professional &amp; Specialty</div>
-                    <div className={styles.quickPrice}>$300 USD <span>(~₹30,440 with GST)</span></div>
-                  </div>
-                </div>
+            <p className={styles.heroLead}>
+              Planning your cloud career roadmap? Here is the definitive, verified breakdown of all 
+              Amazon Web Services (AWS) exam fees, Indian taxation (18% GST), hidden preparation expenses, 
+              and actionable study schedules from CCIE &amp; AWS certified enterprise architects.
+            </p>
 
-                <div className={styles.quickBoxFooter}>
-                  <ShieldCheck className={styles.footerShield} aria-hidden="true" />
-                  <span>50% discount voucher granted automatically upon passing any exam!</span>
-                </div>
-              </div>
+            <div className={styles.heroMetaWrap}>
+              <BlogMeta 
+                authorName="Saurabh Yadav"
+                authorRole="Triple CCIE #46962 & Enterprise Networking Lead"
+                reviewerName="Sudhanshu Bhat"
+                reviewerRole="CCIE & Cloud Solutions Architect"
+                publishedDate="November 19, 2026"
+                readTime="12 min read"
+              />
+            </div>
+
+            <div className={styles.heroActions}>
+              <a href="#quick-answer" className={styles.jumpBtnPrimary}>
+                <span>View Quick Fee Summary</span>
+                <ArrowDown className={styles.btnArrow} aria-hidden="true" />
+              </a>
+
+              <a href="#cost-calculator" className={styles.jumpBtnSecondary}>
+                <Calculator className={styles.calcIcon} aria-hidden="true" />
+                <span>Calculate Total Cost</span>
+              </a>
             </div>
           </div>
         </div>
