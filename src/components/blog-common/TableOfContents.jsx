@@ -11,8 +11,8 @@ export function TableOfContents({ items = [], activeId = '' }) {
     if (!items.length) return;
 
     const handleScroll = () => {
-      // Target threshold from top of viewport (below sticky header ~90-140px)
-      const targetThreshold = 180;
+      const isMobile = window.innerWidth <= 1024;
+      const targetThreshold = isMobile ? 130 : 150;
       let active = items[0]?.id;
 
       for (const item of items) {
@@ -42,10 +42,13 @@ export function TableOfContents({ items = [], activeId = '' }) {
 
     setCurrentActiveId(id);
 
+    const isMobile = window.innerWidth <= 1024;
+    const navbarOffset = isMobile ? 120 : 135;
+
     if (window.__lenis) {
-      window.__lenis.scrollTo(element, { offset: -95 });
+      window.__lenis.scrollTo(element, { offset: -navbarOffset });
     } else {
-      const topOffset = element.getBoundingClientRect().top + window.pageYOffset - 95;
+      const topOffset = element.getBoundingClientRect().top + window.pageYOffset - navbarOffset;
       window.scrollTo({ top: topOffset, behavior: 'smooth' });
     }
 

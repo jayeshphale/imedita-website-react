@@ -17,6 +17,7 @@ import {
   Zap,
   Compass,
   Award,
+  BookOpen,
   BarChart3,
   Percent,
   DollarSign,
@@ -31,6 +32,7 @@ import TableOfContents from '../components/blog-common/TableOfContents';
 import AuthorBio from '../components/blog-common/AuthorBio';
 import FAQAccordion from '../components/blog-common/FAQAccordion';
 import RelatedArticles from '../components/blog-common/RelatedArticles';
+import { CourseStickyNav } from '../components/navigation/CourseStickyNav';
 
 // Page-Specific AWS Blog Components
 import AWSHero from '../components/blog-aws/AWSHero';
@@ -60,6 +62,17 @@ import { DemoRequestSection } from '../components/demo/DemoRequestSection';
 import RevealOnScroll from '../components/blog-common/RevealOnScroll';
 
 import styles from './AWSCertificationCostBlog.module.css';
+
+// Sticky Sub-Navbar Items (Zero Emojis, Enterprise Lucide Icons)
+const AWS_STICKY_NAV_ITEMS = [
+  { id: 'quick-answer', label: 'Quick Fees', icon: Zap },
+  { id: 'fees-table', label: '2026 Catalog', icon: BarChart3 },
+  { id: 'cost-in-india', label: 'India & GST', icon: Percent },
+  { id: 'cost-calculator', label: 'Calculator', icon: Calculator },
+  { id: 'certification-roadmap', label: 'Career Roadmap', icon: Compass },
+  { id: 'preparation-guide', label: 'Study Blueprint', icon: BookOpen },
+  { id: 'faqs', label: '12 FAQs', icon: HelpCircle }
+];
 
 // Table of Contents Navigation Data
 const TOC_ITEMS = [
@@ -284,6 +297,13 @@ export function AWSCertificationCostBlog() {
 
       {/* SECTION 1: HERO SECTION - Modern, Professional & Attractive 2-Column Masthead */}
       <AWSHero />
+
+      {/* STICKY SUB-NAVBAR: Enterprise Lucide Icons & Reading Progress (Course Page Style) */}
+      <CourseStickyNav 
+        items={AWS_STICKY_NAV_ITEMS}
+        courseTitle="AWS 2026 Fee Guide"
+        onOpenDemo={() => handleOpenDemo('AWS Certification Free Demo Class')}
+      />
 
       {/* Main Content Layout with Sticky Sidebar */}
       <div className={styles.layoutContainer}>

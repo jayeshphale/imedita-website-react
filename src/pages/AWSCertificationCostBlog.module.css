@@ -30,11 +30,11 @@
 
 .sidebarCol {
   position: sticky;
-  top: 90px;
+  top: 135px;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-  max-height: calc(100vh - 110px);
+  max-height: calc(100vh - 150px);
   overflow-y: auto;
   scrollbar-width: thin;
 }

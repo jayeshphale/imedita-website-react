@@ -29,10 +29,13 @@ export function AWSHero() {
     const element = document.getElementById(id);
     if (!element) return;
     
+    const isMobile = window.innerWidth <= 1024;
+    const navbarOffset = isMobile ? 120 : 135;
+
     if (window.__lenis) {
-      window.__lenis.scrollTo(element, { offset: -90 });
+      window.__lenis.scrollTo(element, { offset: -navbarOffset });
     } else {
-      const topOffset = element.getBoundingClientRect().top + window.pageYOffset - 90;
+      const topOffset = element.getBoundingClientRect().top + window.pageYOffset - navbarOffset;
       window.scrollTo({ top: topOffset, behavior: 'smooth' });
     }
   };
@@ -275,61 +278,6 @@ export function AWSHero() {
           </div>
         </div>
 
-        {/* Quick-Jump Navigation Dock */}
-        <nav className={styles.navDock} aria-label="Article Quick Navigation">
-          <span className={styles.navDockLabel}>Jump to:</span>
-          <div className={styles.navDockChips}>
-            <a 
-              href="#quick-answer" 
-              onClick={(e) => scrollTo(e, 'quick-answer')}
-              className={styles.dockChip}
-            >
-              <span>⚡ Quick Fees</span>
-            </a>
-            <a 
-              href="#fees-table" 
-              onClick={(e) => scrollTo(e, 'fees-table')}
-              className={styles.dockChip}
-            >
-              <span>📊 2026 Exam Catalog</span>
-            </a>
-            <a 
-              href="#cost-in-india" 
-              onClick={(e) => scrollTo(e, 'cost-in-india')}
-              className={styles.dockChip}
-            >
-              <span>🇮🇳 India &amp; GST</span>
-            </a>
-            <a 
-              href="#cost-calculator" 
-              onClick={(e) => scrollTo(e, 'cost-calculator')}
-              className={styles.dockChip}
-            >
-              <span>🧮 Interactive Calculator</span>
-            </a>
-            <a 
-              href="#certification-roadmap" 
-              onClick={(e) => scrollTo(e, 'certification-roadmap')}
-              className={styles.dockChip}
-            >
-              <span>🗺️ Career Roadmap</span>
-            </a>
-            <a 
-              href="#preparation-guide" 
-              onClick={(e) => scrollTo(e, 'preparation-guide')}
-              className={styles.dockChip}
-            >
-              <span>📚 Study Blueprint</span>
-            </a>
-            <a 
-              href="#faqs" 
-              onClick={(e) => scrollTo(e, 'faqs')}
-              className={styles.dockChip}
-            >
-              <span>❓ 12 FAQs</span>
-            </a>
-          </div>
-        </nav>
       </div>
     </header>
   );

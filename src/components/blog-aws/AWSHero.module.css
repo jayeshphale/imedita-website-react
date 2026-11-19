@@ -563,58 +563,6 @@
   color: #0c6bf5;
 }
 
-/* Quick-Jump Navigation Dock */
-.navDock {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.85rem;
-  padding: 1rem 1.5rem;
-  background: #ffffff;
-  border: 1px solid #e2e8f0;
-  border-radius: 16px;
-  box-shadow: 0 4px 16px -4px rgba(15, 23, 42, 0.04);
-  flex-wrap: wrap;
-}
-
-.navDockLabel {
-  font-size: 0.75rem;
-  font-weight: 750;
-  color: #64748b;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-}
-
-.navDockChips {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.dockChip {
-  display: inline-flex;
-  align-items: center;
-  padding: 0.4rem 0.85rem;
-  background: #f8fafc;
-  border: 1px solid #e2e8f0;
-  border-radius: 9999px;
-  font-size: 0.8125rem;
-  font-weight: 650;
-  color: #334155;
-  text-decoration: none;
-  transition: all 0.2s ease;
-}
-
-.dockChip:hover {
-  background: #ffffff;
-  border-color: #0c6bf5;
-  color: #0c6bf5;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 10px rgba(12, 107, 245, 0.12);
-}
-
 /* RESPONSIVE BREAKPOINTS (ALL DEVICES) */
 @media (max-width: 1080px) {
   .heroGrid {
@@ -674,26 +622,6 @@
     flex-direction: column;
     align-items: flex-start;
     gap: 0.4rem;
-  }
-  .navDock {
-    flex-direction: column;
-    align-items: stretch;
-    padding: 1rem;
-  }
-  .navDockChips {
-    overflow-x: auto;
-    flex-wrap: nowrap;
-    justify-content: flex-start;
-    padding-bottom: 0.35rem;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-  }
-  .navDockChips::-webkit-scrollbar {
-    display: none;
-  }
-  .dockChip {
-    white-space: nowrap;
-    flex-shrink: 0;
   }
 }
 
