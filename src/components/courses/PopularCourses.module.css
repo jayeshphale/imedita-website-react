@@ -288,6 +288,44 @@
   transform: translateX(3px);
 }
 
+/* View More / View Less Action Controls */
+.viewMoreWrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 3.25rem;
+}
+
+.viewMoreBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.85rem 2rem;
+  border-radius: 9999px;
+  background-color: #ffffff;
+  border: 1.5px solid #0066ff;
+  color: #0066ff;
+  font-size: 0.88rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 14px rgba(0, 102, 255, 0.1);
+}
+
+.viewMoreBtn:hover {
+  background-color: #0066ff;
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 102, 255, 0.25);
+}
+
+.viewMoreIcon {
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.viewMoreIconOpen {
+  transform: rotate(180deg);
+}
+
 
 @media (max-width: 768px) {
   .tabsWrapper {

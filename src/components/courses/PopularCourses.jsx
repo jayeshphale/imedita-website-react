@@ -4,19 +4,41 @@ import {
   Sparkles, 
   CheckCircle2, 
   Clock, 
-  ArrowRight 
+  ArrowRight,
+  ChevronDown
 } from 'lucide-react';
 import styles from './PopularCourses.module.css';
 import { originalCategories, originalCoursesData } from './coursesData';
 
 const FALLBACK_BLUEPRINT_SVG = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='640' height='360' viewBox='0 0 640 360'><rect width='640' height='360' fill='%230B0F19'/><text x='50%25' y='50%25' fill='%2338BDF8' font-family='monospace' font-size='14' text-anchor='middle'>[ ARCHITECTURE BLUEPRINT ]</text></svg>";
 
-export function PopularCourses({ onOpenDemo }) {
+export function PopularCourses({ onOpenDemo, initialLimit = 6 }) {
   const [activeTab, setActiveTab] = useState('all');
+  const [showAll, setShowAll] = useState(false);
 
   const filteredCourses = activeTab === 'all'
     ? originalCoursesData
     : originalCoursesData.filter(course => course.category === activeTab);
+
+  const displayedCourses = showAll ? filteredCourses : filteredCourses.slice(0, initialLimit);
+  const hasMore = filteredCourses.length > initialLimit;
+
+  const handleTabChange = (tabId) => {
+    setActiveTab(tabId);
+    setShowAll(false);
+  };
+
+  const toggleShowAll = () => {
+    if (showAll) {
+      setShowAll(false);
+      const coursesEl = document.getElementById('courses');
+      if (coursesEl) {
+        coursesEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    } else {
+      setShowAll(true);
+    }
+  };
 
   return (
     <section className={styles.coursesSection} id="courses">
@@ -41,7 +63,7 @@ export function PopularCourses({ onOpenDemo }) {
           {originalCategories.map((tab) => (
             <button
               key={tab.id}
-              onClick={() => setActiveTab(tab.id)}
+              onClick={() => handleTabChange(tab.id)}
               className={`${styles.tabBtn} ${activeTab === tab.id ? styles.tabBtnActive : ''}`}
             >
               {tab.label}
@@ -51,7 +73,7 @@ export function PopularCourses({ onOpenDemo }) {
 
         {/* 3-Column Responsive Grid */}
         <div className={`${styles.coursesGrid} scroll-stagger-cards`}>
-          {filteredCourses.map((course) => (
+          {displayedCourses.map((course) => (
             <div key={course.id} className={styles.courseCard}>
               
               {/* 16:9 Aspect Ratio Top Architecture Media Wrapper */}
@@ -117,6 +139,28 @@ export function PopularCourses({ onOpenDemo }) {
             </div>
           ))}
         </div>
+
+        {/* View More / View Less Action Button */}
+        {hasMore && (
+          <div className={styles.viewMoreWrapper}>
+            <button
+              type="button"
+              className={styles.viewMoreBtn}
+              onClick={toggleShowAll}
+              aria-expanded={showAll}
+            >
+              <span>
+                {showAll 
+                  ? 'Show Fewer Courses' 
+                  : `View More Courses (${filteredCourses.length - initialLimit} More)`}
+              </span>
+              <ChevronDown 
+                size={16} 
+                className={`${styles.viewMoreIcon} ${showAll ? styles.viewMoreIconOpen : ''}`} 
+              />
+            </button>
+          </div>
+        )}
 
       </div>
     </section>
