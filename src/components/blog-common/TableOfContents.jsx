@@ -4,24 +4,29 @@ import styles from './TableOfContents.module.css';
 
 export function TableOfContents({ items = [], activeId = '' }) {
   const [isOpenMobile, setIsOpenMobile] = useState(false);
-  const [currentActiveId, setCurrentActiveId] = useState(activeId);
+  const [currentActiveId, setCurrentActiveId] = useState(activeId || items[0]?.id || '');
 
-  // Scroll spy effect to highlight currently visible section
+  // High-precision viewport scroll-spy effect to track currently active section
   useEffect(() => {
     if (!items.length) return;
 
     const handleScroll = () => {
-      const scrollPosition = window.scrollY + 120;
-      let currentSection = items[0]?.id;
+      // Target threshold from top of viewport (below sticky header ~90-140px)
+      const targetThreshold = 180;
+      let active = items[0]?.id;
 
       for (const item of items) {
         const el = document.getElementById(item.id);
-        if (el && el.offsetTop <= scrollPosition) {
-          currentSection = item.id;
+        if (el) {
+          const rect = el.getBoundingClientRect();
+          // Element has reached or scrolled past the threshold line
+          if (rect.top <= targetThreshold) {
+            active = item.id;
+          }
         }
       }
 
-      setCurrentActiveId(currentSection);
+      setCurrentActiveId(active);
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
@@ -35,10 +40,12 @@ export function TableOfContents({ items = [], activeId = '' }) {
     const element = document.getElementById(id);
     if (!element) return;
 
+    setCurrentActiveId(id);
+
     if (window.__lenis) {
-      window.__lenis.scrollTo(element, { offset: -90 });
+      window.__lenis.scrollTo(element, { offset: -95 });
     } else {
-      const topOffset = element.getBoundingClientRect().top + window.pageYOffset - 90;
+      const topOffset = element.getBoundingClientRect().top + window.pageYOffset - 95;
       window.scrollTo({ top: topOffset, behavior: 'smooth' });
     }
 
