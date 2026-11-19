@@ -46,14 +46,14 @@ import AWSCareerRoles from '../components/blog-aws/AWSCareerRoles';
 import AWSTrainingIMedita from '../components/blog-aws/AWSTrainingIMedita';
 import AWSFinalCTA from '../components/blog-aws/AWSFinalCTA';
 
-// 7 Post-Blog Institutional Showcase Sections (Strict Order Specified by Prompt)
-import OfficialTrainingCatalog from '../components/blog-aws/OfficialTrainingCatalog';
-import EliteFacultySection from '../components/blog-aws/EliteFacultySection';
-import UpcomingLiveBatches from '../components/blog-aws/UpcomingLiveBatches';
-import ExperienceExcellenceSection from '../components/blog-aws/ExperienceExcellenceSection';
-import CampusLabFacilitiesSection from '../components/blog-aws/CampusLabFacilitiesSection';
-import RatingsVerifiedReviews from '../components/blog-aws/RatingsVerifiedReviews';
-import PlacementAlliancesSection from '../components/blog-aws/PlacementAlliancesSection';
+// Homepage Reusable Showcase Sections
+import { PopularCourses } from '../components/courses/PopularCourses';
+import { TrainersSection } from '../components/trainers/TrainersSection';
+import { BatchesSection } from '../components/batches/BatchesSection';
+import { CampusLife } from '../components/campus/CampusLife';
+import { GoogleReviewsSection } from '../components/reviews/GoogleReviewsSection';
+import { AuthorizedPartnersSection } from '../components/partners/AuthorizedPartnersSection';
+import { DemoRequestSection } from '../components/demo/DemoRequestSection';
 
 // Animation Utilities (Essayist Motion Reference)
 import RevealOnScroll from '../components/blog-common/RevealOnScroll';
@@ -144,6 +144,7 @@ const AWS_FAQS = [
 export function AWSCertificationCostBlog() {
   const context = useOutletContext() || {};
   const handleOpenDemo = context.handleOpenDemo || (() => {});
+  const selectedCourse = context.selectedCourse || 'AWS Certified Solutions Architect – Associate';
 
   const [readingProgress, setReadingProgress] = useState(0);
 
@@ -478,41 +479,27 @@ export function AWSCertificationCostBlog() {
         </div>
       </div>
 
-      {/* ================= 7 POST-BLOG INSTITUTIONAL SHOWCASE SECTIONS (EXACT ORDER) ================= */}
-      {/* 1. Official Training Catalog */}
-      <RevealOnScroll animation="fade-up">
-        <OfficialTrainingCatalog onOpenDemo={handleOpenDemo} />
-      </RevealOnScroll>
+      {/* ================= HOMEPAGE INSTITUTIONAL SHOWCASE SECTIONS ================= */}
+      {/* 1. Official Training Catalog / Popular Certification Courses */}
+      <PopularCourses onOpenDemo={(course) => handleOpenDemo(course)} />
 
-      {/* 2. Elite Faculty */}
-      <RevealOnScroll animation="fade-up">
-        <EliteFacultySection />
-      </RevealOnScroll>
+      {/* 2. INDUSTRY BENCHMARK MENTORS / Elite CCIE Faculty */}
+      <TrainersSection />
 
       {/* 3. Upcoming Live Batches */}
-      <RevealOnScroll animation="fade-up">
-        <UpcomingLiveBatches onOpenDemo={handleOpenDemo} />
-      </RevealOnScroll>
+      <BatchesSection onOpenDemo={(course) => handleOpenDemo(course)} />
 
-      {/* 4. EXPERIENCE I-MEDITA EXCELLENCE */}
-      <RevealOnScroll animation="fade-up">
-        <ExperienceExcellenceSection />
-      </RevealOnScroll>
+      {/* 4. Campus & Lab Facilities (Interactive Datacenter & Lab Life) */}
+      <CampusLife />
 
-      {/* 5. Campus & Lab Facilities */}
-      <RevealOnScroll animation="fade-up">
-        <CampusLabFacilitiesSection />
-      </RevealOnScroll>
+      {/* 5. 4.8 / 5.0 Google Reviews & Testimonials */}
+      <GoogleReviewsSection />
 
-      {/* 6. Ratings and Verified Reviews (4.8 / 5.0 – 1,200+ Verified Reviews) */}
-      <RevealOnScroll animation="fade-up">
-        <RatingsVerifiedReviews />
-      </RevealOnScroll>
+      {/* 6. Authorized Partners & Placement Alliances */}
+      <AuthorizedPartnersSection />
 
-      {/* 7. Placement Alliances */}
-      <RevealOnScroll animation="fade-up">
-        <PlacementAlliancesSection onOpenDemo={handleOpenDemo} />
-      </RevealOnScroll>
+      {/* 7. Book Free Demo Class CTA Form */}
+      <DemoRequestSection selectedCourse={selectedCourse} />
     </main>
   );
 }
