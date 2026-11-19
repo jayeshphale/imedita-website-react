@@ -1,5 +1,5 @@
 .section {
-  margin-bottom: 2rem;
+  margin-bottom: 2.5rem;
 }
 
 /* Sleek Direct Answer Banner */
@@ -7,9 +7,10 @@
   background: linear-gradient(135deg, #f8faff 0%, #f1f5f9 100%);
   border: 1px solid #e2e8f0;
   border-left: 4px solid var(--color-brand-blue, #0c6bf5);
-  border-radius: 14px;
+  border-radius: 16px;
   padding: 1.75rem 2rem;
   margin-bottom: 2rem;
+  box-shadow: 0 2px 12px rgba(15, 23, 42, 0.02);
 }
 
 .bannerHeader {
@@ -20,9 +21,9 @@
 }
 
 .iconBox {
-  width: 40px;
-  height: 40px;
-  border-radius: 10px;
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
   background: rgba(12, 107, 245, 0.1);
   color: var(--color-brand-blue, #0c6bf5);
   display: flex;
@@ -32,8 +33,8 @@
 }
 
 .zapIcon {
-  width: 20px;
-  height: 20px;
+  width: 22px;
+  height: 22px;
 }
 
 .eyebrow {
@@ -43,21 +44,22 @@
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--color-brand-blue, #0c6bf5);
-  margin-bottom: 0.2rem;
+  margin-bottom: 0.25rem;
 }
 
 .title {
-  font-size: 1.5rem;
+  font-size: 1.625rem;
   font-weight: 800;
   color: var(--color-text-heading, #0f172a);
   line-height: 1.3;
   margin: 0;
+  letter-spacing: -0.015em;
 }
 
 .leadText {
   font-size: 1.0625rem;
   color: var(--color-text-body, #475569);
-  line-height: 1.7;
+  line-height: 1.75;
   margin: 0;
 }
 
@@ -65,12 +67,396 @@
   color: #0f172a;
 }
 
-/* 4 Cards Grid - Airy, Sutsutit */
+/* Control Bar: Segmented Tabs + View Toggle */
+.controlsBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.segmentedTabs {
+  display: flex;
+  background: #f1f5f9;
+  padding: 0.35rem;
+  border-radius: 12px;
+  gap: 0.35rem;
+  overflow-x: auto;
+  max-width: 100%;
+}
+
+.segmentBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.55rem 1.15rem;
+  border: none;
+  background: transparent;
+  color: #64748b;
+  font-family: inherit;
+  font-size: 0.875rem;
+  font-weight: 650;
+  border-radius: 8px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+.segmentBtn:hover {
+  color: #0f172a;
+}
+
+.segmentBtnActive {
+  background: #ffffff;
+  color: #0f172a;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.08);
+}
+
+.segmentName {
+  font-weight: 750;
+}
+
+.segmentFee {
+  font-size: 0.78rem;
+  color: #0c6bf5;
+  font-weight: 700;
+  background: rgba(12, 107, 245, 0.08);
+  padding: 0.15rem 0.45rem;
+  border-radius: 6px;
+}
+
+.segmentBadge {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  color: #ffffff;
+  background: #0c6bf5;
+  padding: 0.1rem 0.45rem;
+  border-radius: 9999px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.viewToggleWrap {
+  display: flex;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 0.25rem;
+  gap: 0.25rem;
+}
+
+.modeBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0.75rem;
+  border: none;
+  background: transparent;
+  color: #64748b;
+  font-family: inherit;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.18s ease;
+}
+
+.modeBtn:hover {
+  color: #0f172a;
+}
+
+.modeBtnActive {
+  background: #ffffff;
+  color: #0c6bf5;
+  box-shadow: 0 1px 4px rgba(15, 23, 42, 0.06);
+  font-weight: 700;
+}
+
+.modeText {
+  display: inline-block;
+}
+
+/* VIEW 1: EXPANDED SHOWCASE CARD (Sutsutit & Modern) */
+.showcaseCard {
+  background: #ffffff;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 20px;
+  padding: 2.25rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 6px 24px -6px rgba(15, 23, 42, 0.04);
+  transition: all 0.25s ease;
+}
+
+.showcaseGrid {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 2.75rem;
+  align-items: flex-start;
+}
+
+.showcaseLeft {
+  display: flex;
+  flex-direction: column;
+}
+
+.showcaseTopMeta {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+
+.tierPillBadge {
+  font-size: 0.8125rem;
+  font-weight: 750;
+  color: #0c6bf5;
+  background: rgba(12, 107, 245, 0.09);
+  padding: 0.35rem 0.85rem;
+  border-radius: 9999px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.badgeLabel {
+  font-size: 0.8125rem;
+  font-weight: 650;
+  color: #64748b;
+}
+
+.heroPriceBlock {
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.heroPriceRow {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  margin-bottom: 0.4rem;
+}
+
+.heroUsd {
+  font-size: 3.25rem;
+  font-weight: 850;
+  color: #0f172a;
+  line-height: 1;
+  letter-spacing: -0.035em;
+}
+
+.heroCurrency {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #64748b;
+}
+
+.heroInrWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.heroInr {
+  font-size: 1.15rem;
+  font-weight: 750;
+  color: #059669;
+}
+
+.inrBreakdown {
+  font-size: 0.8125rem;
+  color: #64748b;
+}
+
+.specChipsRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-bottom: 1.5rem;
+}
+
+.specChip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  padding: 0.4rem 0.75rem;
+  border-radius: 8px;
+  font-size: 0.8125rem;
+  font-weight: 650;
+  color: #334155;
+}
+
+.specIcon {
+  color: #0c6bf5;
+}
+
+.idealCandidateBox {
+  background: #f8fafc;
+  border-radius: 12px;
+  padding: 1rem 1.15rem;
+  margin-bottom: 1rem;
+}
+
+.idealTitle {
+  font-size: 0.75rem;
+  font-weight: 750;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #475569;
+  margin-bottom: 0.35rem;
+}
+
+.idealText {
+  font-size: 0.875rem;
+  color: #1e293b;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.prereqNote {
+  font-size: 0.8125rem;
+  color: #64748b;
+  line-height: 1.5;
+}
+
+.prereqNote strong {
+  color: #334155;
+}
+
+/* Right Column: Exams List & Competencies */
+.showcaseRight {
+  display: flex;
+  flex-direction: column;
+}
+
+.activeExamsHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.activeExamsTitle {
+  font-size: 1.0625rem;
+  font-weight: 750;
+  color: #0f172a;
+  margin: 0;
+}
+
+.pearsonTag {
+  font-size: 0.72rem;
+  font-weight: 650;
+  color: #0c6bf5;
+  background: rgba(12, 107, 245, 0.08);
+  padding: 0.2rem 0.55rem;
+  border-radius: 6px;
+}
+
+.examList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin-bottom: 1.5rem;
+}
+
+.examItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.examItem:hover {
+  border-color: #0c6bf5;
+  background: #f8fafc;
+  transform: translateX(4px);
+}
+
+.examItemLeft {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.examCodeBadge {
+  font-size: 0.75rem;
+  font-weight: 750;
+  font-family: ui-monospace, monospace;
+  color: #0c6bf5;
+  background: #eff6ff;
+  padding: 0.2rem 0.55rem;
+  border-radius: 6px;
+}
+
+.examFullName {
+  font-size: 0.875rem;
+  font-weight: 650;
+  color: #1e293b;
+}
+
+.examExternalIcon {
+  color: #94a3b8;
+  transition: color 0.2s;
+}
+
+.examItem:hover .examExternalIcon {
+  color: #0c6bf5;
+}
+
+.competenciesBox {
+  background: #ffffff;
+  border: 1px solid #f1f5f9;
+  border-radius: 12px;
+  padding: 1.15rem 1.25rem;
+}
+
+.competenciesTitle {
+  font-size: 0.8125rem;
+  font-weight: 750;
+  color: #0f172a;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 0 0 0.85rem;
+}
+
+.competenciesList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.competencyItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  font-size: 0.875rem;
+  color: #475569;
+  line-height: 1.5;
+}
+
+.checkIcon {
+  color: #10b981;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* VIEW 2: ALL 4 TIERS SIDE-BY-SIDE (Clean, Un-cramped Cards) */
 .grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 1.25rem;
-  margin-bottom: 1.75rem;
+  margin-bottom: 2rem;
 }
 
 .card {
@@ -201,34 +587,34 @@
 }
 
 .cardFooter {
+  padding-top: 0.85rem;
   border-top: 1px solid #f1f5f9;
-  padding-top: 0.75rem;
-  margin-top: auto;
-  font-size: 0.75rem;
-  line-height: 1.4;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
 }
 
 .idealLabel {
-  display: block;
+  font-size: 0.7rem;
   font-weight: 700;
-  color: #64748b;
-  font-size: 0.6875rem;
   text-transform: uppercase;
-  letter-spacing: 0.04em;
-  margin-bottom: 0.15rem;
+  letter-spacing: 0.05em;
+  color: #64748b;
 }
 
 .idealVal {
+  font-size: 0.78rem;
   color: #0f172a;
   font-weight: 600;
+  line-height: 1.35;
 }
 
-/* Minimalist Loyalty Banner */
+/* Loyalty Voucher Tip */
 .loyaltyTip {
-  background: #ffffff;
+  background: #f8fafc;
   border: 1px solid #e2e8f0;
-  border-radius: 12px;
-  padding: 1rem 1.5rem;
+  border-radius: 14px;
+  padding: 1.25rem 1.5rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -238,20 +624,30 @@
 .loyaltyLeft {
   display: flex;
   align-items: center;
-  gap: 0.85rem;
+  gap: 1rem;
+}
+
+.loyaltyIconWrap {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background: rgba(12, 107, 245, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
 }
 
 .loyaltyIcon {
-  width: 22px;
-  height: 22px;
-  color: #f59e0b;
-  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  color: var(--color-brand-blue, #0c6bf5);
 }
 
 .loyaltyText {
   font-size: 0.875rem;
   color: #334155;
-  line-height: 1.5;
+  line-height: 1.55;
   margin: 0;
 }
 
@@ -262,26 +658,41 @@
 .jumpBtn {
   display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
+  gap: 0.45rem;
   font-size: 0.8125rem;
   font-weight: 700;
   color: var(--color-brand-blue, #0c6bf5);
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  padding: 0.55rem 1rem;
+  border-radius: 8px;
   text-decoration: none;
   white-space: nowrap;
-  transition: transform 0.15s;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
 }
 
 .jumpBtn:hover {
-  text-decoration: underline;
-  transform: translateX(2px);
+  background: #f8fafc;
+  border-color: #0c6bf5;
 }
 
 .arrowIcon {
   width: 14px;
   height: 14px;
+  transition: transform 0.2s;
 }
 
-@media (max-width: 1100px) {
+.jumpBtn:hover .arrowIcon {
+  transform: translateX(3px);
+}
+
+/* Responsive Media Queries */
+@media (max-width: 1024px) {
+  .showcaseGrid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
   .grid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -289,13 +700,24 @@
 
 @media (max-width: 768px) {
   .banner {
-    padding: 1.25rem;
+    padding: 1.25rem 1.25rem;
   }
   .title {
-    font-size: 1.3rem;
+    font-size: 1.35rem;
   }
-  .leadText {
-    font-size: 0.95rem;
+  .controlsBar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .viewToggleWrap {
+    justify-content: center;
+  }
+  .showcaseCard {
+    padding: 1.5rem 1.25rem;
+    border-radius: 16px;
+  }
+  .heroUsd {
+    font-size: 2.5rem;
   }
   .grid {
     grid-template-columns: 1fr;
@@ -303,6 +725,9 @@
   .loyaltyTip {
     flex-direction: column;
     align-items: flex-start;
-    gap: 0.75rem;
+  }
+  .jumpBtn {
+    width: 100%;
+    justify-content: center;
   }
 }

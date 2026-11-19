@@ -2,13 +2,26 @@
   background-color: #ffffff;
   color: var(--color-text-body, #475569);
   min-height: 100vh;
+  position: relative;
 }
 
-/* HERO SECTION - Spacious, Centered, Editorial */
+/* Dynamic Reading Progress Bar */
+.readingProgressBar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #0c6bf5 0%, #38bdf8 100%);
+  z-index: 9999;
+  transition: width 0.1s ease-out;
+  box-shadow: 0 0 10px rgba(12, 107, 245, 0.5);
+}
+
+/* HERO SECTION - Magazine Editorial Masthead */
 .heroSection {
-  background: radial-gradient(circle at 50% 0%, rgba(12, 107, 245, 0.05) 0%, #ffffff 70%);
+  background: radial-gradient(circle at 50% 0%, rgba(12, 107, 245, 0.06) 0%, #ffffff 75%);
   border-bottom: 1px solid var(--color-border-subtle, #e2e8f0);
-  padding: 3rem 0 4rem;
+  padding: 3.5rem 0 4.5rem;
 }
 
 .heroContainer {
@@ -24,7 +37,7 @@
 }
 
 .heroCenterContent {
-  max-width: 860px;
+  max-width: 900px;
   margin: 0 auto;
   text-align: center;
   display: flex;
@@ -32,33 +45,49 @@
   align-items: center;
 }
 
-.cloudBadge {
+.editionBadge {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  background: rgba(12, 107, 245, 0.08);
-  color: var(--color-brand-blue, #0c6bf5);
-  font-size: 0.8125rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
+  gap: 0.6rem;
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
   padding: 0.4rem 0.95rem;
   border-radius: 9999px;
-  margin-bottom: 1.25rem;
+  margin-bottom: 1.5rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #475569;
+  letter-spacing: 0.04em;
 }
 
-.cloudIcon {
-  width: 15px;
-  height: 15px;
+.editionTag {
+  color: #0c6bf5;
+  font-weight: 800;
+  background: #ffffff;
+  padding: 0.15rem 0.5rem;
+  border-radius: 9999px;
+  border: 1px solid #cbd5e1;
+}
+
+.editionDot {
+  color: #94a3b8;
+}
+
+.editionSeries {
+  color: #1e293b;
+}
+
+.editionReadTime {
+  color: #64748b;
 }
 
 .heroH1 {
-  font-size: 2.875rem;
+  font-size: 3.125rem;
   font-weight: 850;
   color: var(--color-text-heading, #0f172a);
-  line-height: 1.2;
-  margin-bottom: 1.25rem;
-  letter-spacing: -0.025em;
+  line-height: 1.18;
+  margin-bottom: 1.35rem;
+  letter-spacing: -0.03em;
 }
 
 .heroLead {
@@ -73,74 +102,104 @@
   margin-bottom: 2.25rem;
   display: flex;
   justify-content: center;
+  width: 100%;
 }
 
-.heroActions {
+/* Hero Key Metrics Strip */
+.heroMetricsStrip {
   display: flex;
-  gap: 1rem;
   align-items: center;
   justify-content: center;
-  flex-wrap: wrap;
-}
-
-.jumpBtnPrimary {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  background: var(--color-brand-blue, #0c6bf5);
-  color: #ffffff;
-  font-size: 0.9375rem;
-  font-weight: 700;
-  padding: 0.85rem 1.6rem;
-  border-radius: 10px;
-  text-decoration: none;
-  transition: all 0.2s;
-  box-shadow: 0 4px 14px rgba(12, 107, 245, 0.28);
-}
-
-.jumpBtnPrimary:hover {
-  background: #0952be;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(12, 107, 245, 0.38);
-}
-
-.btnArrow {
-  width: 16px;
-  height: 16px;
-  transition: transform 0.2s;
-}
-
-.jumpBtnPrimary:hover .btnArrow {
-  transform: translateY(3px);
-}
-
-.jumpBtnSecondary {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
+  gap: 2rem;
   background: #ffffff;
-  color: #1e293b;
-  border: 1.5px solid #cbd5e1;
-  font-size: 0.9375rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 1.25rem 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 20px -4px rgba(15, 23, 42, 0.04);
+  width: 100%;
+  max-width: 820px;
+}
+
+.metricItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.25rem;
+}
+
+.metricVal {
+  font-size: 1.35rem;
+  font-weight: 850;
+  color: #0f172a;
+  letter-spacing: -0.02em;
+}
+
+.metricLabel {
+  font-size: 0.75rem;
   font-weight: 650;
-  padding: 0.85rem 1.6rem;
-  border-radius: 10px;
-  text-decoration: none;
-  transition: all 0.2s;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
 }
 
-.jumpBtnSecondary:hover {
-  border-color: #94a3b8;
+.metricDivider {
+  width: 1px;
+  height: 36px;
+  background: #e2e8f0;
+}
+
+/* Quick-Jump Navigation Dock */
+.quickNavDock {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  max-width: 820px;
+}
+
+.quickNavTitle {
+  font-size: 0.75rem;
+  font-weight: 750;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #64748b;
+}
+
+.quickNavChips {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.quickNavChip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.8125rem;
+  font-weight: 650;
+  color: #334155;
   background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  padding: 0.35rem 0.85rem;
+  border-radius: 9999px;
+  text-decoration: none;
+  transition: all 0.2s ease;
 }
 
-.calcIcon {
-  width: 16px;
-  height: 16px;
-  color: var(--color-brand-blue, #0c6bf5);
+.quickNavChip:hover {
+  background: #ffffff;
+  color: #0c6bf5;
+  border-color: #0c6bf5;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(12, 107, 245, 0.12);
 }
 
-/* MAIN LAYOUT (Sticky Clean Sidebar + Airy Main Column) */
+/* MAIN LAYOUT (Floating Minimal TOC Rail + Main Column) */
 .layoutContainer {
   max-width: 1240px;
   margin: 0 auto;
@@ -241,27 +300,46 @@
 .tiersGrid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 1.25rem;
+  gap: 1.5rem;
   margin: 2rem 0;
 }
 
 .tierBox {
-  background: #f8fafc;
+  background: #ffffff;
   border: 1px solid #e2e8f0;
-  border-radius: 14px;
-  padding: 1.6rem;
+  border-radius: 16px;
+  padding: 1.75rem;
   display: flex;
   flex-direction: column;
-  transition: transform 0.2s, border-color 0.2s;
+  transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
 }
 
 .tierBox:hover {
   border-color: #cbd5e1;
   transform: translateY(-2px);
+  box-shadow: 0 8px 20px -4px rgba(15, 23, 42, 0.04);
+}
+
+.tierBoxHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.85rem;
+}
+
+.tierStepBadge {
+  font-size: 0.75rem;
+  font-weight: 800;
+  font-family: ui-monospace, monospace;
+  color: #94a3b8;
+  background: #f8fafc;
+  padding: 0.2rem 0.5rem;
+  border-radius: 6px;
+  border: 1px solid #f1f5f9;
 }
 
 .tierName {
-  font-size: 1.125rem;
+  font-size: 1.15rem;
   font-weight: 750;
   color: #0f172a;
   margin-bottom: 0.5rem;
@@ -271,19 +349,17 @@
   font-size: 0.9375rem;
   color: #475569;
   line-height: 1.6;
-  margin-bottom: 1.25rem;
+  margin: 0;
   flex: 1;
 }
 
 .tierTag {
-  font-size: 0.8125rem;
+  font-size: 0.75rem;
   font-weight: 700;
   color: var(--color-brand-blue, #0c6bf5);
-  background: #ffffff;
-  border: 1px solid #cbd5e1;
-  padding: 0.35rem 0.75rem;
+  background: rgba(12, 107, 245, 0.08);
+  padding: 0.25rem 0.65rem;
   border-radius: 6px;
-  align-self: flex-start;
 }
 
 .authorsWrapper {
@@ -322,15 +398,26 @@
   }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 768px) {
   .heroSection {
     padding: 2.5rem 0 3rem;
   }
   .heroH1 {
-    font-size: 1.95rem;
+    font-size: 2rem;
   }
   .heroLead {
     font-size: 1rem;
+  }
+  .heroMetricsStrip {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1.25rem;
+  }
+  .metricDivider {
+    display: none;
+  }
+  .quickNavDock {
+    flex-direction: column;
   }
   .sectionH2 {
     font-size: 1.5rem;

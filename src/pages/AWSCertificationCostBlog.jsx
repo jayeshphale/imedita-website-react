@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useOutletContext, Link } from 'react-router-dom';
 import { 
   Cloud, 
@@ -129,9 +129,25 @@ export function AWSCertificationCostBlog() {
   const context = useOutletContext() || {};
   const handleOpenDemo = context.handleOpenDemo || (() => {});
 
+  const [readingProgress, setReadingProgress] = useState(0);
+
   const pageUrl = 'https://www.imedita.com/blog/aws-certification-cost/';
   const pageTitle = 'AWS Certification Cost in 2026: Complete Exam Fee Guide | I-Medita';
   const pageDescription = 'Comprehensive 2026 guide to AWS certification exam costs, fees in India with 18% GST, interactive cost calculator, role-based roadmap, and study strategies.';
+
+  // Reading Progress Bar
+  useEffect(() => {
+    const handleScrollProgress = () => {
+      const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+      if (totalHeight > 0) {
+        const progress = (window.scrollY / totalHeight) * 100;
+        setReadingProgress(Math.min(100, Math.max(0, progress)));
+      }
+    };
+
+    window.addEventListener('scroll', handleScrollProgress, { passive: true });
+    return () => window.removeEventListener('scroll', handleScrollProgress);
+  }, []);
 
   // Dynamic Head Metadata and JSON-LD injection
   useEffect(() => {
@@ -244,7 +260,17 @@ export function AWSCertificationCostBlog() {
 
   return (
     <main className={styles.pageWrapper}>
-      {/* SECTION 1: HERO SECTION - Clean, Editorial, Spacious */}
+      {/* Dynamic Slim Reading Progress Bar */}
+      <div 
+        className={styles.readingProgressBar}
+        style={{ width: `${readingProgress}%` }}
+        role="progressbar"
+        aria-valuenow={Math.round(readingProgress)}
+        aria-valuemin="0"
+        aria-valuemax="100"
+      />
+
+      {/* SECTION 1: HERO SECTION - Clean, Editorial Magazine Masthead */}
       <header className={styles.heroSection}>
         <div className={styles.heroContainer}>
           <div className={styles.heroBreadcrumbWrap}>
@@ -252,9 +278,12 @@ export function AWSCertificationCostBlog() {
           </div>
 
           <div className={styles.heroCenterContent}>
-            <div className={styles.cloudBadge}>
-              <Cloud className={styles.cloudIcon} aria-hidden="true" />
-              <span>2026 AWS Examination Blueprint &amp; Fee Guide</span>
+            <div className={styles.editionBadge}>
+              <span className={styles.editionTag}>2026 EDITION</span>
+              <span className={styles.editionDot}>•</span>
+              <span className={styles.editionSeries}>AWS CLOUD ARCHITECTURE &amp; CAREER BLUEPRINT</span>
+              <span className={styles.editionDot}>•</span>
+              <span className={styles.editionReadTime}>12 MIN READ</span>
             </div>
 
             <h1 className={styles.heroH1}>
@@ -278,17 +307,42 @@ export function AWSCertificationCostBlog() {
               />
             </div>
 
-            <div className={styles.heroActions}>
-              <a href="#quick-answer" className={styles.jumpBtnPrimary}>
-                <span>View Quick Fee Summary</span>
-                <ArrowDown className={styles.btnArrow} aria-hidden="true" />
-              </a>
-
-              <a href="#cost-calculator" className={styles.jumpBtnSecondary}>
-                <Calculator className={styles.calcIcon} aria-hidden="true" />
-                <span>Calculate Total Cost</span>
-              </a>
+            {/* Quick Metrics Strip */}
+            <div className={styles.heroMetricsStrip}>
+              <div className={styles.metricItem}>
+                <span className={styles.metricVal}>$100 – $300</span>
+                <span className={styles.metricLabel}>Official Global Fees</span>
+              </div>
+              <div className={styles.metricDivider} />
+              <div className={styles.metricItem}>
+                <span className={styles.metricVal}>₹10,150 – ₹30,440</span>
+                <span className={styles.metricLabel}>India (incl. 18% GST)</span>
+              </div>
+              <div className={styles.metricDivider} />
+              <div className={styles.metricItem}>
+                <span className={styles.metricVal}>3 Years</span>
+                <span className={styles.metricLabel}>Active Validity</span>
+              </div>
+              <div className={styles.metricDivider} />
+              <div className={styles.metricItem}>
+                <span className={styles.metricVal}>50% Off</span>
+                <span className={styles.metricLabel}>Loyalty Voucher Benefit</span>
+              </div>
             </div>
+
+            {/* Quick-Jump Navigation Dock */}
+            <nav className={styles.quickNavDock} aria-label="Quick Jump Menu">
+              <span className={styles.quickNavTitle}>Jump to section:</span>
+              <div className={styles.quickNavChips}>
+                <a href="#quick-answer" className={styles.quickNavChip}>⚡ Quick Fees</a>
+                <a href="#fees-table" className={styles.quickNavChip}>📊 Exam Catalog</a>
+                <a href="#cost-in-india" className={styles.quickNavChip}>🇮🇳 India &amp; GST</a>
+                <a href="#cost-calculator" className={styles.quickNavChip}>🧮 Calculator</a>
+                <a href="#certification-roadmap" className={styles.quickNavChip}>🗺️ Roadmap</a>
+                <a href="#preparation-guide" className={styles.quickNavChip}>📚 Study Blueprint</a>
+                <a href="#faqs" className={styles.quickNavChip}>❓ 12 FAQs</a>
+              </div>
+            </nav>
           </div>
         </div>
       </header>
@@ -347,38 +401,50 @@ export function AWSCertificationCostBlog() {
 
               <div className={styles.tiersGrid}>
                 <div className={styles.tierBox}>
+                  <div className={styles.tierBoxHeader}>
+                    <span className={styles.tierStepBadge}>01</span>
+                    <span className={styles.tierTag}>CLF-C02 • $100 USD</span>
+                  </div>
                   <h4 className={styles.tierName}>Foundational Tier</h4>
                   <p className={styles.tierDesc}>
                     Validates overall understanding of AWS Cloud concepts, security, compliance, and billing. Best for beginners, 
                     product managers, business analysts, and sales leads.
                   </p>
-                  <div className={styles.tierTag}>CLF-C02 • $100 USD</div>
                 </div>
 
                 <div className={styles.tierBox}>
+                  <div className={styles.tierBoxHeader}>
+                    <span className={styles.tierStepBadge}>02</span>
+                    <span className={styles.tierTag}>Associate • $150 USD</span>
+                  </div>
                   <h4 className={styles.tierName}>Associate Tier</h4>
                   <p className={styles.tierDesc}>
                     Validates hands-on knowledge of designing and deploying resilient distributed systems, serverless code, 
                     data pipelines, and generative AI models on AWS.
                   </p>
-                  <div className={styles.tierTag}>SAA, DVA, SOA, DEA, MLA • $150 USD</div>
                 </div>
 
                 <div className={styles.tierBox}>
+                  <div className={styles.tierBoxHeader}>
+                    <span className={styles.tierStepBadge}>03</span>
+                    <span className={styles.tierTag}>Professional • $300 USD</span>
+                  </div>
                   <h4 className={styles.tierName}>Professional Tier</h4>
                   <p className={styles.tierDesc}>
                     Evaluates 2+ years of comprehensive enterprise cloud design, multi-account governance (AWS Organizations), 
                     hybrid connectivity (Direct Connect), and complex DR strategies.
                   </p>
-                  <div className={styles.tierTag}>SAP-C02, DOP-C02 • $300 USD</div>
                 </div>
 
                 <div className={styles.tierBox}>
+                  <div className={styles.tierBoxHeader}>
+                    <span className={styles.tierStepBadge}>04</span>
+                    <span className={styles.tierTag}>Specialty • $300 USD</span>
+                  </div>
                   <h4 className={styles.tierName}>Specialty Tier</h4>
                   <p className={styles.tierDesc}>
                     Deep-dive technical validation in specialized security and advanced enterprise networking domains.
                   </p>
-                  <div className={styles.tierTag}>ANS-C01, SCS-C02 • $300 USD</div>
                 </div>
               </div>
             </section>
