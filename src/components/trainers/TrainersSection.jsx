@@ -51,15 +51,15 @@ export function TrainersSection() {
             return (
               <li
                 key={trainer.id}
-                className={`${styles.cardItem} perspective-container`}
+                className={styles.cardItem}
                 style={{ '--stack-index': index }}
               >
-                <div className={`${styles.cardSurface} card-3d`}>
+                <div className={styles.cardSurface}>
                   <div className={styles.cardGrid}>
                     
                     {/* Left Column: Details & Bio */}
                     <div className={styles.colLeft}>
-                      <div className={`${styles.badgesRow} tilt-pop-sm`}>
+                      <div className={styles.badgesRow}>
                         <span className={isTriple ? styles.badgeTriple : styles.badgeExpert}>
                           <Award size={13} color={isTriple ? "#b45309" : "#0284c7"} />
                           <span>{badgeText}</span>
@@ -70,7 +70,7 @@ export function TrainersSection() {
                         </span>
                       </div>
 
-                      <h3 className={`${styles.trainerName} tilt-pop-xs`}>{trainer.name}</h3>
+                      <h3 className={styles.trainerName}>{trainer.name}</h3>
                       <p className={styles.credentials}>{trainer.credentials}</p>
 
                       <div className={styles.specializationBox}>
@@ -86,7 +86,7 @@ export function TrainersSection() {
                           href={trainer.profileUrl}
                           target="_blank"
                           rel="noreferrer"
-                          className={`${styles.profileLink} tilt-pop-xs`}
+                          className={styles.profileLink}
                         >
                           <span>View Instructor Profile</span>
                           <ArrowUpRight size={14} className={styles.arrowIcon} />
@@ -96,7 +96,7 @@ export function TrainersSection() {
 
                     {/* Right Column: Headshot Dossier */}
                     <div className={styles.colRight}>
-                      <div className={`${styles.portraitContainer} tilt-pop-md`}>
+                      <div className={styles.portraitContainer}>
                         <img
                           src={trainer.imageUrl}
                           alt={trainer.name}
