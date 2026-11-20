@@ -8,7 +8,6 @@ import {
   ChevronDown
 } from 'lucide-react';
 import styles from './PopularCourses.module.css';
-import { Card3DTilt } from '../three/Card3DTilt';
 import { originalCategories, originalCoursesData } from './coursesData';
 
 const FALLBACK_BLUEPRINT_SVG = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='640' height='360' viewBox='0 0 640 360'><rect width='640' height='360' fill='%230B0F19'/><text x='50%25' y='50%25' fill='%2338BDF8' font-family='monospace' font-size='14' text-anchor='middle'>[ ARCHITECTURE BLUEPRINT ]</text></svg>";
@@ -73,14 +72,14 @@ export function PopularCourses({ onOpenDemo, initialLimit = 6 }) {
         </div>
 
         {/* 3-Column Responsive Grid */}
-        <div className={`${styles.coursesGrid} scroll-stagger-cards perspective-container`}>
+        <div className={`${styles.coursesGrid} scroll-stagger-cards`}>
           {displayedCourses.map((course) => (
-            <Card3DTilt key={course.id} className={styles.courseCard} maxTilt={7} elevation={16}>
+            <div key={course.id} className={styles.courseCard}>
               
               {/* 16:9 Aspect Ratio Top Architecture Media Wrapper */}
-              <div className={`${styles.cardMediaWrapper} tilt-pop-xs`}>
-                <span className={`${styles.floatingBadge} tilt-pop-md`}>{course.track}</span>
-                <span className={`${styles.floatingModeBadge} tilt-pop-md`}>{course.mode}</span>
+              <div className={styles.cardMediaWrapper}>
+                <span className={styles.floatingBadge}>{course.track}</span>
+                <span className={styles.floatingModeBadge}>{course.mode}</span>
                 <img 
                   src={course.image} 
                   alt={`${course.title} architecture topology blueprint`} 
@@ -96,7 +95,7 @@ export function PopularCourses({ onOpenDemo, initialLimit = 6 }) {
               {/* Card Body */}
               <div className={styles.cardBody}>
                 <div>
-                  <h3 className={`${styles.courseHeading} tilt-pop-sm`}>{course.title}</h3>
+                  <h3 className={styles.courseHeading}>{course.title}</h3>
                   <p className={styles.courseDesc}>{course.desc}</p>
 
                   <ul className={styles.featuresList}>
@@ -118,7 +117,7 @@ export function PopularCourses({ onOpenDemo, initialLimit = 6 }) {
                   {course.href && course.href.startsWith('/') ? (
                     <Link 
                       to={course.href} 
-                      className={`${styles.enrollBtn} tilt-pop-sm`}
+                      className={styles.enrollBtn}
                     >
                       <span>View Course Details</span>
                       <ArrowRight size={14} className={styles.arrowGlyph} />
@@ -128,7 +127,7 @@ export function PopularCourses({ onOpenDemo, initialLimit = 6 }) {
                       href={course.href} 
                       target="_blank" 
                       rel="noreferrer" 
-                      className={`${styles.enrollBtn} tilt-pop-sm`}
+                      className={styles.enrollBtn}
                     >
                       <span>View Course Details</span>
                       <ArrowRight size={14} className={styles.arrowGlyph} />
@@ -137,7 +136,7 @@ export function PopularCourses({ onOpenDemo, initialLimit = 6 }) {
                 </div>
               </div>
 
-            </Card3DTilt>
+            </div>
           ))}
         </div>
 

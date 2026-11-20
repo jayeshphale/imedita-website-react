@@ -2,13 +2,6 @@
   padding: 0;
   background: transparent;
   border-top: none;
-  scroll-margin-top: 135px;
-}
-
-@media (max-width: 1024px) {
-  .section {
-    scroll-margin-top: 120px;
-  }
 }
 
 .container {
@@ -333,7 +326,7 @@
 
 @media (max-width: 640px) {
   .section {
-    padding: 0;
+    padding: 3rem 0;
   }
   .title {
     font-size: 1.625rem;
@@ -343,34 +336,5 @@
   }
   .totalAmount {
     font-size: 2.25rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .calcWrapper {
-    padding: 1.15rem 0.85rem;
-    border-radius: 14px;
-    gap: 1.5rem;
-  }
-  .summaryCol {
-    padding: 1.25rem 0.95rem;
-    border-radius: 12px;
-  }
-  .totalAmount {
-    font-size: 1.95rem;
-  }
-  .title {
-    font-size: 1.4rem;
-  }
-  .toggleBtn {
-    padding: 0.5rem 0.65rem;
-    font-size: 0.8rem;
-  }
-  .select {
-    font-size: 0.85rem;
-    padding: 0.65rem 0.75rem;
-  }
-  .checkboxLabel {
-    font-size: 0.82rem;
   }
 }

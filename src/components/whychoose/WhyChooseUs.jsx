@@ -10,8 +10,6 @@ import {
   Sparkles
 } from 'lucide-react';
 import styles from './WhyChooseUs.module.css';
-import { Card3DTilt } from '../three/Card3DTilt';
-import { Floating3DCube } from '../three/Floating3DCube';
 
 const advantages = [
   {
@@ -111,51 +109,51 @@ export function WhyChooseUs() {
         </div>
 
         {/* 6-Card Responsive Advantage Grid */}
-        <div className={`${styles.featuresGrid} scroll-stagger-cards perspective-container`}>
+        <div className={`${styles.featuresGrid} scroll-stagger-cards`}>
           {advantages.map((item) => {
             const IconComponent = item.icon;
             return (
-              <Card3DTilt key={item.id} className={styles.featureCard} maxTilt={7} elevation={16}>
+              <div key={item.id} className={styles.featureCard}>
                 <div>
                   <div className={styles.cardTopRow}>
-                    <div className={`${styles.iconBox} tilt-pop-md`}>
+                    <div className={styles.iconBox}>
                       <IconComponent size={24} strokeWidth={2} />
                     </div>
-                    <span className={`${styles.indexPill} tilt-pop-xs`}>{item.index}</span>
+                    <span className={styles.indexPill}>{item.index}</span>
                   </div>
 
-                  <h3 className={`${styles.cardTitle} tilt-pop-sm`}>{item.title}</h3>
+                  <h3 className={styles.cardTitle}>{item.title}</h3>
                   <p className={styles.cardDesc}>{item.desc}</p>
                 </div>
 
                 <ul className={styles.cardChecklist}>
                   {item.checks.map((check, idx) => (
                     <li key={idx} className={styles.checkItem}>
-                      <div className={`${styles.checkBadge} tilt-pop-xs`}>
+                      <div className={styles.checkBadge}>
                         <CheckCircle2 size={13} color="#059669" strokeWidth={2.5} />
                       </div>
                       <span>{check}</span>
                     </li>
                   ))}
                 </ul>
-              </Card3DTilt>
+              </div>
             );
           })}
         </div>
 
         {/* High-Impact Milestone Metrics Strip */}
-        <div className={`${styles.statsStrip} scroll-reveal-scale perspective-container`}>
+        <div className={`${styles.statsStrip} scroll-reveal-scale`}>
           {metrics.map((stat, idx) => {
             const StatIcon = stat.icon;
             return (
-              <Card3DTilt key={idx} className={styles.statItem} maxTilt={6} elevation={14}>
-                <div className={`${styles.statIconWrap} tilt-pop-md`}>
+              <div key={idx} className={styles.statItem}>
+                <div className={styles.statIconWrap}>
                   <StatIcon size={20} strokeWidth={2} />
                 </div>
-                <div className={`${styles.statNumber} tilt-pop-sm`}>{stat.number}</div>
+                <div className={styles.statNumber}>{stat.number}</div>
                 <div className={styles.statLabel}>{stat.label}</div>
                 <div className={styles.statDetail}>{stat.detail}</div>
-              </Card3DTilt>
+              </div>
             );
           })}
         </div>

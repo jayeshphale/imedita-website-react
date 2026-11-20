@@ -138,7 +138,7 @@
 
 @media (max-width: 640px) {
   .section {
-    padding: 0;
+    padding: 3rem 0 4rem;
   }
   .ctaBox {
     padding: 2rem 1.25rem;
@@ -153,15 +153,5 @@
   .primaryBtn,
   .secondaryBtn {
     justify-content: center;
-  }
-}
-
-@media (max-width: 480px) {
-  .ctaBox {
-    padding: 1.5rem 1rem;
-    border-radius: 16px;
-  }
-  .title {
-    font-size: 1.35rem;
   }
 }

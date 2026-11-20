@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { ArrowUpRight, ChevronLeft, ChevronRight, Award, Download, CheckCircle2, Server, Cpu } from 'lucide-react';
-import { Hero3DGlobe } from '../three/Hero3DGlobe';
 import instructorImg from '../../assets/instructors.webp';
 import careerRoadmapImg from '../../assets/career-roadmap.webp';
 import serverEngineerImg from '../../assets/server-datacenter-engineer.webp';
@@ -305,7 +304,7 @@ export function HeroSlider({ onOpenDemo }) {
             {/* Primary Action Button */}
             <button 
               type="button"
-              className="hero-btn-primary btn-3d-glow"
+              className="hero-btn-primary"
               onClick={onOpenDemo}
             >
               <span>{slide.primaryCta}</span>
@@ -396,13 +395,8 @@ export function HeroSlider({ onOpenDemo }) {
 
         {/* Right Column: Instructor Cutout, 3D Roadmap Graphic, or Server Hardware Card */}
         <div className="hero-image-col">
-          {/* Interactive 3D Hologram Network Globe Backdrop */}
-          <div className="hero-3d-globe-backdrop" aria-hidden="true">
-            <Hero3DGlobe size={460} />
-          </div>
-
           {slide.imageType === 'hardware-card' ? (
-            <div className="hero-hardware-card-wrapper hero-cutout-3d-wrapper">
+            <div className="hero-hardware-card-wrapper">
               <div className="hero-hardware-card-frame">
                 <img
                   src={slide.image}
@@ -414,21 +408,19 @@ export function HeroSlider({ onOpenDemo }) {
               </div>
             </div>
           ) : (
-            <div className="hero-cutout-3d-wrapper">
-              <img
-                src={slide.image}
-                alt={slide.altText}
-                className={slide.imageClass || 'hero-instructor-cutout'}
-                fetchPriority={slide.id === 0 ? "high" : "auto"}
-                decoding="async"
-              />
-            </div>
+            <img
+              src={slide.image}
+              alt={slide.altText}
+              className={slide.imageClass || 'hero-instructor-cutout'}
+              fetchPriority={slide.id === 0 ? "high" : "auto"}
+              decoding="async"
+            />
           )}
 
-          {/* Floating UI status pill badge (3D Floating depth) */}
+          {/* Floating UI status pill badge (Razorpay style with gentle bobbing) */}
           {slide.statusBadge && (
             <div 
-              className="hero-floating-status-badge animate-float-3d"
+              className="hero-floating-status-badge"
               aria-label="Status Badge"
             >
               <div className="hero-floating-badge-header">

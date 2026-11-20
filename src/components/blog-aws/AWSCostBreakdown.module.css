@@ -226,7 +226,7 @@
 
 @media (max-width: 640px) {
   .section {
-    padding: 0;
+    padding: 3rem 0;
   }
   .title {
     font-size: 1.625rem;
@@ -238,19 +238,5 @@
     flex-direction: column;
     padding: 1.25rem;
     gap: 1rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .title {
-    font-size: 1.4rem;
-  }
-  .card {
-    padding: 1.25rem 1rem;
-    border-radius: 12px;
-  }
-  .summaryBanner {
-    padding: 1rem 0.85rem;
-    border-radius: 12px;
   }
 }

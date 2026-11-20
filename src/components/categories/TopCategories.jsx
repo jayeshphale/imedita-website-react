@@ -12,7 +12,6 @@ import {
   Layers
 } from 'lucide-react';
 import styles from './TopCategories.module.css';
-import { Card3DTilt } from '../three/Card3DTilt';
 
 const categories = [
   { 
@@ -147,7 +146,7 @@ export function TopCategories({ onOpenDemo }) {
         <div className={styles.contentSplit}>
           
           {/* 3x3 Responsive Grid */}
-          <div className={`${styles.categoriesGrid} scroll-stagger-cards perspective-container`}>
+          <div className={`${styles.categoriesGrid} scroll-stagger-cards`}>
             {categories.map((item) => {
               const isInternal = item.href && item.href.startsWith('/');
               const CardTag = isInternal ? Link : 'a';
@@ -156,18 +155,15 @@ export function TopCategories({ onOpenDemo }) {
                 : { href: item.href, target: "_blank", rel: "noreferrer" };
 
               return (
-                <Card3DTilt
+                <CardTag
                   key={item.id}
-                  as={CardTag}
                   {...linkProps}
                   className={styles.categoryCard}
                   style={{ '--card-accent': item.color }}
-                  maxTilt={8}
-                  elevation={14}
                 >
                   <div className={styles.cardHeaderRow}>
                     <div 
-                      className={`${styles.iconCircle} tilt-pop-md`}
+                      className={styles.iconCircle}
                       style={{ 
                         backgroundColor: item.bg, 
                         color: item.color,
@@ -178,55 +174,49 @@ export function TopCategories({ onOpenDemo }) {
                     </div>
                     
                     <div className={styles.cardMetaGroup}>
-                      <span className={`${styles.badgePill} tilt-pop-xs`}>{item.badge}</span>
-                      <div className={`${styles.arrowCircle} tilt-pop-xs`}>
+                      <span className={styles.badgePill}>{item.badge}</span>
+                      <div className={styles.arrowCircle}>
                         <ArrowUpRight size={14} strokeWidth={2.5} />
                       </div>
                     </div>
                   </div>
 
                   <div className={styles.cardBody}>
-                    <h3 className={`${styles.categoryName} tilt-pop-sm`} title={item.name}>
+                    <h3 className={styles.categoryName} title={item.name}>
                       {item.name}
                     </h3>
                     <p className={styles.categorySubtext}>
                       {item.subtext}
                     </p>
                   </div>
-                </Card3DTilt>
+                </CardTag>
               );
             })}
           </div>
 
           {/* Right Dark Focus Showcase Card */}
-          <Card3DTilt
-            as="a"
-            href="#courses"
-            className={`${styles.moreCoursesCard} scroll-reveal-right`}
-            maxTilt={6}
-            elevation={18}
-          >
+          <a href="#courses" className={`${styles.moreCoursesCard} scroll-reveal-right`}>
             <div className={styles.moreTopArea}>
-              <div className={`${styles.liveBeaconPill} tilt-pop-xs`}>
+              <div className={styles.liveBeaconPill}>
                 <span className={styles.beaconDot}></span>
                 <span>112+ Live Programs</span>
               </div>
               
-              <div className={`${styles.iconOrb} tilt-pop-md`}>
+              <div className={styles.iconOrb}>
                 <Layers size={32} strokeWidth={1.8} />
               </div>
               
-              <h3 className={`${styles.moreCoursesTitle} tilt-pop-sm`}>112 More Courses</h3>
+              <h3 className={styles.moreCoursesTitle}>112 More Courses</h3>
               <p className={styles.moreCoursesDesc}>
                 Explore full multi-vendor curriculum, custom corporate pods, and bootcamps.
               </p>
             </div>
 
-            <span className={`${styles.getStartedBtn} tilt-pop-sm`}>
+            <span className={styles.getStartedBtn}>
               <span>Browse Full Catalog</span>
               <ArrowRight size={15} strokeWidth={2.2} className={styles.ctaArrow} />
             </span>
-          </Card3DTilt>
+          </a>
 
         </div>
 

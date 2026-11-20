@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Calendar, Clock, Monitor, ArrowRight } from 'lucide-react';
 import styles from './BatchesSection.module.css';
-import { Card3DTilt } from '../three/Card3DTilt';
 
 const filterCategories = [
   { id: "all", label: "All Batches" },
@@ -222,18 +221,18 @@ export function BatchesSection({ onOpenDemo }) {
         </div>
 
         {/* Mobile View: High-Density Card List */}
-        <div className={`${styles.mobileCardsView} perspective-container`}>
+        <div className={styles.mobileCardsView}>
           {filteredBatches.map((item) => (
-            <Card3DTilt key={item.id} className={styles.mobileCard} maxTilt={6} elevation={12}>
+            <div key={item.id} className={styles.mobileCard}>
               <div className={styles.mobileCardTop}>
-                <span className={`${styles.trackTag} tilt-pop-xs`}>{item.track}</span>
-                <span className={`${styles.statusPill} ${item.statusType === 'filling' ? styles.statusFilling : styles.statusAvailable} tilt-pop-xs`}>
+                <span className={styles.trackTag}>{item.track}</span>
+                <span className={`${styles.statusPill} ${item.statusType === 'filling' ? styles.statusFilling : styles.statusAvailable}`}>
                   <span className={`${styles.pulseDot} ${item.statusType === 'filling' ? styles.dotAmber : styles.dotGreen}`}></span>
                   <span>{item.status}</span>
                 </span>
               </div>
 
-              <h3 className={`${styles.mobileCardTitle} tilt-pop-xs`}>{item.course}</h3>
+              <h3 className={styles.mobileCardTitle}>{item.course}</h3>
 
               <div className={styles.mobileMetaGrid}>
                 <div className={styles.mobileMetaItem}>
@@ -285,7 +284,7 @@ export function BatchesSection({ onOpenDemo }) {
                   <ArrowRight size={14} />
                 </a>
               )}
-            </Card3DTilt>
+            </div>
           ))}
         </div>
 
