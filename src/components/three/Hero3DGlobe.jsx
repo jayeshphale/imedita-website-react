@@ -240,14 +240,14 @@ export function Hero3DGlobe({ size = 520, className = '', style = {} }) {
     resizeObserver.observe(mount);
 
     // Animation Loop
-    let clock = new THREE.Clock();
+    const startTime = performance.now();
 
     const animate = () => {
       animationFrameId = requestAnimationFrame(animate);
 
       if (!isVisible) return;
 
-      const elapsed = clock.getElapsedTime();
+      const elapsed = (performance.now() - startTime) * 0.001;
 
       // Continuous base rotation
       if (!isDragging) {

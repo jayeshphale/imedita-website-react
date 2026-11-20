@@ -2306,9 +2306,9 @@ export function CCNACoursePage() {
               <tbody>
                 {upcomingBatches.map((batch) => (
                   <tr key={batch.id} itemScope itemType="https://schema.org/CourseInstance">
-                    <meta itemProp="name" content={`Cisco CCNA 200-301 - ${batch.startDate} (${batch.type})`} />
-                    <meta itemProp="courseMode" content={batch.mode} />
                     <td>
+                      <meta itemProp="name" content={`Cisco CCNA 200-301 - ${batch.startDate} (${batch.type})`} />
+                      <meta itemProp="courseMode" content={batch.mode} />
                       <div style={{ fontWeight: 750, color: '#0f172a' }}>{batch.startDate}</div>
                       <div style={{ fontSize: '0.75rem', color: '#64748b' }}>{batch.duration}</div>
                     </td>
