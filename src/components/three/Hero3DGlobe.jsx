@@ -6,7 +6,7 @@ import * as THREE from 'three';
  * Interactive 3D Cisco & Cloud Network topology visualization with rotating orbital rings,
  * glowing network nodes, and responsive mouse interaction.
  */
-export function Hero3DGlobe({ size = 520, className = '' }) {
+export function Hero3DGlobe({ size = 520, className = '', style = {} }) {
   const mountRef = useRef(null);
 
   useEffect(() => {
@@ -320,7 +320,8 @@ export function Hero3DGlobe({ size = 520, className = '' }) {
         pointerEvents: 'auto',
         cursor: 'grab',
         touchAction: 'none',
-        zIndex: 1
+        zIndex: 1,
+        ...style
       }}
       title="Interactive 3D Network Globe (Click and drag to rotate)"
       role="img"

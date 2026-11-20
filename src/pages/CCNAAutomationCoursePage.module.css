@@ -121,6 +121,7 @@
   color: #94a3b8;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   overflow: hidden;
+  perspective: 1200px;
 }
 
 .heroGridOverlay {
@@ -369,14 +370,52 @@
 /* --------------------------------------------------------------------------
    HERO RIGHT: MODERN DEVNET TERMINAL & PRICING SHOWCASE
    -------------------------------------------------------------------------- */
+.heroRightCol {
+  position: relative;
+  width: 100%;
+  perspective: 1200px;
+  transform-style: preserve-3d;
+  transform: perspective(1000px) rotateY(calc(var(--hero-tilt-x, 0) * 4.5deg)) rotateX(calc(var(--hero-tilt-y, 0) * -3deg));
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+
+/* Interactive 3D WebGL Globe behind Terminal */
+.heroGlobeLayer {
+  position: absolute !important;
+  top: 48% !important;
+  right: -40px !important;
+  left: auto !important;
+  transform: translateY(-50%) translateZ(-40px) !important;
+  pointer-events: auto;
+  z-index: 1 !important;
+  opacity: 0.95;
+  filter: drop-shadow(0 0 50px rgba(12, 107, 245, 0.45));
+}
+
+@media (max-width: 1023px) {
+  .heroRightCol {
+    transform: none !important;
+  }
+  .heroGlobeLayer {
+    max-width: 360px !important;
+    max-height: 360px !important;
+    opacity: 0.8;
+  }
+}
+
 .heroTerminalCard {
   background: rgba(15, 23, 42, 0.75);
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 20px;
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55), 0 0 40px rgba(30, 136, 229, 0.15);
+  box-shadow: 0 28px 65px rgba(0, 0, 0, 0.65), 0 0 45px rgba(30, 136, 229, 0.25);
   backdrop-filter: blur(20px);
   overflow: hidden;
   color: #e2e8f0;
+  position: relative;
+  z-index: 2;
+  transform: translateZ(30px);
+  transform-style: preserve-3d;
 }
 
 .terminalHeader {
