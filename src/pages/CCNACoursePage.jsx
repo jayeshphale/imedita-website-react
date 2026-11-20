@@ -53,7 +53,6 @@ import { CampusLife } from '../components/campus/CampusLife';
 import { PlacementPartners } from '../components/partners/PlacementPartners';
 import { GoogleReviews } from '../components/reviews/GoogleReviews';
 import { CCNAFaqSection, faqsData } from '../components/faq/CCNAFaqSection';
-import { Hero3DGlobe } from '../components/three/Hero3DGlobe';
 import styles from './CCNACoursePage.module.css';
 
 // Why Choose I-Medita 6 Key Pillars
@@ -768,24 +767,6 @@ export function CCNACoursePage() {
   const [heroForm, setHeroForm] = useState({ name: '', email: '', phone: '' });
   const [heroSubmitted, setHeroSubmitted] = useState(false);
   const [heroLoading, setHeroLoading] = useState(false);
-  const [heroTilt, setHeroTilt] = useState({ x: 0, y: 0 });
-  const heroRef = useRef(null);
-
-  // Interactive 3D mouse parallax tracking for Course Hero
-  const handleHeroMouseMove = (e) => {
-    if (!heroRef.current) return;
-    const rect = heroRef.current.getBoundingClientRect();
-    const x = ((e.clientX - rect.left) / rect.width) * 2 - 1;
-    const y = ((e.clientY - rect.top) / rect.height) * 2 - 1;
-    setHeroTilt({
-      x: Math.max(-1, Math.min(1, x)),
-      y: Math.max(-1, Math.min(1, y))
-    });
-  };
-
-  const handleHeroMouseLeave = () => {
-    setHeroTilt({ x: 0, y: 0 });
-  };
 
   const handleHeroSubmit = (e) => {
     e.preventDefault();
@@ -905,14 +886,7 @@ export function CCNACoursePage() {
           1. HERO HEADER WITH BREADCRUMBS & FLOATING LEAD CARD
           ========================================================================= */}
       <header
-        ref={heroRef}
         className={styles.courseHero}
-        onMouseMove={handleHeroMouseMove}
-        onMouseLeave={handleHeroMouseLeave}
-        style={{
-          '--hero-tilt-x': heroTilt.x.toFixed(3),
-          '--hero-tilt-y': heroTilt.y.toFixed(3)
-        }}
         role="banner"
         aria-labelledby="course-hero-heading"
       >
@@ -1109,9 +1083,6 @@ export function CCNACoursePage() {
 
             {/* Right Column: Floating Lead Capture Form Card */}
             <div className={styles.heroRight}>
-              {/* Interactive 3D WebGL Holographic Cisco Network Globe Layer */}
-              <Hero3DGlobe size={620} className={styles.heroGlobeLayer} />
-
               <div className={styles.leadCard}>
                 <div className={styles.leadCardTopGlow} />
 

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useOutletContext } from 'react-router-dom';
 import {
   Award,
@@ -38,7 +38,6 @@ import {
   KeyRound,
   Fingerprint
 } from 'lucide-react';
-import { Hero3DGlobe } from '../components/three/Hero3DGlobe';
 import styles from './CCNAAutomationCoursePage.module.css';
 
 // ---------------------------------------------------------------------------
@@ -726,25 +725,6 @@ export function CCNAAutomationCoursePage() {
 
   const currentStageData = learningStages[activeStage];
 
-  // Interactive 3D mouse parallax tracking for Automation Hero
-  const [heroTilt, setHeroTilt] = useState({ x: 0, y: 0 });
-  const heroRef = useRef(null);
-
-  const handleHeroMouseMove = (e) => {
-    if (!heroRef.current) return;
-    const rect = heroRef.current.getBoundingClientRect();
-    const x = ((e.clientX - rect.left) / rect.width) * 2 - 1;
-    const y = ((e.clientY - rect.top) / rect.height) * 2 - 1;
-    setHeroTilt({
-      x: Math.max(-1, Math.min(1, x)),
-      y: Math.max(-1, Math.min(1, y))
-    });
-  };
-
-  const handleHeroMouseLeave = () => {
-    setHeroTilt({ x: 0, y: 0 });
-  };
-
   return (
     <div className={styles.coursePageRoot}>
       {/* =========================================================================
@@ -779,16 +759,7 @@ export function CCNAAutomationCoursePage() {
       {/* =========================================================================
           SECTION 1: HERO SECTION (DEEP OBSIDIAN SLATE #080c14)
           ========================================================================= */}
-      <header
-        ref={heroRef}
-        className={styles.courseHero}
-        onMouseMove={handleHeroMouseMove}
-        onMouseLeave={handleHeroMouseLeave}
-        style={{
-          '--hero-tilt-x': heroTilt.x.toFixed(3),
-          '--hero-tilt-y': heroTilt.y.toFixed(3)
-        }}
-      >
+      <header className={styles.courseHero}>
         <div className={styles.heroGridOverlay} />
         <div className={styles.container}>
           {/* Breadcrumbs */}
@@ -872,10 +843,7 @@ export function CCNAAutomationCoursePage() {
             </div>
 
             {/* Right Column: Modern MacOS DevNet Terminal & Pricing Card */}
-            <div className={styles.heroRightCol}>
-              {/* Interactive 3D WebGL Holographic DevNet & Automation Network Globe */}
-              <Hero3DGlobe size={640} className={styles.heroGlobeLayer} />
-
+            <div>
               <div className={styles.heroTerminalCard}>
                 <div className={styles.terminalHeader}>
                   <div className={styles.terminalControls}>

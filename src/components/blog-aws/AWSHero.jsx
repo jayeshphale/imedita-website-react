@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React from 'react';
 import { 
   Cloud, 
   Sparkles, 
@@ -15,7 +15,6 @@ import {
   ArrowRight
 } from 'lucide-react';
 import BlogBreadcrumbs from '../blog-common/BlogBreadcrumbs';
-import { Hero3DGlobe } from '../three/Hero3DGlobe';
 import styles from './AWSHero.module.css';
 
 const BREADCRUMBS = [
@@ -24,25 +23,6 @@ const BREADCRUMBS = [
 ];
 
 export function AWSHero() {
-  const [heroTilt, setHeroTilt] = useState({ x: 0, y: 0 });
-  const heroRef = useRef(null);
-
-  // Interactive 3D mouse parallax tracking for AWS Hero
-  const handleHeroMouseMove = (e) => {
-    if (!heroRef.current) return;
-    const rect = heroRef.current.getBoundingClientRect();
-    const x = ((e.clientX - rect.left) / rect.width) * 2 - 1;
-    const y = ((e.clientY - rect.top) / rect.height) * 2 - 1;
-    setHeroTilt({
-      x: Math.max(-1, Math.min(1, x)),
-      y: Math.max(-1, Math.min(1, y))
-    });
-  };
-
-  const handleHeroMouseLeave = () => {
-    setHeroTilt({ x: 0, y: 0 });
-  };
-
   const scrollTo = (e, id) => {
     e.preventDefault();
     const element = document.getElementById(id);
@@ -60,16 +40,7 @@ export function AWSHero() {
   };
 
   return (
-    <header 
-      ref={heroRef}
-      className={styles.heroWrapper}
-      onMouseMove={handleHeroMouseMove}
-      onMouseLeave={handleHeroMouseLeave}
-      style={{
-        '--hero-tilt-x': heroTilt.x.toFixed(3),
-        '--hero-tilt-y': heroTilt.y.toFixed(3)
-      }}
-    >
+    <header className={styles.heroWrapper}>
       {/* Background ambient lighting effects */}
       <div className={styles.ambientGlowPrimary} aria-hidden="true" />
       <div className={styles.ambientGlowSecondary} aria-hidden="true" />
@@ -194,9 +165,6 @@ export function AWSHero() {
 
           {/* RIGHT COLUMN: Creative AWS 2026 Cloud Fee Matrix Terminal */}
           <div className={styles.rightCol}>
-            {/* Interactive 3D WebGL Holographic Cloud & Network Globe */}
-            <Hero3DGlobe size={640} className={styles.heroGlobeLayer} />
-
             <div className={styles.terminalCard}>
               {/* Terminal Header */}
               <div className={styles.terminalHeader}>

@@ -26,7 +26,7 @@
   color: #cbd5e1;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   overflow: hidden;
-  perspective: 1200px;
+  contain: paint;
 }
 
 /* Ambient Background Glow Lights (GPU-accelerated with reduced mobile load) */
@@ -146,10 +146,6 @@
   flex-direction: column;
   align-items: flex-start;
   width: 100%;
-  transform: perspective(1000px) rotateY(calc(var(--hero-tilt-x, 0) * 3deg)) rotateX(calc(var(--hero-tilt-y, 0) * -2deg));
-  transform-style: preserve-3d;
-  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: transform;
 }
 
 /* Rating Badge with Live Pulse */
@@ -432,42 +428,14 @@
 
 /* Right Column: Floating Lead Card */
 .heroRight {
-  position: relative;
   display: flex;
   justify-content: flex-end;
   width: 100%;
-  perspective: 1200px;
-  transform-style: preserve-3d;
-  transform: perspective(1000px) rotateY(calc(var(--hero-tilt-x, 0) * 4.5deg)) rotateX(calc(var(--hero-tilt-y, 0) * -3deg));
-  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: transform;
-}
-
-/* Interactive 3D WebGL Globe behind Lead Card */
-.heroGlobeLayer {
-  position: absolute !important;
-  top: 48% !important;
-  right: -30px !important;
-  left: auto !important;
-  transform: translateY(-50%) translateZ(-40px) !important;
-  pointer-events: auto;
-  z-index: 1 !important;
-  opacity: 0.95;
-  filter: drop-shadow(0 0 50px rgba(12, 107, 245, 0.45));
 }
 
 @media (max-width: 1023px) {
   .heroRight {
     justify-content: center;
-    transform: none !important;
-  }
-  .heroLeft {
-    transform: none !important;
-  }
-  .heroGlobeLayer {
-    max-width: 360px !important;
-    max-height: 360px !important;
-    opacity: 0.8;
   }
 }
 
@@ -476,16 +444,14 @@
   border-radius: clamp(16px, 2.5vw, 22px);
   padding: clamp(1.4rem, 2.8vw, 2.1rem) clamp(1.15rem, 2.8vw, 2.25rem) clamp(1.35rem, 2.5vw, 2rem);
   box-shadow: 
-    0 30px 65px -15px rgba(0, 0, 0, 0.55), 
-    0 0 0 1px rgba(255, 255, 255, 0.2), 
-    0 0 45px rgba(0, 102, 255, 0.22);
+    0 30px 65px -15px rgba(0, 0, 0, 0.45), 
+    0 0 0 1px rgba(255, 255, 255, 0.1), 
+    0 0 40px rgba(0, 102, 255, 0.12);
   width: 100%;
   max-width: 440px;
   position: relative;
   z-index: 2;
   overflow: hidden;
-  transform: translateZ(30px);
-  transform-style: preserve-3d;
 }
 
 @media (max-width: 1023px) {

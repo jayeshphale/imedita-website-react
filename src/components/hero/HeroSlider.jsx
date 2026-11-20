@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { ArrowUpRight, ChevronLeft, ChevronRight, Award, Download, CheckCircle2, Server, Cpu } from 'lucide-react';
-import { Hero3DGlobe } from '../three/Hero3DGlobe';
 import instructorImg from '../../assets/instructors.webp';
 import careerRoadmapImg from '../../assets/career-roadmap.webp';
 import serverEngineerImg from '../../assets/server-datacenter-engineer.webp';
@@ -142,29 +141,10 @@ const SLIDES_DATA = [
 export function HeroSlider({ onOpenDemo }) {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
-  const [parallax, setParallax] = useState({ x: 0, y: 0 });
-  const sectionRef = useRef(null);
   const touchStartX = useRef(null);
   const touchStartY = useRef(null);
   const touchEndX = useRef(null);
   const touchEndY = useRef(null);
-
-  // Interactive 3D mouse parallax tracking
-  const handleMouseMove = (e) => {
-    if (!sectionRef.current) return;
-    const rect = sectionRef.current.getBoundingClientRect();
-    const x = ((e.clientX - rect.left) / rect.width) * 2 - 1;
-    const y = ((e.clientY - rect.top) / rect.height) * 2 - 1;
-    setParallax({
-      x: Math.max(-1, Math.min(1, x)),
-      y: Math.max(-1, Math.min(1, y))
-    });
-  };
-
-  const handleMouseLeave = () => {
-    setIsPaused(false);
-    setParallax({ x: 0, y: 0 });
-  };
 
   // Auto-play interval (pauses when user hovers or touches)
   useEffect(() => {
@@ -237,18 +217,12 @@ export function HeroSlider({ onOpenDemo }) {
 
   return (
     <section 
-      ref={sectionRef}
       className="hero-slider-section"
-      onMouseMove={handleMouseMove}
       onMouseEnter={() => setIsPaused(true)}
-      onMouseLeave={handleMouseLeave}
+      onMouseLeave={() => setIsPaused(false)}
       onTouchStart={handleTouchStart}
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
-      style={{
-        '--hero-tilt-x': parallax.x.toFixed(3),
-        '--hero-tilt-y': parallax.y.toFixed(3)
-      }}
       aria-label="I-MEDITA Hero Showcase"
     >
       {/* =========================================================================
@@ -421,9 +395,6 @@ export function HeroSlider({ onOpenDemo }) {
 
         {/* Right Column: Instructor Cutout, 3D Roadmap Graphic, or Server Hardware Card */}
         <div className="hero-image-col">
-          {/* Interactive 3D WebGL Holographic Globe Layer */}
-          <Hero3DGlobe size={540} className="hero-globe-layer" />
-
           {slide.imageType === 'hardware-card' ? (
             <div className="hero-hardware-card-wrapper">
               <div className="hero-hardware-card-frame">

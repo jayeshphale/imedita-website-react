@@ -23,7 +23,6 @@
   user-select: none;
   touch-action: pan-y;
   box-sizing: border-box;
-  perspective: 1200px;
 }
 
 /* ==========================================================================
@@ -360,10 +359,6 @@
   justify-content: center;
   animation: heroSlideFadeIn 0.35s ease-out;
   box-sizing: border-box;
-  transform: perspective(1000px) rotateY(calc(var(--hero-tilt-x, 0) * 3deg)) rotateX(calc(var(--hero-tilt-y, 0) * -2deg));
-  transform-style: preserve-3d;
-  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: transform;
 }
 
 @keyframes heroSlideFadeIn {
@@ -501,44 +496,21 @@
   text-decoration: none;
   border: none;
   cursor: pointer;
-  box-shadow: 0 8px 24px -4px rgba(0, 102, 255, 0.55), inset 0 1px 1px rgba(255, 255, 255, 0.35);
+  box-shadow: 0 8px 24px -4px rgba(0, 102, 255, 0.45);
   transition: all 0.18s ease;
   white-space: nowrap;
-  position: relative;
-  overflow: hidden;
-  transform: translateZ(10px);
-}
-
-.hero-btn-primary::after,
-.primaryBtn::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 60%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
-  transform: skewX(-20deg);
-  transition: left 0.6s ease;
-  pointer-events: none;
-}
-
-.hero-btn-primary:hover::after,
-.primaryBtn:hover::after {
-  left: 140%;
 }
 
 .hero-btn-primary:hover,
 .primaryBtn:hover {
   background-color: #0052cc;
-  transform: translateY(-2px) translateZ(14px);
-  box-shadow: 0 14px 32px -4px rgba(0, 102, 255, 0.7), inset 0 1px 1px rgba(255, 255, 255, 0.45);
+  transform: translateY(-1.5px);
+  box-shadow: 0 12px 30px -4px rgba(0, 102, 255, 0.6);
 }
 
 .hero-btn-primary:active,
 .primaryBtn:active {
-  transform: translateY(0) translateZ(5px);
-  box-shadow: 0 4px 12px -2px rgba(0, 102, 255, 0.5);
+  transform: translateY(0);
 }
 
 .hero-btn-icon {
@@ -700,24 +672,6 @@
   z-index: 10;
   animation: heroSlideFadeIn 0.35s ease-out;
   box-sizing: border-box;
-  perspective: 1200px;
-  transform-style: preserve-3d;
-  transform: perspective(1000px) rotateY(calc(var(--hero-tilt-x, 0) * 5deg)) rotateX(calc(var(--hero-tilt-y, 0) * -3.5deg));
-  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: transform;
-}
-
-/* Interactive 3D WebGL Globe Layer */
-.hero-globe-layer {
-  position: absolute !important;
-  top: 48% !important;
-  right: 6% !important;
-  left: auto !important;
-  transform: translateY(-50%) translateZ(-40px) !important;
-  pointer-events: auto;
-  z-index: 2 !important;
-  opacity: 0.95;
-  filter: drop-shadow(0 0 50px rgba(12, 107, 245, 0.45));
 }
 
 .graphicsContainer::after,
@@ -753,10 +707,10 @@
   mix-blend-mode: normal;
 
   margin-bottom: 0;
+  transform: none;
   transition: opacity 0.35s ease, transform 0.35s ease;
   position: relative;
   z-index: 10;
-  transform: translateZ(25px);
 }
 
 /* 3D Career Roadmap Graphic (Slide 2) */
@@ -776,7 +730,6 @@
   transition: opacity 0.35s ease, transform 0.35s ease;
   position: relative;
   z-index: 10;
-  transform: translateZ(30px);
 }
 
 /* Enterprise Hardware Lab Card (Slide 3) - Decreased size by 25% with razor sharp clarity */
@@ -789,8 +742,6 @@
   align-items: flex-end;
   justify-content: flex-end;
   margin: auto 0 0 auto;
-  transform: translateZ(25px);
-  transform-style: preserve-3d;
 }
 
 .hero-hardware-card-frame {
@@ -834,14 +785,11 @@
   right: 20px;
   padding: 13px 18px;
   border-radius: 14px;
-  background-color: rgba(15, 23, 42, 0.88);
-  backdrop-filter: blur(14px) saturate(140%);
-  -webkit-backdrop-filter: blur(14px) saturate(140%);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  box-shadow: 
-    0 24px 48px -12px rgba(0, 0, 0, 0.65),
-    0 0 0 1px rgba(255, 255, 255, 0.12),
-    inset 0 1px 1px rgba(255, 255, 255, 0.3);
+  background-color: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(12px) saturate(130%);
+  -webkit-backdrop-filter: blur(12px) saturate(130%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.5);
   color: #ffffff;
   pointer-events: none;
   z-index: 20;
@@ -849,8 +797,6 @@
   display: flex;
   flex-direction: column;
   text-align: left;
-  transform: translateZ(45px);
-  transform-style: preserve-3d;
   animation: heroBadgeBobbing 4.5s ease-in-out infinite;
   will-change: transform;
 }
@@ -1297,21 +1243,6 @@
     align-items: flex-end;
     margin: 4px auto 0;
     width: 100%;
-    transform: none !important;
-  }
-
-  .hero-content-col {
-    transform: none !important;
-  }
-
-  .hero-globe-layer {
-    top: 50% !important;
-    left: 50% !important;
-    right: auto !important;
-    transform: translate(-50%, -50%) translateZ(-30px) !important;
-    max-width: 340px !important;
-    max-height: 310px !important;
-    opacity: 0.85;
   }
 
   .hero-instructor-cutout,
@@ -1446,11 +1377,6 @@
 
   .hero-image-col {
     height: 270px;
-  }
-
-  .hero-globe-layer {
-    max-width: 270px !important;
-    max-height: 250px !important;
   }
 
   .hero-instructor-cutout,
