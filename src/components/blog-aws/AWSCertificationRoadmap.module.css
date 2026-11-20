@@ -2,6 +2,13 @@
   padding: 0;
   background-color: transparent;
   border-top: none;
+  scroll-margin-top: 135px;
+}
+
+@media (max-width: 1024px) {
+  .section {
+    scroll-margin-top: 120px;
+  }
 }
 
 .container {
@@ -287,7 +294,7 @@
 
 @media (max-width: 768px) {
   .section {
-    padding: 3rem 0;
+    padding: 0;
   }
   .title {
     font-size: 1.625rem;
@@ -298,5 +305,37 @@
   .stepsGrid {
     grid-template-columns: 1fr;
     gap: 1.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .tabBtn {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.8rem;
+    border-radius: 10px;
+  }
+  .tabLabel {
+    font-size: 0.8rem;
+  }
+  .roadmapPanel {
+    padding: 1.15rem 0.85rem;
+    border-radius: 14px;
+  }
+  .title {
+    font-size: 1.4rem;
+  }
+  .roleHeading {
+    font-size: 1.15rem;
+  }
+  .stepCard {
+    padding: 1.15rem 0.85rem;
+    border-radius: 12px;
+  }
+  .stepTitle {
+    font-size: 1.05rem;
+  }
+  .prereqNotice {
+    padding: 0.95rem 0.85rem;
+    font-size: 0.82rem;
   }
 }

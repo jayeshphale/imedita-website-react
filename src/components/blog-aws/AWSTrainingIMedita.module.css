@@ -220,7 +220,7 @@
 
 @media (max-width: 640px) {
   .section {
-    padding: 3rem 0;
+    padding: 0;
   }
   .title {
     font-size: 1.5rem;
@@ -232,5 +232,22 @@
   .primaryBtn,
   .secondaryBtn {
     justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .mainCard {
+    padding: 1.5rem 1rem;
+    border-radius: 16px;
+  }
+  .title {
+    font-size: 1.35rem;
+  }
+  .lead {
+    font-size: 0.95rem;
+    margin-bottom: 1.75rem;
+  }
+  .featureItem {
+    gap: 0.85rem;
   }
 }

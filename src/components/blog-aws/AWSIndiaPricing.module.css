@@ -1,5 +1,12 @@
 .indiaPricingSection {
   margin: 3.5rem 0;
+  scroll-margin-top: 135px;
+}
+
+@media (max-width: 1024px) {
+  .indiaPricingSection {
+    scroll-margin-top: 120px;
+  }
 }
 
 .sectionHeader {
@@ -235,5 +242,17 @@
 @media (max-width: 900px) {
   .considerationsGrid {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .indiaPricingSection {
+    margin: 2.25rem 0;
+  }
+  .tableCardHeader {
+    padding: 1rem 0.85rem;
+  }
+  .conCard {
+    padding: 1.15rem 0.95rem;
   }
 }

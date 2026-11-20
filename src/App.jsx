@@ -4,6 +4,7 @@ import './styles/global.css';
 import './styles/navbar.css';
 import './styles/hero.css';
 import './styles/scroll-animations.css';
+import './styles/3d-effects.css';
 
 import { MainLayout } from './components/layout/MainLayout';
 import { HomePage } from './pages/HomePage';

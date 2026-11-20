@@ -104,9 +104,9 @@ const reviewsCol3 = [
 
 function ReviewCardItem({ rev }) {
   return (
-    <div className={styles.reviewCard}>
+    <div className={`${styles.reviewCard} card-3d`}>
       {/* Card Header: Author Info + Google Brand Icon */}
-      <div className={styles.cardHeader}>
+      <div className={`${styles.cardHeader} tilt-pop-xs`}>
         <div className={styles.authorBox}>
           <img 
             src={`https://api.dicebear.com/7.x/initials/svg?seed=${encodeURIComponent(rev.name)}&backgroundColor=${rev.avatarBg}&textColor=ffffff`} 

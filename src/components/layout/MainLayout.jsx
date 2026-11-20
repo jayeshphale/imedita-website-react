@@ -7,6 +7,7 @@ import { DemoBookingModal } from '../navigation/DemoBookingModal';
 import ScrollToTop from '../common/ScrollToTop';
 import SmoothScroll from '../common/SmoothScroll';
 import ScrollRevealManager from '../common/ScrollRevealManager';
+import { ThreeBackgroundCanvas } from '../three/ThreeBackgroundCanvas';
 
 export function MainLayout() {
   const [isDemoOpen, setIsDemoOpen] = useState(false);
@@ -38,7 +39,12 @@ export function MainLayout() {
       <ScrollToTop />
       <ScrollRevealManager />
 
-      <div className="app-root" style={{ minHeight: '100vh', background: '#F8FAFC', color: '#0F172A' }}>
+      <div className="app-root" style={{ minHeight: '100vh', background: '#F8FAFC', color: '#0F172A', position: 'relative', overflowX: 'hidden' }}>
+        {/* =========================================================================
+            GLOBAL 3D COMPONENT: THREE.JS AMBIENT PARTICLE & NETWORK CANVAS
+            ========================================================================= */}
+        <ThreeBackgroundCanvas />
+
         {/* =========================================================================
             GLOBAL COMPONENT 1: TOP NAVBAR (Contact & Social Ribbon)
             ========================================================================= */}

@@ -6,7 +6,7 @@ export function RevealOnScroll({
   animation = 'fade-up', // 'fade-up' | 'fade-in' | 'slide-left' | 'slide-right' | 'scale'
   delay = 0,
   duration = 650,
-  threshold = 0.12,
+  threshold = 0.02,
   className = ''
 }) {
   const [isVisible, setIsVisible] = useState(false);
@@ -30,7 +30,7 @@ export function RevealOnScroll({
           }
         });
       },
-      { threshold, rootMargin: '0px 0px -40px 0px' }
+      { threshold: Math.min(threshold, 0.05), rootMargin: '0px 0px 50px 0px' }
     );
 
     const currentEl = domRef.current;

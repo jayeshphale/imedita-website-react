@@ -55,6 +55,22 @@
 .contentSection {
   background: #ffffff;
   padding-top: 1.5rem;
+  scroll-margin-top: 135px;
+}
+
+.mainArticleCol > section,
+.mainArticleCol > div[id],
+.mainArticleCol section[id] {
+  scroll-margin-top: 135px;
+}
+
+@media (max-width: 1024px) {
+  .contentSection,
+  .mainArticleCol > section,
+  .mainArticleCol > div[id],
+  .mainArticleCol section[id] {
+    scroll-margin-top: 120px;
+  }
 }
 
 .sectionH2 {
@@ -434,5 +450,45 @@
 
   .tiersGrid {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .layoutContainer {
+    padding: 1.25rem 0.75rem 3rem;
+    gap: 2rem;
+  }
+
+  .sectionH2 {
+    font-size: clamp(1.35rem, 6vw, 1.55rem);
+    line-height: 1.25;
+  }
+
+  .sectionH3 {
+    font-size: 1.15rem;
+  }
+
+  .paragraph {
+    font-size: 0.98rem;
+    line-height: 1.7;
+    margin-bottom: 1.15rem;
+  }
+
+  .statCard {
+    padding: 1rem 0.85rem;
+  }
+
+  .card {
+    padding: 1.15rem 0.95rem;
+  }
+
+  .tierCard {
+    padding: 1.15rem 0.95rem;
+  }
+
+  .comparisonTable th,
+  .comparisonTable td {
+    padding: 0.75rem 0.65rem;
+    font-size: 0.82rem;
   }
 }

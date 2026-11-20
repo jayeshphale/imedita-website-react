@@ -272,7 +272,8 @@ export function AWSCertificationCostBlog() {
     const scriptTag = document.createElement('script');
     scriptTag.type = 'application/ld+json';
     scriptTag.id = 'aws-blog-jsonld';
-    scriptTag.text = JSON.stringify([articleSchema, breadcrumbsSchema, faqSchema]);
+    // Security hardening: escape '<' to prevent script-breakout XSS in structured data
+    scriptTag.text = JSON.stringify([articleSchema, breadcrumbsSchema, faqSchema]).replace(/</g, '\\u003c');
     document.head.appendChild(scriptTag);
 
     return () => {

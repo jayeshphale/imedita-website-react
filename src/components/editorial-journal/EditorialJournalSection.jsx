@@ -16,6 +16,7 @@ import {
 } from 'lucide-react';
 import { EDITORIAL_ARTICLES, EDITORIAL_CATEGORIES } from './editorialJournalData';
 import styles from './EditorialJournalSection.module.css';
+import { Card3DTilt } from '../three/Card3DTilt';
 
 export function EditorialJournalSection() {
   const [selectedCategory, setSelectedCategory] = useState('All Insights');
@@ -90,7 +91,7 @@ export function EditorialJournalSection() {
           {/* LEFT: Featured Flagship Article Card */}
           {featuredArticle && (
             <div className={styles.featuredColumn}>
-              <article className={styles.featuredCard}>
+              <Card3DTilt as="article" className={styles.featuredCard} maxTilt={6} elevation={18}>
                 <div className={styles.featuredMediaWrap}>
                   {featuredArticle.isInternal ? (
                     <Link to={featuredArticle.url} className={styles.featuredImageLink} tabIndex={-1}>
@@ -213,7 +214,7 @@ export function EditorialJournalSection() {
                     )}
                   </div>
                 </div>
-              </article>
+              </Card3DTilt>
             </div>
           )}
 
@@ -232,7 +233,7 @@ export function EditorialJournalSection() {
                   : { href: article.url, target: '_blank', rel: 'noopener noreferrer' };
 
                 return (
-                  <article key={article.id} className={styles.sideCard}>
+                  <Card3DTilt as="article" key={article.id} className={styles.sideCard} maxTilt={5} elevation={10}>
                     <div className={styles.sideMediaWrap}>
                       <LinkComponent {...linkProps} className={styles.sideImageLink} tabIndex={-1}>
                         <img 
@@ -278,7 +279,7 @@ export function EditorialJournalSection() {
                         </LinkComponent>
                       </div>
                     </div>
-                  </article>
+                  </Card3DTilt>
                 );
               })}
             </div>
@@ -301,7 +302,7 @@ export function EditorialJournalSection() {
                   : { href: article.url, target: '_blank', rel: 'noopener noreferrer' };
 
                 return (
-                  <article key={article.id} className={styles.gridCard}>
+                  <Card3DTilt as="article" key={article.id} className={styles.gridCard} maxTilt={6} elevation={14}>
                     <div className={styles.gridMediaWrap}>
                       <LinkComponent {...linkProps} className={styles.gridImageLink} tabIndex={-1}>
                         <img 
@@ -359,7 +360,7 @@ export function EditorialJournalSection() {
                         </LinkComponent>
                       </div>
                     </div>
-                  </article>
+                  </Card3DTilt>
                 );
               })}
             </div>
