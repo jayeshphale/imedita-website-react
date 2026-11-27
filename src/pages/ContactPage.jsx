@@ -1,6 +1,17 @@
 import React, { useEffect } from 'react';
 import { useOutletContext } from 'react-router-dom';
-import { ContactModernHero } from '../components/contact/ContactModernHero';
+import { 
+  PhoneCall, 
+  MessageCircle, 
+  Calendar, 
+  ArrowRight, 
+  Sparkles, 
+  Star, 
+  Users, 
+  Server, 
+  Award 
+} from 'lucide-react';
+import { PageHero } from '../components/common/PageHero';
 import { ContactOptions } from '../components/contact/ContactOptions';
 import { ContactFormSection } from '../components/contact/ContactFormSection';
 import { ContactCampusShowcase } from '../components/contact/ContactCampusShowcase';
@@ -80,8 +91,77 @@ export function ContactPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(contactJsonLd) }}
       />
 
-      {/* SECTION 1: Welcoming, Modern Light SaaS Hero */}
-      <ContactModernHero onOpenDemo={handleOpenDemo} />
+      {/* =========================================================================
+          SECTION 1: GLOBAL REUSABLE PAGE HERO (Creative, Attractive Light Theme)
+          Can be reused across: About Us, Privacy Policy, Terms, Support, etc.
+          ========================================================================= */}
+      <PageHero
+        breadcrumbs={[
+          { label: 'Home', path: '/' },
+          { label: 'Contact Us' }
+        ]}
+        badge={{
+          text: 'Admissions & Inquiries Desk',
+          icon: Sparkles,
+          pulse: true
+        }}
+        title={
+          <>
+            Let's Start Your <span className={styles.gradientAccent}>Learning Journey</span>
+          </>
+        }
+        description="Have questions about our training programs, certifications, or career opportunities? Our expert team in Baner, Pune is here to guide your next career milestone."
+        actions={
+          <div className={styles.heroActionGroup}>
+            <a 
+              href="tel:+918750004411" 
+              className={styles.phoneActionBtn}
+              title="Call our admissions desk directly"
+            >
+              <div className={styles.phoneIconBox}>
+                <PhoneCall size={18} />
+              </div>
+              <div className={styles.btnTextStack}>
+                <span className={styles.btnActionLabel}>Talk to Our Team</span>
+                <span className={styles.btnActionSub}>+91 8750004411</span>
+              </div>
+            </a>
+
+            <a 
+              href="https://wa.me/918750004411?text=Hi%20I-Medita%20Team%2C%20I%20have%20an%20inquiry%20regarding%20training%20programs." 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className={styles.whatsappActionBtn}
+              title="Chat directly with our team on WhatsApp"
+            >
+              <div className={styles.whatsappIconBox}>
+                <MessageCircle size={18} />
+              </div>
+              <div className={styles.btnTextStack}>
+                <span className={styles.btnActionLabel}>WhatsApp Us</span>
+                <span className={styles.whatsappSub}>Instant Reply</span>
+              </div>
+            </a>
+
+            <button 
+              type="button" 
+              onClick={() => handleOpenDemo ? handleOpenDemo('Contact Hero Quick Action') : null}
+              className={styles.demoActionBtn}
+              title="Book a free live classroom or online demo session"
+            >
+              <Calendar size={18} />
+              <span>Book a Free Demo</span>
+              <ArrowRight size={16} className={styles.btnArrow} />
+            </button>
+          </div>
+        }
+        stats={[
+          { isStar: true, label: '4.9/5 Rating', subtext: '(11,200+ Reviews)' },
+          { icon: Users, label: '10,000+', subtext: 'Engineers Trained' },
+          { icon: Server, label: 'Maharashtra\'s Largest', subtext: 'Physical Cisco Lab' },
+          { icon: Award, label: '100%', subtext: 'Placement Assistance' }
+        ]}
+      />
 
       {/* SECTION 2: 3 Modern Elevated Contact Cards (Phone, WhatsApp, Email) */}
       <ContactOptions />
