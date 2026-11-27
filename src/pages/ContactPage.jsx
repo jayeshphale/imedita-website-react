@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react';
 import { useOutletContext } from 'react-router-dom';
-import { ContactHeroStage } from '../components/contact/ContactHeroStage';
+import { ContactCampusHero } from '../components/contact/ContactCampusHero';
 import { ContactDemoSpotlight } from '../components/contact/ContactDemoSpotlight';
 import { ContactCampusShowcase } from '../components/contact/ContactCampusShowcase';
+import { ContactOptions } from '../components/contact/ContactOptions';
 import { ContactFaqSection } from '../components/contact/ContactFaqSection';
 import { ContactFinalCTA } from '../components/contact/ContactFinalCTA';
 import styles from './ContactPage.module.css';
@@ -79,19 +80,22 @@ export function ContactPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(contactJsonLd) }}
       />
 
-      {/* 1. HERO SPLIT STAGE: Story, Direct Touchpoints, Pune Lab Dossier & Floating Form */}
-      <ContactHeroStage onOpenDemo={handleOpenDemo} />
+      {/* 1. VISUAL CAMPUS HERO: Real Hardware Lab Tour + Floating Consultation Form */}
+      <ContactCampusHero onOpenDemo={handleOpenDemo} />
 
       {/* 2. DEMO SPOTLIGHT: "Experience I-Medita Before You Enroll" 4 Pillars & Demo CTA */}
       <ContactDemoSpotlight onOpenDemo={handleOpenDemo} />
 
-      {/* 3. CAMPUS SHOWCASE: "A Great Place to Learn & Grow" Office, Verified Map & Real Racks */}
+      {/* 3. CAMPUS SHOWCASE: "A Great Place to Learn & Grow" Office, Verified Google Map & Racks */}
       <ContactCampusShowcase />
 
-      {/* 4. FREQUENTLY ASKED QUESTIONS */}
+      {/* 4. DIRECT CONTACT OPTIONS: Phone, WhatsApp & Email Cards */}
+      <ContactOptions />
+
+      {/* 5. FREQUENTLY ASKED QUESTIONS ACCORDION */}
       <ContactFaqSection />
 
-      {/* 5. FINAL HIGH-CONVERSION CTA */}
+      {/* 6. FINAL HIGH-CONVERSION CTA RIBBON */}
       <ContactFinalCTA onOpenDemo={handleOpenDemo} />
     </div>
   );
