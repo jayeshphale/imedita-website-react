@@ -45,19 +45,44 @@ export function PageHero({
       <div className={styles.auroraGlow} aria-hidden="true" />
       <div className={styles.subtleGrid} aria-hidden="true" />
 
-      {/* Atmospheric Floating Glass Bubbles Animation */}
+      {/* High-Tech Professional Ambient Atmosphere & Network Orbs */}
       {bubbles && (
-        <div className={styles.bubblesContainer} aria-hidden="true">
-          <span className={`${styles.bubble} ${styles.bubble1}`} />
-          <span className={`${styles.bubble} ${styles.bubble2}`} />
-          <span className={`${styles.bubble} ${styles.bubble3}`} />
-          <span className={`${styles.bubble} ${styles.bubble4}`} />
-          <span className={`${styles.bubble} ${styles.bubble5}`} />
-          <span className={`${styles.bubble} ${styles.bubble6}`} />
-          <span className={`${styles.bubble} ${styles.bubble7}`} />
-          <span className={`${styles.bubble} ${styles.bubble8}`} />
-          <span className={`${styles.bubble} ${styles.bubble9}`} />
-          <span className={`${styles.bubble} ${styles.bubble10}`} />
+        <div className={styles.techAtmosphere} aria-hidden="true">
+          {/* 1. Large Ambient Soft Luminous Glow Orbs */}
+          <div className={`${styles.glowOrb} ${styles.glowOrb1}`} />
+          <div className={`${styles.glowOrb} ${styles.glowOrb2}`} />
+
+          {/* 2. Concentric Network Signal Pulse Rings */}
+          <div className={`${styles.radarPulse} ${styles.radarLeft}`}>
+            <span className={styles.pulseRing} />
+            <span className={styles.pulseRing} />
+          </div>
+          <div className={`${styles.radarPulse} ${styles.radarRight}`}>
+            <span className={styles.pulseRing} />
+            <span className={styles.pulseRing} />
+          </div>
+
+          {/* 3. Floating Frosted Tech Glass Nodes */}
+          <div className={`${styles.techOrb} ${styles.techOrb1}`}>
+            <span className={styles.nodeCore} />
+          </div>
+          <div className={`${styles.techOrb} ${styles.techOrb2}`}>
+            <span className={styles.nodeCore} />
+          </div>
+          <div className={`${styles.techOrb} ${styles.techOrb3}`}>
+            <span className={styles.nodeCore} />
+          </div>
+          <div className={`${styles.techOrb} ${styles.techOrb4}`}>
+            <span className={styles.nodeCore} />
+          </div>
+
+          {/* 4. Rising Micro Data Packets */}
+          <span className={`${styles.dataPacket} ${styles.packet1}`} />
+          <span className={`${styles.dataPacket} ${styles.packet2}`} />
+          <span className={`${styles.dataPacket} ${styles.packet3}`} />
+          <span className={`${styles.dataPacket} ${styles.packet4}`} />
+          <span className={`${styles.dataPacket} ${styles.packet5}`} />
+          <span className={`${styles.dataPacket} ${styles.packet6}`} />
         </div>
       )}
 
