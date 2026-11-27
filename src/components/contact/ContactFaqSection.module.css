@@ -1,0 +1,154 @@
+.section {
+  padding: 60px 0 20px 0;
+  width: 100%;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 36px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  color: #0284c7;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 4px 12px;
+  border-radius: 9999px;
+}
+
+.kickerIcon {
+  color: #0284c7;
+}
+
+.title {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: -0.025em;
+  margin: 0;
+}
+
+.subtitle {
+  font-size: 0.95rem;
+  color: #64748b;
+  max-width: 580px;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* FAQ List */
+.faqList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.faqItem {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  overflow: hidden;
+  transition: all 0.2s ease;
+}
+
+.faqItem:hover {
+  border-color: #cbd5e1;
+}
+
+.itemOpen {
+  border-color: #93c5fd;
+  box-shadow: 0 4px 20px -2px rgba(2, 132, 199, 0.08);
+}
+
+.faqQuestionBtn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  background: transparent;
+  border: 0;
+  padding: 18px 22px;
+  cursor: pointer;
+  text-align: left;
+}
+
+.qText {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #1e293b;
+  line-height: 1.4;
+}
+
+.iconWrap {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #64748b;
+  flex-shrink: 0;
+  transition: transform 0.25s ease, background 0.2s ease, color 0.2s ease;
+}
+
+.iconWrapOpen {
+  transform: rotate(180deg);
+  background: #eff6ff;
+  border-color: #bfdbfe;
+  color: #0284c7;
+}
+
+.faqAnswerBody {
+  padding: 0 22px 18px 22px;
+  animation: answerFadeIn 0.2s ease;
+}
+
+@keyframes answerFadeIn {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.aText {
+  font-size: 0.88rem;
+  color: #475569;
+  line-height: 1.6;
+  margin: 0;
+}
+
+@media (max-width: 640px) {
+  .section {
+    padding: 40px 0 10px 0;
+  }
+  .container {
+    padding: 0 16px;
+  }
+  .title {
+    font-size: 1.4rem;
+  }
+  .faqQuestionBtn {
+    padding: 14px 16px;
+  }
+  .faqAnswerBody {
+    padding: 0 16px 14px 16px;
+  }
+}

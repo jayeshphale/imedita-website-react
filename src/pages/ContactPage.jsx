@@ -1,10 +1,12 @@
 import React, { useEffect } from 'react';
 import { useOutletContext } from 'react-router-dom';
-import { ContactHero } from '../components/contact/ContactHero';
-import { ContactCards } from '../components/contact/ContactCards';
-import { ContactFormSection } from '../components/contact/ContactFormSection';
-import { ContactOfficeSection } from '../components/contact/ContactOfficeSection';
-import { ContactFinalCTA } from '../components/contact/ContactFinalCTA';
+import { ContactHeader } from '../components/contact/ContactHeader';
+import { ContactChannelsCard } from '../components/contact/ContactChannelsCard';
+import { ContactCampusCard } from '../components/contact/ContactCampusCard';
+import { ContactPromoBanner } from '../components/contact/ContactPromoBanner';
+import { ContactInquiryConsole } from '../components/contact/ContactInquiryConsole';
+import { ContactFaqSection } from '../components/contact/ContactFaqSection';
+import { ContactBottomBanner } from '../components/contact/ContactBottomBanner';
 import styles from './ContactPage.module.css';
 
 export function ContactPage() {
@@ -79,20 +81,35 @@ export function ContactPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(contactJsonLd) }}
       />
 
-      {/* SECTION 1: Contact Hero (Headline, Subtitle, 3 Action CTAs) */}
-      <ContactHero onOpenDemo={handleOpenDemo} />
+      {/* Modern Light Hero Masthead */}
+      <ContactHeader onOpenDemo={handleOpenDemo} />
 
-      {/* SECTION 2: 3 Modern Contact Cards (Phone, Email, WhatsApp) */}
-      <ContactCards />
+      {/* Unified Bento Command Hub */}
+      <main className={styles.hubContainer}>
+        <div className={styles.hubGrid}>
+          
+          {/* Left Column: Direct Reach Channels, Pune Campus & Map, Demo Spotlight */}
+          <div className={styles.leftColumn}>
+            <ContactChannelsCard />
+            <ContactCampusCard />
+            <ContactPromoBanner onOpenDemo={handleOpenDemo} />
+          </div>
 
-      {/* SECTION 3: Main Conversion Two-Column Section (Form + Experience Demo Card) */}
-      <ContactFormSection onOpenDemo={handleOpenDemo} />
+          {/* Right Column: Consultation & Inquiry Console */}
+          <div className={styles.rightColumn}>
+            <div className={styles.stickyConsoleWrap}>
+              <ContactInquiryConsole />
+            </div>
+          </div>
 
-      {/* SECTION 4: Visit Our Pune Office (Details + Google Maps Embed) */}
-      <ContactOfficeSection />
+        </div>
+      </main>
 
-      {/* SECTION 5: Final High-Conversion CTA */}
-      <ContactFinalCTA onOpenDemo={handleOpenDemo} />
+      {/* Frequently Asked Questions Accordion */}
+      <ContactFaqSection />
+
+      {/* Section 5 Final Conversion Ribbon */}
+      <ContactBottomBanner onOpenDemo={handleOpenDemo} />
     </div>
   );
 }
