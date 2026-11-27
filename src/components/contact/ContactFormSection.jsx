@@ -47,23 +47,23 @@ const TRAINING_PROGRAMS = [
 const DEMO_PERKS = [
   {
     icon: Server,
-    title: 'Physical Cisco Multi-Vendor Racks',
-    desc: 'Live CLI console access to real Cisco Nexus 9000, ISR 4331 routers & Palo Alto firewalls.'
+    title: 'Physical Cisco Racks',
+    desc: 'Live CLI on Nexus 9000, ISR routers & firewalls.'
   },
   {
     icon: Award,
-    title: 'CCIE Working Architects',
-    desc: 'Interactive lectures from dual and triple CCIE certified engineers currently designing enterprise topologies.'
+    title: 'CCIE Architects',
+    desc: 'Learn directly from dual & triple CCIE mentors.'
   },
   {
     icon: Clock,
-    title: 'Flexible Weekend & Weekday Slots',
-    desc: 'Tailored specifically for working professionals with lifetime lecture recordings and backup class support.'
+    title: 'Flexible Batches',
+    desc: 'Weekend & weekday slots with lifetime backup.'
   },
   {
     icon: Briefcase,
-    title: '100% Placement Assistance',
-    desc: 'Technical mock interviews, resume rebuilding, and direct recruitment drive invites with corporate hiring partners.'
+    title: 'Placement Cell',
+    desc: 'Mock interviews & corporate hiring drives.'
   }
 ];
 
@@ -165,14 +165,14 @@ export function ContactFormSection({ onOpenDemo }) {
                 <span className={styles.admissionsKicker}>Admissions Desk</span>
                 <span className={styles.responseTimeBadge}>
                   <Clock size={12} />
-                  <span>Reply in 2 business days</span>
+                  <span>Prompt Response Guarantee</span>
                 </span>
               </div>
               <h2 id="contact-form-heading" className={styles.formHeading}>
                 Get in Touch With Us
               </h2>
               <p className={styles.formSubtext}>
-                Tell us what you're looking for, and our team will get back to you within 2 business days.
+                Have questions about courses, certifications, or lab slots? Send us a message and our education mentor will connect with you.
               </p>
             </div>
 
@@ -326,9 +326,9 @@ export function ContactFormSection({ onOpenDemo }) {
                   </label>
                   <div className={styles.modeSegmentedGrid} role="radiogroup" aria-label="Preferred Learning Mode">
                     {[
-                      { id: 'Classroom (Pune Center)', label: 'Classroom (Pune Center)', icon: MapPin },
-                      { id: 'Online Live Interactive', label: 'Online Live Interactive', icon: Laptop },
-                      { id: 'Corporate Training', label: 'Corporate Training', icon: Building2 }
+                      { id: 'Classroom (Pune Center)', label: 'Classroom (Pune)', icon: MapPin },
+                      { id: 'Online Live Interactive', label: 'Online Live', icon: Laptop },
+                      { id: 'Corporate Training', label: 'Corporate', icon: Building2 }
                     ].map((mode) => {
                       const Icon = mode.icon;
                       const isSelected = formData.learningMode === mode.id;
@@ -361,7 +361,7 @@ export function ContactFormSection({ onOpenDemo }) {
                     name="message"
                     value={formData.message}
                     onChange={handleChange}
-                    rows={4}
+                    rows={3}
                     placeholder="Tell us about your background, career goals, or any specific questions regarding batch dates, physical lab access, or fees..."
                     className={`${styles.textareaField} ${errors.message ? styles.inputError : ''}`}
                     disabled={isSubmitting}
@@ -410,21 +410,20 @@ export function ContactFormSection({ onOpenDemo }) {
 
             <div className={styles.promoInner}>
               
-              {/* Eyebrow */}
-              <div className={styles.promoEyebrow}>
-                <Sparkles size={13} className={styles.promoSparkle} />
-                <span>Zero Obligation Practical Demo</span>
-              </div>
+              {/* Header */}
+              <div className={styles.promoHeaderWrap}>
+                <div className={styles.promoEyebrow}>
+                  <Sparkles size={13} className={styles.promoSparkle} />
+                  <span>Zero Obligation Practical Demo</span>
+                </div>
 
-              {/* Title & Description */}
-              <h3 className={styles.promoHeading}>
-                Experience I-Medita Before You Enroll
-              </h3>
-              <p className={styles.promoDesc}>
-                Invest in your learning today! Start with a FREE classroom or online live demo session. 
-                Inspect our physical hardware racks, experience our teaching methodology, and get your 
-                career roadmap reviewed by a CCIE architect.
-              </p>
+                <h3 className={styles.promoHeading}>
+                  Experience I-Medita Before You Enroll
+                </h3>
+                <p className={styles.promoDesc}>
+                  Start with a FREE classroom or online demo. Inspect our physical Cisco hardware racks and get your career roadmap reviewed by a CCIE architect.
+                </p>
+              </div>
 
               {/* Campus Real Photography Spotlight */}
               <div className={styles.photoContainer}>
@@ -440,14 +439,14 @@ export function ContactFormSection({ onOpenDemo }) {
                 </div>
               </div>
 
-              {/* 4 Value Pillars */}
-              <div className={styles.perksList}>
+              {/* 4 Value Pillars in Balanced 2x2 Grid */}
+              <div className={styles.perksGrid}>
                 {DEMO_PERKS.map((perk, idx) => {
                   const Icon = perk.icon;
                   return (
-                    <div key={idx} className={styles.perkItem}>
+                    <div key={idx} className={styles.perkCard}>
                       <div className={styles.perkIconBox}>
-                        <Icon size={18} />
+                        <Icon size={16} />
                       </div>
                       <div className={styles.perkText}>
                         <h4 className={styles.perkTitle}>{perk.title}</h4>
