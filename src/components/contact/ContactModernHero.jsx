@@ -5,27 +5,67 @@ import {
   MessageCircle, 
   Calendar, 
   ArrowRight, 
-  Sparkles, 
   Star, 
   Users, 
   Server, 
   Award,
   ChevronRight,
   CheckCircle2,
-  Clock,
-  ShieldCheck,
-  Zap
+  Zap,
+  ShieldCheck
 } from 'lucide-react';
 import instructorImg from '../../assets/instructors.webp';
-import certifiedBadgeImg from '../../assets/certified-badge.webp';
 import styles from './ContactModernHero.module.css';
 
 export function ContactModernHero({ onOpenDemo }) {
   return (
     <section className={styles.heroSection} aria-labelledby="contact-hero-heading">
-      {/* Subtle Light Vector Atmosphere */}
+      
+      {/* =========================================================================
+          BACKGROUND GRAPHICS & VECTOR ATMOSPHERE (RAZORPAY TECH SPECIFICATION)
+          ========================================================================= */}
+      
+      {/* Ambient Breathing Radial Glow behind imagery */}
       <div className={styles.ambientGlow} aria-hidden="true" />
-      <div className={styles.gridPattern} aria-hidden="true" />
+      <div className={styles.ambientGlowLeft} aria-hidden="true" />
+
+      {/* 40px Technical Blueprint Grid Mesh with Vignette Mask */}
+      <div className={styles.gridOverlay} aria-hidden="true" />
+
+      {/* Concentric Rotating Orbit Rings with Glowing Satellites */}
+      <div className={styles.orbitInner} aria-hidden="true" />
+      <div className={styles.orbitOuter} aria-hidden="true" />
+
+      {/* Floating High-Tech Cyan & Blue Particle Dots */}
+      <span className={styles.dotBlue} aria-hidden="true" />
+      <span className={styles.dotCyan} aria-hidden="true" />
+      <span className={styles.dotTeal} aria-hidden="true" />
+
+      {/* Left Subtle Vector Curves */}
+      <svg
+        className={styles.bgCurves}
+        viewBox="0 0 500 600"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        aria-hidden="true"
+      >
+        <path
+          d="M-80,60 C120,130 200,320 160,620"
+          stroke="rgba(56, 189, 248, 0.16)"
+          strokeWidth="1.2"
+        />
+        <path
+          d="M-30,10 C180,180 280,380 220,640"
+          stroke="rgba(56, 189, 248, 0.1)"
+          strokeWidth="0.8"
+          strokeDasharray="5 5"
+        />
+        <path
+          d="M10,-40 C240,210 330,440 280,670"
+          stroke="rgba(56, 189, 248, 0.06)"
+          strokeWidth="0.6"
+        />
+      </svg>
 
       <div className={styles.container}>
         
@@ -47,29 +87,30 @@ export function ContactModernHero({ onOpenDemo }) {
             {/* Live Status Eyebrow Badge */}
             <div className={styles.eyebrowBadge}>
               <span className={styles.pulseDot} />
-              <span className={styles.eyebrowText}>Admissions Open • Fast Response &lt; 15 Mins</span>
+              <span className={styles.eyebrowText}>ADMISSIONS OPEN • FAST RESPONSE &lt; 15 MINS</span>
             </div>
 
-            {/* Main Headline */}
+            {/* Main Two-Tone Headline */}
             <h1 id="contact-hero-heading" className={styles.headline}>
               Let's Start Your <br className={styles.desktopBr} />
-              <span className={styles.gradientAccent}>Learning Journey</span>
+              <span className={styles.headlineHighlight}>Learning Journey</span>
             </h1>
 
             {/* Subtitle */}
             <p className={styles.subheadline}>
-              Have questions about training programs, international certifications, or weekend batches? 
-              Connect directly with our senior CCIE mentors at our Baner, Pune center or schedule a free live interactive consultation online.
+              Have questions about training programs, global Cisco &amp; Cyber Security certifications, or batch schedules? 
+              Connect directly with our triple CCIE mentors at our Baner, Pune center or join interactive online live batches worldwide.
             </p>
 
             {/* 3 Quick Action CTAs */}
             <div className={styles.actionGroup}>
+              {/* Phone CTA */}
               <a 
                 href="tel:+918750004411" 
                 className={styles.phoneActionBtn}
                 title="Call our admissions desk directly"
               >
-                <div className={styles.actionIconBox}>
+                <div className={styles.phoneIconBox}>
                   <PhoneCall size={18} />
                 </div>
                 <div className={styles.btnTextStack}>
@@ -78,6 +119,7 @@ export function ContactModernHero({ onOpenDemo }) {
                 </div>
               </a>
 
+              {/* WhatsApp CTA */}
               <a 
                 href="https://wa.me/918750004411?text=Hi%20I-Medita%20Team%2C%20I%20have%20an%20inquiry%20regarding%20training%20programs." 
                 target="_blank" 
@@ -94,6 +136,7 @@ export function ContactModernHero({ onOpenDemo }) {
                 </div>
               </a>
 
+              {/* Book Demo CTA */}
               <button 
                 type="button" 
                 onClick={() => onOpenDemo ? onOpenDemo('Contact Hero Quick Action') : null}
@@ -102,7 +145,7 @@ export function ContactModernHero({ onOpenDemo }) {
               >
                 <Calendar size={18} />
                 <span>Book a Free Demo</span>
-                <ArrowRight size={15} className={styles.btnArrow} />
+                <ArrowRight size={16} className={styles.btnArrow} />
               </button>
             </div>
 
@@ -130,14 +173,7 @@ export function ContactModernHero({ onOpenDemo }) {
           <div className={styles.rightCol} aria-hidden="true">
             <div className={styles.stageWrapper}>
               
-              {/* Concentric Orbit Rings */}
-              <div className={styles.orbitRingOuter} />
-              <div className={styles.orbitRingInner} />
-
-              {/* Glowing Ambient Radial Backdrop */}
-              <div className={styles.visualBackdropGlow} />
-
-              {/* Real Human Cutout: I-Medita Certified Instructors */}
+              {/* Center Cutout of Real Instructors */}
               <div className={styles.imageContainer}>
                 <img 
                   src={instructorImg} 
