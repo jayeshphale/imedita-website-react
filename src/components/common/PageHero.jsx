@@ -30,6 +30,7 @@ export function PageHero({
   statsLayout = 'cards',
   variant = 'default',
   align = 'center',
+  bubbles = true,
   children,
   className = ''
 }) {
@@ -43,6 +44,22 @@ export function PageHero({
       {/* Clean, subtle aurora ambient glow */}
       <div className={styles.auroraGlow} aria-hidden="true" />
       <div className={styles.subtleGrid} aria-hidden="true" />
+
+      {/* Atmospheric Floating Glass Bubbles Animation */}
+      {bubbles && (
+        <div className={styles.bubblesContainer} aria-hidden="true">
+          <span className={`${styles.bubble} ${styles.bubble1}`} />
+          <span className={`${styles.bubble} ${styles.bubble2}`} />
+          <span className={`${styles.bubble} ${styles.bubble3}`} />
+          <span className={`${styles.bubble} ${styles.bubble4}`} />
+          <span className={`${styles.bubble} ${styles.bubble5}`} />
+          <span className={`${styles.bubble} ${styles.bubble6}`} />
+          <span className={`${styles.bubble} ${styles.bubble7}`} />
+          <span className={`${styles.bubble} ${styles.bubble8}`} />
+          <span className={`${styles.bubble} ${styles.bubble9}`} />
+          <span className={`${styles.bubble} ${styles.bubble10}`} />
+        </div>
+      )}
 
       <div className={styles.container}>
         
