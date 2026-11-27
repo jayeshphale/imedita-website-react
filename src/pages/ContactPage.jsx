@@ -6,7 +6,6 @@ import {
   Calendar, 
   ArrowRight, 
   Sparkles, 
-  Star, 
   Users, 
   Server, 
   Award 
@@ -92,7 +91,7 @@ export function ContactPage() {
       />
 
       {/* =========================================================================
-          SECTION 1: GLOBAL REUSABLE PAGE HERO (Creative, Attractive Light Theme)
+          SECTION 1: GLOBAL REUSABLE PAGE HERO (Creative, Balanced Light Theme)
           Can be reused across: About Us, Privacy Policy, Terms, Support, etc.
           ========================================================================= */}
       <PageHero
@@ -113,20 +112,30 @@ export function ContactPage() {
         description="Have questions about our training programs, certifications, or career opportunities? Our expert team in Baner, Pune is here to guide your next career milestone."
         actions={
           <div className={styles.heroActionGroup}>
+            {/* Primary Action: Book Free Demo */}
+            <button 
+              type="button" 
+              onClick={() => handleOpenDemo ? handleOpenDemo('Contact Hero Quick Action') : null}
+              className={styles.demoActionBtn}
+              title="Book a free live classroom or online demo session"
+            >
+              <Calendar size={17} />
+              <span>Book a Free Demo</span>
+              <ArrowRight size={15} className={styles.btnArrow} />
+            </button>
+
+            {/* Secondary Action: Call Team */}
             <a 
               href="tel:+918750004411" 
               className={styles.phoneActionBtn}
               title="Call our admissions desk directly"
             >
-              <div className={styles.phoneIconBox}>
-                <PhoneCall size={18} />
-              </div>
-              <div className={styles.btnTextStack}>
-                <span className={styles.btnActionLabel}>Talk to Our Team</span>
-                <span className={styles.btnActionSub}>+91 8750004411</span>
-              </div>
+              <PhoneCall size={17} className={styles.phoneIcon} />
+              <span>Talk to Our Team</span>
+              <span className={styles.phoneBadge}>+91 8750004411</span>
             </a>
 
+            {/* Tertiary Action: WhatsApp */}
             <a 
               href="https://wa.me/918750004411?text=Hi%20I-Medita%20Team%2C%20I%20have%20an%20inquiry%20regarding%20training%20programs." 
               target="_blank" 
@@ -134,32 +143,16 @@ export function ContactPage() {
               className={styles.whatsappActionBtn}
               title="Chat directly with our team on WhatsApp"
             >
-              <div className={styles.whatsappIconBox}>
-                <MessageCircle size={18} />
-              </div>
-              <div className={styles.btnTextStack}>
-                <span className={styles.btnActionLabel}>WhatsApp Us</span>
-                <span className={styles.whatsappSub}>Instant Reply</span>
-              </div>
+              <MessageCircle size={17} className={styles.whatsappIcon} />
+              <span>WhatsApp Us</span>
             </a>
-
-            <button 
-              type="button" 
-              onClick={() => handleOpenDemo ? handleOpenDemo('Contact Hero Quick Action') : null}
-              className={styles.demoActionBtn}
-              title="Book a free live classroom or online demo session"
-            >
-              <Calendar size={18} />
-              <span>Book a Free Demo</span>
-              <ArrowRight size={16} className={styles.btnArrow} />
-            </button>
           </div>
         }
         stats={[
-          { isStar: true, label: '4.9/5 Rating', subtext: '(11,200+ Reviews)' },
+          { isStar: true, label: '4.9/5 Rating', subtext: '(11.2k+ Reviews)' },
           { icon: Users, label: '10,000+', subtext: 'Engineers Trained' },
-          { icon: Server, label: 'Maharashtra\'s Largest', subtext: 'Physical Cisco Lab' },
-          { icon: Award, label: '100%', subtext: 'Placement Assistance' }
+          { icon: Server, label: 'Maharashtra\'s #1', subtext: 'Physical Cisco Lab' },
+          { icon: Award, label: '100%', subtext: 'Placement Support' }
         ]}
       />
 

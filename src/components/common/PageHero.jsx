@@ -5,19 +5,7 @@ import styles from './PageHero.module.css';
 
 /**
  * Global PageHero Component for Inner/Individual Pages
- * Used across: Contact Us, About Us, Privacy Policy, Terms, Support, Payment, Corporate Training, etc.
- * 
- * @param {Object} props
- * @param {Array<{ label: string, path?: string }>} [props.breadcrumbs]
- * @param {Object|string} [props.badge] - { text, icon: LucideIcon, pulse?: boolean, variant?: string } or string
- * @param {string|React.ReactNode} props.title - Page Headline (supports JSX for gradient accents)
- * @param {string|React.ReactNode} [props.description] - Subheading / narrative description
- * @param {React.ReactNode} [props.actions] - Quick CTA button group
- * @param {Array<{ icon?: any, label: string, subtext?: string, isStar?: boolean }>} [props.stats] - Trust badges/metrics ribbon
- * @param {'default'|'accent'|'minimal'|'corporate'} [props.variant='default']
- * @param {'center'|'left'} [props.align='center']
- * @param {React.ReactNode} [props.children] - Custom optional slots (e.g. search bar, pill filters)
- * @param {string} [props.className] - Additional custom CSS class
+ * Clean, balanced, and modern across Contact Us, About Us, Policies, Support, etc.
  */
 export function PageHero({
   breadcrumbs = [],
@@ -38,31 +26,18 @@ export function PageHero({
       className={`${styles.heroWrapper} ${styles['variant_' + variant]} ${className}`}
       aria-label={typeof title === 'string' ? title : 'Page Header'}
     >
-      {/* =========================================================================
-          CREATIVE BACKGROUND ATMOSPHERE (Light Theme Aurora Mesh & Blueprint Dot Grid)
-          ========================================================================= */}
-      <div className={styles.auroraGlowCenter} aria-hidden="true" />
-      <div className={styles.auroraGlowCorner} aria-hidden="true" />
-      <div className={styles.blueprintGrid} aria-hidden="true" />
-      
-      {/* Subtle Hairline Geometry Accent Rings */}
-      <div className={styles.ambientOrbitRing} aria-hidden="true" />
-      <div className={styles.ambientHairlineArc} aria-hidden="true" />
-
-      {/* Floating Subtle Ambient Accents */}
-      <span className={styles.accentOrb1} aria-hidden="true" />
-      <span className={styles.accentOrb2} aria-hidden="true" />
+      {/* Clean, subtle aurora ambient glow */}
+      <div className={styles.auroraGlow} aria-hidden="true" />
+      <div className={styles.subtleGrid} aria-hidden="true" />
 
       <div className={styles.container}>
         
-        {/* =========================================================================
-            1. BREADCRUMBS NAVIGATION
-            ========================================================================= */}
+        {/* 1. BREADCRUMBS */}
         {breadcrumbs && breadcrumbs.length > 0 && (
           <nav className={`${styles.breadcrumbNav} ${isLeft ? styles.alignLeft : styles.alignCenter}`} aria-label="Breadcrumb">
             <ol className={styles.breadcrumbList}>
               <li className={styles.breadcrumbItem}>
-                <Link to="/" className={styles.breadcrumbLink} title="Back to Homepage">
+                <Link to="/" className={styles.breadcrumbLink} title="Home">
                   <Home size={13} className={styles.homeIcon} />
                   <span>Home</span>
                 </Link>
@@ -70,7 +45,6 @@ export function PageHero({
 
               {breadcrumbs.map((crumb, idx) => {
                 const isLast = idx === breadcrumbs.length - 1;
-                // If the first crumb is Home, skip duplicate
                 if (idx === 0 && crumb.label.toLowerCase() === 'home') return null;
 
                 return (
@@ -92,12 +66,10 @@ export function PageHero({
           </nav>
         )}
 
-        {/* =========================================================================
-            2. HERO CONTENT AREA (Badge, Title, Narrative)
-            ========================================================================= */}
+        {/* 2. HERO CONTENT AREA */}
         <div className={`${styles.contentBox} ${isLeft ? styles.contentLeft : styles.contentCenter}`}>
           
-          {/* Eyebrow Pill Badge */}
+          {/* Eyebrow Badge */}
           {badge && (
             <div className={styles.eyebrowBadge}>
               {badge.pulse !== false && (
@@ -110,60 +82,60 @@ export function PageHero({
             </div>
           )}
 
-          {/* Page Headline */}
+          {/* Headline */}
           <h1 className={styles.mainHeadline}>
             {title}
           </h1>
 
-          {/* Subtitle / Narrative Description */}
+          {/* Subheadline */}
           {description && (
             <p className={styles.subheadline}>
               {description}
             </p>
           )}
 
-          {/* Optional Action CTAs (e.g. Call, WhatsApp, Book Demo) */}
+          {/* Action CTAs */}
           {actions && (
             <div className={`${styles.actionsRow} ${isLeft ? styles.actionsLeft : styles.actionsCenter}`}>
               {actions}
             </div>
           )}
 
-          {/* Custom Injected Slot (Search, Extra Pills, etc.) */}
+          {/* Custom Slot */}
           {children && (
             <div className={styles.customSlot}>
               {children}
             </div>
           )}
 
-          {/* =========================================================================
-              3. CREATIVE SOCIAL PROOF / TRUST PILL RIBBON
-              ========================================================================= */}
+          {/* 3. SOCIAL PROOF / METRICS RIBBON (Clean, non-pill balanced strip) */}
           {stats && stats.length > 0 && (
-            <div className={`${styles.statsRibbon} ${isLeft ? styles.statsLeft : styles.statsCenter}`}>
-              {stats.map((item, i) => {
-                const Icon = item.icon;
-                return (
-                  <React.Fragment key={i}>
-                    {i > 0 && <span className={styles.statDivider} aria-hidden="true">•</span>}
-                    <div className={styles.statItem}>
-                      {item.isStar ? (
-                        <div className={styles.starsGroup}>
-                          {[...Array(5)].map((_, s) => (
-                            <Star key={s} size={13} fill="#F59E0B" className={styles.starIcon} />
-                          ))}
-                        </div>
-                      ) : (
-                        Icon && <Icon size={15} className={styles.statIcon} />
-                      )}
-                      <span className={styles.statLabel}>{item.label}</span>
-                      {item.subtext && (
-                        <span className={styles.statSubtext}>{item.subtext}</span>
-                      )}
-                    </div>
-                  </React.Fragment>
-                );
-              })}
+            <div className={`${styles.statsContainer} ${isLeft ? styles.statsLeft : styles.statsCenter}`}>
+              <div className={styles.statsStrip}>
+                {stats.map((item, i) => {
+                  const Icon = item.icon;
+                  return (
+                    <React.Fragment key={i}>
+                      {i > 0 && <span className={styles.statDivider} aria-hidden="true">•</span>}
+                      <div className={styles.statItem}>
+                        {item.isStar ? (
+                          <div className={styles.starsGroup}>
+                            {[...Array(5)].map((_, s) => (
+                              <Star key={s} size={13} fill="#F59E0B" color="#F59E0B" className={styles.starIcon} />
+                            ))}
+                          </div>
+                        ) : (
+                          Icon && <Icon size={16} className={styles.statIcon} />
+                        )}
+                        <span className={styles.statLabel}>{item.label}</span>
+                        {item.subtext && (
+                          <span className={styles.statSubtext}>{item.subtext}</span>
+                        )}
+                      </div>
+                    </React.Fragment>
+                  );
+                })}
+              </div>
             </div>
           )}
 
@@ -173,4 +145,5 @@ export function PageHero({
     </header>
   );
 }
+
 export default PageHero;
