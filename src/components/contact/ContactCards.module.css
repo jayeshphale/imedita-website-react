@@ -1,0 +1,284 @@
+/* ==========================================================================
+   CONTACT CARDS SECTION
+   3 Modern Rounded Cards • Soft Shadows • Crisp Hover Interactions
+   ========================================================================== */
+
+.sectionWrapper {
+  padding: 4.5rem 1.25rem 3.5rem;
+  background: #F8FAFC;
+  position: relative;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Header */
+.sectionHeader {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 3rem;
+}
+
+.sectionKicker {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #0C6BF5;
+  background: #EFF6FF;
+  border: 1px solid #DBEAFE;
+  padding: 0.35rem 0.85rem;
+  border-radius: 9999px;
+  margin-bottom: 0.75rem;
+}
+
+.sectionTitle {
+  font-size: clamp(1.75rem, 3vw, 2.35rem);
+  font-weight: 800;
+  color: #0F172A;
+  line-height: 1.2;
+  margin-bottom: 0.85rem;
+  letter-spacing: -0.02em;
+}
+
+.sectionDesc {
+  font-size: 1rem;
+  color: #475569;
+  line-height: 1.6;
+}
+
+/* 3 Cards Grid */
+.cardsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.card {
+  background: #FFFFFF;
+  border-radius: 18px;
+  padding: 2rem 1.75rem;
+  border: 1.5px solid #E2E8F0;
+  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 16px 36px -8px rgba(15, 23, 42, 0.08), 0 0 0 1px #CBD5E1;
+}
+
+/* Card Header */
+.cardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+.iconBox {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease;
+}
+
+.card:hover .iconBox {
+  transform: scale(1.08);
+}
+
+.iconBox_blue {
+  background: #EFF6FF;
+  color: #0C6BF5;
+  border: 1px solid #DBEAFE;
+}
+
+.iconBox_indigo {
+  background: #EEF2FF;
+  color: #4F46E5;
+  border: 1px solid #E0E7FF;
+}
+
+.iconBox_emerald {
+  background: #ECFDF5;
+  color: #059669;
+  border: 1px solid #D1FAE5;
+}
+
+/* Badges */
+.channelBadge {
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 0.3rem 0.65rem;
+  border-radius: 9999px;
+  letter-spacing: 0.02em;
+}
+
+.badge_blue {
+  background: #EFF6FF;
+  color: #0284C7;
+  border: 1px solid #BAE6FD;
+}
+
+.badge_indigo {
+  background: #EEF2FF;
+  color: #4F46E5;
+  border: 1px solid #C7D2FE;
+}
+
+.badge_emerald {
+  background: #ECFDF5;
+  color: #059669;
+  border: 1px solid #A7F3D0;
+}
+
+/* Card Typography */
+.cardTitle {
+  font-size: 1.35rem;
+  font-weight: 750;
+  color: #0F172A;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.015em;
+}
+
+.cardSubtitle {
+  font-size: 0.88rem;
+  color: #64748B;
+  line-height: 1.55;
+  margin-bottom: 1.25rem;
+  min-height: 44px;
+}
+
+/* Primary Value Display */
+.valueDisplay {
+  background: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  border-radius: 10px;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1rem;
+  text-align: center;
+  transition: all 0.2s ease;
+}
+
+.card:hover .valueDisplay {
+  background: #F1F5F9;
+  border-color: #CBD5E1;
+}
+
+.valueLink {
+  color: #0F172A;
+  font-size: 1.05rem;
+  font-weight: 750;
+  text-decoration: none;
+  letter-spacing: 0.01em;
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.valueLink:hover {
+  color: #0C6BF5;
+}
+
+/* Meta Row */
+.metaRow {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.78rem;
+  color: #64748B;
+  margin-bottom: 1.5rem;
+}
+
+.metaIcon {
+  color: #94A3B8;
+  flex-shrink: 0;
+}
+
+/* Card Footer */
+.cardFooter {
+  margin-top: auto;
+}
+
+.ctaBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0.75rem 1.25rem;
+  border-radius: 10px;
+  font-size: 0.92rem;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+}
+
+.btnArrow {
+  transition: transform 0.2s ease;
+}
+
+.ctaBtn:hover .btnArrow {
+  transform: translateX(4px);
+}
+
+.btn_blue {
+  background: #0C6BF5;
+  color: #FFFFFF;
+}
+
+.btn_blue:hover {
+  background: #0957C7;
+  box-shadow: 0 4px 14px rgba(12, 107, 245, 0.3);
+}
+
+.btn_indigo {
+  background: #4F46E5;
+  color: #FFFFFF;
+}
+
+.btn_indigo:hover {
+  background: #4338CA;
+  box-shadow: 0 4px 14px rgba(79, 70, 229, 0.3);
+}
+
+.btn_emerald {
+  background: #059669;
+  color: #FFFFFF;
+}
+
+.btn_emerald:hover {
+  background: #047857;
+  box-shadow: 0 4px 14px rgba(5, 150, 105, 0.3);
+}
+
+@media (max-width: 1024px) {
+  .cardsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .sectionWrapper {
+    padding: 3rem 1rem 2.5rem;
+  }
+  .cardsGrid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+  .cardSubtitle {
+    min-height: auto;
+  }
+}

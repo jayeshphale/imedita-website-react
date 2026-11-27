@@ -87,7 +87,7 @@ export function Footer() {
             <a href="https://www.imedita.com/payment/" className={styles.topLink}>Online Payment Gateway</a>
             <a href="https://www.imedita.com/refund-policy/" className={styles.topLink}>Refund Policy</a>
             <a href="https://www.imedita.com/support/" className={styles.topLink}>Support - Submit a Ticket</a>
-            <a href="https://www.imedita.com/contact-us/" className={styles.topLink}>Contact Us</a>
+            <Link to="/contact" className={styles.topLink}>Contact Us</Link>
           </div>
 
           <div className={styles.linkCol}>

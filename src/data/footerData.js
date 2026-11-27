@@ -11,7 +11,7 @@ export const companyLinks = [
   { name: "Online Payment Gateway", href: "https://imedita.com/payment-modes/" },
   { name: "Refund Policy", href: "https://imedita.com/refund-policy/" },
   { name: "Support - Submit Ticket", href: "https://imedita.com/submit-support-ticket/" },
-  { name: "Contact Us", href: "https://imedita.com/contact/" }
+  { name: "Contact Us", href: "/contact" }
 ];
 
 export const freeResources = [

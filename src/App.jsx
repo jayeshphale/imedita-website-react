@@ -17,6 +17,9 @@ const CCNAAutomationCoursePage = lazy(() =>
 const AWSCertificationCostBlog = lazy(() =>
   import('./pages/AWSCertificationCostBlog').then((m) => ({ default: m.AWSCertificationCostBlog || m.default }))
 );
+const ContactPage = lazy(() =>
+  import('./pages/ContactPage').then((m) => ({ default: m.ContactPage || m.default }))
+);
 
 const PageFallback = () => (
   <div style={{ minHeight: '60vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
@@ -69,6 +72,40 @@ export default function App() {
             element={
               <Suspense fallback={<PageFallback />}>
                 <AWSCertificationCostBlog />
+              </Suspense>
+            }
+          />
+
+          {/* Contact Us Page */}
+          <Route
+            path="contact"
+            element={
+              <Suspense fallback={<PageFallback />}>
+                <ContactPage />
+              </Suspense>
+            }
+          />
+          <Route
+            path="contact/"
+            element={
+              <Suspense fallback={<PageFallback />}>
+                <ContactPage />
+              </Suspense>
+            }
+          />
+          <Route
+            path="contact-us"
+            element={
+              <Suspense fallback={<PageFallback />}>
+                <ContactPage />
+              </Suspense>
+            }
+          />
+          <Route
+            path="contact-us/"
+            element={
+              <Suspense fallback={<PageFallback />}>
+                <ContactPage />
               </Suspense>
             }
           />

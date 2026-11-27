@@ -1,0 +1,13 @@
+/* ==========================================================================
+   CONTACT PAGE WRAPPER
+   Clean, Responsive, Seamless Transition with Layout
+   ========================================================================== */
+
+.pageWrapper {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #FFFFFF;
+  color: #0F172A;
+  display: flex;
+  flex-direction: column;
+}

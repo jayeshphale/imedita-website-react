@@ -306,13 +306,12 @@ export const MainNavbar = ({ onOpenDemo }) => {
               setIsInternationalOpen(false);
             }}
           >
-            <a 
-              href="/#request-demo" 
+            <Link 
+              to="/contact" 
               className="main-nav-link"
-              onClick={(e) => handleNavAnchor(e, 'request-demo')}
             >
               <span>Contact</span>
-            </a>
+            </Link>
           </div>
         </nav>
 
@@ -588,14 +587,14 @@ export const MainNavbar = ({ onOpenDemo }) => {
                 <ChevronRight size={14} className="mobile-link-arrow" />
               </a>
 
-              <a 
-                href="/#request-demo" 
-                onClick={(e) => handleMobileNavAnchor(e, 'request-demo')}
+              <Link 
+                to="/contact" 
+                onClick={() => setMobileMenuOpen(false)}
                 className="mobile-direct-link"
               >
-                <span>Contact & Baner Center</span>
+                <span>Contact Us</span>
                 <ChevronRight size={14} className="mobile-link-arrow" />
-              </a>
+              </Link>
             </div>
           </div>
 
