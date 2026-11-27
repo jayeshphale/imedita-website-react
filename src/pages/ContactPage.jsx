@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import { useOutletContext } from 'react-router-dom';
-import { ContactCampusHero } from '../components/contact/ContactCampusHero';
-import { ContactDemoSpotlight } from '../components/contact/ContactDemoSpotlight';
-import { ContactCampusShowcase } from '../components/contact/ContactCampusShowcase';
+import { ContactModernHero } from '../components/contact/ContactModernHero';
 import { ContactOptions } from '../components/contact/ContactOptions';
+import { ContactFormSection } from '../components/contact/ContactFormSection';
+import { ContactCampusShowcase } from '../components/contact/ContactCampusShowcase';
 import { ContactFaqSection } from '../components/contact/ContactFaqSection';
 import { ContactFinalCTA } from '../components/contact/ContactFinalCTA';
 import styles from './ContactPage.module.css';
@@ -80,22 +80,22 @@ export function ContactPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(contactJsonLd) }}
       />
 
-      {/* 1. VISUAL CAMPUS HERO: Real Hardware Lab Tour + Floating Consultation Form */}
-      <ContactCampusHero onOpenDemo={handleOpenDemo} />
+      {/* SECTION 1: Welcoming, Modern Light SaaS Hero */}
+      <ContactModernHero onOpenDemo={handleOpenDemo} />
 
-      {/* 2. DEMO SPOTLIGHT: "Experience I-Medita Before You Enroll" 4 Pillars & Demo CTA */}
-      <ContactDemoSpotlight onOpenDemo={handleOpenDemo} />
-
-      {/* 3. CAMPUS SHOWCASE: "A Great Place to Learn & Grow" Office, Verified Google Map & Racks */}
-      <ContactCampusShowcase />
-
-      {/* 4. DIRECT CONTACT OPTIONS: Phone, WhatsApp & Email Cards */}
+      {/* SECTION 2: 3 Modern Elevated Contact Cards (Phone, WhatsApp, Email) */}
       <ContactOptions />
 
-      {/* 5. FREQUENTLY ASKED QUESTIONS ACCORDION */}
+      {/* SECTION 3: Main Conversion Two-Column Section (Form + Demo Promo Card) */}
+      <ContactFormSection onOpenDemo={handleOpenDemo} />
+
+      {/* SECTION 4: Visit Our Training Centre (Pune Office Dossier & Interactive Verified Google Map) */}
+      <ContactCampusShowcase />
+
+      {/* SECTION 5: Frequently Asked Questions Accordion */}
       <ContactFaqSection />
 
-      {/* 6. FINAL HIGH-CONVERSION CTA RIBBON */}
+      {/* SECTION 6: Final High-Conversion Action Ribbon */}
       <ContactFinalCTA onOpenDemo={handleOpenDemo} />
     </div>
   );

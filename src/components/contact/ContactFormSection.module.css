@@ -1,0 +1,651 @@
+/* =========================================================================
+   ContactFormSection.module.css
+   Modern Two-Column Layout | Left Form + Right Experience Promo Card
+   ========================================================================= */
+
+.section {
+  position: relative;
+  width: 100%;
+  background-color: #f8fafc;
+  padding: 5rem 1.5rem 5.5rem;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+@media (min-width: 768px) {
+  .section {
+    padding: 6rem 2rem 6.5rem;
+  }
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+/* Two-Column Grid */
+.formSplitGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+@media (min-width: 1024px) {
+  .formSplitGrid {
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.95fr);
+    gap: 3rem;
+  }
+}
+
+/* =========================================================================
+   LEFT: CONTACT & ADMISSIONS FORM CARD
+   ========================================================================= */
+.formCard {
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 1.5rem;
+  padding: 2.25rem;
+  box-shadow: 0 4px 24px -2px rgba(15, 23, 42, 0.05);
+}
+
+@media (min-width: 640px) {
+  .formCard {
+    padding: 2.75rem;
+  }
+}
+
+.formHeader {
+  margin-bottom: 2rem;
+}
+
+.kickerRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 0.85rem;
+}
+
+.admissionsKicker {
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: #0c6bf5;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.responseTimeBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.25rem 0.65rem;
+  border-radius: 9999px;
+  background-color: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  font-size: 0.75rem;
+  color: #475569;
+  font-weight: 600;
+}
+
+.formHeading {
+  font-size: clamp(1.75rem, 3vw, 2.25rem);
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+  margin: 0 0 0.65rem;
+}
+
+.formSubtext {
+  font-size: 0.95rem;
+  color: #64748b;
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* Form Elements */
+.formElement {
+  display: flex;
+  flex-direction: column;
+  gap: 1.35rem;
+}
+
+.twoColRow {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+
+@media (min-width: 640px) {
+  .twoColRow {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.fieldGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.fieldLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.labelIcon {
+  color: #0c6bf5;
+}
+
+.reqAsterisk {
+  color: #ef4444;
+  font-weight: bold;
+}
+
+.inputField,
+.selectField,
+.textareaField {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border-radius: 0.75rem;
+  background-color: #ffffff;
+  border: 1px solid #cbd5e1;
+  color: #0f172a;
+  font-size: 0.925rem;
+  font-family: inherit;
+  transition: all 180ms ease;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.inputField:focus,
+.selectField:focus,
+.textareaField:focus {
+  border-color: #0c6bf5;
+  box-shadow: 0 0 0 3px rgba(12, 107, 245, 0.12);
+}
+
+.inputError {
+  border-color: #ef4444 !important;
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.12) !important;
+}
+
+.fieldErrorText {
+  font-size: 0.775rem;
+  color: #ef4444;
+  font-weight: 600;
+}
+
+/* Phone Input with Country Code */
+.phoneInputWrap {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.countrySelect {
+  flex-shrink: 0;
+  width: 125px;
+  padding: 0.8rem 0.65rem;
+  border-radius: 0.75rem;
+  background-color: #f8fafc;
+  border: 1px solid #cbd5e1;
+  color: #0f172a;
+  font-size: 0.875rem;
+  font-weight: 600;
+  outline: none;
+  cursor: pointer;
+  transition: border-color 150ms ease;
+}
+
+.countrySelect:focus {
+  border-color: #0c6bf5;
+}
+
+.phoneInput {
+  flex-grow: 1;
+}
+
+/* Select Field */
+.selectWrap {
+  position: relative;
+}
+
+.selectField {
+  appearance: none;
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  padding-right: 2.5rem;
+}
+
+/* Mode Segmented Controls */
+.modeSegmentedGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.5rem;
+}
+
+@media (min-width: 540px) {
+  .modeSegmentedGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.modeBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.65rem 0.75rem;
+  border-radius: 0.625rem;
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  color: #475569;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 160ms ease;
+}
+
+.modeBtn:hover {
+  border-color: #cbd5e1;
+  background-color: #f1f5f9;
+}
+
+.modeBtnActive {
+  background-color: #eff6ff;
+  border-color: #0c6bf5;
+  color: #0c6bf5;
+  font-weight: 700;
+}
+
+/* Textarea */
+.textareaField {
+  resize: vertical;
+  min-height: 95px;
+  line-height: 1.5;
+}
+
+/* Submit Button */
+.submitBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.625rem;
+  padding: 0.95rem 1.75rem;
+  border-radius: 0.875rem;
+  background: linear-gradient(135deg, #0c6bf5 0%, #0284c7 100%);
+  border: none;
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(12, 107, 245, 0.28);
+  transition: all 180ms ease;
+  margin-top: 0.5rem;
+}
+
+.submitBtn:hover:not(:disabled) {
+  background: linear-gradient(135deg, #0957c7 0%, #0369a1 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(12, 107, 245, 0.36);
+}
+
+.submitBtn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.spinner {
+  width: 18px;
+  height: 18px;
+  border: 2px solid rgba(255, 255, 255, 0.35);
+  border-top-color: #ffffff;
+  border-radius: 50%;
+  animation: spin 0.65s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.microTrust {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  font-size: 0.775rem;
+  color: #64748b;
+  text-align: center;
+}
+
+.shieldIcon {
+  color: #10b981;
+}
+
+/* Success State */
+.successState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 2.5rem 1rem;
+}
+
+.successIconCircle {
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  background-color: #ecfdf5;
+  color: #10b981;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+  box-shadow: 0 0 0 8px rgba(16, 185, 129, 0.12);
+}
+
+.successTitle {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0 0 0.65rem;
+}
+
+.successDesc {
+  font-size: 0.95rem;
+  color: #475569;
+  line-height: 1.55;
+  margin: 0 0 1.5rem;
+  max-width: 440px;
+}
+
+.successSummaryBox {
+  width: 100%;
+  max-width: 440px;
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.875rem;
+  padding: 1.25rem;
+  margin-bottom: 1.75rem;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+}
+
+.summaryItem {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.875rem;
+  gap: 1rem;
+}
+
+.summaryLabel {
+  color: #64748b;
+  font-weight: 600;
+}
+
+.summaryValue {
+  color: #0f172a;
+  font-weight: 700;
+  text-align: right;
+  word-break: break-word;
+}
+
+.resetBtn {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.75rem 1.4rem;
+  border-radius: 0.75rem;
+  background-color: #ffffff;
+  border: 1px solid #cbd5e1;
+  color: #0f172a;
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 160ms ease;
+}
+
+.resetBtn:hover {
+  border-color: #0c6bf5;
+  color: #0c6bf5;
+}
+
+/* =========================================================================
+   RIGHT: PROMOTIONAL DEMO CARD ("Experience I-Medita Before You Enroll")
+   ========================================================================= */
+.promoCard {
+  position: relative;
+  background: linear-gradient(145deg, #0f172a 0%, #1e293b 100%);
+  border: 1px solid #334155;
+  border-radius: 1.5rem;
+  padding: 2.25rem;
+  color: #ffffff;
+  box-shadow: 0 12px 32px -4px rgba(15, 23, 42, 0.15);
+  overflow: hidden;
+}
+
+@media (min-width: 640px) {
+  .promoCard {
+    padding: 2.75rem;
+  }
+}
+
+.promoAmbient {
+  position: absolute;
+  top: -50px;
+  right: -50px;
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(12, 107, 245, 0.28) 0%, transparent 70%);
+  filter: blur(35px);
+  pointer-events: none;
+}
+
+.promoInner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.promoEyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.35rem 0.85rem;
+  border-radius: 9999px;
+  background-color: rgba(12, 107, 245, 0.2);
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  color: #38bdf8;
+  font-size: 0.725rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  width: fit-content;
+}
+
+.promoSparkle {
+  color: #38bdf8;
+}
+
+.promoHeading {
+  font-size: clamp(1.65rem, 2.5vw, 2.1rem);
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: -0.025em;
+  line-height: 1.25;
+  margin: 0;
+}
+
+.promoDesc {
+  font-size: 0.95rem;
+  color: #cbd5e1;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Photo Spotlight */
+.photoContainer {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  border-radius: 1rem;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.campusImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 300ms ease;
+}
+
+.photoContainer:hover .campusImg {
+  transform: scale(1.03);
+}
+
+.photoOverlayBadge {
+  position: absolute;
+  bottom: 0.75rem;
+  left: 0.75rem;
+  right: 0.75rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.45rem 0.75rem;
+  border-radius: 0.5rem;
+  background-color: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  font-size: 0.75rem;
+  color: #f8fafc;
+  font-weight: 600;
+}
+
+.photoDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: #10b981;
+}
+
+/* Perks List */
+.perksList {
+  display: flex;
+  flex-direction: column;
+  gap: 1.15rem;
+}
+
+.perkItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+}
+
+.perkIconBox {
+  flex-shrink: 0;
+  width: 38px;
+  height: 38px;
+  border-radius: 0.625rem;
+  background-color: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #38bdf8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.perkText {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.perkTitle {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+}
+
+.perkDesc {
+  font-size: 0.825rem;
+  color: #94a3b8;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Footer & CTA */
+.promoFooter {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.reviewSnippet {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+}
+
+.reviewStars {
+  display: inline-flex;
+  gap: 2px;
+}
+
+.starIcon {
+  color: #f59e0b;
+}
+
+.reviewScore {
+  font-weight: 800;
+  color: #ffffff;
+}
+
+.reviewCount {
+  color: #94a3b8;
+}
+
+.registerDemoBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.625rem;
+  padding: 0.95rem 1.75rem;
+  border-radius: 0.875rem;
+  background: linear-gradient(135deg, #0c6bf5 0%, #0284c7 100%);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  font-size: 0.975rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(12, 107, 245, 0.35);
+  transition: all 180ms ease;
+}
+
+.registerDemoBtn:hover {
+  background: linear-gradient(135deg, #0957c7 0%, #0369a1 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(12, 107, 245, 0.45);
+}
+
+.promoArrow {
+  transition: transform 160ms ease;
+}
+
+.registerDemoBtn:hover .promoArrow {
+  transform: translateX(4px);
+}
