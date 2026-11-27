@@ -6,6 +6,19 @@ import styles from './PageHero.module.css';
 /**
  * Global PageHero Component for Inner/Individual Pages
  * Clean, balanced, and modern across Contact Us, About Us, Policies, Support, etc.
+ * 
+ * @param {Object} props
+ * @param {Array<{ label: string, path?: string }>} [props.breadcrumbs]
+ * @param {Object|string} [props.badge] - { text, icon: LucideIcon, pulse?: boolean } or string
+ * @param {string|React.ReactNode} props.title - Main Headline
+ * @param {string|React.ReactNode} [props.description] - Subheading
+ * @param {React.ReactNode} [props.actions] - CTA buttons
+ * @param {Array<{ icon?: any, label: string, subtext?: string, isStar?: boolean, color?: string }>} [props.stats]
+ * @param {'cards'|'inline'} [props.statsLayout='cards'] - Render stats as 4-card metric dock or inline strip
+ * @param {'default'|'accent'|'minimal'} [props.variant='default']
+ * @param {'center'|'left'} [props.align='center']
+ * @param {React.ReactNode} [props.children] - Custom optional slots
+ * @param {string} [props.className] - Extra class
  */
 export function PageHero({
   breadcrumbs = [],
@@ -14,6 +27,7 @@ export function PageHero({
   description,
   actions,
   stats,
+  statsLayout = 'cards',
   variant = 'default',
   align = 'center',
   children,
@@ -108,34 +122,60 @@ export function PageHero({
             </div>
           )}
 
-          {/* 3. SOCIAL PROOF / METRICS RIBBON (Clean, non-pill balanced strip) */}
+          {/* 3. SOCIAL PROOF / METRIC DOCK (Clean, balanced 4-Card Dock or Inline Strip) */}
           {stats && stats.length > 0 && (
             <div className={`${styles.statsContainer} ${isLeft ? styles.statsLeft : styles.statsCenter}`}>
-              <div className={styles.statsStrip}>
-                {stats.map((item, i) => {
-                  const Icon = item.icon;
-                  return (
-                    <React.Fragment key={i}>
-                      {i > 0 && <span className={styles.statDivider} aria-hidden="true">•</span>}
-                      <div className={styles.statItem}>
-                        {item.isStar ? (
-                          <div className={styles.starsGroup}>
-                            {[...Array(5)].map((_, s) => (
-                              <Star key={s} size={13} fill="#F59E0B" color="#F59E0B" className={styles.starIcon} />
-                            ))}
-                          </div>
-                        ) : (
-                          Icon && <Icon size={16} className={styles.statIcon} />
-                        )}
-                        <span className={styles.statLabel}>{item.label}</span>
-                        {item.subtext && (
-                          <span className={styles.statSubtext}>{item.subtext}</span>
-                        )}
+              {statsLayout === 'cards' ? (
+                <div className={styles.statsCardsGrid}>
+                  {stats.map((item, i) => {
+                    const Icon = item.icon;
+                    const colorClass = styles['cardColor_' + (item.color || 'blue')];
+                    return (
+                      <div key={i} className={`${styles.statCard} ${colorClass}`}>
+                        <div className={styles.statCardIconBox}>
+                          {item.isStar ? (
+                            <Star size={16} fill="#F59E0B" color="#F59E0B" />
+                          ) : (
+                            Icon && <Icon size={16} />
+                          )}
+                        </div>
+                        <div className={styles.statCardText}>
+                          <span className={styles.statCardLabel}>{item.label}</span>
+                          {item.subtext && (
+                            <span className={styles.statCardSubtext}>{item.subtext}</span>
+                          )}
+                        </div>
                       </div>
-                    </React.Fragment>
-                  );
-                })}
-              </div>
+                    );
+                  })}
+                </div>
+              ) : (
+                <div className={styles.statsStrip}>
+                  {stats.map((item, i) => {
+                    const Icon = item.icon;
+                    return (
+                      <React.Fragment key={i}>
+                        {i > 0 && <span className={styles.statDivider} aria-hidden="true">•</span>}
+                        <div className={styles.statItem}>
+                          {item.isStar ? (
+                            <div className={styles.starsGroup}>
+                              {[...Array(5)].map((_, s) => (
+                                <Star key={s} size={13} fill="#F59E0B" color="#F59E0B" className={styles.starIcon} />
+                              ))}
+                            </div>
+                          ) : (
+                            Icon && <Icon size={16} className={styles.statIcon} />
+                          )}
+                          <span className={styles.statLabel}>{item.label}</span>
+                          {item.subtext && (
+                            <span className={styles.statSubtext}>{item.subtext}</span>
+                          )}
+                        </div>
+                      </React.Fragment>
+                    );
+                  })}
+                </div>
+              )}
             </div>
           )}
 

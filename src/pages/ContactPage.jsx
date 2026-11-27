@@ -144,15 +144,15 @@ export function ContactPage() {
               title="Chat directly with our team on WhatsApp"
             >
               <MessageCircle size={17} className={styles.whatsappIcon} />
-              <span>WhatsApp Us</span>
+              <span>Chat on WhatsApp</span>
             </a>
           </div>
         }
         stats={[
-          { isStar: true, label: '4.9/5 Rating', subtext: '(11.2k+ Reviews)' },
-          { icon: Users, label: '10,000+', subtext: 'Engineers Trained' },
-          { icon: Server, label: 'Maharashtra\'s #1', subtext: 'Physical Cisco Lab' },
-          { icon: Award, label: '100%', subtext: 'Placement Support' }
+          { isStar: true, label: '4.9/5 Rating', subtext: '11,200+ Verified Reviews', color: 'amber' },
+          { icon: Users, label: '10,000+ Alumni', subtext: 'Across 30+ Countries', color: 'blue' },
+          { icon: Server, label: 'Physical Cisco Lab', subtext: 'Nexus 9000 & Palo Alto', color: 'cyan' },
+          { icon: Award, label: '100% Placement', subtext: 'Dedicated Career Cell', color: 'green' }
         ]}
       />
 

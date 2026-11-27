@@ -1,7 +1,7 @@
 /* =========================================================================
    PageHero.module.css
    Clean, Balanced & Creative Inner Page Hero Specification
-   Refined Light Theme | Responsive Typography | Balanced Micro-Components
+   Refined Light Theme | Responsive Typography | 4-Card Metric Dock
    ========================================================================= */
 
 .heroWrapper {
@@ -152,14 +152,14 @@
 .contentCenter {
   align-items: center;
   text-align: center;
-  max-width: 860px;
+  max-width: 900px;
   margin: 0 auto;
 }
 
 .contentLeft {
   align-items: flex-start;
   text-align: left;
-  max-width: 860px;
+  max-width: 900px;
 }
 
 /* Eyebrow Badge */
@@ -228,7 +228,7 @@
   align-items: center;
   gap: 0.85rem;
   width: 100%;
-  margin-bottom: 2rem;
+  margin-bottom: 2.25rem;
 }
 
 .actionsCenter {
@@ -245,13 +245,12 @@
 }
 
 /* =========================================================================
-   STATS & TRUST PROOF (Clean Inline Row, Completely Borderless & Balanced)
+   3. STATS CARDS GRID (Symmetrical 4-Card Metric Dock)
    ========================================================================= */
 
 .statsContainer {
   display: flex;
   width: 100%;
-  margin-top: 0.5rem;
 }
 
 .statsCenter {
@@ -262,6 +261,88 @@
   justify-content: flex-start;
 }
 
+.statsCardsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.85rem;
+  width: 100%;
+  max-width: 940px;
+  margin: 0 auto;
+}
+
+.statCard {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.875rem;
+  padding: 0.75rem 0.95rem;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
+  transition: all 180ms ease;
+  text-align: left;
+}
+
+.statCard:hover {
+  transform: translateY(-2px);
+  border-color: #cbd5e1;
+  box-shadow: 0 6px 16px -2px rgba(15, 23, 42, 0.08);
+}
+
+.statCardIconBox {
+  width: 36px;
+  height: 36px;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.cardColor_amber .statCardIconBox {
+  background: #fffbeb;
+  color: #f59e0b;
+}
+
+.cardColor_blue .statCardIconBox {
+  background: #eff6ff;
+  color: #0c6bf5;
+}
+
+.cardColor_cyan .statCardIconBox {
+  background: #ecfeff;
+  color: #0891b2;
+}
+
+.cardColor_green .statCardIconBox {
+  background: #ecfdf5;
+  color: #059669;
+}
+
+.statCardText {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  overflow: hidden;
+}
+
+.statCardLabel {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: #0f172a;
+  line-height: 1.25;
+}
+
+.statCardSubtext {
+  font-size: 0.75rem;
+  color: #64748b;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Inline Strip Fallback Variant */
 .statsStrip {
   display: flex;
   flex-wrap: wrap;
@@ -273,7 +354,6 @@
   border: none;
   box-shadow: none;
   max-width: 100%;
-  box-sizing: border-box;
 }
 
 .statItem {
@@ -314,10 +394,35 @@
   user-select: none;
 }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .statsStrip {
-    gap: 0.6rem 1rem;
-    font-size: 0.8125rem;
+/* =========================================================================
+   RESPONSIVE BREAKPOINTS
+   ========================================================================= */
+
+@media (max-width: 960px) {
+  .statsCardsGrid {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 600px;
+  }
+}
+
+@media (max-width: 640px) {
+  .heroWrapper {
+    padding: 2.75rem 1rem 3.25rem;
+  }
+
+  .actionsRow {
+    flex-direction: column;
+    width: 100%;
+    gap: 0.75rem;
+  }
+
+  .actionsRow > * {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .statsCardsGrid {
+    grid-template-columns: 1fr;
+    max-width: 100%;
   }
 }
