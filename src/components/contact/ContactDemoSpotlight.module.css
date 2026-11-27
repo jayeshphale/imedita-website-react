@@ -1,0 +1,253 @@
+.spotlightSection {
+  position: relative;
+  width: 100%;
+  background-color: #ffffff;
+  padding: 4.5rem 1.5rem 5rem;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+@media (min-width: 768px) {
+  .spotlightSection {
+    padding: 5.5rem 2rem 6rem;
+  }
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.spotlightBanner {
+  position: relative;
+  background: linear-gradient(145deg, #0b1528 0%, #0f2444 60%, #0b1c36 100%);
+  border-radius: 1.75rem;
+  padding: 3rem 2rem;
+  color: #ffffff;
+  overflow: hidden;
+  box-shadow: 0 16px 36px -10px rgba(11, 21, 40, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+@media (min-width: 1024px) {
+  .spotlightBanner {
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 1.25fr);
+    padding: 3.75rem 3.5rem;
+    gap: 3.5rem;
+  }
+}
+
+.ambientGlow {
+  position: absolute;
+  top: -80px;
+  right: -80px;
+  width: 380px;
+  height: 380px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0, 102, 255, 0.25) 0%, transparent 70%);
+  filter: blur(50px);
+  pointer-events: none;
+}
+
+.gridOverlay {
+  position: absolute;
+  inset: 0;
+  background-size: 32px 32px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  pointer-events: none;
+}
+
+/* Left Content */
+.leftContent {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.badgeRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.trialPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(56, 189, 248, 0.16);
+  border: 1px solid rgba(56, 189, 248, 0.4);
+  color: #38bdf8;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 4px 12px;
+  border-radius: 9999px;
+}
+
+.sparkleIcon {
+  color: #38bdf8;
+}
+
+.freeBadge {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #94a3b8;
+}
+
+.heading {
+  font-size: clamp(1.85rem, 3.2vw, 2.45rem);
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: -0.028em;
+  line-height: 1.22;
+  margin: 0;
+}
+
+.description {
+  font-size: 0.95rem;
+  color: #94a3b8;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.ctaRow {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-top: 0.5rem;
+}
+
+.registerBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, #0066ff 0%, #0284c7 100%);
+  color: #ffffff;
+  font-size: 0.92rem;
+  font-weight: 700;
+  padding: 13px 24px;
+  border-radius: 12px;
+  border: 0;
+  cursor: pointer;
+  box-shadow: 0 4px 18px rgba(0, 102, 255, 0.4);
+  transition: all 0.2s ease;
+}
+
+.registerBtn:hover {
+  background: linear-gradient(135deg, #0056e0 0%, #0369a1 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 22px rgba(0, 102, 255, 0.5);
+}
+
+.btnArrow {
+  transition: transform 0.2s ease;
+}
+
+.registerBtn:hover .btnArrow {
+  transform: translateX(3px);
+}
+
+.ratingBox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.stars {
+  display: flex;
+  gap: 3px;
+}
+
+.ratingText {
+  font-size: 0.76rem;
+  color: #cbd5e1;
+}
+
+.ratingText strong {
+  color: #ffffff;
+}
+
+/* Right Perks Grid */
+.perksGrid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+@media (min-width: 640px) {
+  .perksGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.perkCard {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  padding: 16px 18px;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  transition: all 0.2s ease;
+}
+
+.perkCard:hover {
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(56, 189, 248, 0.3);
+  transform: translateY(-2px);
+}
+
+.perkIconBox {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: rgba(0, 102, 255, 0.25);
+  border: 1px solid rgba(0, 102, 255, 0.4);
+  color: #38bdf8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.perkContent {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.perkTitle {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #f1f5f9;
+  margin: 0;
+}
+
+.perkDesc {
+  font-size: 0.76rem;
+  color: #94a3b8;
+  line-height: 1.4;
+  margin: 0;
+}
+
+@media (max-width: 640px) {
+  .spotlightBanner {
+    padding: 2rem 1.25rem;
+  }
+  .registerBtn {
+    width: 100%;
+    justify-content: center;
+  }
+}
