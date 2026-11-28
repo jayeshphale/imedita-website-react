@@ -5,7 +5,7 @@
  */
 
 export const companyLinks = [
-  { name: "About us", href: "https://imedita.com/about-us/" },
+  { name: "About us", href: "/about-us" },
   { name: "Privacy Policy", href: "https://imedita.com/privacy-policy/" },
   { name: "Terms of Use", href: "https://imedita.com/terms-and-policies/" },
   { name: "Online Payment Gateway", href: "https://imedita.com/payment-modes/" },

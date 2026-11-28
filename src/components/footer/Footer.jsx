@@ -81,7 +81,7 @@ export function Footer() {
           </div>
 
           <div className={styles.linkCol}>
-            <a href="https://www.imedita.com/about-us/" className={styles.topLink}>About us</a>
+            <Link to="/about-us" className={styles.topLink}>About us</Link>
             <a href="https://www.imedita.com/privacy-policy/" className={styles.topLink}>Privacy Policy</a>
             <a href="https://www.imedita.com/terms-of-use/" className={styles.topLink}>Terms of Use</a>
             <a href="https://www.imedita.com/payment/" className={styles.topLink}>Online Payment Gateway</a>

@@ -20,6 +20,9 @@ const AWSCertificationCostBlog = lazy(() =>
 const ContactPage = lazy(() =>
   import('./pages/ContactPage').then((m) => ({ default: m.ContactPage || m.default }))
 );
+const AboutPage = lazy(() =>
+  import('./pages/AboutPage').then((m) => ({ default: m.AboutPage || m.default }))
+);
 
 const PageFallback = () => (
   <div style={{ minHeight: '60vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
@@ -106,6 +109,40 @@ export default function App() {
             element={
               <Suspense fallback={<PageFallback />}>
                 <ContactPage />
+              </Suspense>
+            }
+          />
+
+          {/* About Us Page */}
+          <Route
+            path="about-us"
+            element={
+              <Suspense fallback={<PageFallback />}>
+                <AboutPage />
+              </Suspense>
+            }
+          />
+          <Route
+            path="about-us/"
+            element={
+              <Suspense fallback={<PageFallback />}>
+                <AboutPage />
+              </Suspense>
+            }
+          />
+          <Route
+            path="about"
+            element={
+              <Suspense fallback={<PageFallback />}>
+                <AboutPage />
+              </Suspense>
+            }
+          />
+          <Route
+            path="about/"
+            element={
+              <Suspense fallback={<PageFallback />}>
+                <AboutPage />
               </Suspense>
             }
           />

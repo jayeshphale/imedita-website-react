@@ -1,0 +1,270 @@
+/* SECTION 5: Global Corporate Presence CSS Modules */
+.corporateSection {
+  position: relative;
+  background-color: #f8fafc; /* Alternating section: Soft Slate */
+  padding: 88px 0;
+  border-bottom: 1px solid var(--color-border-subtle, #e2e8f0);
+  overflow: hidden;
+}
+
+.container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Header */
+.header {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 48px;
+}
+
+.eyebrowBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  padding: 6px 14px;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #0b63e5;
+  margin-bottom: 16px;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+}
+
+.badgeIcon {
+  color: #0b63e5;
+}
+
+.sectionHeading {
+  font-size: clamp(2rem, 3.2vw, 2.75rem);
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+  margin-bottom: 18px;
+}
+
+.headingAccent {
+  color: #0b63e5;
+}
+
+.sectionDescription {
+  font-size: clamp(1rem, 1.15vw, 1.125rem);
+  line-height: 1.65;
+  color: #475569;
+}
+
+/* Metric Cards Row */
+.metricCardsRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 18px;
+  padding: 24px 36px;
+  margin-bottom: 48px;
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.03);
+}
+
+.metricItem {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.metricIconBox {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background-color: #eff6ff;
+  color: #0b63e5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.metricInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.metricValue {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #0f172a;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.metricLabel {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #64748b;
+}
+
+.metricDivider {
+  width: 1px;
+  height: 38px;
+  background-color: #e2e8f0;
+}
+
+/* Marquee Tracks */
+.marqueeContainer {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 10px 0;
+}
+
+.marqueeTrack {
+  display: flex;
+  width: max-content;
+  animation: scrollLeft 48s linear infinite;
+}
+
+.reverseTrack {
+  animation: scrollRight 52s linear infinite;
+}
+
+.marqueeTrack:hover {
+  animation-play-state: paused;
+}
+
+.marqueeGroup {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding-right: 20px;
+}
+
+.logoItem {
+  width: 160px;
+  height: 76px;
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 12px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.03);
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  flex-shrink: 0;
+}
+
+.logoItem:hover {
+  transform: translateY(-2px);
+  border-color: #cbd5e1;
+  box-shadow: 0 6px 16px rgba(15, 23, 42, 0.06);
+}
+
+.logoImg {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  filter: grayscale(80%) opacity(0.85);
+  transition: filter 0.2s ease;
+}
+
+.logoItem:hover .logoImg {
+  filter: grayscale(0%) opacity(1);
+}
+
+/* Edge Fades */
+.fadeLeft {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 120px;
+  background: linear-gradient(90deg, #f8fafc 0%, rgba(248, 250, 252, 0) 100%);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.fadeRight {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 120px;
+  background: linear-gradient(270deg, #f8fafc 0%, rgba(248, 250, 252, 0) 100%);
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Bottom Note */
+.bottomNote {
+  text-align: center;
+  margin-top: 36px;
+}
+
+.bottomNote p {
+  font-size: 0.875rem;
+  color: #64748b;
+  font-weight: 500;
+}
+
+/* Marquee Keyframes */
+@keyframes scrollLeft {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes scrollRight {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 960px) {
+  .metricCardsRow {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    padding: 20px;
+  }
+
+  .metricDivider {
+    display: none;
+  }
+
+  .logoItem {
+    width: 130px;
+    height: 64px;
+    padding: 10px 14px;
+  }
+}
+
+@media (max-width: 640px) {
+  .corporateSection {
+    padding: 60px 0;
+  }
+
+  .metricCardsRow {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .fadeLeft,
+  .fadeRight {
+    width: 50px;
+  }
+}
