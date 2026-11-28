@@ -9,78 +9,42 @@ import {
   Award, 
   Server, 
   CheckCircle2,
-  Cpu,
-  Shield,
-  Activity,
+  Compass,
+  Play,
   Layers,
-  Info
+  Terminal,
+  Activity,
+  ShieldCheck
 } from 'lucide-react';
 import styles from './AboutHero.module.css';
 
 /**
- * Creative & Interactive About Hero
- * Features:
- * - Professional floating tech orbs & network radar pulses
- * - Interactive Equipment Hotspots on the live hardware photo
- * - Two-column narrative with gradient headline and live trust badges
+ * Creative Cinematic Story Hero
+ * Sets up the "Interactive Story & Visual Lab Tour" experience.
  */
 export function AboutHero({ onOpenDemo }) {
-  const [activeHotspot, setActiveHotspot] = useState(null);
-
-  const handleScrollToTrainers = (e) => {
-    e.preventDefault();
-    const elem = document.getElementById('expert-trainers');
-    if (elem) {
+  const scrollToSection = (id) => {
+    const el = document.getElementById(id);
+    if (el) {
       if (window.__lenis) {
-        window.__lenis.scrollTo(elem, { offset: -70 });
+        window.__lenis.scrollTo(el, { offset: -70 });
       } else {
-        elem.scrollIntoView({ behavior: 'smooth' });
+        el.scrollIntoView({ behavior: 'smooth' });
       }
     }
   };
 
-  const hotspots = [
-    {
-      id: 'rack',
-      top: '28%',
-      left: '68%',
-      label: 'Cisco Nexus 9000 & Catalyst Racks',
-      description: 'Physical multi-vendor hardware racks with 100G spine-leaf architecture. 0% simulators.',
-      icon: Server,
-      color: 'blue'
-    },
-    {
-      id: 'classroom',
-      top: '58%',
-      left: '22%',
-      label: 'Interactive Smart Mentorship',
-      description: 'Dual-screen live network topologies with real-time packet tracing and CCIE guidance.',
-      icon: Cpu,
-      color: 'sky'
-    },
-    {
-      id: 'security',
-      top: '72%',
-      left: '75%',
-      label: 'Multi-Vendor Next-Gen Firewalls',
-      description: 'Palo Alto PA-3200, Fortinet & Checkpoint live appliances in high availability pairs.',
-      icon: Shield,
-      color: 'emerald'
-    }
-  ];
-
   return (
-    <section className={styles.heroSection} aria-label="About I-Medita Hero">
+    <section className={styles.heroSection} aria-label="About I-Medita Story Hero">
       {/* Background Atmosphere: Tech Glow & Subtle Grid */}
       <div className={styles.auroraGlow} aria-hidden="true" />
       <div className={styles.subtleGrid} aria-hidden="true" />
       
-      {/* Professional Ambient Tech Atmosphere & Floating Orbs */}
+      {/* Ambient Floating Orbs & Radar Pulses */}
       <div className={styles.techAtmosphere} aria-hidden="true">
         <div className={`${styles.glowOrb} ${styles.glowOrb1}`} />
         <div className={`${styles.glowOrb} ${styles.glowOrb2}`} />
 
-        {/* Concentric Network Radar Pulse Rings */}
         <div className={`${styles.radarPulse} ${styles.radarLeft}`}>
           <span className={styles.pulseRing} />
           <span className={styles.pulseRing} />
@@ -90,22 +54,15 @@ export function AboutHero({ onOpenDemo }) {
           <span className={styles.pulseRing} />
         </div>
 
-        {/* Floating Frosted Tech Glass Nodes */}
         <div className={`${styles.techOrb} ${styles.techOrb1}`}>
           <span className={styles.nodeCore} />
         </div>
         <div className={`${styles.techOrb} ${styles.techOrb2}`}>
           <span className={styles.nodeCore} />
         </div>
-        <div className={`${styles.techOrb} ${styles.techOrb3}`}>
-          <span className={styles.nodeCore} />
-        </div>
 
-        {/* Rising Micro Data Packets */}
         <span className={`${styles.dataPacket} ${styles.packet1}`} />
         <span className={`${styles.dataPacket} ${styles.packet2}`} />
-        <span className={`${styles.dataPacket} ${styles.packet3}`} />
-        <span className={`${styles.dataPacket} ${styles.packet4}`} />
       </div>
 
       <div className={styles.container}>
@@ -130,52 +87,69 @@ export function AboutHero({ onOpenDemo }) {
         {/* Two-Column Grid */}
         <div className={styles.heroGrid}>
           
-          {/* LEFT COLUMN: Narrative & Call to Actions */}
+          {/* LEFT COLUMN: Narrative & Interactive Journey CTAs */}
           <div className={styles.leftCol}>
             
-            {/* Small Eyebrow Label with Live Pulse */}
+            {/* Small Eyebrow Label with Pulsing Dot */}
             <div className={styles.eyebrowBadge}>
               <span className={styles.badgePulseDot} aria-hidden="true" />
               <Sparkles size={13} className={styles.badgeIcon} />
-              <span className={styles.badgeText}>ABOUT I-MEDITA • EST. 2014</span>
+              <span className={styles.badgeText}>THE I-MEDITA STORY • SINCE 2014</span>
             </div>
 
-            {/* Main Headline */}
+            {/* Main Cinematic Headline */}
             <h1 className={styles.mainHeadline}>
-              Empowering Professionals.{' '}
-              <span className={styles.gradientAccent}>Building Tomorrow's Technology Leaders.</span>
+              Where Theory Ends and{' '}
+              <span className={styles.gradientAccent}>Real Hardware Begins.</span>
             </h1>
 
             {/* Supporting Description */}
             <p className={styles.description}>
-              At I-Medita, we bridge the gap between classroom theory and real-world enterprise infrastructure. 
-              Equipped with Maharashtra's largest physical Cisco lab, we deliver hands-on mentorship from certified CCIE architects.
+              From a single physical rack in Pune to Maharashtra's largest enterprise multi-vendor datacenter lab. 
+              We bridge the gap between classroom slides and production network topologies with elite CCIE certified architects.
             </p>
 
-            {/* CTA Buttons */}
+            {/* Tour & Journey Quick Actions */}
             <div className={styles.actionGroup}>
-              <Link 
-                to="/courses/ccna-training" 
-                className={styles.primaryCta}
-                title="Explore our Cisco and Cyber Security training programs"
+              <button 
+                type="button"
+                onClick={() => scrollToSection('virtual-lab-tour')}
+                className={styles.tourBtn}
+                title="Explore our physical Cisco hardware racks in the interactive lab tour"
               >
-                <span>Explore Training Programs</span>
-                <ArrowRight size={16} className={styles.btnArrow} />
-              </Link>
+                <Server size={17} />
+                <span>Virtual Lab Tour</span>
+                <ArrowRight size={15} className={styles.btnArrow} />
+              </button>
 
-              <a 
-                href="#expert-trainers" 
-                onClick={handleScrollToTrainers}
-                className={styles.secondaryCta}
-                title="Meet our CCIE certified trainers and architects"
+              <button 
+                type="button"
+                onClick={() => scrollToSection('our-story-journey')}
+                className={styles.storyBtn}
+                title="Read our 10-year journey from genesis to scale"
               >
-                <Users size={16} />
-                <span>Meet Our Experts</span>
-              </a>
+                <Compass size={17} />
+                <span>10-Year Journey</span>
+              </button>
+
+              <button 
+                type="button"
+                onClick={() => onOpenDemo && onOpenDemo('About Us Hero')}
+                className={styles.demoBtn}
+                title="Book a free live classroom or online demo session"
+              >
+                <Play size={14} className={styles.playIcon} />
+                <span>Book Free Demo</span>
+              </button>
             </div>
 
-            {/* Live Trust Metrics Row */}
+            {/* Trust Highlights */}
             <div className={styles.trustRow}>
+              <div className={styles.trustItem}>
+                <CheckCircle2 size={15} className={styles.trustIcon} />
+                <span>Maharashtra's #1 Cisco Lab</span>
+              </div>
+              <div className={styles.trustDivider}>•</div>
               <div className={styles.trustItem}>
                 <CheckCircle2 size={15} className={styles.trustIcon} />
                 <span>Dual &amp; Triple CCIE Faculty</span>
@@ -183,103 +157,83 @@ export function AboutHero({ onOpenDemo }) {
               <div className={styles.trustDivider}>•</div>
               <div className={styles.trustItem}>
                 <CheckCircle2 size={15} className={styles.trustIcon} />
-                <span>24/7 Physical Lab Pods</span>
-              </div>
-              <div className={styles.trustDivider}>•</div>
-              <div className={styles.trustItem}>
-                <CheckCircle2 size={15} className={styles.trustIcon} />
-                <span>100% Placement Support</span>
+                <span>10,000+ Global Alumni</span>
               </div>
             </div>
 
           </div>
 
-          {/* RIGHT COLUMN: Creative Interactive Hardware & Lab Showcase */}
+          {/* RIGHT COLUMN: Interactive Terminal & Datacenter Rack Window */}
           <div className={styles.rightCol}>
-            <div className={styles.mediaContainer}>
+            <div className={styles.terminalContainer}>
               
-              {/* Live Status Header Strip */}
-              <div className={styles.labLiveHeader}>
-                <div className={styles.liveIndicator}>
-                  <span className={styles.liveDotPulse} />
-                  <span className={styles.liveText}>MAHARASHTRA'S #1 PHYSICAL CISCO LAB</span>
+              {/* Terminal Header Bar */}
+              <div className={styles.terminalHeader}>
+                <div className={styles.trafficLights}>
+                  <span className={`${styles.trafficDot} ${styles.dotRed}`} />
+                  <span className={`${styles.trafficDot} ${styles.dotYellow}`} />
+                  <span className={`${styles.trafficDot} ${styles.dotGreen}`} />
                 </div>
-                <div className={styles.interactiveHint}>
-                  <Info size={12} />
-                  <span>Hover hotspots to inspect equipment</span>
+                <div className={styles.terminalTitle}>
+                  <Terminal size={12} />
+                  <span>cisco-nexus-9000-dc1.imedita.local (Live Hardware)</span>
+                </div>
+                <div className={styles.liveStatusBadge}>
+                  <span className={styles.liveGreenDot} />
+                  <span>ONLINE 24/7</span>
                 </div>
               </div>
 
-              {/* Main Classroom Photography with Interactive Hotspots */}
-              <div className={styles.imageWrapper}>
-                <img 
-                  src="https://imeditaoffload.s3.ap-south-1.amazonaws.com/wp-content/uploads/2024/06/10071301/imedita_72.jpg" 
-                  alt="I-Medita interactive Cisco datacenter lab and classroom in Pune" 
-                  className={styles.mainImage}
-                  loading="eager"
-                  fetchPriority="high"
-                />
-                <div className={styles.imageOverlay} />
+              {/* Terminal Screen / Photography Split */}
+              <div className={styles.terminalBody}>
+                <div className={styles.photoViewport}>
+                  <img 
+                    src="https://imeditaoffload.s3.ap-south-1.amazonaws.com/wp-content/uploads/2024/06/10071301/imedita_72.jpg" 
+                    alt="I-Medita Cisco Datacenter Lab in Baner, Pune" 
+                    className={styles.viewportImg}
+                    loading="eager"
+                  />
+                  <div className={styles.viewportGradient} />
 
-                {/* Hotspot Pins */}
-                {hotspots.map((hs) => {
-                  const isActive = activeHotspot === hs.id;
-                  const Icon = hs.icon;
-
-                  return (
-                    <div 
-                      key={hs.id} 
-                      className={`${styles.hotspotPinWrapper} ${isActive ? styles.hotspotActive : ''}`}
-                      style={{ top: hs.top, left: hs.left }}
-                      onMouseEnter={() => setActiveHotspot(hs.id)}
-                      onMouseLeave={() => setActiveHotspot(null)}
-                      onClick={() => setActiveHotspot(isActive ? null : hs.id)}
-                      role="button"
-                      tabIndex={0}
-                      aria-label={hs.label}
-                    >
-                      <button type="button" className={styles.hotspotPin}>
-                        <span className={styles.hotspotPulseRing} />
-                        <Icon size={12} className={styles.hotspotPinIcon} />
-                      </button>
-
-                      {/* Tooltip Card */}
-                      <div className={styles.hotspotTooltip}>
-                        <div className={styles.tooltipHeader}>
-                          <span className={styles.tooltipCategory}>Live Hardware Spec</span>
-                          <span className={styles.tooltipLiveDot} />
-                        </div>
-                        <h4 className={styles.tooltipTitle}>{hs.label}</h4>
-                        <p className={styles.tooltipDesc}>{hs.description}</p>
-                      </div>
+                  {/* Terminal CLI Snippet Overlay */}
+                  <div className={styles.cliOverlayBox}>
+                    <div className={styles.cliLine}>
+                      <span className={styles.cliPrompt}>Switch#</span> show running-config interface Ethernet1/1
                     </div>
-                  );
-                })}
-              </div>
-
-              {/* Floating Badge 1: Top Right */}
-              <div className={styles.floatingCardTop}>
-                <div className={styles.floatIconBox}>
-                  <Award size={18} />
-                </div>
-                <div className={styles.floatText}>
-                  <span className={styles.floatTitle}>10+ Years</span>
-                  <span className={styles.floatSub}>Training Excellence</span>
-                </div>
-              </div>
-
-              {/* Floating Badge 2: Bottom Left */}
-              <div className={styles.floatingCardBottom}>
-                <div className={styles.floatIconBoxCyan}>
-                  <Activity size={18} />
-                </div>
-                <div className={styles.floatText}>
-                  <div className={styles.floatStatusRow}>
-                    <span className={styles.liveDot} />
-                    <span className={styles.floatTitle}>10,000+ Alumni</span>
+                    <div className={styles.cliOutput}>
+                      description == CORE 100G SPINE TO LEAF ==<br />
+                      switchport mode trunk; vrf member ENTERPRISE_PROD
+                    </div>
                   </div>
-                  <span className={styles.floatSub}>Placed at Cisco, Orange &amp; TCS</span>
+
+                  {/* Floating Metric 1 */}
+                  <div className={styles.floatPillTop}>
+                    <Award size={15} className={styles.pillIcon} />
+                    <span>10+ Years Dedicated Training</span>
+                  </div>
+
+                  {/* Floating Metric 2 */}
+                  <div className={styles.floatPillBottom}>
+                    <Activity size={15} className={styles.pillIconGreen} />
+                    <span>0% Simulators • 100% Real Hardware</span>
+                  </div>
                 </div>
+              </div>
+
+              {/* Terminal Footer Navigation Callout */}
+              <div className={styles.terminalFooter}>
+                <div className={styles.footerNote}>
+                  <ShieldCheck size={14} className={styles.shieldIcon} />
+                  <span>3rd Floor, Aditi Samruddhi Building, Baner Road, Pune</span>
+                </div>
+                <button 
+                  type="button" 
+                  onClick={() => scrollToSection('virtual-lab-tour')}
+                  className={styles.inspectRackLink}
+                >
+                  <span>Inspect Hardware Pods</span>
+                  <ArrowRight size={12} />
+                </button>
               </div>
 
             </div>

@@ -1,0 +1,392 @@
+/* =========================================================================
+   AboutStoryTimeline.module.css
+   Interactive 10-Year Story Timeline & Chapter Stepper
+   ========================================================================= */
+
+.timelineSection {
+  position: relative;
+  background-color: #ffffff;
+  padding: 88px 0;
+  border-bottom: 1px solid var(--color-border-subtle, #e2e8f0);
+}
+
+.container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Header */
+.header {
+  text-align: center;
+  max-width: 820px;
+  margin: 0 auto 52px;
+}
+
+.eyebrowBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background-color: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  padding: 6px 14px;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #0b63e5;
+  margin-bottom: 16px;
+}
+
+.badgeIcon { color: #0b63e5; }
+
+.sectionHeading {
+  font-size: clamp(2rem, 3.2vw, 2.75rem);
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+  margin-bottom: 18px;
+}
+
+.headingAccent { color: #0b63e5; }
+
+.sectionDescription {
+  font-size: clamp(1rem, 1.15vw, 1.125rem);
+  line-height: 1.65;
+  color: #475569;
+  margin-bottom: 36px;
+}
+
+/* Chapter Stepper */
+.stepperContainer {
+  position: relative;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 10px 0;
+}
+
+.stepperTrack {
+  position: absolute;
+  top: 26px;
+  left: 36px;
+  right: 36px;
+  height: 3px;
+  background-color: #e2e8f0;
+  z-index: 1;
+}
+
+.stepperProgress {
+  height: 100%;
+  background: linear-gradient(90deg, #0b63e5, #0284c7);
+  transition: width 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.stepperButtons {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  z-index: 2;
+}
+
+.stepBtn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.stepDot {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  border: 2px solid #cbd5e1;
+  color: #64748b;
+  font-size: 0.8rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.25s ease;
+  margin-bottom: 8px;
+  box-shadow: 0 2px 4px rgba(15, 23, 42, 0.05);
+}
+
+.stepActive .stepDot {
+  border-color: #0b63e5;
+  background-color: #0b63e5;
+  color: #ffffff;
+  box-shadow: 0 0 0 4px rgba(11, 99, 229, 0.2);
+  transform: scale(1.1);
+}
+
+.stepCompleted .stepDot {
+  border-color: #059669;
+  background-color: #ecfdf5;
+  color: #059669;
+}
+
+.stepYear {
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: #334155;
+  line-height: 1.2;
+}
+
+.stepActive .stepYear {
+  color: #0b63e5;
+}
+
+.stepTag {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: #64748b;
+}
+
+/* Story Stage Card */
+.storyStageCard {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 24px;
+  padding: 44px 40px;
+  box-shadow: 0 16px 40px -15px rgba(15, 23, 42, 0.08);
+}
+
+.storyGrid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+/* Story Left */
+.storyLeft {
+  display: flex;
+  flex-direction: column;
+}
+
+.chapterTagBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #0b63e5;
+  background: #eff6ff;
+  border: 1px solid #dbeafe;
+  padding: 4px 12px;
+  border-radius: 9999px;
+  margin-bottom: 16px;
+  width: fit-content;
+}
+
+.chapterTitle {
+  font-size: clamp(1.4rem, 2.2vw, 1.85rem);
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+  margin-bottom: 8px;
+}
+
+.chapterSubtitle {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #0284c7;
+  margin-bottom: 18px;
+}
+
+.chapterText {
+  font-size: 0.98rem;
+  line-height: 1.7;
+  color: #475569;
+  margin-bottom: 24px;
+}
+
+/* Milestone Metrics Row */
+.milestoneMetricsRow {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 16px;
+  margin-bottom: 24px;
+}
+
+.milestoneMetric {
+  display: flex;
+  flex-direction: column;
+}
+
+.mValue {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: -0.015em;
+  margin-bottom: 2px;
+}
+
+.mLabel {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #64748b;
+  text-transform: uppercase;
+}
+
+/* Quote Card */
+.quoteCard {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  background: #eff6ff;
+  border-left: 3px solid #0b63e5;
+  border-radius: 0 12px 12px 0;
+  padding: 14px 18px;
+  margin-bottom: 28px;
+}
+
+.quoteIcon {
+  color: #0b63e5;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.quoteText {
+  font-size: 0.88rem;
+  line-height: 1.55;
+  font-style: italic;
+  color: #1e3a8a;
+  font-weight: 500;
+}
+
+/* Chapter Navigation Row */
+.chapterNavRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 18px;
+  border-top: 1px solid #f1f5f9;
+}
+
+.prevBtn,
+.nextBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  padding: 8px 16px;
+  border-radius: 10px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #334155;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.prevBtn:hover:not(:disabled),
+.nextBtn:hover:not(:disabled) {
+  background: #0b63e5;
+  border-color: #0b63e5;
+  color: #ffffff;
+}
+
+.prevBtn:disabled,
+.nextBtn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.chapterIndicator {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #94a3b8;
+}
+
+/* Story Right */
+.storyRight {
+  position: relative;
+}
+
+.photoFrame {
+  position: relative;
+  height: 420px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px -15px rgba(15, 23, 42, 0.2);
+  border: 1px solid #e2e8f0;
+  background: #0f172a;
+}
+
+.storyPhoto {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  animation: photoFadeIn 0.35s ease;
+}
+
+.photoBackdropGlow {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(15, 23, 42, 0) 50%, rgba(15, 23, 42, 0.75) 100%);
+  pointer-events: none;
+}
+
+.yearWatermark {
+  position: absolute;
+  top: 16px;
+  right: 18px;
+  font-size: 3rem;
+  font-weight: 900;
+  line-height: 1;
+  color: rgba(255, 255, 255, 0.2);
+  letter-spacing: -0.03em;
+  pointer-events: none;
+  font-family: monospace;
+}
+
+.photoCaptionBar {
+  position: absolute;
+  bottom: 14px;
+  left: 14px;
+  right: 14px;
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+  padding: 8px 14px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 0.75rem;
+  color: #cbd5e1;
+}
+
+.pinIcon { color: #38bdf8; flex-shrink: 0; }
+
+@keyframes photoFadeIn {
+  from { opacity: 0.6; transform: scale(1.02); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* Responsive */
+@media (max-width: 960px) {
+  .storyGrid { grid-template-columns: 1fr; gap: 32px; }
+  .photoFrame { height: 300px; }
+  .storyStageCard { padding: 28px 20px; }
+  .stepperTrack { left: 24px; right: 24px; }
+}
+
+@media (max-width: 640px) {
+  .timelineSection { padding: 60px 0; }
+  .milestoneMetricsRow { grid-template-columns: 1fr; }
+  .stepperButtons { overflow-x: auto; padding-bottom: 8px; }
+}

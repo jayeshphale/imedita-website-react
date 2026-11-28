@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
 import { useOutletContext } from 'react-router-dom';
 import { AboutHero } from '../components/about/AboutHero';
+import { AboutStoryTimeline } from '../components/about/AboutStoryTimeline';
+import { AboutVirtualLabExplorer } from '../components/about/AboutVirtualLabExplorer';
 import { AboutImpactStats } from '../components/about/AboutImpactStats';
 import { AboutWhyChoose } from '../components/about/AboutWhyChoose';
 import { AboutTrainers } from '../components/about/AboutTrainers';
@@ -10,9 +12,8 @@ import { AboutFinalCTA } from '../components/about/AboutFinalCTA';
 import styles from './AboutPage.module.css';
 
 /**
- * I-Medita About Us Page - Premium Corporate Redesign
- * Reference: https://www.imedita.com/about-us/
- * Strict adherence to Design System, Alternating Slate/White Sections, and Verified Facts.
+ * I-Medita About Us Page - Creative Storytelling & Visual Lab Tour Edition
+ * Fully responsive, alternating Slate ⇄ White themes, zero dummy data.
  */
 export function AboutPage() {
   const context = useOutletContext() || {};
@@ -20,7 +21,7 @@ export function AboutPage() {
 
   // Set document title & SEO meta tags
   useEffect(() => {
-    document.title = "About Us | I-Medita - Premier Cisco & Cyber Security Training Institute";
+    document.title = "About Us | I-Medita - The 10-Year Story & Maharashtra's #1 Cisco Lab";
     
     let metaDesc = document.querySelector('meta[name="description"]');
     if (!metaDesc) {
@@ -28,25 +29,23 @@ export function AboutPage() {
       metaDesc.name = 'description';
       document.head.appendChild(metaDesc);
     }
-    metaDesc.content = "Learn about I-Medita, India's trusted technology training institute in Pune. Over a decade of excellence in Cisco CCNA, CCNP, Cyber Security, 24/7 physical hardware labs, and certified CCIE faculty.";
+    metaDesc.content = "Explore the I-Medita story: From 2014 genesis to Maharashtra's largest physical Cisco datacenter lab. Inspect our hardware racks, meet dual & triple CCIE architects, and join 10,000+ alumni.";
 
-    // Scroll to top on mount
     window.scrollTo({ top: 0, behavior: 'instant' });
   }, []);
 
-  // Schema.org Structured Data for AboutPage & EducationalOrganization
+  // Schema.org Structured Data
   const aboutJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'AboutPage',
     'name': 'About I-Medita Learning Solutions',
-    'description': 'Premier Cisco & Cyber Security training institute in Pune, Maharashtra with Maharashtra’s largest physical Cisco lab.',
+    'description': 'Premier Cisco & Cyber Security training institute in Pune with Maharashtra’s largest physical datacenter lab.',
     'url': 'https://www.imedita.com/about-us/',
     'mainEntity': {
       '@type': 'EducationalOrganization',
       'name': 'I-Medita Learning Solutions',
       'foundingDate': '2014',
       'url': 'https://www.imedita.com',
-      'logo': 'https://www.imedita.com/assets/logo.png',
       'telephone': '+918750004411',
       'email': 'info@imedita.com',
       'address': {
@@ -61,13 +60,7 @@ export function AboutPage() {
         '@type': 'AggregateRating',
         'ratingValue': '4.9',
         'reviewCount': '11200'
-      },
-      'sameAs': [
-        'https://www.facebook.com/imeditapune/',
-        'https://twitter.com/imeditapune',
-        'https://www.linkedin.com/company/i-medita-learning-solutions/',
-        'https://www.youtube.com/user/imedita'
-      ]
+      }
     }
   };
 
@@ -79,25 +72,31 @@ export function AboutPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(aboutJsonLd) }}
       />
 
-      {/* SECTION 1: Premium About Hero (Two-column layout, Soft Slate) */}
+      {/* SECTION 1: Cinematic Vision Story Hero (Slate #f8fafc) */}
       <AboutHero onOpenDemo={handleOpenDemo} />
 
-      {/* SECTION 2: Our Journey & Impact (6 Verified Impact Metrics, Pure White) */}
+      {/* SECTION 2: The 10-Year Interactive Story Timeline: 2014 to 2026 (Pure White #ffffff) */}
+      <AboutStoryTimeline />
+
+      {/* SECTION 3: Virtual Lab & Datacenter Rack Explorer (Soft Slate #f8fafc) */}
+      <AboutVirtualLabExplorer onOpenDemo={handleOpenDemo} />
+
+      {/* SECTION 4: Our Journey & Bento Impact Metrics Hub (Pure White #ffffff) */}
       <AboutImpactStats />
 
-      {/* SECTION 3: What Makes I-Medita Different? (4 Feature Cards, Soft Slate) */}
+      {/* SECTION 5: Why Professionals Choose I-Medita & Comparison Matrix (Soft Slate #f8fafc) */}
       <AboutWhyChoose onOpenDemo={handleOpenDemo} />
 
-      {/* SECTION 4: Meet Our Expert Trainers (Certified CCIE Mentors Grid, Pure White) */}
+      {/* SECTION 6: Meet Our Expert CCIE Certified Architects (Pure White #ffffff) */}
       <AboutTrainers />
 
-      {/* SECTION 5: Global Corporate Presence (59 Enterprise Logos Marquee, Soft Slate) */}
+      {/* SECTION 7: Global Corporate Presence & 59 Enterprise Logos (Soft Slate #f8fafc) */}
       <AboutCorporatePresence />
 
-      {/* SECTION 6: Our Learning Environment (High-Res Campus & Lab Photo Gallery, Pure White) */}
+      {/* SECTION 8: Campus & Virtual Lab Tour Photo Gallery with Lightbox (Pure White #ffffff) */}
       <AboutLearningEnvironment />
 
-      {/* SECTION 7: Career & Learning CTA (Deep Corporate Navy Closing Enclosure) */}
+      {/* SECTION 9: Closing Career Milestone Launchpad CTA (Navy Enclosure Box) */}
       <AboutFinalCTA onOpenDemo={handleOpenDemo} />
     </main>
   );
