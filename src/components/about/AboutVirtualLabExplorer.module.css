@@ -1,6 +1,7 @@
 /* =========================================================================
    AboutVirtualLabExplorer.module.css
    Interactive 42U Datacenter Rack & Equipment Inspection Cockpit
+   Harmonized equalized column heights, dense enterprise styling
    ========================================================================= */
 
 .labSection {
@@ -58,173 +59,246 @@
   color: #475569;
 }
 
-/* Explorer Layout */
+/* Explorer Layout - Equalized heights using align-items: stretch */
 .explorerContainer {
   display: grid;
-  grid-template-columns: 1fr 1.65fr;
-  gap: 32px;
-  align-items: start;
-  margin-bottom: 40px;
+  grid-template-columns: 1.08fr 1.52fr;
+  gap: 28px;
+  align-items: stretch;
+  margin-bottom: 36px;
 }
 
-/* LEFT: 42U Server Rack Frame */
+/* LEFT: 42U Server Rack Cabinet */
 .rackCol {
-  position: sticky;
-  top: 90px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
-.rackFrame {
+.rackCabinet {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   background: #0a0f1d;
-  border: 3px solid #1e293b;
+  border: 2px solid #1e293b;
   border-radius: 20px;
   padding: 16px;
-  box-shadow: 0 20px 40px -10px rgba(15, 23, 42, 0.4), inset 0 0 20px rgba(0, 0, 0, 0.8);
+  box-shadow: 0 20px 40px -10px rgba(15, 23, 42, 0.4), inset 0 0 24px rgba(0, 0, 0, 0.85);
+  box-sizing: border-box;
 }
 
-.rackTopRail {
+/* Rack Header Rail */
+.rackHeaderRail {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-bottom: 14px;
-  border-bottom: 2px dashed #334155;
-  margin-bottom: 14px;
+  padding-bottom: 12px;
+  border-bottom: 2px dashed #1e293b;
+  margin-bottom: 12px;
+}
+
+.rackTitleGroup {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.rackTitleIcon {
+  color: #38bdf8;
 }
 
 .rackBrand {
-  font-size: 0.72rem;
+  font-size: 0.74rem;
   font-weight: 800;
   color: #38bdf8;
   letter-spacing: 0.08em;
-  font-family: monospace;
+  font-family: 'Fira Code', monospace, sans-serif;
 }
 
 .rackUnitsIndicator {
   font-size: 0.68rem;
   font-weight: 700;
   color: #64748b;
-  font-family: monospace;
+  font-family: 'Fira Code', monospace, sans-serif;
 }
 
+/* Rack Units Vertical Stack */
 .rackUnitsList {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 8px;
+  flex: 1;
+  justify-content: space-between;
 }
 
 .rackSlotBtn {
-  background: #131b2e;
+  background: #0f172a;
   border: 1px solid #1e293b;
-  border-radius: 12px;
-  padding: 14px 16px;
+  border-radius: 10px;
+  padding: 9px 12px;
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 10px;
   text-align: left;
   cursor: pointer;
   transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
   position: relative;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .rackSlotBtn:hover {
   background: #1e293b;
   border-color: #38bdf8;
-  transform: translateX(4px);
+  transform: translateX(3px);
 }
 
 .slotActive {
-  background: linear-gradient(90deg, #1e293b 0%, #0f2444 100%);
-  border-color: #0b63e5;
+  background: linear-gradient(90deg, #1e293b 0%, #0f2b48 100%) !important;
+  border-color: #0b63e5 !important;
   box-shadow: 0 0 16px rgba(11, 99, 229, 0.35);
 }
 
-.slotLeft {
+.slotMountEarLeft,
+.slotMountEarRight {
+  width: 4px;
+  height: 16px;
+  background: #334155;
+  border-radius: 2px;
+  flex-shrink: 0;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.6);
+}
+
+.slotUGroup {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 6px;
+  gap: 4px;
   flex-shrink: 0;
+  min-width: 48px;
 }
 
 .slotU {
-  font-size: 0.7rem;
+  font-size: 0.66rem;
   font-weight: 800;
   color: #64748b;
-  font-family: monospace;
+  font-family: 'Fira Code', monospace;
+  letter-spacing: -0.02em;
 }
 
 .slotLed {
-  width: 7px;
-  height: 7px;
+  width: 6px;
+  height: 6px;
   border-radius: 50%;
   background-color: #10b981;
   box-shadow: 0 0 6px #10b981;
+  transition: all 0.2s ease;
 }
 
 .slotActive .slotLed {
+  background-color: #38bdf8;
+  box-shadow: 0 0 8px #38bdf8;
   animation: ledBlink 1.4s infinite;
 }
 
-.slotInfo {
+.slotMainInfo {
   flex: 1;
   display: flex;
   flex-direction: column;
   gap: 2px;
+  overflow: hidden;
+}
+
+.slotTopRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
 }
 
 .slotName {
-  font-size: 0.88rem;
+  font-size: 0.82rem;
   font-weight: 700;
+  color: #f8fafc;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.slotActive .slotName {
   color: #ffffff;
-  line-height: 1.3;
+  font-weight: 800;
+}
+
+.slotBadgePill {
+  font-size: 0.58rem;
+  font-weight: 700;
+  color: #38bdf8;
+  background: rgba(56, 189, 248, 0.1);
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  padding: 1px 6px;
+  border-radius: 4px;
+  white-space: nowrap;
+  letter-spacing: 0.04em;
+  font-family: 'Fira Code', monospace;
 }
 
 .slotRole {
-  font-size: 0.74rem;
+  font-size: 0.7rem;
   color: #94a3b8;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-.slotRight {
-  flex-shrink: 0;
-}
-
-.slotStatus {
-  font-size: 0.65rem;
-  font-weight: 700;
-  color: #38bdf8;
-  background: rgba(56, 189, 248, 0.12);
-  padding: 3px 8px;
-  border-radius: 6px;
-  border: 1px solid rgba(56, 189, 248, 0.25);
-}
-
-.rackBottomRail {
-  margin-top: 14px;
-  padding-top: 12px;
-  border-top: 2px dashed #334155;
-}
-
-.liveCableNote {
+/* Rack Telemetry Footer Dock */
+.rackTelemetryDock {
   display: flex;
   align-items: center;
-  gap: 7px;
-  font-size: 0.72rem;
+  justify-content: space-between;
+  padding: 8px 12px;
+  background: rgba(15, 23, 42, 0.8);
+  border: 1px solid #1e293b;
+  border-radius: 10px;
+  margin-top: 12px;
+  font-size: 0.68rem;
+  font-family: 'Fira Code', monospace;
   color: #94a3b8;
-  font-family: monospace;
 }
 
-.zapIcon { color: #f59e0b; flex-shrink: 0; }
+.telemetryItem {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
 
-/* RIGHT: Cockpit Card */
+.teleIcon { color: #38bdf8; flex-shrink: 0; }
+.teleIconAmber { color: #f59e0b; flex-shrink: 0; }
+.teleIconGreen { color: #10b981; flex-shrink: 0; }
+
+.telemetryDivider {
+  color: #334155;
+}
+
+/* RIGHT: Selected Equipment Inspection Cockpit */
 .inspectionCol {
-  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .cockpitCard {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   background: #ffffff;
   border: 1px solid #e2e8f0;
-  border-radius: 24px;
-  padding: 36px 32px;
+  border-radius: 20px;
+  padding: 26px 28px;
   box-shadow: 0 16px 36px -12px rgba(15, 23, 42, 0.08);
+  box-sizing: border-box;
 }
 
 /* Cockpit Header */
@@ -232,37 +306,41 @@
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  gap: 20px;
-  margin-bottom: 24px;
-  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.cockpitInfo {
+  flex: 1;
 }
 
 .deviceBadgeRow {
   display: flex;
   align-items: center;
   gap: 8px;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
   flex-wrap: wrap;
 }
 
 .categoryBadge {
-  font-size: 0.72rem;
+  font-size: 0.7rem;
   font-weight: 700;
   color: #0b63e5;
   background: #eff6ff;
   border: 1px solid #dbeafe;
-  padding: 3px 10px;
+  padding: 2px 9px;
   border-radius: 6px;
   letter-spacing: 0.04em;
+  font-family: 'Fira Code', monospace;
 }
 
 .slotUIndicator {
-  font-size: 0.72rem;
+  font-size: 0.7rem;
   font-weight: 700;
   color: #64748b;
-  font-family: monospace;
+  font-family: 'Fira Code', monospace;
   background: #f1f5f9;
-  padding: 3px 8px;
+  padding: 2px 8px;
   border-radius: 6px;
 }
 
@@ -270,12 +348,12 @@
   display: inline-flex;
   align-items: center;
   gap: 5px;
-  font-size: 0.72rem;
+  font-size: 0.7rem;
   font-weight: 700;
   color: #047857;
   background: #ecfdf5;
   border: 1px solid #a7f3d0;
-  padding: 3px 9px;
+  padding: 2px 8px;
   border-radius: 6px;
 }
 
@@ -287,53 +365,57 @@
 }
 
 .deviceName {
-  font-size: 1.6rem;
+  font-size: 1.55rem;
   font-weight: 800;
   color: #0f172a;
   letter-spacing: -0.02em;
-  margin-bottom: 4px;
+  margin-bottom: 3px;
+  line-height: 1.25;
 }
 
 .deviceRole {
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   font-weight: 600;
   color: #64748b;
+  margin: 0;
 }
 
 .practiceBtn {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 7px;
   background: #0b63e5;
   color: #ffffff;
   font-weight: 700;
-  font-size: 0.88rem;
-  padding: 10px 18px;
+  font-size: 0.82rem;
+  padding: 9px 16px;
   border-radius: 10px;
   border: none;
   cursor: pointer;
   box-shadow: 0 4px 12px rgba(11, 99, 229, 0.3);
   transition: all 0.2s ease;
   white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .practiceBtn:hover {
   background: #0952c4;
   transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(11, 99, 229, 0.4);
 }
 
 .playIcon { fill: currentColor; }
 
-/* Specs Grid */
+/* Specifications Grid */
 .specsRow {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
+  gap: 12px;
   background: #f8fafc;
   border: 1px solid #e2e8f0;
-  border-radius: 14px;
-  padding: 16px 20px;
-  margin-bottom: 24px;
+  border-radius: 12px;
+  padding: 10px 16px;
+  margin-bottom: 16px;
 }
 
 .specItem {
@@ -342,101 +424,147 @@
 }
 
 .specLabel {
-  font-size: 0.72rem;
+  font-size: 0.66rem;
   font-weight: 600;
   color: #64748b;
   text-transform: uppercase;
+  letter-spacing: 0.04em;
   margin-bottom: 2px;
 }
 
 .specValue {
-  font-size: 1.05rem;
+  font-size: 0.92rem;
   font-weight: 800;
   color: #0f172a;
 }
 
-/* Terminal Window */
+/* Real CLI Terminal Window */
 .terminalBox {
   background: #0a0f1d;
   border: 1px solid #1e293b;
-  border-radius: 16px;
+  border-radius: 14px;
   overflow: hidden;
-  margin-bottom: 24px;
-  box-shadow: 0 12px 28px -8px rgba(15, 23, 42, 0.3);
+  margin-bottom: 16px;
+  box-shadow: 0 8px 24px -6px rgba(15, 23, 42, 0.25);
 }
 
 .terminalHeader {
   display: flex;
   align-items: center;
-  gap: 8px;
+  justify-content: space-between;
   background: #1e293b;
-  padding: 10px 16px;
+  padding: 8px 14px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-.terminalIcon { color: #38bdf8; }
+.terminalDots {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+}
+
+.dotRed { background-color: #ef4444; }
+.dotYellow { background-color: #f59e0b; }
+.dotGreen { background-color: #10b981; }
 
 .terminalTitle {
-  font-size: 0.75rem;
-  font-family: monospace;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.72rem;
+  font-family: 'Fira Code', monospace;
   color: #cbd5e1;
   font-weight: 600;
 }
 
-.terminalCode {
-  padding: 16px 18px;
-  margin: 0;
-  font-family: 'Fira Code', 'Courier New', monospace;
-  font-size: 0.78rem;
-  line-height: 1.6;
-  color: #e2e8f0;
-  overflow-x: auto;
+.terminalIcon { color: #38bdf8; }
+
+.copyCliBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #cbd5e1;
+  font-size: 0.68rem;
+  font-family: 'Fira Code', monospace;
+  padding: 2px 8px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.2s ease;
 }
 
-/* Skills Section */
+.copyCliBtn:hover {
+  background: rgba(255, 255, 255, 0.18);
+  color: #ffffff;
+}
+
+.terminalCode {
+  padding: 12px 16px;
+  margin: 0;
+  font-family: 'Fira Code', 'Courier New', monospace;
+  font-size: 0.75rem;
+  line-height: 1.5;
+  color: #e2e8f0;
+  overflow-x: auto;
+  max-height: 125px;
+}
+
+/* Skills Section - Compact Grid */
 .skillsSection {
   background: #f8fafc;
   border: 1px solid #e2e8f0;
-  border-radius: 14px;
-  padding: 20px 24px;
+  border-radius: 12px;
+  padding: 14px 18px;
 }
 
 .skillsHeading {
   display: flex;
   align-items: center;
   gap: 8px;
-  font-size: 0.95rem;
+  font-size: 0.84rem;
   font-weight: 800;
   color: #0f172a;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
 }
 
-.checkIcon { color: #059669; }
+.checkIcon { color: #059669; flex-shrink: 0; }
 
-.skillsList {
-  display: flex;
-  flex-direction: column;
+.skillsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 8px;
-  list-style: none;
-  padding: 0;
-  margin: 0;
 }
 
-.skillItem {
+.skillCard {
   display: flex;
   align-items: flex-start;
-  gap: 8px;
-  font-size: 0.88rem;
-  line-height: 1.5;
+  gap: 6px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 7px 10px;
+  font-size: 0.75rem;
+  font-weight: 600;
   color: #334155;
-  font-weight: 500;
+  line-height: 1.35;
 }
 
-.arrowIcon { color: #0b63e5; flex-shrink: 0; margin-top: 3px; }
+.skillArrow {
+  color: #0b63e5;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
 
 /* Bottom Guarantee Banner */
 .bottomLabBanner {
-  margin-top: 32px;
+  margin-top: 28px;
 }
 
 .bannerInner {
@@ -446,13 +574,19 @@
   background: #eff6ff;
   border: 1px solid #dbeafe;
   border-radius: 14px;
-  padding: 16px 24px;
-  font-size: 0.88rem;
+  padding: 14px 20px;
+  font-size: 0.85rem;
   line-height: 1.55;
   color: #1e3a8a;
 }
 
-.infoIcon { color: #0b63e5; flex-shrink: 0; }
+.bannerIconBox {
+  color: #0b63e5;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 @keyframes ledBlink {
   0%, 100% { opacity: 1; transform: scale(1); }
@@ -460,17 +594,17 @@
 }
 
 /* Responsive */
-@media (max-width: 960px) {
+@media (max-width: 1024px) {
   .explorerContainer {
     grid-template-columns: 1fr;
-    gap: 28px;
+    gap: 24px;
   }
-  .rackCol { position: static; }
-  .cockpitCard { padding: 24px 20px; }
-  .specsRow { grid-template-columns: 1fr; }
+  .cockpitCard { padding: 22px 20px; }
+  .specsRow { grid-template-columns: repeat(3, 1fr); }
 }
 
 @media (max-width: 640px) {
   .labSection { padding: 60px 0; }
+  .specsRow { grid-template-columns: 1fr; }
   .bannerInner { flex-direction: column; align-items: flex-start; }
 }
