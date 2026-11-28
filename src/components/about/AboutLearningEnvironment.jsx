@@ -9,22 +9,66 @@ import {
   Monitor, 
   MapPin,
   ChevronLeft,
-  ChevronRight
+  ChevronRight,
+  Cpu,
+  Layers
 } from 'lucide-react';
 import { campusImages } from '../../data/campusLifeData';
 import styles from './AboutLearningEnvironment.module.css';
 
 /**
- * SECTION 6: Our Learning Environment
- * Pure White background (#ffffff).
- * Asymmetric masonry gallery using genuine I-Medita classroom and hardware rack photos.
- * Includes interactive lightbox preview.
+ * Creative Learning Environment & Virtual Lab Tour
+ * Features:
+ * - Category filter tabs (All, Cisco Racks, Classrooms, Lab Pods)
+ * - Equipment specification badges on each photo
+ * - Interactive lightbox preview with navigation
  */
 export function AboutLearningEnvironment() {
   const [selectedImage, setSelectedImage] = useState(null);
+  const [activeCategory, setActiveCategory] = useState('all');
 
-  // Take the top 6 high-res campus images
-  const gallery = campusImages.slice(0, 6);
+  const gallery = [
+    {
+      ...campusImages[0],
+      category: 'racks',
+      badge: 'Cisco Nexus 9000 & Catalyst Racks',
+      tag: 'Spine-Leaf Core'
+    },
+    {
+      ...campusImages[1],
+      category: 'labs',
+      badge: 'Hands-on Hardware Lab Practice',
+      tag: 'Zero-Simulator CLI'
+    },
+    {
+      ...campusImages[2],
+      category: 'classrooms',
+      badge: 'Interactive Doubt Solving & Topologies',
+      tag: 'Dual-Screen Mentorship'
+    },
+    {
+      ...campusImages[3],
+      category: 'classrooms',
+      badge: 'CCIE Architect Lecture Hall',
+      tag: 'Smart Classroom'
+    },
+    {
+      ...campusImages[4],
+      category: 'racks',
+      badge: 'Palo Alto & Checkpoint Security Farm',
+      tag: 'Next-Gen Firewalls'
+    },
+    {
+      ...campusImages[5],
+      category: 'labs',
+      badge: '24/7 Dedicated Student Lab Pods',
+      tag: 'Unlimited Practice'
+    }
+  ];
+
+  const filteredGallery = activeCategory === 'all' 
+    ? gallery 
+    : gallery.filter(item => item.category === activeCategory);
 
   const openLightbox = (img, index) => {
     setSelectedImage({ ...img, index });
@@ -37,15 +81,15 @@ export function AboutLearningEnvironment() {
   const nextImage = (e) => {
     e.stopPropagation();
     if (!selectedImage) return;
-    const nextIdx = (selectedImage.index + 1) % gallery.length;
-    setSelectedImage({ ...gallery[nextIdx], index: nextIdx });
+    const nextIdx = (selectedImage.index + 1) % filteredGallery.length;
+    setSelectedImage({ ...filteredGallery[nextIdx], index: nextIdx });
   };
 
   const prevImage = (e) => {
     e.stopPropagation();
     if (!selectedImage) return;
-    const prevIdx = (selectedImage.index - 1 + gallery.length) % gallery.length;
-    setSelectedImage({ ...gallery[prevIdx], index: prevIdx });
+    const prevIdx = (selectedImage.index - 1 + filteredGallery.length) % filteredGallery.length;
+    setSelectedImage({ ...filteredGallery[prevIdx], index: prevIdx });
   };
 
   return (
@@ -56,7 +100,7 @@ export function AboutLearningEnvironment() {
         <div className={styles.header}>
           <div className={styles.eyebrowBadge}>
             <Building size={13} className={styles.badgeIcon} />
-            <span>CAMPUS & LAB INFRASTRUCTURE</span>
+            <span>CAMPUS &amp; LAB INFRASTRUCTURE</span>
           </div>
 
           <h2 className={styles.sectionHeading}>
@@ -67,13 +111,48 @@ export function AboutLearningEnvironment() {
             Experience a collaborative, high-tech learning environment designed to encourage practical knowledge, 
             hands-on experimentation, and professional confidence with physical Cisco enterprise hardware.
           </p>
+
+          {/* Interactive Category Filter Pills */}
+          <div className={styles.filterPillsRow}>
+            <button
+              type="button"
+              className={`${styles.filterPillBtn} ${activeCategory === 'all' ? styles.filterActive : ''}`}
+              onClick={() => setActiveCategory('all')}
+            >
+              All Facilities ({gallery.length})
+            </button>
+            <button
+              type="button"
+              className={`${styles.filterPillBtn} ${activeCategory === 'racks' ? styles.filterActive : ''}`}
+              onClick={() => setActiveCategory('racks')}
+            >
+              <Server size={13} />
+              <span>Cisco Hardware Racks</span>
+            </button>
+            <button
+              type="button"
+              className={`${styles.filterPillBtn} ${activeCategory === 'classrooms' ? styles.filterActive : ''}`}
+              onClick={() => setActiveCategory('classrooms')}
+            >
+              <Monitor size={13} />
+              <span>Smart Classrooms</span>
+            </button>
+            <button
+              type="button"
+              className={`${styles.filterPillBtn} ${activeCategory === 'labs' ? styles.filterActive : ''}`}
+              onClick={() => setActiveCategory('labs')}
+            >
+              <Cpu size={13} />
+              <span>Hands-on Lab Pods</span>
+            </button>
+          </div>
         </div>
 
-        {/* Feature Pills */}
+        {/* Feature Overview Strip */}
         <div className={styles.facilityPills}>
           <div className={styles.facilityPill}>
             <Server size={14} className={styles.pillIcon} />
-            <span>Dedicated Cisco Nexus & Catalyst Racks</span>
+            <span>Dedicated Cisco Nexus &amp; Catalyst Racks</span>
           </div>
           <div className={styles.facilityPill}>
             <Monitor size={14} className={styles.pillIcon} />
@@ -91,8 +170,8 @@ export function AboutLearningEnvironment() {
 
         {/* Asymmetric Gallery Grid */}
         <div className={styles.galleryGrid}>
-          {gallery.map((img, idx) => {
-            const isFeatured = idx === 0;
+          {filteredGallery.map((img, idx) => {
+            const isFeatured = idx === 0 && activeCategory === 'all';
 
             return (
               <div 
@@ -102,21 +181,19 @@ export function AboutLearningEnvironment() {
                 role="button"
                 tabIndex={0}
                 onKeyDown={(e) => { if (e.key === 'Enter') openLightbox(img, idx); }}
-                aria-label={`View ${img.alt || 'Campus Photo'}`}
+                aria-label={`View ${img.badge || 'Campus Photo'}`}
               >
                 <img 
                   src={img.url} 
-                  alt={img.alt || 'I-Medita Classroom Training'} 
+                  alt={img.badge || 'I-Medita Classroom Training'} 
                   className={styles.galleryImage}
                   loading={idx < 2 ? "eager" : "lazy"}
                 />
                 
                 <div className={styles.imageOverlay}>
                   <div className={styles.overlayContent}>
-                    <span className={styles.imageTag}>
-                      {idx === 0 ? 'Featured Facility' : 'Hands-on Practice'}
-                    </span>
-                    <h4 className={styles.imageTitle}>{img.alt}</h4>
+                    <span className={styles.imageTag}>{img.tag}</span>
+                    <h4 className={styles.imageTitle}>{img.badge}</h4>
                   </div>
                   <div className={styles.zoomIconWrapper}>
                     <Maximize2 size={16} />
@@ -126,7 +203,7 @@ export function AboutLearningEnvironment() {
                 {isFeatured && (
                   <div className={styles.featuredBadge}>
                     <Sparkles size={12} />
-                    <span>Live Cisco Racks & Classroom</span>
+                    <span>Live Cisco Racks &amp; Classroom</span>
                   </div>
                 )}
               </div>
@@ -181,14 +258,14 @@ export function AboutLearningEnvironment() {
             <div className={styles.lightboxImageWrapper}>
               <img 
                 src={selectedImage.url} 
-                alt={selectedImage.alt} 
+                alt={selectedImage.badge} 
                 className={styles.lightboxImage} 
               />
             </div>
 
             <div className={styles.lightboxMeta}>
-              <h4>{selectedImage.alt}</h4>
-              <span>Photo {selectedImage.index + 1} of {gallery.length} • I-Medita Campus Pune</span>
+              <h4>{selectedImage.badge}</h4>
+              <span>Photo {selectedImage.index + 1} of {filteredGallery.length} • I-Medita Campus Pune</span>
             </div>
           </div>
         </div>

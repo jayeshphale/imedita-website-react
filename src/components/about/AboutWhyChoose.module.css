@@ -1,7 +1,11 @@
-/* SECTION 3: Why Choose I-Medita CSS Modules */
+/* =========================================================================
+   AboutWhyChoose.module.css
+   Creative Pillars & Interactive Real Labs vs Simulators Comparison
+   ========================================================================= */
+
 .whySection {
   position: relative;
-  background-color: #f8fafc; /* Alternating section color: Soft Slate */
+  background-color: #f8fafc;
   padding: 88px 0;
   border-bottom: 1px solid var(--color-border-subtle, #e2e8f0);
 }
@@ -15,8 +19,8 @@
 /* Header */
 .header {
   text-align: center;
-  max-width: 800px;
-  margin: 0 auto 56px;
+  max-width: 820px;
+  margin: 0 auto 52px;
 }
 
 .eyebrowBadge {
@@ -56,6 +60,42 @@
   font-size: clamp(1rem, 1.15vw, 1.125rem);
   line-height: 1.65;
   color: #475569;
+  margin-bottom: 28px;
+}
+
+/* View Switcher */
+.viewSwitcher {
+  display: inline-flex;
+  background-color: #e2e8f0;
+  padding: 5px;
+  border-radius: 14px;
+  gap: 6px;
+  box-shadow: inset 0 1px 3px rgba(15, 23, 42, 0.06);
+}
+
+.switchBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  border: none;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #64748b;
+  padding: 10px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.switchBtn:hover {
+  color: #0f172a;
+}
+
+.switchActive {
+  background-color: #ffffff;
+  color: #0b63e5;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
 }
 
 /* 4 Cards (2x2 Grid) */
@@ -115,25 +155,10 @@
 }
 
 /* Theming for cards */
-.theme_blue .iconBox {
-  background-color: #eff6ff;
-  color: #0b63e5;
-}
-
-.theme_indigo .iconBox {
-  background-color: #eef2ff;
-  color: #4f46e5;
-}
-
-.theme_emerald .iconBox {
-  background-color: #ecfdf5;
-  color: #059669;
-}
-
-.theme_amber .iconBox {
-  background-color: #fffbeb;
-  color: #d97706;
-}
+.theme_blue .iconBox { background-color: #eff6ff; color: #0b63e5; }
+.theme_indigo .iconBox { background-color: #eef2ff; color: #4f46e5; }
+.theme_emerald .iconBox { background-color: #ecfdf5; color: #059669; }
+.theme_amber .iconBox { background-color: #fffbeb; color: #d97706; }
 
 .cardBody {
   margin-bottom: 24px;
@@ -199,6 +224,135 @@
 .theme_emerald:hover .cardBorderAccent { background-color: #059669; }
 .theme_amber:hover .cardBorderAccent { background-color: #d97706; }
 
+/* Interactive Comparison Matrix */
+.comparisonTableWrapper {
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.05);
+  margin-bottom: 48px;
+}
+
+.comparisonHeaderRow {
+  display: grid;
+  grid-template-columns: 1fr 1.35fr 1.35fr;
+  background-color: #0f172a;
+  color: #ffffff;
+  padding: 22px 28px;
+  align-items: center;
+}
+
+.colFeature {
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #94a3b8;
+}
+
+.colImedita h4 {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #ffffff;
+}
+
+.brandTag {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 800;
+  color: #38bdf8;
+  letter-spacing: 0.06em;
+  margin-bottom: 4px;
+}
+
+.colOthers h4 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #94a3b8;
+}
+
+.othersTag {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #ef4444;
+  letter-spacing: 0.06em;
+  margin-bottom: 4px;
+}
+
+.comparisonBody {
+  display: flex;
+  flex-direction: column;
+}
+
+.comparisonRow {
+  display: grid;
+  grid-template-columns: 1fr 1.35fr 1.35fr;
+  padding: 20px 28px;
+  align-items: center;
+  border-bottom: 1px solid #f1f5f9;
+  transition: background-color 0.15s ease;
+}
+
+.comparisonRow:hover {
+  background-color: #f8fafc;
+}
+
+.comparisonRow:last-child {
+  border-bottom: none;
+}
+
+.rowFeatureName {
+  font-size: 0.95rem;
+  color: #0f172a;
+}
+
+.rowImeditaCol {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 0.92rem;
+  line-height: 1.5;
+  color: #0f172a;
+  font-weight: 600;
+}
+
+.statusIconGreen {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: #ecfdf5;
+  color: #059669;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.rowOthersCol {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: #64748b;
+}
+
+.statusIconRed {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: #fef2f2;
+  color: #ef4444;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
 /* Bottom Bar */
 .bottomBar {
   background-color: #ffffff;
@@ -247,6 +401,7 @@
   border: none;
   cursor: pointer;
   transition: background-color 0.2s ease, transform 0.2s ease;
+  white-space: nowrap;
 }
 
 .demoBtn:hover {
@@ -266,6 +421,7 @@
   text-decoration: none;
   border: 1px solid #e2e8f0;
   transition: background-color 0.2s ease, border-color 0.2s ease;
+  white-space: nowrap;
 }
 
 .coursesBtn:hover {
@@ -278,6 +434,12 @@
   .cardsGrid {
     grid-template-columns: 1fr;
     gap: 20px;
+  }
+
+  .comparisonHeaderRow,
+  .comparisonRow {
+    grid-template-columns: 1fr;
+    gap: 12px;
   }
 
   .bottomBar {
@@ -305,5 +467,15 @@
 
   .card {
     padding: 28px 20px;
+  }
+
+  .viewSwitcher {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .switchBtn {
+    width: 100%;
+    justify-content: center;
   }
 }
